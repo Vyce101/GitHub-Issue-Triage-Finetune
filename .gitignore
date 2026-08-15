@@ -42,6 +42,9 @@ data/interim/
 data/processed/
 data/generated/
 
+# Keep the large exploratory taxonomy report local without showing it in Git
+results/taxonomy_analysis.json
+
 # IDE / OS
 .vscode/
 .idea/
