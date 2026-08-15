@@ -1,0 +1,209 @@
+{
+  "status": "passed",
+  "created_at_utc": "2026-08-15T17:53:53.261841+00:00",
+  "requested_model_id": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+  "smoke_test_max_sequence_length": 2048,
+  "final_training_context_length": false,
+  "requested_quantization": "4-bit bitsandbytes NF4 model weights; unchanged",
+  "requested_compute_dtype": "torch.float16",
+  "prompts_are_classification_prompts": false,
+  "training_performed": false,
+  "lora_adapter_created": false,
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 2060 SUPER",
+    "compute_capability": [
+      7,
+      5
+    ],
+    "bf16_supported": false,
+    "bf16_supported_before_unsloth_import": true,
+    "bf16_supported_after_unsloth_import": false,
+    "bf16_value_used_for_this_stack": false,
+    "cuda_runtime": "13.0"
+  },
+  "huggingface": {
+    "resolved_revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+    "license": "apache-2.0",
+    "reported_download_size_bytes": null
+  },
+  "gpu_memory_before_loading": {
+    "allocated_bytes": 8519680,
+    "reserved_bytes": 23068672,
+    "free_bytes": 7455375360,
+    "total_bytes": 8589606912
+  },
+  "model_architecture": {
+    "model_class": "Qwen3ForCausalLM",
+    "config_model_type": "qwen3",
+    "architectures": [
+      "Qwen3ForCausalLM"
+    ],
+    "parameter_count": 4022468096,
+    "hidden_size": 2560,
+    "num_hidden_layers": 36,
+    "num_attention_heads": 32,
+    "vocab_size": 151936,
+    "config_torch_dtype": "torch.float16",
+    "quantization_config": {
+      "bnb_4bit_compute_dtype": "torch.float16",
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_use_double_quant": true,
+      "llm_int8_enable_fp32_cpu_offload": false,
+      "llm_int8_has_fp16_weight": false,
+      "llm_int8_skip_modules": null,
+      "llm_int8_threshold": 6.0,
+      "load_in_4bit": true,
+      "load_in_8bit": false,
+      "quant_method": "bitsandbytes"
+    }
+  },
+  "tokenizer": {
+    "class": "Qwen2Tokenizer",
+    "vocab_size": 151669,
+    "model_max_length": 262144,
+    "bos_token": null,
+    "eos_token": "<|im_end|>",
+    "pad_token": "<|vision_pad|>",
+    "special_tokens_map": {
+      "eos_token": "<|im_end|>",
+      "pad_token": "<|vision_pad|>"
+    },
+    "chat_template_present": true,
+    "chat_template_sha256": "40c21f34cf67d8c760ef72f8ad3ae5afad514299d4b06e91dd9a8d705af7b541"
+  },
+  "device": {
+    "parameter_devices": [
+      "cuda:0"
+    ],
+    "hf_device_map": null,
+    "cpu_device_map_entries": [],
+    "cuda_device_name": "NVIDIA GeForce RTX 2060 SUPER",
+    "cuda_device_index": 0,
+    "cuda_device_verified": true
+  },
+  "quantization": {
+    "requested_load_in_4bit": true,
+    "requested_quant_type": "nf4",
+    "config": {
+      "bnb_4bit_compute_dtype": "torch.float16",
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_use_double_quant": true,
+      "llm_int8_enable_fp32_cpu_offload": false,
+      "llm_int8_has_fp16_weight": false,
+      "llm_int8_skip_modules": null,
+      "llm_int8_threshold": 6.0,
+      "load_in_4bit": true,
+      "load_in_8bit": false,
+      "quant_method": "bitsandbytes"
+    },
+    "compute_dtype_actual": "torch.float16"
+  },
+  "gpu_memory_after_loading": {
+    "allocated_bytes": 3589125120,
+    "reserved_bytes": 3625975808,
+    "free_bytes": 3852468224,
+    "total_bytes": 8589606912
+  },
+  "cache": {
+    "found": true,
+    "repo_cache_directory_name": "models--unsloth--Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+    "size_on_disk_bytes": 3561856104,
+    "revisions": [
+      {
+        "commit_hash": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+        "size_on_disk_bytes": 3561856104
+      }
+    ]
+  },
+  "generations": [
+    {
+      "prompt": "Explain why the sky appears blue in one concise paragraph.",
+      "thinking_disabled": true,
+      "input_token_count": 20,
+      "generated_token_count": 64,
+      "elapsed_seconds": 6.348933200002648,
+      "tokens_per_second": 10.080433670332727,
+      "response": "The sky appears blue because molecules in the atmosphere scatter shorter blue wavelengths of sunlight more effectively than other colors, a phenomenon known as Rayleigh scattering. Since blue light has a shorter wavelength and higher energy, it is scattered in all directions more than other colors, making the sky appear blue to our eyes during the day.",
+      "nonfinite_score_values": 0
+    },
+    {
+      "prompt": "Write a short Python function that returns the sum of a list of integers, then explain it briefly.",
+      "thinking_disabled": true,
+      "input_token_count": 28,
+      "generated_token_count": 64,
+      "elapsed_seconds": 5.043809099995997,
+      "tokens_per_second": 12.688822818462894,
+      "response": "Sure! Here's a short Python function that returns the sum of a list of integers:\n\n```python\ndef sum_list(numbers):\n    return sum(numbers)\n```\n\n### Brief Explanation:\nThis function takes a list of integers as input and uses Python's built-in `sum()` function to calculate and return the total sum of",
+      "nonfinite_score_values": 0
+    }
+  ],
+  "peak_gpu_memory_during_generation": {
+    "allocated_bytes": 3857667072,
+    "reserved_bytes": 4083154944
+  },
+  "gpu_memory_after_release": {
+    "allocated_bytes": 8519680,
+    "reserved_bytes": 20971520,
+    "free_bytes": 7444889600,
+    "total_bytes": 8589606912
+  },
+  "model_released": true,
+  "warnings": [
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    },
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    },
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    },
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    },
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    },
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    },
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    },
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    },
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    },
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    },
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    },
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    },
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    },
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    }
+  ]
+}
