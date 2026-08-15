@@ -1,0 +1,180 @@
+{
+  "dataset_id": "sharjeelyunus/github-issues-dataset",
+  "audit_scope": {
+    "dataset_changed": false,
+    "normalized_dataset_changed": false,
+    "split_assignments_changed": false,
+    "model_downloaded": false,
+    "training_run": false
+  },
+  "previous_taxonomy_reproduction": {
+    "source": "Current taxonomy_analysis.py executed from the repository.",
+    "counts": {
+      "category_candidate_matches": {
+        "bug": 32334,
+        "feature_request": 19332,
+        "documentation": 2386,
+        "question_support": 1436
+      },
+      "four_class_strict_usable_counts": {
+        "bug": 27362,
+        "feature_request": 15911,
+        "documentation": 1686,
+        "question_support": 1341
+      },
+      "four_class_strict_total": 46300
+    },
+    "approved_target_policy_coverage_from_current_code": {
+      "policy_name": "exactly_one_approved_target_category",
+      "approved_categories": [
+        "bug",
+        "feature_request",
+        "documentation",
+        "question_support"
+      ],
+      "policy": "Retain rows with exactly one approved target category. Ignore non-target high-confidence categories such as performance and do not use ambiguous or metadata atoms to assign a target. No duplicate removal is applied here.",
+      "candidate_issue_count_before_duplicate_removal": 54333,
+      "category_counts": {
+        "bug": 32001,
+        "feature_request": 18968,
+        "documentation": 1990,
+        "question_support": 1374
+      },
+      "conflicting_approved_target_rows": 577,
+      "no_approved_target_category_rows": 59163,
+      "arithmetic_check": "59163 no-target + 577 target-conflict + 54333 single-target = 114073 source rows"
+    }
+  },
+  "row_level_source_audit": {
+    "raw_total": 114073,
+    "column_map": {
+      "issue_id": "id",
+      "repository": "repo",
+      "title": "title",
+      "body": "body",
+      "labels": "labels"
+    },
+    "target_category_counts_including_conflicts": {
+      "question_support": 1436,
+      "feature": 19332,
+      "bug": 32334,
+      "documentation": 2386
+    },
+    "target_conflict_count": 577,
+    "target_conflict_sets": {
+      "bug + documentation": 166,
+      "bug + documentation + feature": 1,
+      "bug + feature": 145,
+      "bug + question_support": 21,
+      "documentation + feature": 203,
+      "documentation + question_support": 26,
+      "feature + question_support": 15
+    },
+    "target_conflict_category_occurrences": {
+      "documentation": 396,
+      "feature": 364,
+      "question_support": 62,
+      "bug": 333
+    },
+    "target_single_category_counts_before_duplicate_removal": {
+      "question_support": 1374,
+      "feature": 18968,
+      "bug": 32001,
+      "documentation": 1990
+    },
+    "no_target_count": 59163,
+    "strict_category_counts_reproduced": {
+      "question_support": 1341,
+      "feature_request": 15911,
+      "bug": 27362,
+      "documentation": 1686
+    },
+    "strict_rows_with_ambiguous_atoms": 28860,
+    "strict_rows_with_non_target_high_confidence_atoms": 1632,
+    "target_single_rows_with_ambiguous_atoms": 7600,
+    "target_single_rows_with_non_target_high_confidence_atoms": 435
+  },
+  "reconciliation_math": {
+    "source_rows": 114073,
+    "no_target_rows": 59163,
+    "multi_target_conflict_rows": 577,
+    "single_target_rows_before_duplicate_removal": 54333,
+    "duplicate_rows_removed": 1,
+    "final_normalized_rows": 54332,
+    "equation": "59163 + 577 + 54333 = 114073; 54333 - 1 = 54332",
+    "category_candidate_sum_minus_conflict_occurrences": "55488 - 1155 = 54333"
+  },
+  "strict_vs_approved_policy_difference": {
+    "strict_policy_definition": "Usable means exactly one high-confidence candidate category, no ambiguous candidate atom, and membership in this option. Raw labels remain unchanged.",
+    "strict_policy_total": 46300,
+    "strict_policy_counts_as_final_target_names": {
+      "bug": 27362,
+      "feature": 15911,
+      "documentation": 1686,
+      "question_support": 1341
+    },
+    "approved_policy_total_before_duplicate_removal": 54333,
+    "additional_rows_allowed_by_approved_policy": 8033,
+    "additional_rows_by_category": {
+      "bug": 4639,
+      "feature": 3057,
+      "documentation": 304,
+      "question_support": 33
+    },
+    "explanation": "The earlier 46,300 figure required exactly one high-confidence category across all candidate categories, excluded any ambiguous atom, and treated performance as another candidate category. The approved construction requires exactly one of the four approved target categories; non-target labels such as performance, workflow, and ambiguous labels are not used to assign a target or create a target conflict."
+  },
+  "normalized_dataset_audit": {
+    "normalized_row_count": 54332,
+    "source_rows_found": 54332,
+    "source_field_mismatch_count": 0,
+    "mapping_mismatch_count": 0,
+    "invalid_target_category_count": 0,
+    "invalid_responsible_atom_count": 0,
+    "ambiguous_or_excluded_responsibility_count": 0,
+    "duplicate_source_key_count": 0,
+    "duplicate_source_issue_id_count": 0,
+    "duplicate_title_body_pair_count": 0,
+    "examples": {
+      "source_mismatches": [],
+      "mapping_mismatches": [],
+      "invalid_target_categories": [],
+      "invalid_responsible_atoms": [],
+      "ambiguous_or_excluded_responsibility": []
+    }
+  },
+  "final_normalized_counts": {
+    "question_support": 1374,
+    "feature": 18968,
+    "bug": 32001,
+    "documentation": 1989
+  },
+  "multi_category_exclusion_audit": {
+    "all_excluded_target_conflicts_have_at_least_two_approved_categories": true,
+    "conflict_sets": {
+      "bug + documentation": 166,
+      "bug + documentation + feature": 1,
+      "bug + feature": 145,
+      "bug + question_support": 21,
+      "documentation + feature": 203,
+      "documentation + question_support": 26,
+      "feature + question_support": 15
+    },
+    "conflict_category_occurrences": {
+      "documentation": 396,
+      "feature": 364,
+      "question_support": 62,
+      "bug": 333
+    }
+  },
+  "duplicate_audit": {
+    "normalized_duplicate_source_issue_ids": 0,
+    "normalized_duplicate_title_body_pairs": 0,
+    "duplicate_rows_removed_before_final_output": 1
+  },
+  "conclusion": {
+    "classification": "C_with_reporting_ambiguity",
+    "normalized_dataset_correct": true,
+    "earlier_46300_is_wrong_for_the_approved_policy": true,
+    "what_happened": "The two analyses used intentionally different eligibility criteria. The earlier report presented the strict candidate-coverage number as the four-class usable count, while normalized construction used the later approved target-only policy. The analysis report has been clarified with an explicit approved_target_policy_coverage section; the normalized dataset was not changed."
+  }
+}
