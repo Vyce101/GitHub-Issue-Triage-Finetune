@@ -1,0 +1,1123 @@
+{
+  "status": "passed",
+  "created_at_utc": "2026-08-15T20:53:00.683732+00:00",
+  "report_path": "results\\training_context_benchmark_clean.json",
+  "benchmark_scope": "Small train-only QLoRA memory and throughput feasibility benchmark; not the real fine-tuning run.",
+  "model_id": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+  "model_revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 2060 SUPER",
+    "compute_capability": [
+      7,
+      5
+    ],
+    "vram_total_mib": 8191.69,
+    "compute_dtype": "torch.float16",
+    "bf16_supported": false,
+    "cuda_runtime": "13.0"
+  },
+  "software_versions": {
+    "torch": "2.11.0+cu130",
+    "transformers": "5.5.0",
+    "trl": "0.24.0",
+    "peft": "0.20.0",
+    "bitsandbytes": "0.50.1",
+    "unsloth": "2026.8.18",
+    "torch_cuda_runtime": "13.0"
+  },
+  "preflight": {
+    "captured_at_utc": "2026-08-15T20:49:29.574340+00:00",
+    "gpu": {
+      "gpu_query": {
+        "command": [
+          "nvidia-smi",
+          "--query-gpu=name,memory.total,memory.used,memory.free,utilization.gpu",
+          "--format=csv,noheader,nounits"
+        ],
+        "returncode": 0,
+        "stdout": "NVIDIA GeForce RTX 2060 SUPER, 8192, 718, 7289, 16",
+        "stderr": ""
+      },
+      "gpus": [
+        {
+          "name": "NVIDIA GeForce RTX 2060 SUPER",
+          "memory_total_mib": 8192.0,
+          "memory_used_mib": 718.0,
+          "memory_free_mib": 7289.0,
+          "utilization_percent": 16.0
+        }
+      ],
+      "compute_process_query": {
+        "command": [
+          "nvidia-smi",
+          "--query-compute-apps=pid,process_name,used_gpu_memory",
+          "--format=csv,noheader,nounits"
+        ],
+        "returncode": 0,
+        "stdout": "1596, [Insufficient Permissions], [N/A]\n8460, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n5744, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n2020, C:\\Windows\\explorer.exe, [N/A]\n10440, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n10452, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n13152, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\151.0.4129.78\\msedgewebview2.exe, [N/A]\n13632, C:\\Users\\Luke\\AppData\\Local\\Programs\\Notion\\Notion.exe, [N/A]\n15996, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\n14876, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n5020, C:\\Program Files\\Common Files\\Adobe\\Adobe OS Extension\\AdobeNotificationClient.exe, [N/A]\n13236, C:\\Software\\Itch\\app-26.18.0\\itch.exe, [N/A]\n15292, C:\\Games\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n22540, C:\\Program Files\\WindowsApps\\Microsoft.Edge.GameAssist_1.0.4019.0_x64__8wekyb3d8bbwe\\EdgeGameAssist.exe, [N/A]\n21584, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n25208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n24236, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n3092, C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.810.7004.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe, [N/A]\n20700, C:\\Program Files\\WindowsApps\\OpenAI.ChatGPT-Desktop_1.2026.190.0_x64__2p2nqsd0c76g0\\app\\ChatGPT Classic.exe, [N/A]\n22016, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n21120, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n6624, C:\\Windows\\System32\\ShellHost.exe, [N/A]",
+        "stderr": ""
+      }
+    },
+    "system_ram": {
+      "available": true,
+      "total_mib": 16275.53,
+      "available_mib": 5028.23,
+      "used_mib": 11247.3,
+      "used_percent": 69.11
+    },
+    "relevant_processes": {
+      "available": true,
+      "tasklist_query": {
+        "command": [
+          "tasklist",
+          "/FO",
+          "CSV",
+          "/NH"
+        ],
+        "returncode": 0,
+        "stdout": "\"System Idle Process\",\"0\",\"Services\",\"0\",\"8 K\"\n\"System\",\"4\",\"Services\",\"0\",\"3Â 068 K\"\n\"Registry\",\"224\",\"Services\",\"0\",\"7Â 600 K\"\n\"smss.exe\",\"760\",\"Services\",\"0\",\"84 K\"\n\"csrss.exe\",\"960\",\"Services\",\"0\",\"2Â 360 K\"\n\"wininit.exe\",\"792\",\"Services\",\"0\",\"1Â 104 K\"\n\"csrss.exe\",\"852\",\"Console\",\"1\",\"2Â 472 K\"\n\"services.exe\",\"1064\",\"Services\",\"0\",\"6Â 788 K\"\n\"winlogon.exe\",\"1092\",\"Console\",\"1\",\"472 K\"\n\"lsass.exe\",\"1128\",\"Services\",\"0\",\"11Â 464 K\"\n\"svchost.exe\",\"1292\",\"Services\",\"0\",\"19Â 364 K\"\n\"fontdrvhost.exe\",\"1324\",\"Console\",\"1\",\"1Â 212 K\"\n\"fontdrvhost.exe\",\"1332\",\"Services\",\"0\",\"24 K\"\n\"WUDFHost.exe\",\"1340\",\"Services\",\"0\",\"636 K\"\n\"svchost.exe\",\"1460\",\"Services\",\"0\",\"13Â 272 K\"\n\"svchost.exe\",\"1524\",\"Services\",\"0\",\"3Â 628 K\"\n\"dwm.exe\",\"1596\",\"Console\",\"1\",\"55Â 356 K\"\n\"svchost.exe\",\"1760\",\"Services\",\"0\",\"1Â 400 K\"\n\"svchost.exe\",\"1768\",\"Services\",\"0\",\"1Â 176 K\"\n\"svchost.exe\",\"1840\",\"Services\",\"0\",\"996 K\"\n\"svchost.exe\",\"1852\",\"Services\",\"0\",\"2Â 176 K\"\n\"svchost.exe\",\"1884\",\"Services\",\"0\",\"2Â 548 K\"\n\"svchost.exe\",\"1996\",\"Services\",\"0\",\"7Â 452 K\"\n\"NVDisplay.Container.exe\",\"1476\",\"Services\",\"0\",\"4Â 800 K\"\n\"svchost.exe\",\"2076\",\"Services\",\"0\",\"6Â 128 K\"\n\"amdfendrsr.exe\",\"2116\",\"Services\",\"0\",\"24 K\"\n\"svchost.exe\",\"2124\",\"Services\",\"0\",\"9Â 380 K\"\n\"svchost.exe\",\"2256\",\"Services\",\"0\",\"2Â 408 K\"\n\"svchost.exe\",\"2336\",\"Services\",\"0\",\"1Â 056 K\"\n\"svchost.exe\",\"2344\",\"Services\",\"0\",\"5Â 712 K\"\n\"svchost.exe\",\"2352\",\"Services\",\"0\",\"6Â 192 K\"\n\"svchost.exe\",\"2360\",\"Services\",\"0\",\"1Â 168 K\"\n\"svchost.exe\",\"2516\",\"Services\",\"0\",\"4Â 784 K\"\n\"Memory Compression\",\"2564\",\"Services\",\"0\",\"919Â 716 K\"\n\"svchost.exe\",\"2660\",\"Services\",\"0\",\"4Â 804 K\"\n\"svchost.exe\",\"2676\",\"Services\",\"0\",\"560 K\"\n\"svchost.exe\",\"2684\",\"Services\",\"0\",\"4Â 184 K\"\n\"svchost.exe\",\"2728\",\"Services\",\"0\",\"5Â 232 K\"\n\"svchost.exe\",\"2808\",\"Services\",\"0\",\"1Â 428 K\"\n\"svchost.exe\",\"2816\",\"Services\",\"0\",\"2Â 932 K\"\n\"svchost.exe\",\"3004\",\"Services\",\"0\",\"9Â 000 K\"\n\"svchost.exe\",\"3040\",\"Services\",\"0\",\"1Â 272 K\"\n\"svchost.exe\",\"2672\",\"Services\",\"0\",\"1Â 280 K\"\n\"svchost.exe\",\"2940\",\"Services\",\"0\",\"2Â 252 K\"\n\"svchost.exe\",\"3144\",\"Services\",\"0\",\"1Â 344 K\"\n\"spoolsv.exe\",\"3264\",\"Services\",\"0\",\"24 K\"\n\"svchost.exe\",\"3276\",\"Services\",\"0\",\"16Â 804 K\"\n\"svchost.exe\",\"3352\",\"Services\",\"0\",\"6Â 196 K\"\n\"svchost.exe\",\"3392\",\"Services\",\"0\",\"2Â 568 K\"\n\"svchost.exe\",\"3588\",\"Services\",\"0\",\"1Â 064 K\"\n\"svchost.exe\",\"3608\",\"Services\",\"0\",\"24Â 504 K\"\n\"svchost.exe\",\"3620\",\"Services\",\"0\",\"23Â 916 K\"\n\"AdobeUpdateService.exe\",\"3628\",\"Services\",\"0\",\"156 K\"\n\"GameInputRedistService.exe\",\"3636\",\"Services\",\"0\",\"3Â 140 K\"\n\"svchost.exe\",\"3644\",\"Services\",\"0\",\"1Â 028 K\"\n\"svchost.exe\",\"3668\",\"Services\",\"0\",\"1Â 428 K\"\n\"HapticService.exe\",\"3676\",\"Services\",\"0\",\"2Â 120 K\"\n\"RzSDKService.exe\",\"3684\",\"Services\",\"0\",\"28 K\"\n\"svchost.exe\",\"3692\",\"Services\",\"0\",\"2Â 400 K\"\n\"svchost.exe\",\"3700\",\"Services\",\"0\",\"252 K\"\n\"nvcontainer.exe\",\"3712\",\"Services\",\"0\",\"16Â 160 K\"\n\"GameManagerService3.exe\",\"3724\",\"Services\",\"0\",\"32Â 604 K\"\n\"svchost.exe\",\"3732\",\"Services\",\"0\",\"1Â 268 K\"\n\"svchost.exe\",\"3740\",\"Services\",\"0\",\"12Â 232 K\"\n\"MsMpEng.exe\",\"3780\",\"Services\",\"0\",\"267Â 420 K\"\n\"RzDiagnosticService.exe\",\"3808\",\"Services\",\"0\",\"328 K\"\n\"RzSDKServer.exe\",\"3816\",\"Services\",\"0\",\"324 K\"\n\"MpDefenderCoreService.exe\",\"3868\",\"Services\",\"0\",\"5Â 568 K\"\n\"svchost.exe\",\"3996\",\"Services\",\"0\",\"3Â 800 K\"\n\"dasHost.exe\",\"4472\",\"Services\",\"0\",\"24 K\"\n\"RzAppManager\",\"4872\",\"Services\",\"0\",\"28 K\"\n\"RzBTLEManager\",\"4944\",\"Services\",\"0\",\"28 K\"\n\"RzChromaConnectManager\",\"4980\",\"Services\",\"0\",\"20 K\"\n\"conhost.exe\",\"5000\",\"Services\",\"0\",\"416 K\"\n\"conhost.exe\",\"5008\",\"Services\",\"0\",\"416 K\"\n\"RzChromaConnectServer\",\"5032\",\"Services\",\"0\",\"1Â 916 K\"\n\"conhost.exe\",\"5040\",\"Services\",\"0\",\"404 K\"\n\"RzDeviceManager\",\"5084\",\"Services\",\"0\",\"28 K\"\n\"conhost.exe\",\"5092\",\"Services\",\"0\",\"492 K\"\n\"RzDeviceManagerEx\",\"5112\",\"Services\",\"0\",\"28 K\"\n\"conhost.exe\",\"4044\",\"Services\",\"0\",\"412 K\"\n\"RzIoTDeviceManager\",\"4496\",\"Services\",\"0\",\"28 K\"\n\"conhost.exe\",\"4236\",\"Services\",\"0\",\"412 K\"\n\"RzSmartlightingDeviceManager\",\"4964\",\"Services\",\"0\",\"28 K\"\n\"conhost.exe\",\"4800\",\"Services\",\"0\",\"412 K\"\n\"conhost.exe\",\"4784\",\"Services\",\"0\",\"412 K\"\n\"RzWDLDeviceManager\",\"3972\",\"Services\",\"0\",\"28 K\"\n\"conhost.exe\",\"3964\",\"Services\",\"0\",\"412 K\"\n\"svchost.exe\",\"5424\",\"Services\",\"0\",\"1Â 180 K\"\n\"svchost.exe\",\"5924\",\"Services\",\"0\",\"1Â 240 K\"\n\"svchost.exe\",\"6132\",\"Services\",\"0\",\"1Â 412 K\"\n\"svchost.exe\",\"6360\",\"Services\",\"0\",\"2Â 260 K\"\n\"svchost.exe\",\"956\",\"Services\",\"0\",\"8Â 132 K\"\n\"svchost.exe\",\"7228\",\"Services\",\"0\",\"1Â 308 K\"\n\"AggregatorHost.exe\",\"7656\",\"Services\",\"0\",\"4Â 696 K\"\n\"svchost.exe\",\"8016\",\"Services\",\"0\",\"872 K\"\n\"svchost.exe\",\"8128\",\"Services\",\"0\",\"6Â 376 K\"\n\"svchost.exe\",\"5956\",\"Services\",\"0\",\"5Â 348 K\"\n\"svchost.exe\",\"7744\",\"Services\",\"0\",\"7Â 320 K\"\n\"NisSrv.exe\",\"8956\",\"Services\",\"0\",\"5Â 648 K\"\n\"NVDisplay.Container.exe\",\"8792\",\"Console\",\"1\",\"5Â 472 K\"\n\"nvcontainer.exe\",\"8972\",\"Console\",\"1\",\"11Â 684 K\"\n\"svchost.exe\",\"9032\",\"Services\",\"0\",\"1Â 272 K\"\n\"svchost.exe\",\"2152\",\"Services\",\"0\",\"4Â 912 K\"\n\"svchost.exe\",\"7672\",\"Services\",\"0\",\"9Â 056 K\"\n\"svchost.exe\",\"8472\",\"Services\",\"0\",\"12Â 872 K\"\n\"RzChromaStreamServer.exe\",\"2632\",\"Services\",\"0\",\"320 K\"\n\"svchost.exe\",\"3240\",\"Services\",\"0\",\"1Â 860 K\"\n\"svchost.exe\",\"1784\",\"Services\",\"0\",\"35Â 612 K\"\n\"svchost.exe\",\"8496\",\"Services\",\"0\",\"2Â 748 K\"\n\"SearchIndexer.exe\",\"4156\",\"Services\",\"0\",\"9Â 260 K\"\n\"svchost.exe\",\"1640\",\"Services\",\"0\",\"10Â 692 K\"\n\"svchost.exe\",\"7976\",\"Services\",\"0\",\"1Â 060 K\"\n\"svchost.exe\",\"872\",\"Services\",\"0\",\"6Â 432 K\"\n\"GameInputRedistService.exe\",\"4076\",\"Console\",\"1\",\"1Â 264 K\"\n\"nvcontainer.exe\",\"5944\",\"Console\",\"1\",\"24 K\"\n\"sihost.exe\",\"8120\",\"Console\",\"1\",\"19Â 504 K\"\n\"nvcontainer.exe\",\"2528\",\"Console\",\"1\",\"52Â 872 K\"\n\"svchost.exe\",\"1744\",\"Console\",\"1\",\"4Â 156 K\"\n\"svchost.exe\",\"6780\",\"Console\",\"1\",\"1Â 208 K\"\n\"svchost.exe\",\"6412\",\"Console\",\"1\",\"17Â 308 K\"\n\"svchost.exe\",\"5700\",\"Services\",\"0\",\"8Â 616 K\"\n\"taskhostw.exe\",\"8492\",\"Console\",\"1\",\"2Â 780 K\"\n\"explorer.exe\",\"2020\",\"Console\",\"1\",\"160Â 624 K\"\n\"ShellHost.exe\",\"8460\",\"Console\",\"1\",\"6Â 060 K\"\n\"svchost.exe\",\"6392\",\"Services\",\"0\",\"4Â 100 K\"\n\"CrossDeviceResume.exe\",\"5744\",\"Console\",\"1\",\"4Â 144 K\"\n\"svchost.exe\",\"9652\",\"Services\",\"0\",\"1Â 800 K\"\n\"svchost.exe\",\"9780\",\"Console\",\"1\",\"2Â 032 K\"\n\"dllhost.exe\",\"6468\",\"Console\",\"1\",\"384 K\"\n\"svchost.exe\",\"9848\",\"Console\",\"1\",\"22Â 916 K\"\n\"SearchHost.exe\",\"10440\",\"Console\",\"1\",\"20Â 572 K\"\n\"StartMenuExperienceHost.exe\",\"10452\",\"Console\",\"1\",\"22Â 248 K\"\n\"UserOOBEBroker.exe\",\"10576\",\"Console\",\"1\",\"24 K\"\n\"WidgetBoard.exe\",\"10620\",\"Console\",\"1\",\"2Â 892 K\"\n\"RuntimeBroker.exe\",\"10768\",\"Console\",\"1\",\"5Â 592 K\"\n\"svchost.exe\",\"10836\",\"Console\",\"1\",\"2Â 924 K\"\n\"svchost.exe\",\"11972\",\"Services\",\"0\",\"2Â 100 K\"\n\"msedgewebview2.exe\",\"12380\",\"Console\",\"1\",\"20Â 988 K\"\n\"msedgewebview2.exe\",\"12516\",\"Console\",\"1\",\"852 K\"\n\"msedgewebview2.exe\",\"13144\",\"Console\",\"1\",\"7Â 016 K\"\n\"msedgewebview2.exe\",\"13152\",\"Console\",\"1\",\"8Â 464 K\"\n\"msedgewebview2.exe\",\"13284\",\"Console\",\"1\",\"2Â 040 K\"\n\"msedgewebview2.exe\",\"13400\",\"Console\",\"1\",\"4Â 892 K\"\n\"ctfmon.exe\",\"14944\",\"Console\",\"1\",\"12Â 852 K\"\n\"SecurityHealthSystray.exe\",\"15040\",\"Console\",\"1\",\"20 K\"\n\"SecurityHealthService.exe\",\"15060\",\"Services\",\"0\",\"3Â 056 K\"\n\"vgtray.exe\",\"15128\",\"Console\",\"1\",\"360 K\"\n\"Notion.exe\",\"15280\",\"Console\",\"1\",\"83Â 696 K\"\n\"Notion.exe\",\"13632\",\"Console\",\"1\",\"41Â 512 K\"\n\"Notion.exe\",\"13248\",\"Console\",\"1\",\"21Â 528 K\"\n\"Notion.exe\",\"14300\",\"Console\",\"1\",\"11Â 200 K\"\n\"Notion.exe\",\"15188\",\"Console\",\"1\",\"24Â 368 K\"\n\"flux.exe\",\"15724\",\"Console\",\"1\",\"6Â 580 K\"\n\"WmiPrvSE.exe\",\"15772\",\"Services\",\"0\",\"3Â 328 K\"\n\"TextInputHost.exe\",\"15996\",\"Console\",\"1\",\"21Â 072 K\"\n\"ShellExperienceHost.exe\",\"14876\",\"Console\",\"1\",\"33Â 560 K\"\n\"RuntimeBroker.exe\",\"16280\",\"Console\",\"1\",\"872 K\"\n\"svchost.exe\",\"5528\",\"Console\",\"1\",\"4Â 976 K\"\n\"WidgetService.exe\",\"22524\",\"Console\",\"1\",\"2Â 684 K\"\n\"MicrosoftStartFeedProvider.exe\",\"21784\",\"Console\",\"1\",\"3Â 996 K\"\n\"cmd.exe\",\"14644\",\"Console\",\"1\",\"20 K\"\n\"conhost.exe\",\"4772\",\"Console\",\"1\",\"20 K\"\n\"ollama app.exe\",\"7344\",\"Console\",\"1\",\"8Â 396 K\"\n\"ollama.exe\",\"14736\",\"Console\",\"1\",\"18Â 648 K\"\n\"conhost.exe\",\"12960\",\"Console\",\"1\",\"776 K\"\n\"AdobeNotificationClient.exe\",\"5020\",\"Console\",\"1\",\"16 K\"\n\"RuntimeBroker.exe\",\"14868\",\"Console\",\"1\",\"1Â 740 K\"\n\"svchost.exe\",\"12068\",\"Services\",\"0\",\"984 K\"\n\"XboxPcAppFT.exe\",\"2368\",\"Console\",\"1\",\"4Â 176 K\"\n\"itch.exe\",\"3300\",\"Console\",\"1\",\"26Â 868 K\"\n\"itch.exe\",\"13236\",\"Console\",\"1\",\"12Â 216 K\"\n\"itch.exe\",\"21988\",\"Console\",\"1\",\"6Â 624 K\"\n\"itch.exe\",\"17816\",\"Console\",\"1\",\"1Â 888 K\"\n\"butler.exe\",\"18532\",\"Console\",\"1\",\"17Â 780 K\"\n\"conhost.exe\",\"20256\",\"Console\",\"1\",\"24 K\"\n\"svchost.exe\",\"7964\",\"Services\",\"0\",\"1Â 240 K\"\n\"steam.exe\",\"21660\",\"Console\",\"1\",\"21Â 876 K\"\n\"steamwebhelper.exe\",\"9208\",\"Console\",\"1\",\"29Â 152 K\"\n\"steamwebhelper.exe\",\"20412\",\"Console\",\"1\",\"2Â 672 K\"\n\"steamwebhelper.exe\",\"15292\",\"Console\",\"1\",\"15Â 344 K\"\n\"steamwebhelper.exe\",\"9440\",\"Console\",\"1\",\"9Â 528 K\"\n\"steamwebhelper.exe\",\"12952\",\"Console\",\"1\",\"1Â 868 K\"\n\"steamservice.exe\",\"8528\",\"Services\",\"0\",\"1Â 300 K\"\n\"steamwebhelper.exe\",\"16060\",\"Console\",\"1\",\"18Â 612 K\"\n\"steamwebhelper.exe\",\"22608\",\"Console\",\"1\",\"10Â 164 K\"\n\"EdgeGameAssist.exe\",\"22540\",\"Console\",\"1\",\"20 K\"\n\"msedge.exe\",\"23256\",\"Console\",\"1\",\"51Â 404 K\"\n\"msedge.exe\",\"23188\",\"Console\",\"1\",\"840 K\"\n\"msedge.exe\",\"21584\",\"Console\",\"1\",\"10Â 132 K\"\n\"msedge.exe\",\"18748\",\"Console\",\"1\",\"10Â 136 K\"\n\"elevation_service.exe\",\"6584\",\"Services\",\"0\",\"1Â 248 K\"\n\"msedge.exe\",\"13092\",\"Console\",\"1\",\"3Â 332 K\"\n\"msedge.exe\",\"19916\",\"Console\",\"1\",\"10Â 688 K\"\n\"gamingservices.exe\",\"20188\",\"Services\",\"0\",\"20Â 824 K\"\n\"gamingservicesnet.exe\",\"25180\",\"Services\",\"0\",\"600 K\"\n\"GameInputSvc.exe\",\"23572\",\"Services\",\"0\",\"24 K\"\n\"GameInputSvc.exe\",\"25148\",\"Console\",\"1\",\"2Â 048 K\"\n\"msedge.exe\",\"25208\",\"Console\",\"1\",\"6Â 060 K\"\n\"msedge.exe\",\"17076\",\"Console\",\"1\",\"3Â 268 K\"\n\"chrome.exe\",\"8660\",\"Console\",\"1\",\"78Â 788 K\"\n\"chrome.exe\",\"23724\",\"Console\",\"1\",\"1Â 508 K\"\n\"chrome.exe\",\"24236\",\"Console\",\"1\",\"21Â 248 K\"\n\"chrome.exe\",\"24696\",\"Console\",\"1\",\"10Â 692 K\"\n\"chrome.exe\",\"9776\",\"Console\",\"1\",\"2Â 584 K\"\n\"chrome.exe\",\"24160\",\"Console\",\"1\",\"5Â 256 K\"\n\"chrome.exe\",\"14256\",\"Console\",\"1\",\"47Â 740 K\"\n\"chrome.exe\",\"16276\",\"Console\",\"1\",\"2Â 132 K\"\n\"svchost.exe\",\"18540\",\"Services\",\"0\",\"1Â 576 K\"\n\"svchost.exe\",\"8300\",\"Services\",\"0\",\"1Â 088 K\"\n\"Notion.exe\",\"20608\",\"Console\",\"1\",\"281Â 240 K\"\n\"steamwebhelper.exe\",\"4740\",\"Console\",\"1\",\"1Â 724 K\"\n\"itch.exe\",\"7448\",\"Console\",\"1\",\"1Â 332 K\"\n\"itch.exe\",\"12004\",\"Console\",\"1\",\"1Â 268 K\"\n\"itch.exe\",\"2112\",\"Console\",\"1\",\"1Â 820 K\"\n\"itch.exe\",\"19580\",\"Console\",\"1\",\"1Â 200 K\"\n\"itch.exe\",\"26272\",\"Console\",\"1\",\"1Â 528 K\"\n\"node.exe\",\"9364\",\"Console\",\"1\",\"3Â 104 K\"\n\"msedge.exe\",\"29388\",\"Console\",\"1\",\"6Â 520 K\"\n\"Notion.exe\",\"20980\",\"Console\",\"1\",\"91Â 208 K\"\n\"Notion.exe\",\"9404\",\"Console\",\"1\",\"103Â 356 K\"\n\"Notion.exe\",\"30928\",\"Console\",\"1\",\"209Â 400 K\"\n\"Notion.exe\",\"26636\",\"Console\",\"1\",\"156Â 868 K\"\n\"Notion.exe\",\"8576\",\"Console\",\"1\",\"148Â 044 K\"\n\"Notion.exe\",\"29264\",\"Console\",\"1\",\"176Â 420 K\"\n\"Notion.exe\",\"19060\",\"Console\",\"1\",\"99Â 852 K\"\n\"ChatGPT.exe\",\"11840\",\"Console\",\"1\",\"175Â 060 K\"\n\"ChatGPT.exe\",\"26296\",\"Console\",\"1\",\"20 K\"\n\"ChatGPT.exe\",\"3092\",\"Console\",\"1\",\"83Â 836 K\"\n\"ChatGPT.exe\",\"23040\",\"Console\",\"1\",\"20Â 324 K\"\n\"ChatGPT.exe\",\"16800\",\"Console\",\"1\",\"6Â 264 K\"\n\"ChatGPT.exe\",\"17336\",\"Console\",\"1\",\"457Â 076 K\"\n\"ChatGPT.exe\",\"15276\",\"Console\",\"1\",\"168Â 708 K\"\n\"codex.exe\",\"16588\",\"Console\",\"1\",\"117Â 676 K\"\n\"conhost.exe\",\"19708\",\"Console\",\"1\",\"984 K\"\n\"ChatGPT.exe\",\"16720\",\"Console\",\"1\",\"4Â 236 K\"\n\"ChatGPT.exe\",\"6460\",\"Console\",\"1\",\"1Â 892 K\"\n\"codex-code-mode-host.exe\",\"18456\",\"Console\",\"1\",\"14Â 136 K\"\n\"pwsh.exe\",\"18004\",\"Console\",\"1\",\"31Â 456 K\"\n\"taskhostw.exe\",\"25000\",\"Console\",\"1\",\"2Â 388 K\"\n\"OneDrive.Sync.Service.exe\",\"6248\",\"Console\",\"1\",\"4Â 496 K\"\n\"msedge.exe\",\"19092\",\"Console\",\"1\",\"6Â 192 K\"\n\"msedge.exe\",\"11364\",\"Console\",\"1\",\"3Â 840 K\"\n\"msedge.exe\",\"22768\",\"Console\",\"1\",\"3Â 772 K\"\n\"Notion.exe\",\"20864\",\"Console\",\"1\",\"60Â 568 K\"\n\"ChatGPT Classic.exe\",\"16336\",\"Console\",\"1\",\"27Â 520 K\"\n\"ChatGPT Classic.exe\",\"30000\",\"Console\",\"1\",\"804 K\"\n\"ChatGPT Classic.exe\",\"20700\",\"Console\",\"1\",\"8Â 284 K\"\n\"ChatGPT Classic.exe\",\"24384\",\"Console\",\"1\",\"16Â 344 K\"\n\"ChatGPT Classic.exe\",\"18924\",\"Console\",\"1\",\"38Â 844 K\"\n\"audiodg.exe\",\"26880\",\"Services\",\"0\",\"12Â 120 K\"\n\"svchost.exe\",\"19584\",\"Services\",\"0\",\"4Â 628 K\"\n\"conhost.exe\",\"9312\",\"Console\",\"1\",\"20 K\"\n\"conhost.exe\",\"19644\",\"Console\",\"1\",\"20 K\"\n\"conhost.exe\",\"8360\",\"Console\",\"1\",\"20 K\"\n\"firefox.exe\",\"27308\",\"Console\",\"1\",\"627Â 820 K\"\n\"crashhelper.exe\",\"29884\",\"Console\",\"1\",\"1Â 744 K\"\n\"firefox.exe\",\"22016\",\"Console\",\"1\",\"173Â 152 K\"\n\"firefox.exe\",\"6268\",\"Console\",\"1\",\"1Â 288 K\"\n\"firefox.exe\",\"7628\",\"Console\",\"1\",\"115Â 180 K\"\n\"firefox.exe\",\"21120\",\"Console\",\"1\",\"122Â 980 K\"\n\"firefox.exe\",\"17576\",\"Console\",\"1\",\"90Â 868 K\"\n\"firefox.exe\",\"21960\",\"Console\",\"1\",\"5Â 620 K\"\n\"firefox.exe\",\"17768\",\"Console\",\"1\",\"942Â 768 K\"\n\"firefox.exe\",\"18180\",\"Console\",\"1\",\"3Â 900 K\"\n\"firefox.exe\",\"26228\",\"Console\",\"1\",\"623Â 516 K\"\n\"firefox.exe\",\"28108\",\"Console\",\"1\",\"529Â 532 K\"\n\"firefox.exe\",\"31396\",\"Console\",\"1\",\"205Â 780 K\"\n\"conhost.exe\",\"2600\",\"Console\",\"1\",\"20 K\"\n\"conhost.exe\",\"14648\",\"Console\",\"1\",\"20 K\"\n\"firefox.exe\",\"1664\",\"Console\",\"1\",\"364Â 240 K\"\n\"conhost.exe\",\"30396\",\"Console\",\"1\",\"20 K\"\n\"svchost.exe\",\"30072\",\"Services\",\"0\",\"1Â 256 K\"\n\"svchost.exe\",\"27680\",\"Services\",\"0\",\"940 K\"\n\"firefox.exe\",\"15464\",\"Console\",\"1\",\"128Â 580 K\"\n\"firefox.exe\",\"25552\",\"Console\",\"1\",\"53Â 004 K\"\n\"firefox.exe\",\"6384\",\"Console\",\"1\",\"151Â 908 K\"\n\"firefox.exe\",\"23244\",\"Console\",\"1\",\"8Â 616 K\"\n\"ShellHost.exe\",\"6624\",\"Console\",\"1\",\"11Â 168 K\"\n\"node_repl.exe\",\"29652\",\"Console\",\"1\",\"20 K\"\n\"firefox.exe\",\"14864\",\"Console\",\"1\",\"31Â 580 K\"\n\"conhost.exe\",\"9336\",\"Console\",\"1\",\"1Â 172 K\"\n\"svchost.exe\",\"31292\",\"Services\",\"0\",\"1Â 752 K\"\n\"node_repl.exe\",\"21064\",\"Console\",\"1\",\"9Â 308 K\"\n\"node_repl.exe\",\"29152\",\"Console\",\"1\",\"9Â 308 K\"\n\"firefox.exe\",\"25136\",\"Console\",\"1\",\"145Â 184 K\"\n\"node_repl.exe\",\"27920\",\"Console\",\"1\",\"9Â 304 K\"\n\"node_repl.exe\",\"29616\",\"Console\",\"1\",\"9Â 360 K\"\n\"firefox.exe\",\"14184\",\"Console\",\"1\",\"165Â 416 K\"\n\"firefox.exe\",\"24704\",\"Console\",\"1\",\"53Â 468 K\"\n\"firefox.exe\",\"26360\",\"Console\",\"1\",\"43Â 744 K\"\n\"firefox.exe\",\"21280\",\"Console\",\"1\",\"32Â 840 K\"\n\"firefox.exe\",\"31648\",\"Console\",\"1\",\"32Â 476 K\"\n\"firefox.exe\",\"15056\",\"Console\",\"1\",\"32Â 692 K\"\n\"chrome.exe\",\"30088\",\"Console\",\"1\",\"54Â 448 K\"\n\"conhost.exe\",\"25172\",\"Console\",\"1\",\"8Â 028 K\"\n\"pwsh.exe\",\"28848\",\"Console\",\"1\",\"81Â 820 K\"\n\"python.exe\",\"26428\",\"Console\",\"1\",\"4Â 052 K\"\n\"python.exe\",\"18164\",\"Console\",\"1\",\"521Â 988 K\"\n\"tasklist.exe\",\"29404\",\"Console\",\"1\",\"11Â 876 K\"\n\"WmiPrvSE.exe\",\"20684\",\"Services\",\"0\",\"14Â 996 K\"",
+        "stderr": ""
+      },
+      "relevant_processes": [
+        {
+          "image_name": "ollama app.exe",
+          "pid": "7344",
+          "session_name": "Console",
+          "session_number": "1",
+          "memory_working_set_mib": 8.2
+        },
+        {
+          "image_name": "ollama.exe",
+          "pid": "14736",
+          "session_name": "Console",
+          "session_number": "1",
+          "memory_working_set_mib": 18.21
+        },
+        {
+          "image_name": "python.exe",
+          "pid": "26428",
+          "session_name": "Console",
+          "session_number": "1",
+          "memory_working_set_mib": 3.96
+        },
+        {
+          "image_name": "python.exe",
+          "pid": "18164",
+          "session_name": "Console",
+          "session_number": "1",
+          "memory_working_set_mib": 509.75
+        }
+      ]
+    }
+  },
+  "training_configuration": {
+    "context_lengths_tested": [
+      512,
+      1024,
+      1536,
+      2048
+    ],
+    "micro_batch_size": 1,
+    "gradient_accumulation_steps": 1,
+    "warmup_steps": 1,
+    "measured_steps": 3,
+    "validation_enabled": false,
+    "checkpoint_saving_enabled": false,
+    "adapter_saved": false,
+    "real_fine_tuning_run": false,
+    "lora_configuration_is_benchmark_only": true,
+    "lora_rank": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.0,
+    "lora_bias": "none",
+    "lora_target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "gradient_checkpointing": "unsloth",
+    "cpu_ram_offloading_note": "Unsloth offloaded gradient checkpointing is reported when its checkpoint shim moves saved activations to CPU RAM; model parameters must remain on cuda:0.",
+    "optimizer_learning_rate_is_benchmark_only": true
+  },
+  "data_boundary": {
+    "train_split_path": "data\\processed\\splits\\train.jsonl",
+    "train_row_count": 31876,
+    "validation_accessed": false,
+    "test_accessed": false,
+    "selection_method": "Shortest rendered zero-shot train conversation reaching each context length; target tokens retained while only real issue-prompt tokens may be truncated to the requested length.",
+    "prompt_format": "Existing baseline zero-shot system instruction and title/body prompt, followed by the normalized target JSON assistant response.",
+    "raw_github_labels_in_model_input": false
+  },
+  "comparison_to_preliminary": {
+    "available": true,
+    "preliminary_report_path": "results\\training_context_benchmark.json",
+    "comparisons": [
+      {
+        "context_length": 512,
+        "available": true,
+        "preliminary_seconds_per_step": 0.802116,
+        "clean_seconds_per_step": 0.719596,
+        "seconds_per_step_difference_percent": -10.2878,
+        "preliminary_tokens_per_second": 638.3117,
+        "clean_tokens_per_second": 711.5101,
+        "throughput_difference_percent": 11.4675,
+        "preliminary_peak_allocated_mib": 4080.99,
+        "clean_peak_allocated_mib": 4080.99,
+        "peak_allocated_difference_mib": 0.0,
+        "preliminary_peak_reserved_mib": 4458.0,
+        "clean_peak_reserved_mib": 4458.0,
+        "peak_reserved_difference_mib": 0.0,
+        "preliminary_cpu_or_ram_offloading": true,
+        "clean_cpu_or_ram_offloading": true
+      },
+      {
+        "context_length": 1024,
+        "available": true,
+        "preliminary_seconds_per_step": 1.442719,
+        "clean_seconds_per_step": 1.333584,
+        "seconds_per_step_difference_percent": -7.5645,
+        "preliminary_tokens_per_second": 709.7711,
+        "clean_tokens_per_second": 767.8558,
+        "throughput_difference_percent": 8.1836,
+        "preliminary_peak_allocated_mib": 4395.9,
+        "clean_peak_allocated_mib": 4395.9,
+        "peak_allocated_difference_mib": 0.0,
+        "preliminary_peak_reserved_mib": 4812.0,
+        "clean_peak_reserved_mib": 4812.0,
+        "peak_reserved_difference_mib": 0.0,
+        "preliminary_cpu_or_ram_offloading": true,
+        "clean_cpu_or_ram_offloading": true
+      },
+      {
+        "context_length": 1536,
+        "available": true,
+        "preliminary_seconds_per_step": 2.518323,
+        "clean_seconds_per_step": 2.045461,
+        "seconds_per_step_difference_percent": -18.7769,
+        "preliminary_tokens_per_second": 609.9296,
+        "clean_tokens_per_second": 750.931,
+        "throughput_difference_percent": 23.1177,
+        "preliminary_peak_allocated_mib": 4706.42,
+        "clean_peak_allocated_mib": 4713.92,
+        "peak_allocated_difference_mib": 7.5,
+        "preliminary_peak_reserved_mib": 5684.0,
+        "clean_peak_reserved_mib": 5684.0,
+        "peak_reserved_difference_mib": 0.0,
+        "preliminary_cpu_or_ram_offloading": true,
+        "clean_cpu_or_ram_offloading": true
+      },
+      {
+        "context_length": 2048,
+        "available": true,
+        "preliminary_seconds_per_step": 3.479886,
+        "clean_seconds_per_step": 2.77198,
+        "seconds_per_step_difference_percent": -20.3428,
+        "preliminary_tokens_per_second": 588.5249,
+        "clean_tokens_per_second": 738.822,
+        "throughput_difference_percent": 25.5379,
+        "preliminary_peak_allocated_mib": 5015.44,
+        "clean_peak_allocated_mib": 5025.44,
+        "peak_allocated_difference_mib": 10.0,
+        "preliminary_peak_reserved_mib": 5980.0,
+        "clean_peak_reserved_mib": 5980.0,
+        "peak_reserved_difference_mib": 0.0,
+        "preliminary_cpu_or_ram_offloading": true,
+        "clean_cpu_or_ram_offloading": true
+      }
+    ]
+  },
+  "results": [
+    {
+      "context_length": 512,
+      "status": "passed",
+      "micro_batch_size": 1,
+      "gradient_accumulation_steps": 1,
+      "warmup_steps": 1,
+      "measured_steps_requested": 3,
+      "example": {
+        "source_split": "train",
+        "source_row_index": 8019,
+        "row_index_in_train_file": 163,
+        "issue_id": 327402320,
+        "repository": "angular",
+        "target_category": "bug",
+        "title": "Formbuilder group from value object with array",
+        "full_sequence_token_count": 512,
+        "fed_sequence_token_count": 512,
+        "prompt_token_count": 501,
+        "target_token_count": 11,
+        "truncated_prompt_token_count": 0
+      },
+      "cpu_or_ram_offloading": true,
+      "warnings": [
+        {
+          "category": "UserWarning",
+          "message": "You passed `quantization_config` or equivalent parameters to `from_pretrained` but the model you're loading already has a `quantization_config` attribute. The `quantization_config` from the model will be used."
+        },
+        {
+          "category": "UserWarning",
+          "message": "torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants."
+        }
+      ],
+      "nvidia_smi_before_test": {
+        "gpu_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-gpu=name,memory.total,memory.used,memory.free,utilization.gpu",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "NVIDIA GeForce RTX 2060 SUPER, 8192, 811, 7196, 16",
+          "stderr": ""
+        },
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 2060 SUPER",
+            "memory_total_mib": 8192.0,
+            "memory_used_mib": 811.0,
+            "memory_free_mib": 7196.0,
+            "utilization_percent": 16.0
+          }
+        ],
+        "compute_process_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-compute-apps=pid,process_name,used_gpu_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "1596, [Insufficient Permissions], [N/A]\n8460, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n5744, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n2020, C:\\Windows\\explorer.exe, [N/A]\n10440, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n10452, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n13152, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\151.0.4129.78\\msedgewebview2.exe, [N/A]\n13632, C:\\Users\\Luke\\AppData\\Local\\Programs\\Notion\\Notion.exe, [N/A]\n15996, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\n14876, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n5020, C:\\Program Files\\Common Files\\Adobe\\Adobe OS Extension\\AdobeNotificationClient.exe, [N/A]\n13236, C:\\Software\\Itch\\app-26.18.0\\itch.exe, [N/A]\n15292, C:\\Games\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n22540, C:\\Program Files\\WindowsApps\\Microsoft.Edge.GameAssist_1.0.4019.0_x64__8wekyb3d8bbwe\\EdgeGameAssist.exe, [N/A]\n21584, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n25208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n24236, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n3092, C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.810.7004.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe, [N/A]\n20700, C:\\Program Files\\WindowsApps\\OpenAI.ChatGPT-Desktop_1.2026.190.0_x64__2p2nqsd0c76g0\\app\\ChatGPT Classic.exe, [N/A]\n22016, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n21120, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n6624, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n18164, C:\\Coding Projects\\Apps\\GitHub Issue Triage Fine-Tune\\.python-runtime\\cpython-3.11.13-windows-x86_64-none\\python.exe, [N/A]",
+          "stderr": ""
+        }
+      },
+      "system_ram_before_test": {
+        "available": true,
+        "total_mib": 16275.53,
+        "available_mib": 3969.44,
+        "used_mib": 12306.09,
+        "used_percent": 75.61
+      },
+      "model": {
+        "total_parameter_count": 2523135488,
+        "trainable_parameter_count": 16515072,
+        "placement": {
+          "parameter_devices": [
+            "cuda:0"
+          ],
+          "buffer_devices": [
+            "cpu"
+          ],
+          "cpu_buffers_present": true,
+          "hf_device_map": null,
+          "offload_device_map_entries": {},
+          "cpu_or_disk_offload_detected": false
+        },
+        "gradient_checkpointing_requested": "unsloth",
+        "gradient_checkpointing_enabled": true,
+        "gradient_checkpointing_checkpoint_function": "unsloth_checkpoint",
+        "gradient_checkpointing_checkpoint_class": "UnslothCheckpointFunction",
+        "gradient_checkpointing_offloads_activations_to_cpu_ram": true
+      },
+      "gpu_memory_after_model_and_adapter_load": {
+        "allocated_bytes": 3660297216,
+        "allocated_mib": 3490.73,
+        "reserved_bytes": 3693084672,
+        "reserved_mib": 3522.0,
+        "peak_allocated_bytes": 3660411904,
+        "peak_allocated_mib": 3490.84,
+        "peak_reserved_bytes": 3693084672,
+        "peak_reserved_mib": 3522.0,
+        "free_bytes": 3772776448,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      },
+      "nvidia_smi_after_model_load": {
+        "gpu_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-gpu=name,memory.total,memory.used,memory.free,utilization.gpu",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "NVIDIA GeForce RTX 2060 SUPER, 8192, 4323, 3684, 16",
+          "stderr": ""
+        },
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 2060 SUPER",
+            "memory_total_mib": 8192.0,
+            "memory_used_mib": 4323.0,
+            "memory_free_mib": 3684.0,
+            "utilization_percent": 16.0
+          }
+        ],
+        "compute_process_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-compute-apps=pid,process_name,used_gpu_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "1596, [Insufficient Permissions], [N/A]\n8460, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n5744, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n2020, C:\\Windows\\explorer.exe, [N/A]\n10440, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n10452, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n13152, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\151.0.4129.78\\msedgewebview2.exe, [N/A]\n13632, C:\\Users\\Luke\\AppData\\Local\\Programs\\Notion\\Notion.exe, [N/A]\n15996, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\n14876, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n5020, C:\\Program Files\\Common Files\\Adobe\\Adobe OS Extension\\AdobeNotificationClient.exe, [N/A]\n13236, C:\\Software\\Itch\\app-26.18.0\\itch.exe, [N/A]\n15292, C:\\Games\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n22540, C:\\Program Files\\WindowsApps\\Microsoft.Edge.GameAssist_1.0.4019.0_x64__8wekyb3d8bbwe\\EdgeGameAssist.exe, [N/A]\n21584, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n25208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n24236, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n3092, C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.810.7004.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe, [N/A]\n20700, C:\\Program Files\\WindowsApps\\OpenAI.ChatGPT-Desktop_1.2026.190.0_x64__2p2nqsd0c76g0\\app\\ChatGPT Classic.exe, [N/A]\n22016, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n21120, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n6624, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n18164, C:\\Coding Projects\\Apps\\GitHub Issue Triage Fine-Tune\\.python-runtime\\cpython-3.11.13-windows-x86_64-none\\python.exe, [N/A]",
+          "stderr": ""
+        }
+      },
+      "system_ram_after_model_load": {
+        "available": true,
+        "total_mib": 16275.53,
+        "available_mib": 3823.97,
+        "used_mib": 12451.56,
+        "used_percent": 76.5
+      },
+      "benchmark_optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.0001,
+        "final_training_learning_rate": false
+      },
+      "warmup": {
+        "elapsed_seconds": 3.270178,
+        "losses": [
+          8.104849
+        ],
+        "compilation_or_first_step_time_accounted_separately": true
+      },
+      "nvidia_smi_after_training": {
+        "gpu_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-gpu=name,memory.total,memory.used,memory.free,utilization.gpu",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "NVIDIA GeForce RTX 2060 SUPER, 8192, 5258, 2749, 98",
+          "stderr": ""
+        },
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 2060 SUPER",
+            "memory_total_mib": 8192.0,
+            "memory_used_mib": 5258.0,
+            "memory_free_mib": 2749.0,
+            "utilization_percent": 98.0
+          }
+        ],
+        "compute_process_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-compute-apps=pid,process_name,used_gpu_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "1596, [Insufficient Permissions], [N/A]\n8460, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n5744, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n2020, C:\\Windows\\explorer.exe, [N/A]\n10440, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n10452, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n13152, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\151.0.4129.78\\msedgewebview2.exe, [N/A]\n13632, C:\\Users\\Luke\\AppData\\Local\\Programs\\Notion\\Notion.exe, [N/A]\n15996, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\n14876, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n5020, C:\\Program Files\\Common Files\\Adobe\\Adobe OS Extension\\AdobeNotificationClient.exe, [N/A]\n13236, C:\\Software\\Itch\\app-26.18.0\\itch.exe, [N/A]\n15292, C:\\Games\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n22540, C:\\Program Files\\WindowsApps\\Microsoft.Edge.GameAssist_1.0.4019.0_x64__8wekyb3d8bbwe\\EdgeGameAssist.exe, [N/A]\n21584, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n25208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n24236, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n3092, C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.810.7004.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe, [N/A]\n20700, C:\\Program Files\\WindowsApps\\OpenAI.ChatGPT-Desktop_1.2026.190.0_x64__2p2nqsd0c76g0\\app\\ChatGPT Classic.exe, [N/A]\n22016, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n21120, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n6624, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n18164, C:\\Coding Projects\\Apps\\GitHub Issue Triage Fine-Tune\\.python-runtime\\cpython-3.11.13-windows-x86_64-none\\python.exe, [N/A]",
+          "stderr": ""
+        }
+      },
+      "system_ram_after_training": {
+        "available": true,
+        "total_mib": 16275.53,
+        "available_mib": 3448.2,
+        "used_mib": 12827.34,
+        "used_percent": 78.81
+      },
+      "steady_state": {
+        "completed_steps": 3,
+        "step_times_seconds": [
+          0.719776,
+          0.716987,
+          0.722026
+        ],
+        "seconds_per_step": 0.719596,
+        "losses": [
+          6.477725,
+          4.889476,
+          3.85027
+        ],
+        "processed_tokens": 1536,
+        "tokens_per_second": 711.5101
+      },
+      "peak_gpu_memory_during_training": {
+        "allocated_bytes": 4020597760,
+        "allocated_mib": 3834.34,
+        "reserved_bytes": 4674551808,
+        "reserved_mib": 4458.0,
+        "peak_allocated_bytes": 4279226368,
+        "peak_allocated_mib": 4080.99,
+        "peak_reserved_bytes": 4674551808,
+        "peak_reserved_mib": 4458.0,
+        "free_bytes": 2782920704,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      }
+    },
+    {
+      "context_length": 1024,
+      "status": "passed",
+      "micro_batch_size": 1,
+      "gradient_accumulation_steps": 1,
+      "warmup_steps": 1,
+      "measured_steps_requested": 3,
+      "example": {
+        "source_split": "train",
+        "source_row_index": 52660,
+        "row_index_in_train_file": 6137,
+        "issue_id": 1359594561,
+        "repository": "go",
+        "target_category": "documentation",
+        "title": "net/netip: Document of `AddrFromSlice` doesn't mention that passing IPv4 `net.IP` made with `net.ParseIP` to `AddrFromSlice` creates IPv4 mapped IPv6 `netip.Addr`",
+        "full_sequence_token_count": 1024,
+        "fed_sequence_token_count": 1024,
+        "prompt_token_count": 1013,
+        "target_token_count": 11,
+        "truncated_prompt_token_count": 0
+      },
+      "cpu_or_ram_offloading": true,
+      "warnings": [
+        {
+          "category": "UserWarning",
+          "message": "You passed `quantization_config` or equivalent parameters to `from_pretrained` but the model you're loading already has a `quantization_config` attribute. The `quantization_config` from the model will be used."
+        },
+        {
+          "category": "UserWarning",
+          "message": "torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants."
+        }
+      ],
+      "nvidia_smi_before_test": {
+        "gpu_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-gpu=name,memory.total,memory.used,memory.free,utilization.gpu",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "NVIDIA GeForce RTX 2060 SUPER, 8192, 1122, 6885, 87",
+          "stderr": ""
+        },
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 2060 SUPER",
+            "memory_total_mib": 8192.0,
+            "memory_used_mib": 1122.0,
+            "memory_free_mib": 6885.0,
+            "utilization_percent": 87.0
+          }
+        ],
+        "compute_process_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-compute-apps=pid,process_name,used_gpu_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "1596, [Insufficient Permissions], [N/A]\n8460, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n5744, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n2020, C:\\Windows\\explorer.exe, [N/A]\n10440, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n10452, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n13152, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\151.0.4129.78\\msedgewebview2.exe, [N/A]\n13632, C:\\Users\\Luke\\AppData\\Local\\Programs\\Notion\\Notion.exe, [N/A]\n15996, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\n14876, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n5020, C:\\Program Files\\Common Files\\Adobe\\Adobe OS Extension\\AdobeNotificationClient.exe, [N/A]\n13236, C:\\Software\\Itch\\app-26.18.0\\itch.exe, [N/A]\n15292, C:\\Games\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n22540, C:\\Program Files\\WindowsApps\\Microsoft.Edge.GameAssist_1.0.4019.0_x64__8wekyb3d8bbwe\\EdgeGameAssist.exe, [N/A]\n21584, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n25208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n24236, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n3092, C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.810.7004.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe, [N/A]\n20700, C:\\Program Files\\WindowsApps\\OpenAI.ChatGPT-Desktop_1.2026.190.0_x64__2p2nqsd0c76g0\\app\\ChatGPT Classic.exe, [N/A]\n22016, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n21120, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n6624, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n18164, C:\\Coding Projects\\Apps\\GitHub Issue Triage Fine-Tune\\.python-runtime\\cpython-3.11.13-windows-x86_64-none\\python.exe, [N/A]",
+          "stderr": ""
+        }
+      },
+      "system_ram_before_test": {
+        "available": true,
+        "total_mib": 16275.53,
+        "available_mib": 3523.42,
+        "used_mib": 12752.11,
+        "used_percent": 78.35
+      },
+      "model": {
+        "total_parameter_count": 2523135488,
+        "trainable_parameter_count": 16515072,
+        "placement": {
+          "parameter_devices": [
+            "cuda:0"
+          ],
+          "buffer_devices": [
+            "cpu"
+          ],
+          "cpu_buffers_present": true,
+          "hf_device_map": null,
+          "offload_device_map_entries": {},
+          "cpu_or_disk_offload_detected": false
+        },
+        "gradient_checkpointing_requested": "unsloth",
+        "gradient_checkpointing_enabled": true,
+        "gradient_checkpointing_checkpoint_function": "unsloth_checkpoint",
+        "gradient_checkpointing_checkpoint_class": "UnslothCheckpointFunction",
+        "gradient_checkpointing_offloads_activations_to_cpu_ram": true
+      },
+      "gpu_memory_after_model_and_adapter_load": {
+        "allocated_bytes": 3721769984,
+        "allocated_mib": 3549.36,
+        "reserved_bytes": 3753902080,
+        "reserved_mib": 3580.0,
+        "peak_allocated_bytes": 4279226368,
+        "peak_allocated_mib": 4080.99,
+        "peak_reserved_bytes": 4674551808,
+        "peak_reserved_mib": 4458.0,
+        "free_bytes": 3703570432,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      },
+      "nvidia_smi_after_model_load": {
+        "gpu_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-gpu=name,memory.total,memory.used,memory.free,utilization.gpu",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "NVIDIA GeForce RTX 2060 SUPER, 8192, 4389, 3618, 18",
+          "stderr": ""
+        },
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 2060 SUPER",
+            "memory_total_mib": 8192.0,
+            "memory_used_mib": 4389.0,
+            "memory_free_mib": 3618.0,
+            "utilization_percent": 18.0
+          }
+        ],
+        "compute_process_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-compute-apps=pid,process_name,used_gpu_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "1596, [Insufficient Permissions], [N/A]\n8460, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n5744, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n2020, C:\\Windows\\explorer.exe, [N/A]\n10440, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n10452, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n13152, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\151.0.4129.78\\msedgewebview2.exe, [N/A]\n13632, C:\\Users\\Luke\\AppData\\Local\\Programs\\Notion\\Notion.exe, [N/A]\n15996, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\n14876, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n5020, C:\\Program Files\\Common Files\\Adobe\\Adobe OS Extension\\AdobeNotificationClient.exe, [N/A]\n13236, C:\\Software\\Itch\\app-26.18.0\\itch.exe, [N/A]\n15292, C:\\Games\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n22540, C:\\Program Files\\WindowsApps\\Microsoft.Edge.GameAssist_1.0.4019.0_x64__8wekyb3d8bbwe\\EdgeGameAssist.exe, [N/A]\n21584, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n25208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n24236, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n3092, C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.810.7004.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe, [N/A]\n20700, C:\\Program Files\\WindowsApps\\OpenAI.ChatGPT-Desktop_1.2026.190.0_x64__2p2nqsd0c76g0\\app\\ChatGPT Classic.exe, [N/A]\n22016, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n21120, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n6624, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n18164, C:\\Coding Projects\\Apps\\GitHub Issue Triage Fine-Tune\\.python-runtime\\cpython-3.11.13-windows-x86_64-none\\python.exe, [N/A]",
+          "stderr": ""
+        }
+      },
+      "system_ram_after_model_load": {
+        "available": true,
+        "total_mib": 16275.53,
+        "available_mib": 4289.2,
+        "used_mib": 11986.33,
+        "used_percent": 73.65
+      },
+      "benchmark_optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.0001,
+        "final_training_learning_rate": false
+      },
+      "warmup": {
+        "elapsed_seconds": 1.729798,
+        "losses": [
+          7.58491
+        ],
+        "compilation_or_first_step_time_accounted_separately": true
+      },
+      "nvidia_smi_after_training": {
+        "gpu_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-gpu=name,memory.total,memory.used,memory.free,utilization.gpu",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "NVIDIA GeForce RTX 2060 SUPER, 8192, 5617, 2390, 99",
+          "stderr": ""
+        },
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 2060 SUPER",
+            "memory_total_mib": 8192.0,
+            "memory_used_mib": 5617.0,
+            "memory_free_mib": 2390.0,
+            "utilization_percent": 99.0
+          }
+        ],
+        "compute_process_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-compute-apps=pid,process_name,used_gpu_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "1596, [Insufficient Permissions], [N/A]\n8460, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n5744, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n2020, C:\\Windows\\explorer.exe, [N/A]\n10440, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n10452, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n13152, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\151.0.4129.78\\msedgewebview2.exe, [N/A]\n13632, C:\\Users\\Luke\\AppData\\Local\\Programs\\Notion\\Notion.exe, [N/A]\n15996, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\n14876, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n5020, C:\\Program Files\\Common Files\\Adobe\\Adobe OS Extension\\AdobeNotificationClient.exe, [N/A]\n13236, C:\\Software\\Itch\\app-26.18.0\\itch.exe, [N/A]\n15292, C:\\Games\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n22540, C:\\Program Files\\WindowsApps\\Microsoft.Edge.GameAssist_1.0.4019.0_x64__8wekyb3d8bbwe\\EdgeGameAssist.exe, [N/A]\n21584, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n25208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n24236, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n3092, C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.810.7004.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe, [N/A]\n20700, C:\\Program Files\\WindowsApps\\OpenAI.ChatGPT-Desktop_1.2026.190.0_x64__2p2nqsd0c76g0\\app\\ChatGPT Classic.exe, [N/A]\n22016, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n21120, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n6624, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n18164, C:\\Coding Projects\\Apps\\GitHub Issue Triage Fine-Tune\\.python-runtime\\cpython-3.11.13-windows-x86_64-none\\python.exe, [N/A]",
+          "stderr": ""
+        }
+      },
+      "system_ram_after_training": {
+        "available": true,
+        "total_mib": 16275.53,
+        "available_mib": 3674.4,
+        "used_mib": 12601.13,
+        "used_percent": 77.42
+      },
+      "steady_state": {
+        "completed_steps": 3,
+        "step_times_seconds": [
+          1.353821,
+          1.323301,
+          1.323628
+        ],
+        "seconds_per_step": 1.333584,
+        "losses": [
+          6.172163,
+          4.648434,
+          3.884968
+        ],
+        "processed_tokens": 3072,
+        "tokens_per_second": 767.8558
+      },
+      "peak_gpu_memory_during_training": {
+        "allocated_bytes": 4026905600,
+        "allocated_mib": 3840.36,
+        "reserved_bytes": 5045747712,
+        "reserved_mib": 4812.0,
+        "peak_allocated_bytes": 4609435648,
+        "peak_allocated_mib": 4395.9,
+        "peak_reserved_bytes": 5045747712,
+        "peak_reserved_mib": 4812.0,
+        "free_bytes": 2411724800,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      }
+    },
+    {
+      "context_length": 1536,
+      "status": "passed",
+      "micro_batch_size": 1,
+      "gradient_accumulation_steps": 1,
+      "warmup_steps": 1,
+      "measured_steps_requested": 3,
+      "example": {
+        "source_split": "train",
+        "source_row_index": 28094,
+        "row_index_in_train_file": 5883,
+        "issue_id": 743039509,
+        "repository": "go",
+        "target_category": "documentation",
+        "title": "math: Nextafter, Nextafter32 clarify behavior with -0, +0",
+        "full_sequence_token_count": 1536,
+        "fed_sequence_token_count": 1536,
+        "prompt_token_count": 1525,
+        "target_token_count": 11,
+        "truncated_prompt_token_count": 0
+      },
+      "cpu_or_ram_offloading": true,
+      "warnings": [
+        {
+          "category": "UserWarning",
+          "message": "You passed `quantization_config` or equivalent parameters to `from_pretrained` but the model you're loading already has a `quantization_config` attribute. The `quantization_config` from the model will be used."
+        },
+        {
+          "category": "UserWarning",
+          "message": "torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants."
+        }
+      ],
+      "nvidia_smi_before_test": {
+        "gpu_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-gpu=name,memory.total,memory.used,memory.free,utilization.gpu",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "NVIDIA GeForce RTX 2060 SUPER, 8192, 1143, 6864, 99",
+          "stderr": ""
+        },
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 2060 SUPER",
+            "memory_total_mib": 8192.0,
+            "memory_used_mib": 1143.0,
+            "memory_free_mib": 6864.0,
+            "utilization_percent": 99.0
+          }
+        ],
+        "compute_process_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-compute-apps=pid,process_name,used_gpu_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "1596, [Insufficient Permissions], [N/A]\n8460, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n5744, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n2020, C:\\Windows\\explorer.exe, [N/A]\n10440, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n10452, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n13152, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\151.0.4129.78\\msedgewebview2.exe, [N/A]\n13632, C:\\Users\\Luke\\AppData\\Local\\Programs\\Notion\\Notion.exe, [N/A]\n15996, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\n14876, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n5020, C:\\Program Files\\Common Files\\Adobe\\Adobe OS Extension\\AdobeNotificationClient.exe, [N/A]\n13236, C:\\Software\\Itch\\app-26.18.0\\itch.exe, [N/A]\n15292, C:\\Games\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n22540, C:\\Program Files\\WindowsApps\\Microsoft.Edge.GameAssist_1.0.4019.0_x64__8wekyb3d8bbwe\\EdgeGameAssist.exe, [N/A]\n21584, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n25208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n24236, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n3092, C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.810.7004.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe, [N/A]\n20700, C:\\Program Files\\WindowsApps\\OpenAI.ChatGPT-Desktop_1.2026.190.0_x64__2p2nqsd0c76g0\\app\\ChatGPT Classic.exe, [N/A]\n22016, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n21120, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n6624, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n18164, C:\\Coding Projects\\Apps\\GitHub Issue Triage Fine-Tune\\.python-runtime\\cpython-3.11.13-windows-x86_64-none\\python.exe, [N/A]",
+          "stderr": ""
+        }
+      },
+      "system_ram_before_test": {
+        "available": true,
+        "total_mib": 16275.53,
+        "available_mib": 3745.05,
+        "used_mib": 12530.48,
+        "used_percent": 76.99
+      },
+      "model": {
+        "total_parameter_count": 2523135488,
+        "trainable_parameter_count": 16515072,
+        "placement": {
+          "parameter_devices": [
+            "cuda:0"
+          ],
+          "buffer_devices": [
+            "cpu"
+          ],
+          "cpu_buffers_present": true,
+          "hf_device_map": null,
+          "offload_device_map_entries": {},
+          "cpu_or_disk_offload_detected": false
+        },
+        "gradient_checkpointing_requested": "unsloth",
+        "gradient_checkpointing_enabled": true,
+        "gradient_checkpointing_checkpoint_function": "unsloth_checkpoint",
+        "gradient_checkpointing_checkpoint_class": "UnslothCheckpointFunction",
+        "gradient_checkpointing_offloads_activations_to_cpu_ram": true
+      },
+      "gpu_memory_after_model_and_adapter_load": {
+        "allocated_bytes": 3721769984,
+        "allocated_mib": 3549.36,
+        "reserved_bytes": 3753902080,
+        "reserved_mib": 3580.0,
+        "peak_allocated_bytes": 4609435648,
+        "peak_allocated_mib": 4395.9,
+        "peak_reserved_bytes": 5045747712,
+        "peak_reserved_mib": 4812.0,
+        "free_bytes": 3703570432,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      },
+      "nvidia_smi_after_model_load": {
+        "gpu_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-gpu=name,memory.total,memory.used,memory.free,utilization.gpu",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "NVIDIA GeForce RTX 2060 SUPER, 8192, 4385, 3622, 14",
+          "stderr": ""
+        },
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 2060 SUPER",
+            "memory_total_mib": 8192.0,
+            "memory_used_mib": 4385.0,
+            "memory_free_mib": 3622.0,
+            "utilization_percent": 14.0
+          }
+        ],
+        "compute_process_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-compute-apps=pid,process_name,used_gpu_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "1596, [Insufficient Permissions], [N/A]\n8460, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n5744, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n2020, C:\\Windows\\explorer.exe, [N/A]\n10440, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n10452, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n13152, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\151.0.4129.78\\msedgewebview2.exe, [N/A]\n13632, C:\\Users\\Luke\\AppData\\Local\\Programs\\Notion\\Notion.exe, [N/A]\n15996, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\n14876, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n5020, C:\\Program Files\\Common Files\\Adobe\\Adobe OS Extension\\AdobeNotificationClient.exe, [N/A]\n13236, C:\\Software\\Itch\\app-26.18.0\\itch.exe, [N/A]\n15292, C:\\Games\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n22540, C:\\Program Files\\WindowsApps\\Microsoft.Edge.GameAssist_1.0.4019.0_x64__8wekyb3d8bbwe\\EdgeGameAssist.exe, [N/A]\n21584, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n25208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n24236, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n3092, C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.810.7004.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe, [N/A]\n20700, C:\\Program Files\\WindowsApps\\OpenAI.ChatGPT-Desktop_1.2026.190.0_x64__2p2nqsd0c76g0\\app\\ChatGPT Classic.exe, [N/A]\n22016, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n21120, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n6624, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n18164, C:\\Coding Projects\\Apps\\GitHub Issue Triage Fine-Tune\\.python-runtime\\cpython-3.11.13-windows-x86_64-none\\python.exe, [N/A]",
+          "stderr": ""
+        }
+      },
+      "system_ram_after_model_load": {
+        "available": true,
+        "total_mib": 16275.53,
+        "available_mib": 3468.14,
+        "used_mib": 12807.39,
+        "used_percent": 78.69
+      },
+      "benchmark_optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.0001,
+        "final_training_learning_rate": false
+      },
+      "warmup": {
+        "elapsed_seconds": 2.350289,
+        "losses": [
+          7.796594
+        ],
+        "compilation_or_first_step_time_accounted_separately": true
+      },
+      "nvidia_smi_after_training": {
+        "gpu_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-gpu=name,memory.total,memory.used,memory.free,utilization.gpu",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "NVIDIA GeForce RTX 2060 SUPER, 8192, 6484, 1523, 100",
+          "stderr": ""
+        },
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 2060 SUPER",
+            "memory_total_mib": 8192.0,
+            "memory_used_mib": 6484.0,
+            "memory_free_mib": 1523.0,
+            "utilization_percent": 100.0
+          }
+        ],
+        "compute_process_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-compute-apps=pid,process_name,used_gpu_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "1596, [Insufficient Permissions], [N/A]\n8460, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n5744, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n2020, C:\\Windows\\explorer.exe, [N/A]\n10440, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n10452, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n13152, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\151.0.4129.78\\msedgewebview2.exe, [N/A]\n13632, C:\\Users\\Luke\\AppData\\Local\\Programs\\Notion\\Notion.exe, [N/A]\n15996, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\n14876, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n5020, C:\\Program Files\\Common Files\\Adobe\\Adobe OS Extension\\AdobeNotificationClient.exe, [N/A]\n13236, C:\\Software\\Itch\\app-26.18.0\\itch.exe, [N/A]\n15292, C:\\Games\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n22540, C:\\Program Files\\WindowsApps\\Microsoft.Edge.GameAssist_1.0.4019.0_x64__8wekyb3d8bbwe\\EdgeGameAssist.exe, [N/A]\n21584, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n25208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n24236, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n3092, C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.810.7004.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe, [N/A]\n20700, C:\\Program Files\\WindowsApps\\OpenAI.ChatGPT-Desktop_1.2026.190.0_x64__2p2nqsd0c76g0\\app\\ChatGPT Classic.exe, [N/A]\n22016, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n21120, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n6624, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n18164, C:\\Coding Projects\\Apps\\GitHub Issue Triage Fine-Tune\\.python-runtime\\cpython-3.11.13-windows-x86_64-none\\python.exe, [N/A]",
+          "stderr": ""
+        }
+      },
+      "system_ram_after_training": {
+        "available": true,
+        "total_mib": 16275.53,
+        "available_mib": 3504.68,
+        "used_mib": 12770.85,
+        "used_percent": 78.47
+      },
+      "steady_state": {
+        "completed_steps": 3,
+        "step_times_seconds": [
+          2.045937,
+          2.048419,
+          2.042027
+        ],
+        "seconds_per_step": 2.045461,
+        "losses": [
+          6.304623,
+          4.990437,
+          3.915159
+        ],
+        "processed_tokens": 4608,
+        "tokens_per_second": 750.931
+      },
+      "peak_gpu_memory_during_training": {
+        "allocated_bytes": 4032672768,
+        "allocated_mib": 3845.86,
+        "reserved_bytes": 5960105984,
+        "reserved_mib": 5684.0,
+        "peak_allocated_bytes": 4942905344,
+        "peak_allocated_mib": 4713.92,
+        "peak_reserved_bytes": 5960105984,
+        "peak_reserved_mib": 5684.0,
+        "free_bytes": 1189224448,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      }
+    },
+    {
+      "context_length": 2048,
+      "status": "passed",
+      "micro_batch_size": 1,
+      "gradient_accumulation_steps": 1,
+      "warmup_steps": 1,
+      "measured_steps_requested": 3,
+      "example": {
+        "source_split": "train",
+        "source_row_index": 112379,
+        "row_index_in_train_file": 15637,
+        "issue_id": 2795873185,
+        "repository": "godot",
+        "target_category": "bug",
+        "title": "Linux unable to compile `window template_release` with `lto=full production=yes`",
+        "full_sequence_token_count": 2049,
+        "fed_sequence_token_count": 2048,
+        "prompt_token_count": 2038,
+        "target_token_count": 11,
+        "truncated_prompt_token_count": 1
+      },
+      "cpu_or_ram_offloading": true,
+      "warnings": [
+        {
+          "category": "UserWarning",
+          "message": "You passed `quantization_config` or equivalent parameters to `from_pretrained` but the model you're loading already has a `quantization_config` attribute. The `quantization_config` from the model will be used."
+        },
+        {
+          "category": "UserWarning",
+          "message": "torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants."
+        }
+      ],
+      "nvidia_smi_before_test": {
+        "gpu_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-gpu=name,memory.total,memory.used,memory.free,utilization.gpu",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "NVIDIA GeForce RTX 2060 SUPER, 8192, 1138, 6869, 100",
+          "stderr": ""
+        },
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 2060 SUPER",
+            "memory_total_mib": 8192.0,
+            "memory_used_mib": 1138.0,
+            "memory_free_mib": 6869.0,
+            "utilization_percent": 100.0
+          }
+        ],
+        "compute_process_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-compute-apps=pid,process_name,used_gpu_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "1596, [Insufficient Permissions], [N/A]\n8460, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n5744, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n2020, C:\\Windows\\explorer.exe, [N/A]\n10440, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n10452, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n13152, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\151.0.4129.78\\msedgewebview2.exe, [N/A]\n13632, C:\\Users\\Luke\\AppData\\Local\\Programs\\Notion\\Notion.exe, [N/A]\n15996, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\n14876, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n5020, C:\\Program Files\\Common Files\\Adobe\\Adobe OS Extension\\AdobeNotificationClient.exe, [N/A]\n13236, C:\\Software\\Itch\\app-26.18.0\\itch.exe, [N/A]\n15292, C:\\Games\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n22540, C:\\Program Files\\WindowsApps\\Microsoft.Edge.GameAssist_1.0.4019.0_x64__8wekyb3d8bbwe\\EdgeGameAssist.exe, [N/A]\n21584, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n25208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n24236, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n3092, C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.810.7004.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe, [N/A]\n20700, C:\\Program Files\\WindowsApps\\OpenAI.ChatGPT-Desktop_1.2026.190.0_x64__2p2nqsd0c76g0\\app\\ChatGPT Classic.exe, [N/A]\n22016, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n21120, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n6624, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n18164, C:\\Coding Projects\\Apps\\GitHub Issue Triage Fine-Tune\\.python-runtime\\cpython-3.11.13-windows-x86_64-none\\python.exe, [N/A]",
+          "stderr": ""
+        }
+      },
+      "system_ram_before_test": {
+        "available": true,
+        "total_mib": 16275.53,
+        "available_mib": 3580.11,
+        "used_mib": 12695.42,
+        "used_percent": 78.0
+      },
+      "model": {
+        "total_parameter_count": 2523135488,
+        "trainable_parameter_count": 16515072,
+        "placement": {
+          "parameter_devices": [
+            "cuda:0"
+          ],
+          "buffer_devices": [
+            "cpu"
+          ],
+          "cpu_buffers_present": true,
+          "hf_device_map": null,
+          "offload_device_map_entries": {},
+          "cpu_or_disk_offload_detected": false
+        },
+        "gradient_checkpointing_requested": "unsloth",
+        "gradient_checkpointing_enabled": true,
+        "gradient_checkpointing_checkpoint_function": "unsloth_checkpoint",
+        "gradient_checkpointing_checkpoint_class": "UnslothCheckpointFunction",
+        "gradient_checkpointing_offloads_activations_to_cpu_ram": true
+      },
+      "gpu_memory_after_model_and_adapter_load": {
+        "allocated_bytes": 3721769984,
+        "allocated_mib": 3549.36,
+        "reserved_bytes": 3753902080,
+        "reserved_mib": 3580.0,
+        "peak_allocated_bytes": 4942905344,
+        "peak_allocated_mib": 4713.92,
+        "peak_reserved_bytes": 5960105984,
+        "peak_reserved_mib": 5684.0,
+        "free_bytes": 3703570432,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      },
+      "nvidia_smi_after_model_load": {
+        "gpu_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-gpu=name,memory.total,memory.used,memory.free,utilization.gpu",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "NVIDIA GeForce RTX 2060 SUPER, 8192, 4380, 3627, 14",
+          "stderr": ""
+        },
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 2060 SUPER",
+            "memory_total_mib": 8192.0,
+            "memory_used_mib": 4380.0,
+            "memory_free_mib": 3627.0,
+            "utilization_percent": 14.0
+          }
+        ],
+        "compute_process_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-compute-apps=pid,process_name,used_gpu_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "1596, [Insufficient Permissions], [N/A]\n8460, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n5744, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n2020, C:\\Windows\\explorer.exe, [N/A]\n10440, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n10452, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n13152, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\151.0.4129.78\\msedgewebview2.exe, [N/A]\n13632, C:\\Users\\Luke\\AppData\\Local\\Programs\\Notion\\Notion.exe, [N/A]\n15996, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\n14876, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n5020, C:\\Program Files\\Common Files\\Adobe\\Adobe OS Extension\\AdobeNotificationClient.exe, [N/A]\n13236, C:\\Software\\Itch\\app-26.18.0\\itch.exe, [N/A]\n15292, C:\\Games\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n22540, C:\\Program Files\\WindowsApps\\Microsoft.Edge.GameAssist_1.0.4019.0_x64__8wekyb3d8bbwe\\EdgeGameAssist.exe, [N/A]\n21584, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n25208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n24236, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n3092, C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.810.7004.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe, [N/A]\n20700, C:\\Program Files\\WindowsApps\\OpenAI.ChatGPT-Desktop_1.2026.190.0_x64__2p2nqsd0c76g0\\app\\ChatGPT Classic.exe, [N/A]\n22016, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n21120, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n6624, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n18164, C:\\Coding Projects\\Apps\\GitHub Issue Triage Fine-Tune\\.python-runtime\\cpython-3.11.13-windows-x86_64-none\\python.exe, [N/A]",
+          "stderr": ""
+        }
+      },
+      "system_ram_after_model_load": {
+        "available": true,
+        "total_mib": 16275.53,
+        "available_mib": 4709.75,
+        "used_mib": 11565.78,
+        "used_percent": 71.06
+      },
+      "benchmark_optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.0001,
+        "final_training_learning_rate": false
+      },
+      "warmup": {
+        "elapsed_seconds": 3.096061,
+        "losses": [
+          9.042027
+        ],
+        "compilation_or_first_step_time_accounted_separately": true
+      },
+      "nvidia_smi_after_training": {
+        "gpu_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-gpu=name,memory.total,memory.used,memory.free,utilization.gpu",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "NVIDIA GeForce RTX 2060 SUPER, 8192, 6789, 1218, 100",
+          "stderr": ""
+        },
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 2060 SUPER",
+            "memory_total_mib": 8192.0,
+            "memory_used_mib": 6789.0,
+            "memory_free_mib": 1218.0,
+            "utilization_percent": 100.0
+          }
+        ],
+        "compute_process_query": {
+          "command": [
+            "nvidia-smi",
+            "--query-compute-apps=pid,process_name,used_gpu_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "1596, [Insufficient Permissions], [N/A]\n8460, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n5744, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n2020, C:\\Windows\\explorer.exe, [N/A]\n10440, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n10452, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n13152, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\151.0.4129.78\\msedgewebview2.exe, [N/A]\n13632, C:\\Users\\Luke\\AppData\\Local\\Programs\\Notion\\Notion.exe, [N/A]\n15996, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\n14876, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n5020, C:\\Program Files\\Common Files\\Adobe\\Adobe OS Extension\\AdobeNotificationClient.exe, [N/A]\n13236, C:\\Software\\Itch\\app-26.18.0\\itch.exe, [N/A]\n15292, C:\\Games\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n22540, C:\\Program Files\\WindowsApps\\Microsoft.Edge.GameAssist_1.0.4019.0_x64__8wekyb3d8bbwe\\EdgeGameAssist.exe, [N/A]\n21584, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n25208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n24236, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n3092, C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.810.7004.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe, [N/A]\n20700, C:\\Program Files\\WindowsApps\\OpenAI.ChatGPT-Desktop_1.2026.190.0_x64__2p2nqsd0c76g0\\app\\ChatGPT Classic.exe, [N/A]\n22016, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n21120, C:\\Program Files\\Mozilla Firefox\\firefox.exe, [N/A]\n6624, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n18164, C:\\Coding Projects\\Apps\\GitHub Issue Triage Fine-Tune\\.python-runtime\\cpython-3.11.13-windows-x86_64-none\\python.exe, [N/A]",
+          "stderr": ""
+        }
+      },
+      "system_ram_after_training": {
+        "available": true,
+        "total_mib": 16275.53,
+        "available_mib": 4119.56,
+        "used_mib": 12155.97,
+        "used_percent": 74.69
+      },
+      "steady_state": {
+        "completed_steps": 3,
+        "step_times_seconds": [
+          2.775726,
+          2.753143,
+          2.787073
+        ],
+        "seconds_per_step": 2.77198,
+        "losses": [
+          7.211699,
+          6.211321,
+          4.849236
+        ],
+        "processed_tokens": 6144,
+        "tokens_per_second": 738.822
+      },
+      "peak_gpu_memory_during_training": {
+        "allocated_bytes": 4037391360,
+        "allocated_mib": 3850.36,
+        "reserved_bytes": 6270484480,
+        "reserved_mib": 5980.0,
+        "peak_allocated_bytes": 5269559296,
+        "peak_allocated_mib": 5025.44,
+        "peak_reserved_bytes": 6270484480,
+        "peak_reserved_mib": 5980.0,
+        "free_bytes": 876027904,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      }
+    }
+  ]
+}

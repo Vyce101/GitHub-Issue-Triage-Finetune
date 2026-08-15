@@ -1,0 +1,503 @@
+{
+  "status": "passed",
+  "created_at_utc": "2026-08-15T20:38:43.715268+00:00",
+  "benchmark_scope": "Small train-only QLoRA memory and throughput feasibility benchmark; not the real fine-tuning run.",
+  "model_id": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+  "model_revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 2060 SUPER",
+    "compute_capability": [
+      7,
+      5
+    ],
+    "vram_total_mib": 8191.69,
+    "compute_dtype": "torch.float16",
+    "bf16_supported": false,
+    "cuda_runtime": "13.0"
+  },
+  "software_versions": {
+    "torch": "2.11.0+cu130",
+    "transformers": "5.5.0",
+    "trl": "0.24.0",
+    "peft": "0.20.0",
+    "bitsandbytes": "0.50.1",
+    "unsloth": "2026.8.18",
+    "torch_cuda_runtime": "13.0"
+  },
+  "training_configuration": {
+    "context_lengths_tested": [
+      512,
+      1024,
+      1536,
+      2048
+    ],
+    "micro_batch_size": 1,
+    "gradient_accumulation_steps": 1,
+    "warmup_steps": 1,
+    "measured_steps": 3,
+    "validation_enabled": false,
+    "checkpoint_saving_enabled": false,
+    "adapter_saved": false,
+    "real_fine_tuning_run": false,
+    "lora_configuration_is_benchmark_only": true,
+    "lora_rank": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.0,
+    "lora_bias": "none",
+    "lora_target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "gradient_checkpointing": "unsloth",
+    "cpu_ram_offloading_note": "Unsloth offloaded gradient checkpointing is reported when its checkpoint shim moves saved activations to CPU RAM; model parameters must remain on cuda:0.",
+    "optimizer_learning_rate_is_benchmark_only": true
+  },
+  "data_boundary": {
+    "train_split_path": "data\\processed\\splits\\train.jsonl",
+    "train_row_count": 31876,
+    "validation_accessed": false,
+    "test_accessed": false,
+    "selection_method": "Shortest rendered zero-shot train conversation reaching each context length; target tokens retained while only real issue-prompt tokens may be truncated to the requested length.",
+    "prompt_format": "Existing baseline zero-shot system instruction and title/body prompt, followed by the normalized target JSON assistant response.",
+    "raw_github_labels_in_model_input": false
+  },
+  "results": [
+    {
+      "context_length": 512,
+      "status": "passed",
+      "micro_batch_size": 1,
+      "gradient_accumulation_steps": 1,
+      "warmup_steps": 1,
+      "measured_steps_requested": 3,
+      "example": {
+        "source_split": "train",
+        "source_row_index": 8019,
+        "row_index_in_train_file": 163,
+        "issue_id": 327402320,
+        "repository": "angular",
+        "target_category": "bug",
+        "title": "Formbuilder group from value object with array",
+        "full_sequence_token_count": 512,
+        "fed_sequence_token_count": 512,
+        "prompt_token_count": 501,
+        "target_token_count": 11,
+        "truncated_prompt_token_count": 0
+      },
+      "cpu_or_ram_offloading": true,
+      "warnings": [
+        {
+          "category": "UserWarning",
+          "message": "You passed `quantization_config` or equivalent parameters to `from_pretrained` but the model you're loading already has a `quantization_config` attribute. The `quantization_config` from the model will be used."
+        },
+        {
+          "category": "UserWarning",
+          "message": "torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants."
+        }
+      ],
+      "model": {
+        "total_parameter_count": 2523135488,
+        "trainable_parameter_count": 16515072,
+        "placement": {
+          "parameter_devices": [
+            "cuda:0"
+          ],
+          "buffer_devices": [
+            "cpu"
+          ],
+          "cpu_buffers_present": true,
+          "hf_device_map": null,
+          "offload_device_map_entries": {},
+          "cpu_or_disk_offload_detected": false
+        },
+        "gradient_checkpointing_requested": "unsloth",
+        "gradient_checkpointing_enabled": true,
+        "gradient_checkpointing_checkpoint_function": "unsloth_checkpoint",
+        "gradient_checkpointing_checkpoint_class": "UnslothCheckpointFunction",
+        "gradient_checkpointing_offloads_activations_to_cpu_ram": true
+      },
+      "gpu_memory_after_model_and_adapter_load": {
+        "allocated_bytes": 3660297216,
+        "allocated_mib": 3490.73,
+        "reserved_bytes": 3693084672,
+        "reserved_mib": 3522.0,
+        "peak_allocated_bytes": 3660411904,
+        "peak_allocated_mib": 3490.84,
+        "peak_reserved_bytes": 3693084672,
+        "peak_reserved_mib": 3522.0,
+        "free_bytes": 3772776448,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      },
+      "benchmark_optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.0001,
+        "final_training_learning_rate": false
+      },
+      "warmup": {
+        "elapsed_seconds": 4.785847,
+        "losses": [
+          8.104849
+        ],
+        "compilation_or_first_step_time_accounted_separately": true
+      },
+      "steady_state": {
+        "completed_steps": 3,
+        "step_times_seconds": [
+          0.802484,
+          0.797564,
+          0.806299
+        ],
+        "seconds_per_step": 0.802116,
+        "losses": [
+          6.471633,
+          4.89013,
+          3.846046
+        ],
+        "processed_tokens": 1536,
+        "tokens_per_second": 638.3117
+      },
+      "peak_gpu_memory_during_training": {
+        "allocated_bytes": 4020597760,
+        "allocated_mib": 3834.34,
+        "reserved_bytes": 4674551808,
+        "reserved_mib": 4458.0,
+        "peak_allocated_bytes": 4279226368,
+        "peak_allocated_mib": 4080.99,
+        "peak_reserved_bytes": 4674551808,
+        "peak_reserved_mib": 4458.0,
+        "free_bytes": 2782920704,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      }
+    },
+    {
+      "context_length": 1024,
+      "status": "passed",
+      "micro_batch_size": 1,
+      "gradient_accumulation_steps": 1,
+      "warmup_steps": 1,
+      "measured_steps_requested": 3,
+      "example": {
+        "source_split": "train",
+        "source_row_index": 52660,
+        "row_index_in_train_file": 6137,
+        "issue_id": 1359594561,
+        "repository": "go",
+        "target_category": "documentation",
+        "title": "net/netip: Document of `AddrFromSlice` doesn't mention that passing IPv4 `net.IP` made with `net.ParseIP` to `AddrFromSlice` creates IPv4 mapped IPv6 `netip.Addr`",
+        "full_sequence_token_count": 1024,
+        "fed_sequence_token_count": 1024,
+        "prompt_token_count": 1013,
+        "target_token_count": 11,
+        "truncated_prompt_token_count": 0
+      },
+      "cpu_or_ram_offloading": true,
+      "warnings": [
+        {
+          "category": "UserWarning",
+          "message": "You passed `quantization_config` or equivalent parameters to `from_pretrained` but the model you're loading already has a `quantization_config` attribute. The `quantization_config` from the model will be used."
+        },
+        {
+          "category": "UserWarning",
+          "message": "torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants."
+        }
+      ],
+      "model": {
+        "total_parameter_count": 2523135488,
+        "trainable_parameter_count": 16515072,
+        "placement": {
+          "parameter_devices": [
+            "cuda:0"
+          ],
+          "buffer_devices": [
+            "cpu"
+          ],
+          "cpu_buffers_present": true,
+          "hf_device_map": null,
+          "offload_device_map_entries": {},
+          "cpu_or_disk_offload_detected": false
+        },
+        "gradient_checkpointing_requested": "unsloth",
+        "gradient_checkpointing_enabled": true,
+        "gradient_checkpointing_checkpoint_function": "unsloth_checkpoint",
+        "gradient_checkpointing_checkpoint_class": "UnslothCheckpointFunction",
+        "gradient_checkpointing_offloads_activations_to_cpu_ram": true
+      },
+      "gpu_memory_after_model_and_adapter_load": {
+        "allocated_bytes": 3721769984,
+        "allocated_mib": 3549.36,
+        "reserved_bytes": 3753902080,
+        "reserved_mib": 3580.0,
+        "peak_allocated_bytes": 4279226368,
+        "peak_allocated_mib": 4080.99,
+        "peak_reserved_bytes": 4674551808,
+        "peak_reserved_mib": 4458.0,
+        "free_bytes": 3703570432,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      },
+      "benchmark_optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.0001,
+        "final_training_learning_rate": false
+      },
+      "warmup": {
+        "elapsed_seconds": 1.987715,
+        "losses": [
+          7.58491
+        ],
+        "compilation_or_first_step_time_accounted_separately": true
+      },
+      "steady_state": {
+        "completed_steps": 3,
+        "step_times_seconds": [
+          1.447553,
+          1.447187,
+          1.433415
+        ],
+        "seconds_per_step": 1.442719,
+        "losses": [
+          6.166578,
+          4.647747,
+          3.888047
+        ],
+        "processed_tokens": 3072,
+        "tokens_per_second": 709.7711
+      },
+      "peak_gpu_memory_during_training": {
+        "allocated_bytes": 4026905600,
+        "allocated_mib": 3840.36,
+        "reserved_bytes": 5045747712,
+        "reserved_mib": 4812.0,
+        "peak_allocated_bytes": 4609435648,
+        "peak_allocated_mib": 4395.9,
+        "peak_reserved_bytes": 5045747712,
+        "peak_reserved_mib": 4812.0,
+        "free_bytes": 2411724800,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      }
+    },
+    {
+      "context_length": 1536,
+      "status": "passed",
+      "micro_batch_size": 1,
+      "gradient_accumulation_steps": 1,
+      "warmup_steps": 1,
+      "measured_steps_requested": 3,
+      "example": {
+        "source_split": "train",
+        "source_row_index": 28094,
+        "row_index_in_train_file": 5883,
+        "issue_id": 743039509,
+        "repository": "go",
+        "target_category": "documentation",
+        "title": "math: Nextafter, Nextafter32 clarify behavior with -0, +0",
+        "full_sequence_token_count": 1536,
+        "fed_sequence_token_count": 1536,
+        "prompt_token_count": 1525,
+        "target_token_count": 11,
+        "truncated_prompt_token_count": 0
+      },
+      "cpu_or_ram_offloading": true,
+      "warnings": [
+        {
+          "category": "UserWarning",
+          "message": "You passed `quantization_config` or equivalent parameters to `from_pretrained` but the model you're loading already has a `quantization_config` attribute. The `quantization_config` from the model will be used."
+        },
+        {
+          "category": "UserWarning",
+          "message": "torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants."
+        }
+      ],
+      "model": {
+        "total_parameter_count": 2523135488,
+        "trainable_parameter_count": 16515072,
+        "placement": {
+          "parameter_devices": [
+            "cuda:0"
+          ],
+          "buffer_devices": [
+            "cpu"
+          ],
+          "cpu_buffers_present": true,
+          "hf_device_map": null,
+          "offload_device_map_entries": {},
+          "cpu_or_disk_offload_detected": false
+        },
+        "gradient_checkpointing_requested": "unsloth",
+        "gradient_checkpointing_enabled": true,
+        "gradient_checkpointing_checkpoint_function": "unsloth_checkpoint",
+        "gradient_checkpointing_checkpoint_class": "UnslothCheckpointFunction",
+        "gradient_checkpointing_offloads_activations_to_cpu_ram": true
+      },
+      "gpu_memory_after_model_and_adapter_load": {
+        "allocated_bytes": 3721769984,
+        "allocated_mib": 3549.36,
+        "reserved_bytes": 3753902080,
+        "reserved_mib": 3580.0,
+        "peak_allocated_bytes": 4609435648,
+        "peak_allocated_mib": 4395.9,
+        "peak_reserved_bytes": 5045747712,
+        "peak_reserved_mib": 4812.0,
+        "free_bytes": 3703570432,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      },
+      "benchmark_optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.0001,
+        "final_training_learning_rate": false
+      },
+      "warmup": {
+        "elapsed_seconds": 3.247072,
+        "losses": [
+          7.796594
+        ],
+        "compilation_or_first_step_time_accounted_separately": true
+      },
+      "steady_state": {
+        "completed_steps": 3,
+        "step_times_seconds": [
+          2.514852,
+          2.520907,
+          2.519211
+        ],
+        "seconds_per_step": 2.518323,
+        "losses": [
+          6.306748,
+          4.983259,
+          3.918487
+        ],
+        "processed_tokens": 4608,
+        "tokens_per_second": 609.9296
+      },
+      "peak_gpu_memory_during_training": {
+        "allocated_bytes": 4024284160,
+        "allocated_mib": 3837.86,
+        "reserved_bytes": 5960105984,
+        "reserved_mib": 5684.0,
+        "peak_allocated_bytes": 4935041024,
+        "peak_allocated_mib": 4706.42,
+        "peak_reserved_bytes": 5960105984,
+        "peak_reserved_mib": 5684.0,
+        "free_bytes": 0,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      }
+    },
+    {
+      "context_length": 2048,
+      "status": "passed",
+      "micro_batch_size": 1,
+      "gradient_accumulation_steps": 1,
+      "warmup_steps": 1,
+      "measured_steps_requested": 3,
+      "example": {
+        "source_split": "train",
+        "source_row_index": 112379,
+        "row_index_in_train_file": 15637,
+        "issue_id": 2795873185,
+        "repository": "godot",
+        "target_category": "bug",
+        "title": "Linux unable to compile `window template_release` with `lto=full production=yes`",
+        "full_sequence_token_count": 2049,
+        "fed_sequence_token_count": 2048,
+        "prompt_token_count": 2038,
+        "target_token_count": 11,
+        "truncated_prompt_token_count": 1
+      },
+      "cpu_or_ram_offloading": true,
+      "warnings": [
+        {
+          "category": "UserWarning",
+          "message": "You passed `quantization_config` or equivalent parameters to `from_pretrained` but the model you're loading already has a `quantization_config` attribute. The `quantization_config` from the model will be used."
+        },
+        {
+          "category": "UserWarning",
+          "message": "torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants."
+        }
+      ],
+      "model": {
+        "total_parameter_count": 2523135488,
+        "trainable_parameter_count": 16515072,
+        "placement": {
+          "parameter_devices": [
+            "cuda:0"
+          ],
+          "buffer_devices": [
+            "cpu"
+          ],
+          "cpu_buffers_present": true,
+          "hf_device_map": null,
+          "offload_device_map_entries": {},
+          "cpu_or_disk_offload_detected": false
+        },
+        "gradient_checkpointing_requested": "unsloth",
+        "gradient_checkpointing_enabled": true,
+        "gradient_checkpointing_checkpoint_function": "unsloth_checkpoint",
+        "gradient_checkpointing_checkpoint_class": "UnslothCheckpointFunction",
+        "gradient_checkpointing_offloads_activations_to_cpu_ram": true
+      },
+      "gpu_memory_after_model_and_adapter_load": {
+        "allocated_bytes": 3721769984,
+        "allocated_mib": 3549.36,
+        "reserved_bytes": 3753902080,
+        "reserved_mib": 3580.0,
+        "peak_allocated_bytes": 4935041024,
+        "peak_allocated_mib": 4706.42,
+        "peak_reserved_bytes": 5960105984,
+        "peak_reserved_mib": 5684.0,
+        "free_bytes": 3703570432,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      },
+      "benchmark_optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.0001,
+        "final_training_learning_rate": false
+      },
+      "warmup": {
+        "elapsed_seconds": 4.010793,
+        "losses": [
+          9.042027
+        ],
+        "compilation_or_first_step_time_accounted_separately": true
+      },
+      "steady_state": {
+        "completed_steps": 3,
+        "step_times_seconds": [
+          3.502699,
+          3.47394,
+          3.46302
+        ],
+        "seconds_per_step": 3.479886,
+        "losses": [
+          7.220988,
+          6.203541,
+          4.845582
+        ],
+        "processed_tokens": 6144,
+        "tokens_per_second": 588.5249
+      },
+      "peak_gpu_memory_during_training": {
+        "allocated_bytes": 4026905600,
+        "allocated_mib": 3840.36,
+        "reserved_bytes": 6270484480,
+        "reserved_mib": 5980.0,
+        "peak_allocated_bytes": 5259073536,
+        "peak_allocated_mib": 5015.44,
+        "peak_reserved_bytes": 6270484480,
+        "peak_reserved_mib": 5980.0,
+        "free_bytes": 0,
+        "total_bytes": 8589606912,
+        "total_mib": 8191.69
+      }
+    }
+  ]
+}
