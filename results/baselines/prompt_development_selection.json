@@ -1,0 +1,2884 @@
+{
+  "selection_method": "Deterministic lexical repository round-robin for development rows; shortest title/body token candidates with distinct repositories for demonstrations.",
+  "prompt_development_zero_shot_input_token_cap": 512,
+  "prompt_development_length_cap_is_final_training_context": false,
+  "source_split": "train",
+  "prompt_development_row_count": 400,
+  "prompt_development_class_counts": {
+    "bug": 100,
+    "feature": 100,
+    "documentation": 100,
+    "question_support": 100
+  },
+  "prompt_development_repository_count": 37,
+  "prompt_development_examples": [
+    {
+      "issue_id": 28086808,
+      "repository": "react",
+      "source_split": "train",
+      "source_row_index": 67,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 29305204,
+      "repository": "react",
+      "source_split": "train",
+      "source_row_index": 77,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 33492158,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 105,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 42741069,
+      "repository": "react",
+      "source_split": "train",
+      "source_row_index": 191,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 48587265,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 244,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 53312747,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 603,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 53336809,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 604,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 56358461,
+      "repository": "angular",
+      "source_split": "train",
+      "source_row_index": 652,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 57244135,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 675,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 58103706,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 694,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 60568519,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 732,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 97179424,
+      "repository": "opencv",
+      "source_split": "train",
+      "source_row_index": 1075,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 97417283,
+      "repository": "opencv",
+      "source_split": "train",
+      "source_row_index": 1138,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 97417487,
+      "repository": "opencv",
+      "source_split": "train",
+      "source_row_index": 1140,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 97417590,
+      "repository": "opencv",
+      "source_split": "train",
+      "source_row_index": 1142,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 105478672,
+      "repository": "angular",
+      "source_split": "train",
+      "source_row_index": 1580,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 110318123,
+      "repository": "angular",
+      "source_split": "train",
+      "source_row_index": 1668,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 114520835,
+      "repository": "angular",
+      "source_split": "train",
+      "source_row_index": 1743,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 127665597,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 2033,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 135339370,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 2156,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 139359988,
+      "repository": "react",
+      "source_split": "train",
+      "source_row_index": 2234,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 159896424,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 2668,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 163157527,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 2755,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 165925771,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 2835,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 167491157,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 2882,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 201726835,
+      "repository": "vue",
+      "source_split": "train",
+      "source_row_index": 3833,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 204944224,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 3925,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 206305296,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 3960,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 209653764,
+      "repository": "react-native",
+      "source_split": "train",
+      "source_row_index": 4062,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 223139536,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 4453,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 234083443,
+      "repository": "vue",
+      "source_split": "train",
+      "source_row_index": 4792,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 242611840,
+      "repository": "vue-element-admin",
+      "source_split": "train",
+      "source_row_index": 5076,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 254836137,
+      "repository": "puppeteer",
+      "source_split": "train",
+      "source_row_index": 5440,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 268706991,
+      "repository": "vue",
+      "source_split": "train",
+      "source_row_index": 5880,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 297651197,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 6831,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 304613131,
+      "repository": "scrcpy",
+      "source_split": "train",
+      "source_row_index": 7131,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 317095768,
+      "repository": "react-native",
+      "source_split": "train",
+      "source_row_index": 7623,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 328784268,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 8081,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 334176917,
+      "repository": "puppeteer",
+      "source_split": "train",
+      "source_row_index": 8285,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 347177135,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 8837,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 379176137,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 10409,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 381465936,
+      "repository": "javascript-algorithms",
+      "source_split": "train",
+      "source_row_index": 10511,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 381543737,
+      "repository": "create-react-app",
+      "source_split": "train",
+      "source_row_index": 10514,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 403731034,
+      "repository": "react-native",
+      "source_split": "train",
+      "source_row_index": 11572,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 410885779,
+      "repository": "create-react-app",
+      "source_split": "train",
+      "source_row_index": 11867,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 412682722,
+      "repository": "puppeteer",
+      "source_split": "train",
+      "source_row_index": 11946,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 441486396,
+      "repository": "create-react-app",
+      "source_split": "train",
+      "source_row_index": 13351,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 453829965,
+      "repository": "create-react-app",
+      "source_split": "train",
+      "source_row_index": 13998,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 454944138,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 14047,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 478755398,
+      "repository": "vue-element-admin",
+      "source_split": "train",
+      "source_row_index": 15215,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 480389102,
+      "repository": "puppeteer",
+      "source_split": "train",
+      "source_row_index": 15307,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 558727691,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 19364,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 562237046,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 19559,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 586841279,
+      "repository": "vue-element-admin",
+      "source_split": "train",
+      "source_row_index": 20693,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 589695840,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 20832,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 596554768,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 21188,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 635259870,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 23179,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 673947829,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 24958,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 705029601,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 26321,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 725663205,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 27281,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 740529145,
+      "repository": "next.js",
+      "source_split": "train",
+      "source_row_index": 27977,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 746334255,
+      "repository": "next.js",
+      "source_split": "train",
+      "source_row_index": 28258,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 810676833,
+      "repository": "next.js",
+      "source_split": "train",
+      "source_row_index": 31137,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 860523424,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 33429,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 868278962,
+      "repository": "next.js",
+      "source_split": "train",
+      "source_row_index": 33759,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 974537747,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 37856,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 983487434,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 38300,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1088761209,
+      "repository": "realworld",
+      "source_split": "train",
+      "source_row_index": 42637,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1223112039,
+      "repository": "transformers",
+      "source_split": "train",
+      "source_row_index": 47610,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1274604565,
+      "repository": "rustdesk",
+      "source_split": "train",
+      "source_row_index": 49484,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1306382229,
+      "repository": "pytorch",
+      "source_split": "train",
+      "source_row_index": 50613,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1314898894,
+      "repository": "animate.css",
+      "source_split": "train",
+      "source_row_index": 50869,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1367843977,
+      "repository": "transformers",
+      "source_split": "train",
+      "source_row_index": 52981,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1375370161,
+      "repository": "stable-diffusion-webui",
+      "source_split": "train",
+      "source_row_index": 53270,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1385006507,
+      "repository": "stable-diffusion-webui",
+      "source_split": "train",
+      "source_row_index": 53713,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1396901136,
+      "repository": "stable-diffusion-webui",
+      "source_split": "train",
+      "source_row_index": 54198,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1407691280,
+      "repository": "rustdesk",
+      "source_split": "train",
+      "source_row_index": 54694,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1451727182,
+      "repository": "rustdesk",
+      "source_split": "train",
+      "source_row_index": 56434,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1504724007,
+      "repository": "realworld",
+      "source_split": "train",
+      "source_row_index": 58149,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1506605615,
+      "repository": "pytorch",
+      "source_split": "train",
+      "source_row_index": 58217,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1513855225,
+      "repository": "pytorch",
+      "source_split": "train",
+      "source_row_index": 58508,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1565230146,
+      "repository": "pytorch",
+      "source_split": "train",
+      "source_row_index": 60252,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1816939489,
+      "repository": "yt-dlp",
+      "source_split": "train",
+      "source_row_index": 70633,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1822479501,
+      "repository": "realworld",
+      "source_split": "train",
+      "source_row_index": 70855,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1823409518,
+      "repository": "ui",
+      "source_split": "train",
+      "source_row_index": 70889,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1917642164,
+      "repository": "awesome-mac",
+      "source_split": "train",
+      "source_row_index": 74907,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1922468064,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 75129,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1944064382,
+      "repository": "Python",
+      "source_split": "train",
+      "source_row_index": 75936,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1960138018,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 76529,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1960826135,
+      "repository": "Python",
+      "source_split": "train",
+      "source_row_index": 76549,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1978265004,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 77343,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1982102982,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 77492,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 2002761633,
+      "repository": "ui",
+      "source_split": "train",
+      "source_row_index": 78309,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 2144350951,
+      "repository": "ui",
+      "source_split": "train",
+      "source_row_index": 84172,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 2173684153,
+      "repository": "transformers",
+      "source_split": "train",
+      "source_row_index": 85426,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 2365409685,
+      "repository": "animate.css",
+      "source_split": "train",
+      "source_row_index": 93390,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 2380625542,
+      "repository": "animate.css",
+      "source_split": "train",
+      "source_row_index": 93972,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 2512011806,
+      "repository": "animate.css",
+      "source_split": "train",
+      "source_row_index": 99530,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 2568511902,
+      "repository": "Python",
+      "source_split": "train",
+      "source_row_index": 101945,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 2808407177,
+      "repository": "tailwindcss",
+      "source_split": "train",
+      "source_row_index": 113310,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 34971722,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 118,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 51281324,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 296,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 51281959,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 302,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 51282447,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 307,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 51283032,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 317,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 51283059,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 319,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 51283412,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 331,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 51285242,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 373,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 51285400,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 378,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 51287502,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 464,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 52191348,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 570,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 97088953,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 1073,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 97416394,
+      "repository": "opencv",
+      "source_split": "train",
+      "source_row_index": 1126,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 97418183,
+      "repository": "opencv",
+      "source_split": "train",
+      "source_row_index": 1148,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 97420930,
+      "repository": "opencv",
+      "source_split": "train",
+      "source_row_index": 1178,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 97423804,
+      "repository": "opencv",
+      "source_split": "train",
+      "source_row_index": 1208,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 97437135,
+      "repository": "opencv",
+      "source_split": "train",
+      "source_row_index": 1372,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 108569101,
+      "repository": "opencv",
+      "source_split": "train",
+      "source_row_index": 1643,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 111048579,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 1689,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 112581353,
+      "repository": "opencv",
+      "source_split": "train",
+      "source_row_index": 1716,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 115640387,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 1770,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 125084125,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 1976,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 125084454,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 1977,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 126800015,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 2008,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 136939693,
+      "repository": "opencv",
+      "source_split": "train",
+      "source_row_index": 2184,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 157091195,
+      "repository": "opencv",
+      "source_split": "train",
+      "source_row_index": 2588,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 210275741,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 4084,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 246353891,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 5187,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 270470531,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 5933,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 286480453,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 6469,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 288886255,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 6548,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 294060134,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 6714,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 299527612,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 6903,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 306645710,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 7213,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 318021077,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 7657,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 339602090,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 8502,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 352029386,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 9054,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 365976875,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 9732,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 374419557,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 10147,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 375831243,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 10231,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 386584614,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 10743,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 437394989,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 13103,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 438060621,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 13147,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 447740882,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 13684,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 448400564,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 13723,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 453147346,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 13962,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 455376231,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 14069,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 488149051,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 15731,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 491584148,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 15912,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 499853268,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 16324,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 526000901,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 17552,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 529216985,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 17732,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 564949600,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 19670,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 565228738,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 19682,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 704228916,
+      "repository": "animate.css",
+      "source_split": "train",
+      "source_row_index": 26264,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 742794197,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 28078,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1030138472,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 40076,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1101989061,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 43237,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1106218052,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 43382,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1262556175,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 49064,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1302039854,
+      "repository": "vue",
+      "source_split": "train",
+      "source_row_index": 50448,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1311711934,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 50793,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1320047332,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 51113,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1343458650,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 52060,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1429423834,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 55581,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1456075972,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 56584,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1458766014,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 56726,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1508088666,
+      "repository": "stable-diffusion-webui",
+      "source_split": "train",
+      "source_row_index": 58267,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1647477878,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 63889,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1652060906,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 64094,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1666371488,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 64724,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1676678821,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 65174,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1837350050,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 71451,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1837930426,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 71496,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1878419663,
+      "repository": "stable-diffusion-webui",
+      "source_split": "train",
+      "source_row_index": 73130,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 1962004458,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 76595,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2035222853,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 79698,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2049840341,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 80274,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2054799798,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 80480,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2068696894,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 81129,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2117233601,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 83072,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2141803089,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 84095,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2161046121,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 84898,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2170599703,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 85305,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2183168404,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 85831,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2190348089,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 86124,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2190626970,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 86149,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2191695140,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 86207,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2222599525,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 87355,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2239331290,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 88005,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2240502753,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 88027,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2310424354,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 91064,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2364623178,
+      "repository": "puppeteer",
+      "source_split": "train",
+      "source_row_index": 93344,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2435143217,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 96088,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2445931400,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 96521,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2474448356,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 97867,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2520710756,
+      "repository": "puppeteer",
+      "source_split": "train",
+      "source_row_index": 99900,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2637042503,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 104972,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2660515189,
+      "repository": "transformers",
+      "source_split": "train",
+      "source_row_index": 106135,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 2664794748,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 106284,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 13122965,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 19,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 18382292,
+      "repository": "react",
+      "source_split": "train",
+      "source_row_index": 23,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 25876528,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 56,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 29015891,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 74,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 30900007,
+      "repository": "react",
+      "source_split": "train",
+      "source_row_index": 84,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 31727050,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 89,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 32218612,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 92,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 33034271,
+      "repository": "neovim",
+      "source_split": "train",
+      "source_row_index": 98,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 36379404,
+      "repository": "react",
+      "source_split": "train",
+      "source_row_index": 126,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 37201374,
+      "repository": "react",
+      "source_split": "train",
+      "source_row_index": 133,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 38106770,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 140,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 38458518,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 143,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 43073082,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 195,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 43160102,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 197,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 44108389,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 201,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 51278171,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 273,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 51279131,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 277,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 51280542,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 292,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 51282548,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 309,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 51282696,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 314,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 54686145,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 628,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 57255857,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 676,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 74936381,
+      "repository": "java-design-patterns",
+      "source_split": "train",
+      "source_row_index": 882,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 90462920,
+      "repository": "java-design-patterns",
+      "source_split": "train",
+      "source_row_index": 982,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 90463980,
+      "repository": "java-design-patterns",
+      "source_split": "train",
+      "source_row_index": 983,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 90464655,
+      "repository": "java-design-patterns",
+      "source_split": "train",
+      "source_row_index": 984,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 90465618,
+      "repository": "java-design-patterns",
+      "source_split": "train",
+      "source_row_index": 985,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 115959250,
+      "repository": "flutter",
+      "source_split": "train",
+      "source_row_index": 1777,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 117469958,
+      "repository": "flutter",
+      "source_split": "train",
+      "source_row_index": 1800,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 121958287,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 1909,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 124499048,
+      "repository": "flutter",
+      "source_split": "train",
+      "source_row_index": 1963,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 127049530,
+      "repository": "flutter",
+      "source_split": "train",
+      "source_row_index": 2018,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 131890153,
+      "repository": "flutter",
+      "source_split": "train",
+      "source_row_index": 2088,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 143843603,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 2304,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 163523454,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 2767,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 164849962,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 2802,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 168495104,
+      "repository": "godot",
+      "source_split": "train",
+      "source_row_index": 2907,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 175970980,
+      "repository": "vue",
+      "source_split": "train",
+      "source_row_index": 3102,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 180758680,
+      "repository": "vue",
+      "source_split": "train",
+      "source_row_index": 3246,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 192983382,
+      "repository": "pytorch",
+      "source_split": "train",
+      "source_row_index": 3567,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 211919550,
+      "repository": "vue",
+      "source_split": "train",
+      "source_row_index": 4123,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 221404914,
+      "repository": "pytorch",
+      "source_split": "train",
+      "source_row_index": 4399,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 233851320,
+      "repository": "pytorch",
+      "source_split": "train",
+      "source_row_index": 4785,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 235670948,
+      "repository": "pytorch",
+      "source_split": "train",
+      "source_row_index": 4857,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 239050098,
+      "repository": "vue",
+      "source_split": "train",
+      "source_row_index": 4975,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 297948004,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 6847,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 303787073,
+      "repository": "scrcpy",
+      "source_split": "train",
+      "source_row_index": 7081,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 303904121,
+      "repository": "scrcpy",
+      "source_split": "train",
+      "source_row_index": 7088,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 304196418,
+      "repository": "scrcpy",
+      "source_split": "train",
+      "source_row_index": 7110,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 304200823,
+      "repository": "scrcpy",
+      "source_split": "train",
+      "source_row_index": 7112,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 314194066,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 7504,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 325896013,
+      "repository": "javascript-algorithms",
+      "source_split": "train",
+      "source_row_index": 7963,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 326014159,
+      "repository": "javascript-algorithms",
+      "source_split": "train",
+      "source_row_index": 7967,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 328710048,
+      "repository": "javascript-algorithms",
+      "source_split": "train",
+      "source_row_index": 8073,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 337954214,
+      "repository": "javascript-algorithms",
+      "source_split": "train",
+      "source_row_index": 8439,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 339128312,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 8479,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 339224686,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 8487,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 356262516,
+      "repository": "javascript-algorithms",
+      "source_split": "train",
+      "source_row_index": 9274,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 546664552,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 18644,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 548605662,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 18758,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 548954668,
+      "repository": "animate.css",
+      "source_split": "train",
+      "source_row_index": 18772,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 551123300,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 18905,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 555013189,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 19139,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 581744299,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 20433,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 651140258,
+      "repository": "transformers",
+      "source_split": "train",
+      "source_row_index": 23976,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 708279452,
+      "repository": "transformers",
+      "source_split": "train",
+      "source_row_index": 26486,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 718927476,
+      "repository": "transformers",
+      "source_split": "train",
+      "source_row_index": 26996,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 737323161,
+      "repository": "transformers",
+      "source_split": "train",
+      "source_row_index": 27810,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 767276732,
+      "repository": "animate.css",
+      "source_split": "train",
+      "source_row_index": 29044,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 776933088,
+      "repository": "animate.css",
+      "source_split": "train",
+      "source_row_index": 29469,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 812943487,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 31243,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 849899447,
+      "repository": "yt-dlp",
+      "source_split": "train",
+      "source_row_index": 32884,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 855403948,
+      "repository": "yt-dlp",
+      "source_split": "train",
+      "source_row_index": 33159,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 877736312,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 34164,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 890639945,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 34393,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 893771486,
+      "repository": "rustdesk",
+      "source_split": "train",
+      "source_row_index": 34557,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 927274303,
+      "repository": "animate.css",
+      "source_split": "train",
+      "source_row_index": 35831,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 941556256,
+      "repository": "yt-dlp",
+      "source_split": "train",
+      "source_row_index": 36502,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 945284609,
+      "repository": "animate.css",
+      "source_split": "train",
+      "source_row_index": 36640,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 955515494,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 37085,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 958217120,
+      "repository": "yt-dlp",
+      "source_split": "train",
+      "source_row_index": 37201,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1228506405,
+      "repository": "rustdesk",
+      "source_split": "train",
+      "source_row_index": 47843,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1365393050,
+      "repository": "stable-diffusion-webui",
+      "source_split": "train",
+      "source_row_index": 52906,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1365668651,
+      "repository": "stable-diffusion-webui",
+      "source_split": "train",
+      "source_row_index": 52915,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1366313096,
+      "repository": "stable-diffusion-webui",
+      "source_split": "train",
+      "source_row_index": 52932,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1369055861,
+      "repository": "stable-diffusion-webui",
+      "source_split": "train",
+      "source_row_index": 53059,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1437240472,
+      "repository": "Python",
+      "source_split": "train",
+      "source_row_index": 55877,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1441705229,
+      "repository": "rustdesk",
+      "source_split": "train",
+      "source_row_index": 56062,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1515546093,
+      "repository": "Python",
+      "source_split": "train",
+      "source_row_index": 58593,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1523280521,
+      "repository": "Python",
+      "source_split": "train",
+      "source_row_index": 58909,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1557160434,
+      "repository": "Python",
+      "source_split": "train",
+      "source_row_index": 59892,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1635908943,
+      "repository": "rustdesk",
+      "source_split": "train",
+      "source_row_index": 63401,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1650315225,
+      "repository": "Python",
+      "source_split": "train",
+      "source_row_index": 63996,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1761894163,
+      "repository": "d3",
+      "source_split": "train",
+      "source_row_index": 68476,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1761894209,
+      "repository": "d3",
+      "source_split": "train",
+      "source_row_index": 68477,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1815137426,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 70546,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1815859719,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 70573,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1819267669,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 70743,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1824989299,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 70944,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1920598174,
+      "repository": "hello-algo",
+      "source_split": "train",
+      "source_row_index": 75053,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 1789512,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 4,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 4069734,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 9,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 20577764,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 32,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 23636864,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 47,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 24364506,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 48,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 24397121,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 49,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 24898118,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 52,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 26243575,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 57,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 26588588,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 59,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 27027653,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 63,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 33107532,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 100,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 33947925,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 109,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 36259284,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 125,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 37298631,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 135,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 39994511,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 168,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 40321567,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 173,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 43017447,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 193,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 49881476,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 256,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 50554298,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 261,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 52628066,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 586,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 54691679,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 629,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 55335337,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 640,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 55850799,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 646,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 59601605,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 720,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 61556815,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 739,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 67361885,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 783,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 67641964,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 791,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 69028757,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 815,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 72422535,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 849,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 72669772,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 857,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 74331174,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 875,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 77368144,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 894,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 78744378,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 899,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 83673499,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 929,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 83921697,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 931,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 86509849,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 950,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 87107430,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 953,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 88488946,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 962,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 91444575,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 997,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 94502809,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 1034,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 94633918,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 1037,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 95853897,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 1057,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 95937897,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 1059,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 96485419,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 1065,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 100072671,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 1476,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 101081688,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 1497,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 101519463,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 1504,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 101614766,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 1505,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 102520642,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 1523,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 367127179,
+      "repository": "create-react-app",
+      "source_split": "train",
+      "source_row_index": 9781,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 379425438,
+      "repository": "scrcpy",
+      "source_split": "train",
+      "source_row_index": 10421,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 537065588,
+      "repository": "scrcpy",
+      "source_split": "train",
+      "source_row_index": 18108,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 597899008,
+      "repository": "scrcpy",
+      "source_split": "train",
+      "source_row_index": 21270,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 607449845,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 21767,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 609671920,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 21896,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 623511295,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 22657,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 646003784,
+      "repository": "scrcpy",
+      "source_split": "train",
+      "source_row_index": 23712,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 658473889,
+      "repository": "scrcpy",
+      "source_split": "train",
+      "source_row_index": 24352,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 687404991,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 25642,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 771687267,
+      "repository": "react",
+      "source_split": "train",
+      "source_row_index": 29236,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 788560264,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 30041,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 971544269,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 37721,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 1052721506,
+      "repository": "yt-dlp",
+      "source_split": "train",
+      "source_row_index": 41089,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 1123223807,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 44095,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 1201870599,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 46830,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 1211117697,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 47201,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 1757947946,
+      "repository": "stable-diffusion-webui",
+      "source_split": "train",
+      "source_row_index": 68323,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 1884754518,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 73388,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 1895107984,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 73845,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 1963845529,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 76666,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2137783483,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 83928,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2140125367,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 84023,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2143713954,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 84158,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2160674291,
+      "repository": "ollama",
+      "source_split": "train",
+      "source_row_index": 84886,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2185944487,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 85938,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2203907506,
+      "repository": "three.js",
+      "source_split": "train",
+      "source_row_index": 86632,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2268452372,
+      "repository": "terminal",
+      "source_split": "train",
+      "source_row_index": 89262,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2283160225,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 89825,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2317147043,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 91403,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2327120815,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 91796,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2344359610,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 92562,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2446556300,
+      "repository": "tauri",
+      "source_split": "train",
+      "source_row_index": 96556,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2506304208,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 99245,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2506867891,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 99272,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2531786596,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 100397,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2558627517,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 101537,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2583314052,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 102584,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2583470864,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 102595,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2590848135,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 102873,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2601849665,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 103350,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2610270948,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 103658,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2612107062,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 103730,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2622957552,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 104272,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2626218830,
+      "repository": "react",
+      "source_split": "train",
+      "source_row_index": 104403,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2633780766,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 104793,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2634686738,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 104845,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2696952074,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 107329,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2713947684,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 107831,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2759878173,
+      "repository": "kubernetes",
+      "source_split": "train",
+      "source_row_index": 110125,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2799979331,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 112721,
+      "target_category": "question_support"
+    }
+  ],
+  "few_shot_example_count": 8,
+  "few_shot_class_counts": {
+    "bug": 2,
+    "feature": 2,
+    "documentation": 2,
+    "question_support": 2
+  },
+  "few_shot_repository_count": 5,
+  "few_shot_examples": [
+    {
+      "issue_id": 2067360026,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 81062,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 1093736732,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 42888,
+      "target_category": "bug"
+    },
+    {
+      "issue_id": 2743938738,
+      "repository": "excalidraw",
+      "source_split": "train",
+      "source_row_index": 109206,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 393412054,
+      "repository": "javascript-algorithms",
+      "source_split": "train",
+      "source_row_index": 11078,
+      "target_category": "feature"
+    },
+    {
+      "issue_id": 2693425275,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 107211,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 81083180,
+      "repository": "go",
+      "source_split": "train",
+      "source_row_index": 910,
+      "target_category": "documentation"
+    },
+    {
+      "issue_id": 141645139,
+      "repository": "youtube-dl",
+      "source_split": "train",
+      "source_row_index": 2267,
+      "target_category": "question_support"
+    },
+    {
+      "issue_id": 2541565835,
+      "repository": "deno",
+      "source_split": "train",
+      "source_row_index": 100784,
+      "target_category": "question_support"
+    }
+  ],
+  "few_shot_excluded_from_prompt_development": true,
+  "validation_or_test_examples_selected": false
+}

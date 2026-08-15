@@ -1,0 +1,214 @@
+{
+  "model_id": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+  "model_revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+  "evaluation_split": "train",
+  "evaluation_subset": "prompt_development_selection.json",
+  "validation_evaluated": false,
+  "test_evaluated": false,
+  "temporary_baseline_inference_ceiling_tokens": 2048,
+  "temporary_baseline_inference_ceiling_is_final_training_context": false,
+  "zero_shot": {
+    "condition": "zero_shot",
+    "generation": {
+      "do_sample": false,
+      "temperature": null,
+      "max_new_tokens": 16
+    },
+    "batch_size": 4,
+    "temporary_input_limit": 2048,
+    "temporary_input_limit_is_final_training_context": false,
+    "metrics": {
+      "example_count": 400,
+      "accuracy": 0.5925,
+      "macro_f1": 0.553573,
+      "valid_output_count": 400,
+      "valid_output_percentage": 100.0,
+      "invalid_output_count": 0,
+      "per_class": {
+        "bug": {
+          "precision": 0.663717,
+          "recall": 0.75,
+          "f1": 0.704225,
+          "support": 100
+        },
+        "feature": {
+          "precision": 0.455446,
+          "recall": 0.92,
+          "f1": 0.609272,
+          "support": 100
+        },
+        "documentation": {
+          "precision": 0.838235,
+          "recall": 0.57,
+          "f1": 0.678571,
+          "support": 100
+        },
+        "question_support": {
+          "precision": 0.764706,
+          "recall": 0.13,
+          "f1": 0.222222,
+          "support": 100
+        }
+      },
+      "confusion_matrix_labels": [
+        "bug",
+        "feature",
+        "documentation",
+        "question_support",
+        "__invalid_output__"
+      ],
+      "confusion_matrix_rows_true_columns_predicted": [
+        [
+          75,
+          19,
+          5,
+          1,
+          0
+        ],
+        [
+          5,
+          92,
+          1,
+          2,
+          0
+        ],
+        [
+          16,
+          26,
+          57,
+          1,
+          0
+        ],
+        [
+          17,
+          65,
+          5,
+          13,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "average_input_tokens": 319.62,
+      "average_output_tokens": 6.0425,
+      "average_inference_time_seconds_per_issue": 0.272946,
+      "average_batch_tokens_per_second": 22.464411,
+      "input_truncated_count": 0,
+      "input_truncated_percentage": 0.0,
+      "maximum_full_input_tokens": 510,
+      "maximum_fed_input_tokens": 510
+    }
+  },
+  "few_shot": {
+    "condition": "few_shot",
+    "generation": {
+      "do_sample": false,
+      "temperature": null,
+      "max_new_tokens": 16
+    },
+    "batch_size": 4,
+    "temporary_input_limit": 2048,
+    "temporary_input_limit_is_final_training_context": false,
+    "metrics": {
+      "example_count": 400,
+      "accuracy": 0.695,
+      "macro_f1": 0.68886,
+      "valid_output_count": 400,
+      "valid_output_percentage": 100.0,
+      "invalid_output_count": 0,
+      "per_class": {
+        "bug": {
+          "precision": 0.707547,
+          "recall": 0.75,
+          "f1": 0.728155,
+          "support": 100
+        },
+        "feature": {
+          "precision": 0.6,
+          "recall": 0.9,
+          "f1": 0.72,
+          "support": 100
+        },
+        "documentation": {
+          "precision": 0.883117,
+          "recall": 0.68,
+          "f1": 0.768362,
+          "support": 100
+        },
+        "question_support": {
+          "precision": 0.671642,
+          "recall": 0.45,
+          "f1": 0.538922,
+          "support": 100
+        }
+      },
+      "confusion_matrix_labels": [
+        "bug",
+        "feature",
+        "documentation",
+        "question_support",
+        "__invalid_output__"
+      ],
+      "confusion_matrix_rows_true_columns_predicted": [
+        [
+          75,
+          16,
+          1,
+          8,
+          0
+        ],
+        [
+          5,
+          90,
+          0,
+          5,
+          0
+        ],
+        [
+          13,
+          10,
+          68,
+          9,
+          0
+        ],
+        [
+          13,
+          34,
+          8,
+          45,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "average_input_tokens": 953.62,
+      "average_output_tokens": 6.1675,
+      "average_inference_time_seconds_per_issue": 0.540372,
+      "average_batch_tokens_per_second": 11.477432,
+      "input_truncated_count": 0,
+      "input_truncated_percentage": 0.0,
+      "maximum_full_input_tokens": 1144,
+      "maximum_fed_input_tokens": 1144
+    }
+  },
+  "comparison": {
+    "accuracy_delta_few_shot_minus_zero_shot": 0.1025,
+    "macro_f1_delta_few_shot_minus_zero_shot": 0.135287,
+    "valid_output_percentage_delta_few_shot_minus_zero_shot": 0.0,
+    "average_input_token_delta_few_shot_minus_zero_shot": 634.0,
+    "average_inference_time_delta_few_shot_minus_zero_shot": 0.267426
+  },
+  "raw_github_labels_in_model_inputs": false,
+  "training_performed": false,
+  "lora_adapter_created": false
+}

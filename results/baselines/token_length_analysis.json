@@ -1,0 +1,123 @@
+{
+  "created_at_utc": "2026-08-15T19:29:30.846592+00:00",
+  "model_id": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+  "model_revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+  "tokenizer_class": "Qwen2Tokenizer",
+  "tokenizer_vocab_size": 151669,
+  "train": {
+    "row_count": 31876,
+    "title_body_token_lengths": {
+      "median": 364,
+      "p75": 630,
+      "p90": 1268,
+      "p95": 2069,
+      "p99": 7507,
+      "maximum": 107669
+    },
+    "zero_shot_prompt_input_token_lengths": {
+      "median": 525,
+      "p75": 791,
+      "p90": 1429,
+      "p95": 2230,
+      "p99": 7668,
+      "maximum": 107830
+    },
+    "zero_shot_instruction_and_template_overhead_tokens": {
+      "median": 161,
+      "p75": 161,
+      "p90": 161,
+      "p95": 161,
+      "p99": 162,
+      "maximum": 164
+    },
+    "candidate_total_input_limits": {
+      "1024": {
+        "issues_requiring_truncation": 5378,
+        "percentage_requiring_truncation": 16.8716,
+        "definition": "Exact zero-shot chat-template input tokens plus a fixed 16-token output reserve exceed the candidate limit."
+      },
+      "1536": {
+        "issues_requiring_truncation": 2899,
+        "percentage_requiring_truncation": 9.0946,
+        "definition": "Exact zero-shot chat-template input tokens plus a fixed 16-token output reserve exceed the candidate limit."
+      },
+      "2048": {
+        "issues_requiring_truncation": 1816,
+        "percentage_requiring_truncation": 5.6971,
+        "definition": "Exact zero-shot chat-template input tokens plus a fixed 16-token output reserve exceed the candidate limit."
+      },
+      "3072": {
+        "issues_requiring_truncation": 1012,
+        "percentage_requiring_truncation": 3.1748,
+        "definition": "Exact zero-shot chat-template input tokens plus a fixed 16-token output reserve exceed the candidate limit."
+      },
+      "4096": {
+        "issues_requiring_truncation": 673,
+        "percentage_requiring_truncation": 2.1113,
+        "definition": "Exact zero-shot chat-template input tokens plus a fixed 16-token output reserve exceed the candidate limit."
+      }
+    },
+    "min_content_tokens": 5,
+    "max_content_tokens": 107669,
+    "average_zero_shot_prompt_input_tokens": 871.6422
+  },
+  "validation": {
+    "row_count": 12748,
+    "title_body_token_lengths": {
+      "median": 314,
+      "p75": 614,
+      "p90": 1361,
+      "p95": 3752,
+      "p99": 11701,
+      "maximum": 112831
+    },
+    "zero_shot_prompt_input_token_lengths": {
+      "median": 475,
+      "p75": 774,
+      "p90": 1523,
+      "p95": 3913,
+      "p99": 11862,
+      "maximum": 112992
+    },
+    "zero_shot_instruction_and_template_overhead_tokens": {
+      "median": 161,
+      "p75": 161,
+      "p90": 161,
+      "p95": 161,
+      "p99": 162,
+      "maximum": 165
+    },
+    "candidate_total_input_limits": {
+      "1024": {
+        "issues_requiring_truncation": 2112,
+        "percentage_requiring_truncation": 16.5673,
+        "definition": "Exact zero-shot chat-template input tokens plus a fixed 16-token output reserve exceed the candidate limit."
+      },
+      "1536": {
+        "issues_requiring_truncation": 1280,
+        "percentage_requiring_truncation": 10.0408,
+        "definition": "Exact zero-shot chat-template input tokens plus a fixed 16-token output reserve exceed the candidate limit."
+      },
+      "2048": {
+        "issues_requiring_truncation": 1026,
+        "percentage_requiring_truncation": 8.0483,
+        "definition": "Exact zero-shot chat-template input tokens plus a fixed 16-token output reserve exceed the candidate limit."
+      },
+      "3072": {
+        "issues_requiring_truncation": 766,
+        "percentage_requiring_truncation": 6.0088,
+        "definition": "Exact zero-shot chat-template input tokens plus a fixed 16-token output reserve exceed the candidate limit."
+      },
+      "4096": {
+        "issues_requiring_truncation": 627,
+        "percentage_requiring_truncation": 4.9184,
+        "definition": "Exact zero-shot chat-template input tokens plus a fixed 16-token output reserve exceed the candidate limit."
+      }
+    },
+    "min_content_tokens": 6,
+    "max_content_tokens": 112831,
+    "average_zero_shot_prompt_input_tokens": 1062.9401
+  },
+  "validation_used_for_prompt_development": false,
+  "test_split_accessed": false
+}
