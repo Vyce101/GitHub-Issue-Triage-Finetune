@@ -1,0 +1,2592 @@
+{
+  "dataset_id": "sharjeelyunus/github-issues-dataset",
+  "construction_scope": {
+    "target_categories": [
+      "bug",
+      "feature",
+      "documentation",
+      "question_support"
+    ],
+    "performance_included": false,
+    "priority_and_severity_used": false,
+    "mapping_rules_source": "Existing taxonomy_analysis.py high-confidence mappings only; no new lexical rules were added.",
+    "raw_labels_preserved": true,
+    "empty_bodies_removed": false,
+    "long_bodies_removed": false,
+    "category_words_in_text_removed": false,
+    "dataset_splits_written": false,
+    "model_downloaded": false,
+    "tokenization_performed": false
+  },
+  "normalized_dataset": {
+    "path": "data\\processed\\normalized_labeled_dataset.jsonl",
+    "format": "JSONL",
+    "fields": [
+      "issue_id",
+      "repository",
+      "title",
+      "body",
+      "raw_labels",
+      "target_category",
+      "atomic_labels",
+      "mapping_reasons",
+      "source_split",
+      "source_row_index"
+    ],
+    "retained_example_count": 54332
+  },
+  "source_and_exclusion_summary": {
+    "total_source_rows": 114073,
+    "source_rows_per_split": {
+      "train": 114073
+    },
+    "column_mapping": {
+      "issue_id": "id",
+      "repository": "repo",
+      "title": "title",
+      "body": "body",
+      "labels": "labels"
+    },
+    "exclusion_counts_before_duplicate_removal": {
+      "no_high_confidence_target_category": 59163,
+      "conflicting_target_categories": 577
+    },
+    "exclusion_examples_before_duplicate_removal": {
+      "no_high_confidence_target_category": [
+        {
+          "issue_id": 393061,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 0,
+          "title": "Output file size with -s or -g",
+          "raw_labels": "request",
+          "target_category": null,
+          "atomic_labels": [
+            "request"
+          ]
+        },
+        {
+          "issue_id": 1637737,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 1,
+          "title": "Create a php API and demo page",
+          "raw_labels": "php",
+          "target_category": null,
+          "atomic_labels": [
+            "php"
+          ]
+        },
+        {
+          "issue_id": 1639054,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 2,
+          "title": "integrate template \"special sequences\" in help output",
+          "raw_labels": "request",
+          "target_category": null,
+          "atomic_labels": [
+            "request"
+          ]
+        },
+        {
+          "issue_id": 1789251,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 3,
+          "title": "Add a path option to --keep-video",
+          "raw_labels": "request",
+          "target_category": null,
+          "atomic_labels": [
+            "request"
+          ]
+        },
+        {
+          "issue_id": 3134637,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 6,
+          "title": "--extract-audio progress",
+          "raw_labels": "request",
+          "target_category": null,
+          "atomic_labels": [
+            "request"
+          ]
+        },
+        {
+          "issue_id": 3974663,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 8,
+          "title": "Add option for start-point",
+          "raw_labels": "request",
+          "target_category": null,
+          "atomic_labels": [
+            "request"
+          ]
+        },
+        {
+          "issue_id": 4118030,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 10,
+          "title": "--extract-audio and skipping video file download",
+          "raw_labels": "request",
+          "target_category": null,
+          "atomic_labels": [
+            "request"
+          ]
+        },
+        {
+          "issue_id": 4757025,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 12,
+          "title": "Multi-Threaded downloading for playlists",
+          "raw_labels": "request",
+          "target_category": null,
+          "atomic_labels": [
+            "request"
+          ]
+        },
+        {
+          "issue_id": 5086030,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 13,
+          "title": "Support \"rental\" type videos (was: ERROR: unable to extract uploader nickname)",
+          "raw_labels": "request",
+          "target_category": null,
+          "atomic_labels": [
+            "request"
+          ]
+        },
+        {
+          "issue_id": 7068674,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 14,
+          "title": "Ability to download a part of the video on youtube",
+          "raw_labels": "request",
+          "target_category": null,
+          "atomic_labels": [
+            "request"
+          ]
+        }
+      ],
+      "conflicting_target_categories": [
+        {
+          "issue_id": 29009870,
+          "repository": "neovim",
+          "source_split": "train",
+          "source_row_index": 73,
+          "title": ":help viewer should support markdown (or markdoc)",
+          "raw_labels": "enhancement,documentation",
+          "target_category": [
+            "documentation",
+            "feature"
+          ],
+          "atomic_labels": [
+            "enhancement",
+            "documentation"
+          ]
+        },
+        {
+          "issue_id": 49306579,
+          "repository": "javascript",
+          "source_split": "train",
+          "source_row_index": 249,
+          "title": "Best practices for promises?",
+          "raw_labels": "enhancement,question,pull request wanted",
+          "target_category": [
+            "feature",
+            "question_support"
+          ],
+          "atomic_labels": [
+            "enhancement",
+            "question",
+            "pull request wanted"
+          ]
+        },
+        {
+          "issue_id": 49435213,
+          "repository": "neovim",
+          "source_split": "train",
+          "source_row_index": 251,
+          "title": ":! (bang) and system() are not interactive",
+          "raw_labels": "bug,enhancement,terminal",
+          "target_category": [
+            "bug",
+            "feature"
+          ],
+          "atomic_labels": [
+            "bug",
+            "enhancement",
+            "terminal"
+          ]
+        },
+        {
+          "issue_id": 67564470,
+          "repository": "javascript",
+          "source_split": "train",
+          "source_row_index": 787,
+          "title": "Suggestion to set up Github Page",
+          "raw_labels": "enhancement,question",
+          "target_category": [
+            "feature",
+            "question_support"
+          ],
+          "atomic_labels": [
+            "enhancement",
+            "question"
+          ]
+        },
+        {
+          "issue_id": 97159486,
+          "repository": "go",
+          "source_split": "train",
+          "source_row_index": 1074,
+          "title": "path/filepath: Glob should support `**` for zero or more directories",
+          "raw_labels": "Documentation,NeedsDecision,FeatureRequest",
+          "target_category": [
+            "documentation",
+            "feature"
+          ],
+          "atomic_labels": [
+            "Documentation",
+            "NeedsDecision",
+            "FeatureRequest"
+          ]
+        },
+        {
+          "issue_id": 97410927,
+          "repository": "opencv",
+          "source_split": "train",
+          "source_row_index": 1084,
+          "title": "Functions undocumented in Python and C",
+          "raw_labels": "bug,auto-transferred,priority: low,category: documentation,affected: 2.4",
+          "target_category": [
+            "bug",
+            "documentation"
+          ],
+          "atomic_labels": [
+            "bug",
+            "auto-transferred",
+            "priority: low",
+            "category: documentation",
+            "affected: 2.4"
+          ]
+        },
+        {
+          "issue_id": 97415860,
+          "repository": "opencv",
+          "source_split": "train",
+          "source_row_index": 1123,
+          "title": "Allowed Matrix dimension for 'objectPoints':cvFindExtrinsicCameraParams2",
+          "raw_labels": "bug,auto-transferred,priority: normal,category: documentation,affected: 2.4",
+          "target_category": [
+            "bug",
+            "documentation"
+          ],
+          "atomic_labels": [
+            "bug",
+            "auto-transferred",
+            "priority: normal",
+            "category: documentation",
+            "affected: 2.4"
+          ]
+        },
+        {
+          "issue_id": 97416237,
+          "repository": "opencv",
+          "source_split": "train",
+          "source_row_index": 1125,
+          "title": "Testing Python Wrappers doc should mention PATH should be set for Windows install",
+          "raw_labels": "bug,auto-transferred,priority: low,category: documentation",
+          "target_category": [
+            "bug",
+            "documentation"
+          ],
+          "atomic_labels": [
+            "bug",
+            "auto-transferred",
+            "priority: low",
+            "category: documentation"
+          ]
+        },
+        {
+          "issue_id": 97416593,
+          "repository": "opencv",
+          "source_split": "train",
+          "source_row_index": 1128,
+          "title": "FLANN documentation only lists deprecated class",
+          "raw_labels": "bug,auto-transferred,priority: normal,category: documentation,affected: 2.4",
+          "target_category": [
+            "bug",
+            "documentation"
+          ],
+          "atomic_labels": [
+            "bug",
+            "auto-transferred",
+            "priority: normal",
+            "category: documentation",
+            "affected: 2.4"
+          ]
+        },
+        {
+          "issue_id": 97424062,
+          "repository": "opencv",
+          "source_split": "train",
+          "source_row_index": 1212,
+          "title": "videostab: missing documentation",
+          "raw_labels": "bug,auto-transferred,priority: low,category: documentation,affected: 2.4",
+          "target_category": [
+            "bug",
+            "documentation"
+          ],
+          "atomic_labels": [
+            "bug",
+            "auto-transferred",
+            "priority: low",
+            "category: documentation",
+            "affected: 2.4"
+          ]
+        }
+      ]
+    },
+    "non_target_high_confidence_atom_counts_in_retained_candidates": {
+      "performance": 1632
+    },
+    "ambiguous_atom_counts_in_retained_candidates": {
+      "request": 465,
+      "Feature": 87,
+      "Suggestion": 2881,
+      "Help Wanted": 1702,
+      "Proposal": 1167,
+      "help wanted": 2048,
+      "needs-triage": 647,
+      "feature": 1923,
+      "triaged": 12292,
+      "Needs Investigation": 512,
+      "needs investigation": 192,
+      "suggestion": 408,
+      "info-needed": 182,
+      "proposal": 22,
+      "needs triage": 1832,
+      "Help wanted": 2,
+      "Needs-Triage": 3608,
+      "help-wanted": 13
+    }
+  },
+  "duplicate_title_body_removal": {
+    "duplicate_group_count": 1,
+    "candidate_rows_in_duplicate_groups": 2,
+    "duplicate_rows_removed": 1,
+    "duplicate_groups": [
+      {
+        "title": "在edge上无法反馈",
+        "body_sha256": "9cf97faddd3e55287bb1f0e27f50dab7e2def4783f0838d031817b76cf681115",
+        "body_length": 72,
+        "title_body_sha256": "ebf11743ba00770324fc429defe93810b2df8dbf9a987598e43d2fc8993af4df",
+        "kept": {
+          "issue_id": 2806003966,
+          "repository": "PowerToys",
+          "source_split": "train",
+          "source_row_index": 113123,
+          "title": "在edge上无法反馈",
+          "raw_labels": "Issue-Docs,Needs-Triage",
+          "target_category": "documentation",
+          "atomic_labels": [
+            "Issue-Docs"
+          ]
+        },
+        "removed": [
+          {
+            "issue_id": 2806004012,
+            "repository": "PowerToys",
+            "source_split": "train",
+            "source_row_index": 113124,
+            "title": "在edge上无法反馈",
+            "raw_labels": "Issue-Docs,Needs-Triage",
+            "target_category": "documentation",
+            "atomic_labels": [
+              "Issue-Docs"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "final_class_counts": {
+    "total_retained_examples": 54332,
+    "category_counts": {
+      "bug": {
+        "issue_count": 32001,
+        "repository_count": 45,
+        "percentage_of_retained_dataset": 58.9
+      },
+      "feature": {
+        "issue_count": 18968,
+        "repository_count": 39,
+        "percentage_of_retained_dataset": 34.91
+      },
+      "documentation": {
+        "issue_count": 1989,
+        "repository_count": 29,
+        "percentage_of_retained_dataset": 3.66
+      },
+      "question_support": {
+        "issue_count": 1374,
+        "repository_count": 27,
+        "percentage_of_retained_dataset": 2.53
+      }
+    }
+  },
+  "retained_text_conditions": {
+    "empty_body_count": 83,
+    "body_at_or_over_10000_characters_count": 1537,
+    "category_word_in_title_or_body_counts": {
+      "bug": 16782,
+      "feature": 9790,
+      "documentation": 8267,
+      "question_support": 7461
+    },
+    "category_word_examples": {
+      "question_support": [
+        {
+          "issue_id": 1789512,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 4,
+          "title": "add support for picasaweb.google.com video clips",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 2892339,
+          "repository": "rust",
+          "source_split": "train",
+          "source_row_index": 5,
+          "title": "Add debug representation of trait objects",
+          "raw_labels": "A-debuginfo,P-low,T-compiler,C-feature-request,A-trait-objects",
+          "target_category": "feature",
+          "atomic_labels": [
+            "C-feature-request"
+          ]
+        },
+        {
+          "issue_id": 4069734,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 9,
+          "title": "Coursera site download support?",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 20630703,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 33,
+          "title": "Add support for yle",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 22381373,
+          "repository": "rust",
+          "source_split": "train",
+          "source_row_index": 39,
+          "title": "Re-enable debuginfo tests on Android",
+          "raw_labels": "A-testsuite,A-debuginfo,C-enhancement,O-android,T-compiler",
+          "target_category": "feature",
+          "atomic_labels": [
+            "C-enhancement"
+          ]
+        },
+        {
+          "issue_id": 23636864,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 47,
+          "title": "Skills Matter Support",
+          "raw_labels": "site-support-request,account-needed",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 24364506,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 48,
+          "title": "Lanyrd Support",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 25063162,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 53,
+          "title": "Add support for iTunes U (was: ERROR: Unsupported URL: https://itunes.apple.com/...)",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 25876528,
+          "repository": "three.js",
+          "source_split": "train",
+          "source_row_index": 56,
+          "title": "CompressedTexture: Support `flipY` in shaders.",
+          "raw_labels": "Enhancement",
+          "target_category": "feature",
+          "atomic_labels": [
+            "Enhancement"
+          ]
+        },
+        {
+          "issue_id": 26243575,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 57,
+          "title": "[ustream] add support for live streams (was: ustream doesn't work)",
+          "raw_labels": "request,site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        }
+      ],
+      "documentation": [
+        {
+          "issue_id": 3675895,
+          "repository": "rust",
+          "source_split": "train",
+          "source_row_index": 7,
+          "title": "Rustdoc needs to handle conditional compilation somehow",
+          "raw_labels": "T-rustdoc,E-hard,P-low,C-feature-request",
+          "target_category": "feature",
+          "atomic_labels": [
+            "C-feature-request"
+          ]
+        },
+        {
+          "issue_id": 4119425,
+          "repository": "rust",
+          "source_split": "train",
+          "source_row_index": 11,
+          "title": "rustdoc should be able to build documentation from compiled crates",
+          "raw_labels": "T-rustdoc,C-enhancement,A-metadata,P-low",
+          "target_category": "feature",
+          "atomic_labels": [
+            "C-enhancement"
+          ]
+        },
+        {
+          "issue_id": 21631798,
+          "repository": "rust",
+          "source_split": "train",
+          "source_row_index": 37,
+          "title": "Audit for binary IEEE 754-2008 compliance on relevant platforms",
+          "raw_labels": "E-hard,C-enhancement,T-libs-api,A-floating-point",
+          "target_category": "feature",
+          "atomic_labels": [
+            "C-enhancement"
+          ]
+        },
+        {
+          "issue_id": 29467710,
+          "repository": "react",
+          "source_split": "train",
+          "source_row_index": 78,
+          "title": "Stop doing data-*, aria-*, start using dataSet",
+          "raw_labels": "Type: Feature Request,Component: DOM,Resolution: Backlog,Partner",
+          "target_category": "feature",
+          "atomic_labels": [
+            "Type: Feature Request"
+          ]
+        },
+        {
+          "issue_id": 30479636,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 82,
+          "title": "Please support triart.se",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 33034271,
+          "repository": "neovim",
+          "source_split": "train",
+          "source_row_index": 98,
+          "title": "alternative to legacy 'cryptmethod'",
+          "raw_labels": "enhancement,security,compatibility,has:plan",
+          "target_category": "feature",
+          "atomic_labels": [
+            "enhancement"
+          ]
+        },
+        {
+          "issue_id": 33217916,
+          "repository": "rust",
+          "source_split": "train",
+          "source_row_index": 101,
+          "title": "rustdoc doesn't substitute type parameters",
+          "raw_labels": "T-rustdoc,C-bug,S-has-mcve",
+          "target_category": "bug",
+          "atomic_labels": [
+            "C-bug"
+          ]
+        },
+        {
+          "issue_id": 33269145,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 103,
+          "title": "add support for bild.de videos",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 33755200,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 107,
+          "title": "Please support http://fhp.nu/Hem/lanksidor/Hearing-om-kultur--och-filmpolitik/",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 33981098,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 110,
+          "title": "Can't download from http://www.fm94.rj.gov.br/index.php/main",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        }
+      ],
+      "bug": [
+        {
+          "issue_id": 20630703,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 33,
+          "title": "Add support for yle",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 21338885,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 35,
+          "title": "Error report on \"https://www.culturall.com/ticket/ists/static/test_stream/1.mc\"",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 21424635,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 36,
+          "title": "Download music stream from Amazon",
+          "raw_labels": "site-support-request,account-needed",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 25063162,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 53,
+          "title": "Add support for iTunes U (was: ERROR: Unsupported URL: https://itunes.apple.com/...)",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 30479636,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 82,
+          "title": "Please support triart.se",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 32875296,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 97,
+          "title": "Unsupported URL: http://theync.com",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 33269145,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 103,
+          "title": "add support for bild.de videos",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 33747211,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 106,
+          "title": "[site-support-request] movie.naver.com",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 33755200,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 107,
+          "title": "Please support http://fhp.nu/Hem/lanksidor/Hearing-om-kultur--och-filmpolitik/",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 33757188,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 108,
+          "title": "[NBCNewsIE] Broken IE - doesn't work for full episodes",
+          "raw_labels": "site-support-request",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        }
+      ],
+      "feature": [
+        {
+          "issue_id": 21424635,
+          "repository": "youtube-dl",
+          "source_split": "train",
+          "source_row_index": 36,
+          "title": "Download music stream from Amazon",
+          "raw_labels": "site-support-request,account-needed",
+          "target_category": "question_support",
+          "atomic_labels": [
+            "site-support-request"
+          ]
+        },
+        {
+          "issue_id": 32578298,
+          "repository": "neovim",
+          "source_split": "train",
+          "source_row_index": 96,
+          "title": "list-processing UI, \"frecency\" + fuzzy match selector UI",
+          "raw_labels": "enhancement,ui,plugin,ux,lua,cmdline-mode,editor",
+          "target_category": "feature",
+          "atomic_labels": [
+            "enhancement"
+          ]
+        },
+        {
+          "issue_id": 38634678,
+          "repository": "neovim",
+          "source_split": "train",
+          "source_row_index": 146,
+          "title": "scroll without cursor move (or: remember mark when scrollbar is used?)",
+          "raw_labels": "enhancement",
+          "target_category": "feature",
+          "atomic_labels": [
+            "enhancement"
+          ]
+        },
+        {
+          "issue_id": 38723525,
+          "repository": "neovim",
+          "source_split": "train",
+          "source_row_index": 149,
+          "title": "plugin-specific modes (custom / user-defined modes)",
+          "raw_labels": "enhancement,input,gsoc,mappings",
+          "target_category": "feature",
+          "atomic_labels": [
+            "enhancement"
+          ]
+        },
+        {
+          "issue_id": 39748764,
+          "repository": "rust",
+          "source_split": "train",
+          "source_row_index": 161,
+          "title": "rustdoc: Allow customizing the crate list sidebar.",
+          "raw_labels": "T-rustdoc,C-enhancement,A-rustdoc-ui,T-rustdoc-frontend",
+          "target_category": "feature",
+          "atomic_labels": [
+            "C-enhancement"
+          ]
+        },
+        {
+          "issue_id": 44929293,
+          "repository": "rust",
+          "source_split": "train",
+          "source_row_index": 207,
+          "title": "Unable to export unmangled dll entry points for stdcall",
+          "raw_labels": "A-linkage,O-windows,C-enhancement",
+          "target_category": "feature",
+          "atomic_labels": [
+            "C-enhancement"
+          ]
+        },
+        {
+          "issue_id": 47999195,
+          "repository": "neovim",
+          "source_split": "train",
+          "source_row_index": 233,
+          "title": "Feature: text objects as command ranges",
+          "raw_labels": "enhancement",
+          "target_category": "feature",
+          "atomic_labels": [
+            "enhancement"
+          ]
+        },
+        {
+          "issue_id": 48026235,
+          "repository": "neovim",
+          "source_split": "train",
+          "source_row_index": 236,
+          "title": "Feature: Elastic Tabstops",
+          "raw_labels": "enhancement",
+          "target_category": "feature",
+          "atomic_labels": [
+            "enhancement"
+          ]
+        },
+        {
+          "issue_id": 48142274,
+          "repository": "rust",
+          "source_split": "train",
+          "source_row_index": 238,
+          "title": "Unexpected trait behavior with default_type_params",
+          "raw_labels": "A-diagnostics,A-closures,T-compiler,C-bug,F-unboxed_closures",
+          "target_category": "bug",
+          "atomic_labels": [
+            "C-bug"
+          ]
+        },
+        {
+          "issue_id": 48168790,
+          "repository": "neovim",
+          "source_split": "train",
+          "source_row_index": 240,
+          "title": "UI: custom placement of statusline, tabline, winbar, cmdline",
+          "raw_labels": "enhancement,ui,ui-extensibility,statusline",
+          "target_category": "feature",
+          "atomic_labels": [
+            "enhancement"
+          ]
+        }
+      ]
+    },
+    "policy": "These conditions were reported only; no rows were removed for empty bodies, long bodies, or category words appearing in text."
+  },
+  "split_analysis": {
+    "target_split_fractions": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    },
+    "random_issue_level": {
+      "assignment_method": "Stable SHA-256 hash of dataset ID, repository, issue ID, and source location; thresholds 70/15/15. No model score was used.",
+      "statistics": {
+        "train": {
+          "issue_count": 38095,
+          "class_counts": {
+            "bug": 22451,
+            "feature": 13283,
+            "documentation": 1384,
+            "question_support": 977
+          },
+          "class_proportions": {
+            "bug": 58.93,
+            "feature": 34.87,
+            "documentation": 3.63,
+            "question_support": 2.56
+          },
+          "repository_count": 56,
+          "repositories": [
+            "CS-Notes",
+            "PowerToys",
+            "Python",
+            "TypeScript",
+            "Web-Dev-For-Beginners",
+            "You-Dont-Know-JS",
+            "angular",
+            "animate.css",
+            "awesome-mac",
+            "bitcoin",
+            "create-react-app",
+            "d3",
+            "deno",
+            "excalidraw",
+            "fastapi",
+            "flutter",
+            "frp",
+            "gin",
+            "go",
+            "godot",
+            "hello-algo",
+            "java-design-patterns",
+            "javascript",
+            "javascript-algorithms",
+            "kubernetes",
+            "langchain",
+            "material-ui",
+            "neovim",
+            "next.js",
+            "node",
+            "ollama",
+            "opencv",
+            "puppeteer",
+            "pytorch",
+            "react",
+            "react-native",
+            "realworld",
+            "rust",
+            "rustdesk",
+            "scrcpy",
+            "stable-diffusion-webui",
+            "storybook",
+            "svelte",
+            "tailwindcss",
+            "tauri",
+            "tensorflow",
+            "terminal",
+            "thefuck",
+            "three.js",
+            "transformers",
+            "ui",
+            "vscode",
+            "vue",
+            "vue-element-admin",
+            "youtube-dl",
+            "yt-dlp"
+          ],
+          "all_classes_present": true
+        },
+        "validation": {
+          "issue_count": 8066,
+          "class_counts": {
+            "bug": 4798,
+            "feature": 2767,
+            "documentation": 305,
+            "question_support": 196
+          },
+          "class_proportions": {
+            "bug": 59.48,
+            "feature": 34.3,
+            "documentation": 3.78,
+            "question_support": 2.43
+          },
+          "repository_count": 46,
+          "repositories": [
+            "PowerToys",
+            "Python",
+            "TypeScript",
+            "angular",
+            "animate.css",
+            "bitcoin",
+            "create-react-app",
+            "deno",
+            "excalidraw",
+            "fastapi",
+            "flutter",
+            "gin",
+            "go",
+            "godot",
+            "java-design-patterns",
+            "javascript",
+            "javascript-algorithms",
+            "kubernetes",
+            "material-ui",
+            "neovim",
+            "next.js",
+            "node",
+            "ollama",
+            "opencv",
+            "puppeteer",
+            "pytorch",
+            "react",
+            "react-native",
+            "realworld",
+            "rust",
+            "rustdesk",
+            "scrcpy",
+            "stable-diffusion-webui",
+            "storybook",
+            "svelte",
+            "tauri",
+            "tensorflow",
+            "terminal",
+            "thefuck",
+            "three.js",
+            "transformers",
+            "ui",
+            "vscode",
+            "vue",
+            "youtube-dl",
+            "yt-dlp"
+          ],
+          "all_classes_present": true
+        },
+        "test": {
+          "issue_count": 8171,
+          "class_counts": {
+            "bug": 4752,
+            "feature": 2918,
+            "documentation": 300,
+            "question_support": 201
+          },
+          "class_proportions": {
+            "bug": 58.16,
+            "feature": 35.71,
+            "documentation": 3.67,
+            "question_support": 2.46
+          },
+          "repository_count": 48,
+          "repositories": [
+            "CS-Notes",
+            "PowerToys",
+            "Python",
+            "TypeScript",
+            "angular",
+            "animate.css",
+            "bitcoin",
+            "create-react-app",
+            "deno",
+            "excalidraw",
+            "fastapi",
+            "flutter",
+            "frp",
+            "gin",
+            "go",
+            "godot",
+            "java-design-patterns",
+            "javascript",
+            "javascript-algorithms",
+            "kubernetes",
+            "material-ui",
+            "neovim",
+            "next.js",
+            "node",
+            "ollama",
+            "opencv",
+            "puppeteer",
+            "pytorch",
+            "react",
+            "react-native",
+            "realworld",
+            "rust",
+            "rustdesk",
+            "scrcpy",
+            "stable-diffusion-webui",
+            "storybook",
+            "svelte",
+            "tauri",
+            "tensorflow",
+            "terminal",
+            "thefuck",
+            "three.js",
+            "transformers",
+            "ui",
+            "vscode",
+            "vue",
+            "youtube-dl",
+            "yt-dlp"
+          ],
+          "all_classes_present": true
+        },
+        "all_classes_present_in_every_split": true,
+        "repository_overlap": {
+          "train_vs_validation": {
+            "shared_repository_count": 46,
+            "shared_repositories": [
+              "PowerToys",
+              "Python",
+              "TypeScript",
+              "angular",
+              "animate.css",
+              "bitcoin",
+              "create-react-app",
+              "deno",
+              "excalidraw",
+              "fastapi",
+              "flutter",
+              "gin",
+              "go",
+              "godot",
+              "java-design-patterns",
+              "javascript",
+              "javascript-algorithms",
+              "kubernetes",
+              "material-ui",
+              "neovim",
+              "next.js",
+              "node",
+              "ollama",
+              "opencv",
+              "puppeteer",
+              "pytorch",
+              "react",
+              "react-native",
+              "realworld",
+              "rust",
+              "rustdesk",
+              "scrcpy",
+              "stable-diffusion-webui",
+              "storybook",
+              "svelte",
+              "tauri",
+              "tensorflow",
+              "terminal",
+              "thefuck",
+              "three.js",
+              "transformers",
+              "ui",
+              "vscode",
+              "vue",
+              "youtube-dl",
+              "yt-dlp"
+            ]
+          },
+          "train_vs_test": {
+            "shared_repository_count": 48,
+            "shared_repositories": [
+              "CS-Notes",
+              "PowerToys",
+              "Python",
+              "TypeScript",
+              "angular",
+              "animate.css",
+              "bitcoin",
+              "create-react-app",
+              "deno",
+              "excalidraw",
+              "fastapi",
+              "flutter",
+              "frp",
+              "gin",
+              "go",
+              "godot",
+              "java-design-patterns",
+              "javascript",
+              "javascript-algorithms",
+              "kubernetes",
+              "material-ui",
+              "neovim",
+              "next.js",
+              "node",
+              "ollama",
+              "opencv",
+              "puppeteer",
+              "pytorch",
+              "react",
+              "react-native",
+              "realworld",
+              "rust",
+              "rustdesk",
+              "scrcpy",
+              "stable-diffusion-webui",
+              "storybook",
+              "svelte",
+              "tauri",
+              "tensorflow",
+              "terminal",
+              "thefuck",
+              "three.js",
+              "transformers",
+              "ui",
+              "vscode",
+              "vue",
+              "youtube-dl",
+              "yt-dlp"
+            ]
+          },
+          "validation_vs_test": {
+            "shared_repository_count": 46,
+            "shared_repositories": [
+              "PowerToys",
+              "Python",
+              "TypeScript",
+              "angular",
+              "animate.css",
+              "bitcoin",
+              "create-react-app",
+              "deno",
+              "excalidraw",
+              "fastapi",
+              "flutter",
+              "gin",
+              "go",
+              "godot",
+              "java-design-patterns",
+              "javascript",
+              "javascript-algorithms",
+              "kubernetes",
+              "material-ui",
+              "neovim",
+              "next.js",
+              "node",
+              "ollama",
+              "opencv",
+              "puppeteer",
+              "pytorch",
+              "react",
+              "react-native",
+              "realworld",
+              "rust",
+              "rustdesk",
+              "scrcpy",
+              "stable-diffusion-webui",
+              "storybook",
+              "svelte",
+              "tauri",
+              "tensorflow",
+              "terminal",
+              "thefuck",
+              "three.js",
+              "transformers",
+              "ui",
+              "vscode",
+              "vue",
+              "youtube-dl",
+              "yt-dlp"
+            ]
+          }
+        },
+        "repository_holdout": false,
+        "total_issue_count": 54332,
+        "all_source_repositories": [
+          "CS-Notes",
+          "PowerToys",
+          "Python",
+          "TypeScript",
+          "Web-Dev-For-Beginners",
+          "You-Dont-Know-JS",
+          "angular",
+          "animate.css",
+          "awesome-mac",
+          "bitcoin",
+          "create-react-app",
+          "d3",
+          "deno",
+          "excalidraw",
+          "fastapi",
+          "flutter",
+          "frp",
+          "gin",
+          "go",
+          "godot",
+          "hello-algo",
+          "java-design-patterns",
+          "javascript",
+          "javascript-algorithms",
+          "kubernetes",
+          "langchain",
+          "material-ui",
+          "neovim",
+          "next.js",
+          "node",
+          "ollama",
+          "opencv",
+          "puppeteer",
+          "pytorch",
+          "react",
+          "react-native",
+          "realworld",
+          "rust",
+          "rustdesk",
+          "scrcpy",
+          "stable-diffusion-webui",
+          "storybook",
+          "svelte",
+          "tailwindcss",
+          "tauri",
+          "tensorflow",
+          "terminal",
+          "thefuck",
+          "three.js",
+          "transformers",
+          "ui",
+          "vscode",
+          "vue",
+          "vue-element-admin",
+          "youtube-dl",
+          "yt-dlp"
+        ]
+      }
+    },
+    "repository_held_out": {
+      "search_method": "64 deterministic greedy repository assignments with deterministic repair, scored only by missing-class count, class-count deviation, and issue-count deviation.",
+      "candidate_count_searched": 64,
+      "all_classes_in_every_candidate_count": 64,
+      "recommended_candidate": {
+        "search_seed": 25,
+        "balance_objective": [
+          0.0,
+          0.7505989886258733,
+          0.22662151218434803
+        ],
+        "statistics": {
+          "train": {
+            "issue_count": 31876,
+            "class_counts": {
+              "bug": 19454,
+              "feature": 9936,
+              "documentation": 1390,
+              "question_support": 1096
+            },
+            "class_proportions": {
+              "bug": 61.03,
+              "feature": 31.17,
+              "documentation": 4.36,
+              "question_support": 3.44
+            },
+            "repository_count": 37,
+            "repositories": [
+              "Python",
+              "angular",
+              "animate.css",
+              "awesome-mac",
+              "create-react-app",
+              "d3",
+              "deno",
+              "excalidraw",
+              "flutter",
+              "go",
+              "godot",
+              "hello-algo",
+              "java-design-patterns",
+              "javascript-algorithms",
+              "kubernetes",
+              "neovim",
+              "next.js",
+              "ollama",
+              "opencv",
+              "puppeteer",
+              "pytorch",
+              "react",
+              "react-native",
+              "realworld",
+              "rustdesk",
+              "scrcpy",
+              "stable-diffusion-webui",
+              "tailwindcss",
+              "tauri",
+              "terminal",
+              "three.js",
+              "transformers",
+              "ui",
+              "vue",
+              "vue-element-admin",
+              "youtube-dl",
+              "yt-dlp"
+            ],
+            "all_classes_present": true
+          },
+          "validation": {
+            "issue_count": 12748,
+            "class_counts": {
+              "bug": 7298,
+              "feature": 4987,
+              "documentation": 317,
+              "question_support": 146
+            },
+            "class_proportions": {
+              "bug": 57.25,
+              "feature": 39.12,
+              "documentation": 2.49,
+              "question_support": 1.15
+            },
+            "repository_count": 9,
+            "repositories": [
+              "CS-Notes",
+              "PowerToys",
+              "Web-Dev-For-Beginners",
+              "gin",
+              "javascript",
+              "node",
+              "rust",
+              "storybook",
+              "svelte"
+            ],
+            "all_classes_present": true
+          },
+          "test": {
+            "issue_count": 9708,
+            "class_counts": {
+              "bug": 5249,
+              "feature": 4045,
+              "documentation": 282,
+              "question_support": 132
+            },
+            "class_proportions": {
+              "bug": 54.07,
+              "feature": 41.67,
+              "documentation": 2.9,
+              "question_support": 1.36
+            },
+            "repository_count": 10,
+            "repositories": [
+              "TypeScript",
+              "You-Dont-Know-JS",
+              "bitcoin",
+              "fastapi",
+              "frp",
+              "langchain",
+              "material-ui",
+              "tensorflow",
+              "thefuck",
+              "vscode"
+            ],
+            "all_classes_present": true
+          },
+          "all_classes_present_in_every_split": true,
+          "repository_overlap": {
+            "train_vs_validation": {
+              "shared_repository_count": 0,
+              "shared_repositories": []
+            },
+            "train_vs_test": {
+              "shared_repository_count": 0,
+              "shared_repositories": []
+            },
+            "validation_vs_test": {
+              "shared_repository_count": 0,
+              "shared_repositories": []
+            }
+          },
+          "repository_holdout": true,
+          "total_issue_count": 54332,
+          "all_source_repositories": [
+            "CS-Notes",
+            "PowerToys",
+            "Python",
+            "TypeScript",
+            "Web-Dev-For-Beginners",
+            "You-Dont-Know-JS",
+            "angular",
+            "animate.css",
+            "awesome-mac",
+            "bitcoin",
+            "create-react-app",
+            "d3",
+            "deno",
+            "excalidraw",
+            "fastapi",
+            "flutter",
+            "frp",
+            "gin",
+            "go",
+            "godot",
+            "hello-algo",
+            "java-design-patterns",
+            "javascript",
+            "javascript-algorithms",
+            "kubernetes",
+            "langchain",
+            "material-ui",
+            "neovim",
+            "next.js",
+            "node",
+            "ollama",
+            "opencv",
+            "puppeteer",
+            "pytorch",
+            "react",
+            "react-native",
+            "realworld",
+            "rust",
+            "rustdesk",
+            "scrcpy",
+            "stable-diffusion-webui",
+            "storybook",
+            "svelte",
+            "tailwindcss",
+            "tauri",
+            "tensorflow",
+            "terminal",
+            "thefuck",
+            "three.js",
+            "transformers",
+            "ui",
+            "vscode",
+            "vue",
+            "vue-element-admin",
+            "youtube-dl",
+            "yt-dlp"
+          ]
+        }
+      },
+      "candidate_summaries": [
+        {
+          "search_seed": 25,
+          "balance_objective": [
+            0.0,
+            0.7505989886258733,
+            0.22662151218434803
+          ],
+          "statistics": {
+            "train": {
+              "issue_count": 31876,
+              "class_counts": {
+                "bug": 19454,
+                "feature": 9936,
+                "documentation": 1390,
+                "question_support": 1096
+              },
+              "class_proportions": {
+                "bug": 61.03,
+                "feature": 31.17,
+                "documentation": 4.36,
+                "question_support": 3.44
+              },
+              "repository_count": 37,
+              "repositories": [
+                "Python",
+                "angular",
+                "animate.css",
+                "awesome-mac",
+                "create-react-app",
+                "d3",
+                "deno",
+                "excalidraw",
+                "flutter",
+                "go",
+                "godot",
+                "hello-algo",
+                "java-design-patterns",
+                "javascript-algorithms",
+                "kubernetes",
+                "neovim",
+                "next.js",
+                "ollama",
+                "opencv",
+                "puppeteer",
+                "pytorch",
+                "react",
+                "react-native",
+                "realworld",
+                "rustdesk",
+                "scrcpy",
+                "stable-diffusion-webui",
+                "tailwindcss",
+                "tauri",
+                "terminal",
+                "three.js",
+                "transformers",
+                "ui",
+                "vue",
+                "vue-element-admin",
+                "youtube-dl",
+                "yt-dlp"
+              ],
+              "all_classes_present": true
+            },
+            "validation": {
+              "issue_count": 12748,
+              "class_counts": {
+                "bug": 7298,
+                "feature": 4987,
+                "documentation": 317,
+                "question_support": 146
+              },
+              "class_proportions": {
+                "bug": 57.25,
+                "feature": 39.12,
+                "documentation": 2.49,
+                "question_support": 1.15
+              },
+              "repository_count": 9,
+              "repositories": [
+                "CS-Notes",
+                "PowerToys",
+                "Web-Dev-For-Beginners",
+                "gin",
+                "javascript",
+                "node",
+                "rust",
+                "storybook",
+                "svelte"
+              ],
+              "all_classes_present": true
+            },
+            "test": {
+              "issue_count": 9708,
+              "class_counts": {
+                "bug": 5249,
+                "feature": 4045,
+                "documentation": 282,
+                "question_support": 132
+              },
+              "class_proportions": {
+                "bug": 54.07,
+                "feature": 41.67,
+                "documentation": 2.9,
+                "question_support": 1.36
+              },
+              "repository_count": 10,
+              "repositories": [
+                "TypeScript",
+                "You-Dont-Know-JS",
+                "bitcoin",
+                "fastapi",
+                "frp",
+                "langchain",
+                "material-ui",
+                "tensorflow",
+                "thefuck",
+                "vscode"
+              ],
+              "all_classes_present": true
+            },
+            "all_classes_present_in_every_split": true,
+            "repository_overlap": {
+              "train_vs_validation": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              },
+              "train_vs_test": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              },
+              "validation_vs_test": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              }
+            },
+            "repository_holdout": true,
+            "total_issue_count": 54332,
+            "all_source_repositories": [
+              "CS-Notes",
+              "PowerToys",
+              "Python",
+              "TypeScript",
+              "Web-Dev-For-Beginners",
+              "You-Dont-Know-JS",
+              "angular",
+              "animate.css",
+              "awesome-mac",
+              "bitcoin",
+              "create-react-app",
+              "d3",
+              "deno",
+              "excalidraw",
+              "fastapi",
+              "flutter",
+              "frp",
+              "gin",
+              "go",
+              "godot",
+              "hello-algo",
+              "java-design-patterns",
+              "javascript",
+              "javascript-algorithms",
+              "kubernetes",
+              "langchain",
+              "material-ui",
+              "neovim",
+              "next.js",
+              "node",
+              "ollama",
+              "opencv",
+              "puppeteer",
+              "pytorch",
+              "react",
+              "react-native",
+              "realworld",
+              "rust",
+              "rustdesk",
+              "scrcpy",
+              "stable-diffusion-webui",
+              "storybook",
+              "svelte",
+              "tailwindcss",
+              "tauri",
+              "tensorflow",
+              "terminal",
+              "thefuck",
+              "three.js",
+              "transformers",
+              "ui",
+              "vscode",
+              "vue",
+              "vue-element-admin",
+              "youtube-dl",
+              "yt-dlp"
+            ]
+          }
+        },
+        {
+          "search_seed": 40,
+          "balance_objective": [
+            0.0,
+            0.7505989886258733,
+            0.22662151218434803
+          ],
+          "statistics": {
+            "train": {
+              "issue_count": 31876,
+              "class_counts": {
+                "bug": 19454,
+                "feature": 9936,
+                "documentation": 1390,
+                "question_support": 1096
+              },
+              "class_proportions": {
+                "bug": 61.03,
+                "feature": 31.17,
+                "documentation": 4.36,
+                "question_support": 3.44
+              },
+              "repository_count": 37,
+              "repositories": [
+                "Python",
+                "angular",
+                "animate.css",
+                "awesome-mac",
+                "create-react-app",
+                "d3",
+                "deno",
+                "excalidraw",
+                "flutter",
+                "go",
+                "godot",
+                "hello-algo",
+                "java-design-patterns",
+                "javascript-algorithms",
+                "kubernetes",
+                "neovim",
+                "next.js",
+                "ollama",
+                "opencv",
+                "puppeteer",
+                "pytorch",
+                "react",
+                "react-native",
+                "realworld",
+                "rustdesk",
+                "scrcpy",
+                "stable-diffusion-webui",
+                "tailwindcss",
+                "tauri",
+                "terminal",
+                "three.js",
+                "transformers",
+                "ui",
+                "vue",
+                "vue-element-admin",
+                "youtube-dl",
+                "yt-dlp"
+              ],
+              "all_classes_present": true
+            },
+            "validation": {
+              "issue_count": 12748,
+              "class_counts": {
+                "bug": 7298,
+                "feature": 4987,
+                "documentation": 317,
+                "question_support": 146
+              },
+              "class_proportions": {
+                "bug": 57.25,
+                "feature": 39.12,
+                "documentation": 2.49,
+                "question_support": 1.15
+              },
+              "repository_count": 9,
+              "repositories": [
+                "CS-Notes",
+                "PowerToys",
+                "Web-Dev-For-Beginners",
+                "gin",
+                "javascript",
+                "node",
+                "rust",
+                "storybook",
+                "svelte"
+              ],
+              "all_classes_present": true
+            },
+            "test": {
+              "issue_count": 9708,
+              "class_counts": {
+                "bug": 5249,
+                "feature": 4045,
+                "documentation": 282,
+                "question_support": 132
+              },
+              "class_proportions": {
+                "bug": 54.07,
+                "feature": 41.67,
+                "documentation": 2.9,
+                "question_support": 1.36
+              },
+              "repository_count": 10,
+              "repositories": [
+                "TypeScript",
+                "You-Dont-Know-JS",
+                "bitcoin",
+                "fastapi",
+                "frp",
+                "langchain",
+                "material-ui",
+                "tensorflow",
+                "thefuck",
+                "vscode"
+              ],
+              "all_classes_present": true
+            },
+            "all_classes_present_in_every_split": true,
+            "repository_overlap": {
+              "train_vs_validation": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              },
+              "train_vs_test": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              },
+              "validation_vs_test": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              }
+            },
+            "repository_holdout": true,
+            "total_issue_count": 54332,
+            "all_source_repositories": [
+              "CS-Notes",
+              "PowerToys",
+              "Python",
+              "TypeScript",
+              "Web-Dev-For-Beginners",
+              "You-Dont-Know-JS",
+              "angular",
+              "animate.css",
+              "awesome-mac",
+              "bitcoin",
+              "create-react-app",
+              "d3",
+              "deno",
+              "excalidraw",
+              "fastapi",
+              "flutter",
+              "frp",
+              "gin",
+              "go",
+              "godot",
+              "hello-algo",
+              "java-design-patterns",
+              "javascript",
+              "javascript-algorithms",
+              "kubernetes",
+              "langchain",
+              "material-ui",
+              "neovim",
+              "next.js",
+              "node",
+              "ollama",
+              "opencv",
+              "puppeteer",
+              "pytorch",
+              "react",
+              "react-native",
+              "realworld",
+              "rust",
+              "rustdesk",
+              "scrcpy",
+              "stable-diffusion-webui",
+              "storybook",
+              "svelte",
+              "tailwindcss",
+              "tauri",
+              "tensorflow",
+              "terminal",
+              "thefuck",
+              "three.js",
+              "transformers",
+              "ui",
+              "vscode",
+              "vue",
+              "vue-element-admin",
+              "youtube-dl",
+              "yt-dlp"
+            ]
+          }
+        },
+        {
+          "search_seed": 53,
+          "balance_objective": [
+            0.0,
+            0.7505989886258733,
+            0.22662151218434803
+          ],
+          "statistics": {
+            "train": {
+              "issue_count": 31876,
+              "class_counts": {
+                "bug": 19454,
+                "feature": 9936,
+                "documentation": 1390,
+                "question_support": 1096
+              },
+              "class_proportions": {
+                "bug": 61.03,
+                "feature": 31.17,
+                "documentation": 4.36,
+                "question_support": 3.44
+              },
+              "repository_count": 37,
+              "repositories": [
+                "Python",
+                "angular",
+                "animate.css",
+                "awesome-mac",
+                "create-react-app",
+                "d3",
+                "deno",
+                "excalidraw",
+                "flutter",
+                "go",
+                "godot",
+                "hello-algo",
+                "java-design-patterns",
+                "javascript-algorithms",
+                "kubernetes",
+                "neovim",
+                "next.js",
+                "ollama",
+                "opencv",
+                "puppeteer",
+                "pytorch",
+                "react",
+                "react-native",
+                "realworld",
+                "rustdesk",
+                "scrcpy",
+                "stable-diffusion-webui",
+                "tailwindcss",
+                "tauri",
+                "terminal",
+                "three.js",
+                "transformers",
+                "ui",
+                "vue",
+                "vue-element-admin",
+                "youtube-dl",
+                "yt-dlp"
+              ],
+              "all_classes_present": true
+            },
+            "validation": {
+              "issue_count": 12748,
+              "class_counts": {
+                "bug": 7298,
+                "feature": 4987,
+                "documentation": 317,
+                "question_support": 146
+              },
+              "class_proportions": {
+                "bug": 57.25,
+                "feature": 39.12,
+                "documentation": 2.49,
+                "question_support": 1.15
+              },
+              "repository_count": 9,
+              "repositories": [
+                "CS-Notes",
+                "PowerToys",
+                "Web-Dev-For-Beginners",
+                "gin",
+                "javascript",
+                "node",
+                "rust",
+                "storybook",
+                "svelte"
+              ],
+              "all_classes_present": true
+            },
+            "test": {
+              "issue_count": 9708,
+              "class_counts": {
+                "bug": 5249,
+                "feature": 4045,
+                "documentation": 282,
+                "question_support": 132
+              },
+              "class_proportions": {
+                "bug": 54.07,
+                "feature": 41.67,
+                "documentation": 2.9,
+                "question_support": 1.36
+              },
+              "repository_count": 10,
+              "repositories": [
+                "TypeScript",
+                "You-Dont-Know-JS",
+                "bitcoin",
+                "fastapi",
+                "frp",
+                "langchain",
+                "material-ui",
+                "tensorflow",
+                "thefuck",
+                "vscode"
+              ],
+              "all_classes_present": true
+            },
+            "all_classes_present_in_every_split": true,
+            "repository_overlap": {
+              "train_vs_validation": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              },
+              "train_vs_test": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              },
+              "validation_vs_test": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              }
+            },
+            "repository_holdout": true,
+            "total_issue_count": 54332,
+            "all_source_repositories": [
+              "CS-Notes",
+              "PowerToys",
+              "Python",
+              "TypeScript",
+              "Web-Dev-For-Beginners",
+              "You-Dont-Know-JS",
+              "angular",
+              "animate.css",
+              "awesome-mac",
+              "bitcoin",
+              "create-react-app",
+              "d3",
+              "deno",
+              "excalidraw",
+              "fastapi",
+              "flutter",
+              "frp",
+              "gin",
+              "go",
+              "godot",
+              "hello-algo",
+              "java-design-patterns",
+              "javascript",
+              "javascript-algorithms",
+              "kubernetes",
+              "langchain",
+              "material-ui",
+              "neovim",
+              "next.js",
+              "node",
+              "ollama",
+              "opencv",
+              "puppeteer",
+              "pytorch",
+              "react",
+              "react-native",
+              "realworld",
+              "rust",
+              "rustdesk",
+              "scrcpy",
+              "stable-diffusion-webui",
+              "storybook",
+              "svelte",
+              "tailwindcss",
+              "tauri",
+              "tensorflow",
+              "terminal",
+              "thefuck",
+              "three.js",
+              "transformers",
+              "ui",
+              "vscode",
+              "vue",
+              "vue-element-admin",
+              "youtube-dl",
+              "yt-dlp"
+            ]
+          }
+        },
+        {
+          "search_seed": 2,
+          "balance_objective": [
+            0.0,
+            0.7505989886258733,
+            0.22662151218434806
+          ],
+          "statistics": {
+            "train": {
+              "issue_count": 31876,
+              "class_counts": {
+                "bug": 19454,
+                "feature": 9936,
+                "documentation": 1390,
+                "question_support": 1096
+              },
+              "class_proportions": {
+                "bug": 61.03,
+                "feature": 31.17,
+                "documentation": 4.36,
+                "question_support": 3.44
+              },
+              "repository_count": 37,
+              "repositories": [
+                "Python",
+                "angular",
+                "animate.css",
+                "awesome-mac",
+                "create-react-app",
+                "d3",
+                "deno",
+                "excalidraw",
+                "flutter",
+                "go",
+                "godot",
+                "hello-algo",
+                "java-design-patterns",
+                "javascript-algorithms",
+                "kubernetes",
+                "neovim",
+                "next.js",
+                "ollama",
+                "opencv",
+                "puppeteer",
+                "pytorch",
+                "react",
+                "react-native",
+                "realworld",
+                "rustdesk",
+                "scrcpy",
+                "stable-diffusion-webui",
+                "tailwindcss",
+                "tauri",
+                "terminal",
+                "three.js",
+                "transformers",
+                "ui",
+                "vue",
+                "vue-element-admin",
+                "youtube-dl",
+                "yt-dlp"
+              ],
+              "all_classes_present": true
+            },
+            "validation": {
+              "issue_count": 12726,
+              "class_counts": {
+                "bug": 7288,
+                "feature": 4984,
+                "documentation": 317,
+                "question_support": 137
+              },
+              "class_proportions": {
+                "bug": 57.27,
+                "feature": 39.16,
+                "documentation": 2.49,
+                "question_support": 1.08
+              },
+              "repository_count": 6,
+              "repositories": [
+                "PowerToys",
+                "javascript",
+                "node",
+                "rust",
+                "storybook",
+                "svelte"
+              ],
+              "all_classes_present": true
+            },
+            "test": {
+              "issue_count": 9730,
+              "class_counts": {
+                "bug": 5259,
+                "feature": 4048,
+                "documentation": 282,
+                "question_support": 141
+              },
+              "class_proportions": {
+                "bug": 54.05,
+                "feature": 41.6,
+                "documentation": 2.9,
+                "question_support": 1.45
+              },
+              "repository_count": 13,
+              "repositories": [
+                "CS-Notes",
+                "TypeScript",
+                "Web-Dev-For-Beginners",
+                "You-Dont-Know-JS",
+                "bitcoin",
+                "fastapi",
+                "frp",
+                "gin",
+                "langchain",
+                "material-ui",
+                "tensorflow",
+                "thefuck",
+                "vscode"
+              ],
+              "all_classes_present": true
+            },
+            "all_classes_present_in_every_split": true,
+            "repository_overlap": {
+              "train_vs_validation": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              },
+              "train_vs_test": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              },
+              "validation_vs_test": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              }
+            },
+            "repository_holdout": true,
+            "total_issue_count": 54332,
+            "all_source_repositories": [
+              "CS-Notes",
+              "PowerToys",
+              "Python",
+              "TypeScript",
+              "Web-Dev-For-Beginners",
+              "You-Dont-Know-JS",
+              "angular",
+              "animate.css",
+              "awesome-mac",
+              "bitcoin",
+              "create-react-app",
+              "d3",
+              "deno",
+              "excalidraw",
+              "fastapi",
+              "flutter",
+              "frp",
+              "gin",
+              "go",
+              "godot",
+              "hello-algo",
+              "java-design-patterns",
+              "javascript",
+              "javascript-algorithms",
+              "kubernetes",
+              "langchain",
+              "material-ui",
+              "neovim",
+              "next.js",
+              "node",
+              "ollama",
+              "opencv",
+              "puppeteer",
+              "pytorch",
+              "react",
+              "react-native",
+              "realworld",
+              "rust",
+              "rustdesk",
+              "scrcpy",
+              "stable-diffusion-webui",
+              "storybook",
+              "svelte",
+              "tailwindcss",
+              "tauri",
+              "tensorflow",
+              "terminal",
+              "thefuck",
+              "three.js",
+              "transformers",
+              "ui",
+              "vscode",
+              "vue",
+              "vue-element-admin",
+              "youtube-dl",
+              "yt-dlp"
+            ]
+          }
+        },
+        {
+          "search_seed": 6,
+          "balance_objective": [
+            0.0,
+            0.7505989886258733,
+            0.22662151218434806
+          ],
+          "statistics": {
+            "train": {
+              "issue_count": 31876,
+              "class_counts": {
+                "bug": 19454,
+                "feature": 9936,
+                "documentation": 1390,
+                "question_support": 1096
+              },
+              "class_proportions": {
+                "bug": 61.03,
+                "feature": 31.17,
+                "documentation": 4.36,
+                "question_support": 3.44
+              },
+              "repository_count": 37,
+              "repositories": [
+                "Python",
+                "angular",
+                "animate.css",
+                "awesome-mac",
+                "create-react-app",
+                "d3",
+                "deno",
+                "excalidraw",
+                "flutter",
+                "go",
+                "godot",
+                "hello-algo",
+                "java-design-patterns",
+                "javascript-algorithms",
+                "kubernetes",
+                "neovim",
+                "next.js",
+                "ollama",
+                "opencv",
+                "puppeteer",
+                "pytorch",
+                "react",
+                "react-native",
+                "realworld",
+                "rustdesk",
+                "scrcpy",
+                "stable-diffusion-webui",
+                "tailwindcss",
+                "tauri",
+                "terminal",
+                "three.js",
+                "transformers",
+                "ui",
+                "vue",
+                "vue-element-admin",
+                "youtube-dl",
+                "yt-dlp"
+              ],
+              "all_classes_present": true
+            },
+            "validation": {
+              "issue_count": 12726,
+              "class_counts": {
+                "bug": 7288,
+                "feature": 4984,
+                "documentation": 317,
+                "question_support": 137
+              },
+              "class_proportions": {
+                "bug": 57.27,
+                "feature": 39.16,
+                "documentation": 2.49,
+                "question_support": 1.08
+              },
+              "repository_count": 6,
+              "repositories": [
+                "PowerToys",
+                "javascript",
+                "node",
+                "rust",
+                "storybook",
+                "svelte"
+              ],
+              "all_classes_present": true
+            },
+            "test": {
+              "issue_count": 9730,
+              "class_counts": {
+                "bug": 5259,
+                "feature": 4048,
+                "documentation": 282,
+                "question_support": 141
+              },
+              "class_proportions": {
+                "bug": 54.05,
+                "feature": 41.6,
+                "documentation": 2.9,
+                "question_support": 1.45
+              },
+              "repository_count": 13,
+              "repositories": [
+                "CS-Notes",
+                "TypeScript",
+                "Web-Dev-For-Beginners",
+                "You-Dont-Know-JS",
+                "bitcoin",
+                "fastapi",
+                "frp",
+                "gin",
+                "langchain",
+                "material-ui",
+                "tensorflow",
+                "thefuck",
+                "vscode"
+              ],
+              "all_classes_present": true
+            },
+            "all_classes_present_in_every_split": true,
+            "repository_overlap": {
+              "train_vs_validation": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              },
+              "train_vs_test": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              },
+              "validation_vs_test": {
+                "shared_repository_count": 0,
+                "shared_repositories": []
+              }
+            },
+            "repository_holdout": true,
+            "total_issue_count": 54332,
+            "all_source_repositories": [
+              "CS-Notes",
+              "PowerToys",
+              "Python",
+              "TypeScript",
+              "Web-Dev-For-Beginners",
+              "You-Dont-Know-JS",
+              "angular",
+              "animate.css",
+              "awesome-mac",
+              "bitcoin",
+              "create-react-app",
+              "d3",
+              "deno",
+              "excalidraw",
+              "fastapi",
+              "flutter",
+              "frp",
+              "gin",
+              "go",
+              "godot",
+              "hello-algo",
+              "java-design-patterns",
+              "javascript",
+              "javascript-algorithms",
+              "kubernetes",
+              "langchain",
+              "material-ui",
+              "neovim",
+              "next.js",
+              "node",
+              "ollama",
+              "opencv",
+              "puppeteer",
+              "pytorch",
+              "react",
+              "react-native",
+              "realworld",
+              "rust",
+              "rustdesk",
+              "scrcpy",
+              "stable-diffusion-webui",
+              "storybook",
+              "svelte",
+              "tailwindcss",
+              "tauri",
+              "tensorflow",
+              "terminal",
+              "thefuck",
+              "three.js",
+              "transformers",
+              "ui",
+              "vscode",
+              "vue",
+              "vue-element-admin",
+              "youtube-dl",
+              "yt-dlp"
+            ]
+          }
+        }
+      ],
+      "viability_assessment": {
+        "viable": true,
+        "reason": "Repository-held-out evaluation is viable when every split contains all four target classes; repository assignments are reported for review and no split files were written."
+      }
+    }
+  },
+  "recommendation": {
+    "primary_evaluation_design": "repository_held_out",
+    "primary_reason": "A repository-held-out test measures cross-repository transfer and avoids repository-specific label conventions appearing in both train and test.",
+    "secondary_random_benchmark": "Keep a deterministic random issue-level benchmark because it estimates within-repository performance and provides a useful comparison against the harder cross-repository evaluation.",
+    "cautions": [
+      "Do not choose repository assignments based on model scores; the candidate search used only class and size balance.",
+      "The question_support and documentation classes are much smaller than bug and feature, so class proportions should be monitored in every split.",
+      "No split files were finalized in this stage."
+    ]
+  }
+}

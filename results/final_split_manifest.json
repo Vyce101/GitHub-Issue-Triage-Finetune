@@ -1,0 +1,220 @@
+{
+  "manifest_version": "1.0",
+  "creation_method": "freeze-splits-v1",
+  "source": {
+    "normalized_dataset_path": "data/processed/normalized_labeled_dataset.jsonl",
+    "normalized_dataset_sha256": "31cfb793b38c2659708b6d0939420d1c3afaee2a0e9b86225b4a51387afb7c62",
+    "normalized_dataset_row_count": 54332,
+    "approved_assignment_source": "results/split_analysis.json",
+    "approved_search_seed": 25
+  },
+  "target_categories": [
+    "bug",
+    "feature",
+    "documentation",
+    "question_support"
+  ],
+  "repository_assignment": {
+    "train": [
+      "Python",
+      "angular",
+      "animate.css",
+      "awesome-mac",
+      "create-react-app",
+      "d3",
+      "deno",
+      "excalidraw",
+      "flutter",
+      "go",
+      "godot",
+      "hello-algo",
+      "java-design-patterns",
+      "javascript-algorithms",
+      "kubernetes",
+      "neovim",
+      "next.js",
+      "ollama",
+      "opencv",
+      "puppeteer",
+      "pytorch",
+      "react",
+      "react-native",
+      "realworld",
+      "rustdesk",
+      "scrcpy",
+      "stable-diffusion-webui",
+      "tailwindcss",
+      "tauri",
+      "terminal",
+      "three.js",
+      "transformers",
+      "ui",
+      "vue",
+      "vue-element-admin",
+      "youtube-dl",
+      "yt-dlp"
+    ],
+    "validation": [
+      "CS-Notes",
+      "PowerToys",
+      "Web-Dev-For-Beginners",
+      "gin",
+      "javascript",
+      "node",
+      "rust",
+      "storybook",
+      "svelte"
+    ],
+    "test": [
+      "TypeScript",
+      "You-Dont-Know-JS",
+      "bitcoin",
+      "fastapi",
+      "frp",
+      "langchain",
+      "material-ui",
+      "tensorflow",
+      "thefuck",
+      "vscode"
+    ]
+  },
+  "ordering_rule": "UTF-8 JSONL with LF line endings; rows sorted by repository (lexical), numeric issue ID, source split, then source row index.",
+  "splits": {
+    "train": {
+      "path": "data/processed/splits/train.jsonl",
+      "sha256": "ac4642fb0adfeed9084e24fc35633477859fe0b59597c59cc7e7a5f3a539e133",
+      "row_count": 31876,
+      "class_counts": {
+        "bug": 19454,
+        "feature": 9936,
+        "documentation": 1390,
+        "question_support": 1096
+      },
+      "repository_count": 37,
+      "repositories": [
+        "Python",
+        "angular",
+        "animate.css",
+        "awesome-mac",
+        "create-react-app",
+        "d3",
+        "deno",
+        "excalidraw",
+        "flutter",
+        "go",
+        "godot",
+        "hello-algo",
+        "java-design-patterns",
+        "javascript-algorithms",
+        "kubernetes",
+        "neovim",
+        "next.js",
+        "ollama",
+        "opencv",
+        "puppeteer",
+        "pytorch",
+        "react",
+        "react-native",
+        "realworld",
+        "rustdesk",
+        "scrcpy",
+        "stable-diffusion-webui",
+        "tailwindcss",
+        "tauri",
+        "terminal",
+        "three.js",
+        "transformers",
+        "ui",
+        "vue",
+        "vue-element-admin",
+        "youtube-dl",
+        "yt-dlp"
+      ]
+    },
+    "validation": {
+      "path": "data/processed/splits/validation.jsonl",
+      "sha256": "0cfb655d12bf66d83befb1a0be829ff3096139c48b5752c716a0b6489302eb5c",
+      "row_count": 12748,
+      "class_counts": {
+        "bug": 7298,
+        "feature": 4987,
+        "documentation": 317,
+        "question_support": 146
+      },
+      "repository_count": 9,
+      "repositories": [
+        "CS-Notes",
+        "PowerToys",
+        "Web-Dev-For-Beginners",
+        "gin",
+        "javascript",
+        "node",
+        "rust",
+        "storybook",
+        "svelte"
+      ]
+    },
+    "test": {
+      "path": "data/processed/splits/test.jsonl",
+      "sha256": "7257588f3b21de561d7ac16cbc24bcc7887877ab20c99e3e45499635187a06bc",
+      "row_count": 9708,
+      "class_counts": {
+        "bug": 5249,
+        "feature": 4045,
+        "documentation": 282,
+        "question_support": 132
+      },
+      "repository_count": 10,
+      "repositories": [
+        "TypeScript",
+        "You-Dont-Know-JS",
+        "bitcoin",
+        "fastapi",
+        "frp",
+        "langchain",
+        "material-ui",
+        "tensorflow",
+        "thefuck",
+        "vscode"
+      ]
+    }
+  },
+  "verification": {
+    "every_normalized_example_in_exactly_one_split": true,
+    "total_split_rows": 54332,
+    "total_split_rows_match_normalized_source": true,
+    "split_counts_match_approved_analysis": true,
+    "class_counts_match_approved_analysis": true,
+    "repository_counts_match_approved_analysis": true,
+    "all_categories_in_all_splits": true,
+    "normalized_source_duplicate_issue_ids": 0,
+    "normalized_source_duplicate_title_body_pairs": 0,
+    "cross_split_overlap": {
+      "train_vs_validation": {
+        "source_issue_id_overlap_count": 0,
+        "title_body_overlap_count": 0,
+        "repository_overlap_count": 0,
+        "shared_repositories": []
+      },
+      "train_vs_test": {
+        "source_issue_id_overlap_count": 0,
+        "title_body_overlap_count": 0,
+        "repository_overlap_count": 0,
+        "shared_repositories": []
+      },
+      "validation_vs_test": {
+        "source_issue_id_overlap_count": 0,
+        "title_body_overlap_count": 0,
+        "repository_overlap_count": 0,
+        "shared_repositories": []
+      }
+    },
+    "repository_overlap_zero": true,
+    "source_issue_id_overlap_zero": true,
+    "title_body_overlap_zero": true
+  },
+  "freeze_statement": "The test split is frozen and must not be used for training, hyperparameter selection, prompt selection, or other development decisions.",
+  "secondary_random_benchmark_created": false,
+  "model_downloaded": false,
+  "tokenization_performed": false
+}
