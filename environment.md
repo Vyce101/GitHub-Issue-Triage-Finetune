@@ -1,6 +1,6 @@
 # Local environment record
 
-This record covers environment setup and hardware verification only. No Hugging Face model, dataset, transformer stack, or training pipeline was installed or created.
+This record covers environment setup and Unsloth Core fine-tuning stack verification. No Hugging Face model or dataset was downloaded, Unsloth Studio was not installed, and no training pipeline was created.
 
 ## Host detection
 
@@ -25,20 +25,50 @@ This record covers environment setup and hardware verification only. No Hugging 
 
 | Package | Version |
 | --- | --- |
+| accelerate | 1.14.0 |
+| bitsandbytes | 0.50.1 |
+| cut-cross-entropy | 25.1.1 |
+| datasets | 4.3.0 |
+| diffusers | 0.39.0 |
+| dill | 0.4.0 |
 | filelock | 3.32.3 |
-| fsspec | 2026.7.0 |
+| fsspec | 2025.9.0 |
+| huggingface-hub | 1.27.0 |
 | Jinja2 | 3.1.6 |
 | MarkupSafe | 3.0.3 |
+| multiprocess | 0.70.16 |
 | mpmath | 1.3.0 |
+| msgspec | 0.21.1 |
 | networkx | 3.6.1 |
 | numpy | 2.4.3 |
+| pandas | 3.0.5 |
+| peft | 0.20.0 |
+| pyarrow | 25.0.1 |
+| pillow | 12.3.0 |
 | pip | 26.2.1 |
+| protobuf | 7.35.1 |
+| pydantic | 2.13.4 |
+| safetensors | 0.8.0 |
+| scikit-learn | 1.9.0 |
+| scipy | 1.17.1 |
+| sentencepiece | 0.2.2 |
 | setuptools | 65.5.0 |
+| torch | 2.11.0+cu130 |
+| torchao | 0.18.0 |
+| torchvision | 0.26.0+cu130 |
+| tokenizers | 0.22.2 |
 | sympy | 1.14.0 |
-| torch | 2.12.1+cu130 |
+| transformers | 5.5.0 |
+| triton-windows | 3.7.1.post27 |
+| trl | 0.24.0 |
 | typing_extensions | 4.16.0 |
+| unsloth | 2026.8.18 |
+| unsloth-zoo | 2026.8.12 |
+| xformers | 0.0.35 |
 
-PyTorch was installed from the stable CUDA 13.0 wheel index. Its bundled CUDA runtime reports `13.0`.
+PyTorch was installed from the CUDA 13.0 wheel index. Its bundled CUDA runtime reports `13.0`.
+
+The requested Unsloth Core supervised fine-tuning stack is installed in `.venv`. Unsloth required the approved change from PyTorch `2.12.1+cu130` to `2.11.0+cu130`; CUDA support remained active. No model or dataset download was performed.
 
 ## Recreate the environment
 
@@ -62,10 +92,19 @@ Executed inside `.venv` on 2026-08-15:
 - Detected GPU: `NVIDIA GeForce RTX 2060 SUPER`
 - Compute capability: `7.5`
 - PyTorch CUDA runtime: `13.0`
+- PyTorch version before stack installation: `2.12.1+cu130`
+- PyTorch version after stack installation: `2.11.0+cu130`
 - CUDA tensor allocation: PASS
-- CUDA tensor matrix operation and synchronization: PASS
-- Operation result: `[3.0, 5.0, 7.0, 9.0, 11.0, 13.0, 15.0, 17.0, 19.0]`
-- Device memory reported by PyTorch: `8589606912` bytes
+- CUDA tensor matrix operation and synchronization: PASS; result `[[5.0, 14.0, 23.0], [14.0, 50.0, 86.0], [23.0, 86.0, 149.0]]`
+- `unsloth`, `transformers`, `datasets`, `trl`, `peft`, `accelerate`, and `bitsandbytes` imports: PASS
+- Unsloth initialization: PASS; Unsloth and Unsloth Zoo initialized without loading a model or dataset.
+- Unsloth version: `2026.8.18`
+- Unsloth device detection: PASS; `DEVICE_TYPE=cuda`, `DEVICE_COUNT=1`, `ALLOW_BITSANDBYTES=True`, GPU `NVIDIA GeForce RTX 2060 SUPER`, CUDA `7.5`, toolkit `13.0`, approximately `8.0 GB`.
+- `bitsandbytes` version: `0.50.1`
+- bitsandbytes CUDA backend: PASS; its native library was present, CUDA symbols were available, and CUDA specs detected CUDA `13.0` with compute capability `(7, 5)`.
+- bitsandbytes NF4 `Linear4bit` CUDA smoke test: PASS; input shape `(4, 64)`, output shape `(4, 8)`.
+- bitsandbytes functional NF4 quantize/dequantize CUDA smoke test: PASS; packed shape `(1024, 1)`, restored shape `(32, 64)`.
+- `torch.cuda.is_bf16_supported()`: `False`.
 - `pip check`: `No broken requirements found.`
 
 ## Errors and warnings encountered
@@ -73,3 +112,6 @@ Executed inside `.venv` on 2026-08-15:
 - The first virtual-environment attempt failed because the registered 3.11.13 launcher path did not exist. No `.venv` was created by that failed attempt; the local runtime provisioning above resolved it.
 - An initial `nvidia-smi --query-gpu` diagnostic used unsupported field `cuda_version`; the corrected standard `nvidia-smi` output reported CUDA UMD 13.3.
 - Before NumPy was installed, PyTorch emitted a non-fatal `No module named 'numpy'` warning during import. NumPy 2.4.3 was then installed, and the final import and CUDA verification completed without warnings or errors.
+- Unsloth's dependency resolver required PyTorch `<2.12.0`, so the approved downgrade to `2.11.0+cu130` was applied. CUDA remained available after the change.
+- PyTorch emitted a non-fatal Windows/macOS note that distributed multiprocessing redirects are not supported on those platforms.
+- Importing Unsloth generated the local untracked `unsloth_compiled_cache/` runtime cache containing generated trainer source and bytecode; no model or dataset files were created.

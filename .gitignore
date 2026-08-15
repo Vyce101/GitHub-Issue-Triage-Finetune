@@ -18,6 +18,10 @@ service-account*.json
 .cache/
 huggingface/
 hf_cache/
+datasets/
+
+# Unsloth generated runtime cache
+unsloth_compiled_cache/
 
 # Models, weights, and training checkpoints
 models/
