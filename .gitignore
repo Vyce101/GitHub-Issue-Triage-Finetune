@@ -1,0 +1,45 @@
+.venv/
+.python-runtime/
+__pycache__/
+*.py[cod]
+
+# Environment files and credentials
+.env
+.env.*
+credentials/
+secrets/
+credentials.json
+service-account*.json
+*.pem
+*.key
+*.p12
+
+# Hugging Face / ML caches
+.cache/
+huggingface/
+hf_cache/
+
+# Models, weights, and training checkpoints
+models/
+checkpoints/
+outputs/
+runs/
+wandb/
+tensorboard/
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+
+# Local datasets and generated experiment data
+data/raw/
+data/interim/
+data/processed/
+data/generated/
+
+# IDE / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

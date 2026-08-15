@@ -1,0 +1,4 @@
+# Direct environment requirements for the local CUDA-enabled PyTorch setup.
+numpy==2.4.3
+torch==2.12.1+cu130
+--extra-index-url https://download.pytorch.org/whl/cu130
