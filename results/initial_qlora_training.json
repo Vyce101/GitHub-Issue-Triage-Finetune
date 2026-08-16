@@ -1,0 +1,1001 @@
+{
+  "status": "passed",
+  "created_at_utc": "2026-08-16T13:42:55.933362+00:00",
+  "full_training_started": true,
+  "validation_accessed": true,
+  "test_accessed": false,
+  "preflight_only": false,
+  "config_path": "configs/initial_qlora_config.json",
+  "configuration": {
+    "file_description": "Approved machine-readable configuration for the first real QLoRA fine-tuning run; this file does not launch training.",
+    "schema_version": "0.1",
+    "status": "approved_initial_run_pending_final_review",
+    "training_performed": false,
+    "full_training_started": false,
+    "experiment_name": "initial-real-qlora",
+    "base_model": {
+      "model_id": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+      "revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+      "load_in_4bit": true,
+      "load_in_8bit": false,
+      "load_in_16bit": false,
+      "quantization": {
+        "quant_type": "nf4",
+        "use_double_quant": true,
+        "compute_dtype": "float16"
+      },
+      "device_map": "sequential",
+      "trust_remote_code": false
+    },
+    "data": {
+      "train_path": "data/processed/splits/train.jsonl",
+      "validation_path": "data/processed/splits/validation.jsonl",
+      "test_path": "data/processed/splits/test.jsonl",
+      "train_sha256": "ac4642fb0adfeed9084e24fc35633477859fe0b59597c59cc7e7a5f3a539e133",
+      "validation_sha256": "0cfb655d12bf66d83befb1a0be829ff3096139c48b5752c716a0b6489302eb5c",
+      "test_sha256": "7257588f3b21de561d7ac16cbc24bcc7887877ab20c99e3e45499635187a06bc",
+      "frozen_split_manifest_path": "results/final_split_manifest.json",
+      "row_counts": {
+        "train": 31876,
+        "validation": 12748,
+        "test": 9708
+      },
+      "target_categories": [
+        "bug",
+        "feature",
+        "documentation",
+        "question_support"
+      ],
+      "input_prompt": "The existing baseline zero-shot system instruction and title/body user message from scripts/baseline/prompts.py.",
+      "assistant_target_template": "{\"type\":\"<target_category>\"}",
+      "raw_github_labels_in_model_input": false,
+      "train_all_frozen_train_rows": true,
+      "class_sampling": "natural_frozen_train_distribution; no oversampling or class-weighted loss"
+    },
+    "sequence": {
+      "max_length": 1536,
+      "packing": false,
+      "padding": "dynamic",
+      "truncate_prompt_only_preserve_target": true,
+      "truncation_side_for_issue_prompt": "right"
+    },
+    "loss": {
+      "objective": "causal_supervised_fine_tuning",
+      "completion_only_loss": true,
+      "train_on_assistant_response_only": true,
+      "masking_implementation": "unsloth.train_on_responses_only",
+      "instruction_part": "<|im_start|>user\n",
+      "response_part": "<|im_start|>assistant\n",
+      "last_response_only": true,
+      "chat_template_enable_thinking": false,
+      "rendered_target_verification_required": true,
+      "reasoning_or_chain_of_thought_target": false
+    },
+    "lora": {
+      "rank": 16,
+      "alpha": 16,
+      "dropout": 0.0,
+      "bias": "none",
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ],
+      "use_rslora": false,
+      "modules_to_save": null
+    },
+    "optimization": {
+      "num_train_epochs": 1.0,
+      "per_device_train_batch_size": 1,
+      "gradient_accumulation_steps": 16,
+      "effective_batch_size": 16,
+      "learning_rate": 0.0002,
+      "lr_scheduler_type": "linear",
+      "warmup_ratio": 0.05,
+      "optimizer": "adamw_8bit",
+      "weight_decay": 0.01,
+      "max_grad_norm": 1.0,
+      "gradient_checkpointing": "unsloth",
+      "use_cache": false,
+      "fp16": true,
+      "bf16": false,
+      "tf32": false,
+      "seed": 3407,
+      "data_seed": 3407,
+      "dataloader_num_workers": 0,
+      "expected_optimizer_steps": 1993,
+      "expected_optimizer_steps_formula": "ceil(train_row_count / (per_device_train_batch_size * gradient_accumulation_steps))"
+    },
+    "trainer": {
+      "eval_strategy": "epoch",
+      "per_device_eval_batch_size": 1,
+      "prediction_loss_only": true,
+      "save_strategy": "epoch",
+      "save_total_limit": 1,
+      "load_best_model_at_end": false,
+      "logging_strategy": "steps",
+      "logging_steps": 50,
+      "report_to": "none",
+      "output_dir": "outputs/initial-real-qlora",
+      "save_only_model": true
+    },
+    "evaluation_policy": {
+      "validation_role": "Post-training checkpoint report and allowed development evidence; the initial one-epoch run has no checkpoint-selection comparison.",
+      "test_role": "Frozen final evaluation only; never use for training, prompt selection, or hyperparameter selection.",
+      "prompt_condition": "zero_shot",
+      "generation": {
+        "do_sample": false,
+        "max_new_tokens": 16,
+        "temperature": null
+      },
+      "output_parser": "scripts/classification/parser.py: permit one empty <think>...</think> wrapper, then require exactly one JSON object with exactly the type field and one approved category value; reject non-empty thinking and all extra text.",
+      "primary_metric": "macro_f1",
+      "reported_metrics": [
+        "accuracy",
+        "macro_f1",
+        "valid_output_percentage",
+        "per_class_precision_recall_f1",
+        "confusion_matrix",
+        "input_truncated_percentage"
+      ]
+    },
+    "pre_training_review": [
+      "Run the final preflight and obtain user review before starting training.",
+      "Treat one epoch as the first controlled full-data experiment, not as a claim of optimal duration.",
+      "Use validation for reporting only during this one-epoch run; keep test frozen for final held-out evaluation.",
+      "Use the canonical classification parser for every future baseline and fine-tuned evaluation."
+    ]
+  },
+  "errors": [],
+  "git": {
+    "starting_commit_sha": "ac7972b903869693809741d7048da0c27cabd2e4",
+    "status_lines": [
+      "?? scripts/qlora_training/full_data.py",
+      "?? scripts/qlora_training/run_full.py",
+      "?? scripts/run_initial_qlora_training.py"
+    ],
+    "diff_check": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "acceptable_for_experiment": true,
+    "unsafe_paths": []
+  },
+  "software_and_cuda_integrity": {
+    "sys_executable": ".venv/Scripts/python.exe",
+    "sys_version": "3.11.13 (main, Oct  7 2025, 15:29:59) [MSC v.1944 64 bit (AMD64)]",
+    "executable_is_project_venv": true,
+    "python_version_is_expected": true,
+    "package_versions": {
+      "torch": "2.11.0+cu130",
+      "torchvision": "0.26.0+cu130",
+      "unsloth": "2026.8.18",
+      "unsloth-zoo": "2026.8.12",
+      "transformers": "5.5.0",
+      "datasets": "4.3.0",
+      "trl": "0.24.0",
+      "peft": "0.20.0",
+      "accelerate": "1.14.0",
+      "bitsandbytes": "0.50.1",
+      "xformers": "0.0.35",
+      "triton": null,
+      "triton-windows": "3.7.1.post27"
+    },
+    "package_versions_match_recorded": true,
+    "cuda": {
+      "is_available": true,
+      "device_count": 1,
+      "gpu": "NVIDIA GeForce RTX 2060 SUPER",
+      "compute_capability": [
+        7,
+        5
+      ],
+      "torch_version": "2.11.0+cu130",
+      "torch_cuda_runtime": "13.0",
+      "bf16_supported_before_unsloth": true,
+      "tensor_operation": {
+        "status": "PASS",
+        "result": [
+          [
+            19.0,
+            22.0
+          ],
+          [
+            43.0,
+            50.0
+          ]
+        ]
+      }
+    },
+    "bitsandbytes_cuda_nf4": {
+      "version": "0.50.1",
+      "functional_nf4": {
+        "status": "PASS",
+        "packed_shape": [
+          256,
+          1
+        ],
+        "restored_shape": [
+          8,
+          64
+        ]
+      },
+      "linear4bit_nf4": {
+        "status": "PASS",
+        "input_shape": [
+          4,
+          64
+        ],
+        "output_shape": [
+          4,
+          8
+        ]
+      }
+    },
+    "unsloth": {
+      "version": "2026.8.18",
+      "unsloth_zoo_version": "2026.8.12",
+      "device_detection": {
+        "unsloth.DEVICE_TYPE": "cuda",
+        "unsloth.DEVICE_COUNT": 1,
+        "unsloth_zoo.DEVICE_TYPE": "cuda",
+        "unsloth_zoo.DEVICE_COUNT": 1
+      },
+      "gpu": "NVIDIA GeForce RTX 2060 SUPER",
+      "bf16_supported_after_unsloth": false,
+      "initialization": "PASS"
+    }
+  },
+  "resource_preflight": {
+    "captured_at_utc": "2026-08-16T13:43:09.595118+00:00",
+    "gpu_query": {
+      "command": [
+        "nvidia-smi",
+        "--query-gpu=name,driver_version,memory.total,memory.used,memory.free,utilization.gpu",
+        "--format=csv,noheader,nounits"
+      ],
+      "returncode": 0,
+      "stdout": "NVIDIA GeForce RTX 2060 SUPER, 610.62, 8192, 1497, 6510, 10",
+      "stderr": ""
+    },
+    "nvidia_smi": {
+      "returncode": 0,
+      "first_lines": [
+        "Sun Aug 16 15:43:09 2026       ",
+        "+-----------------------------------------------------------------------------------------+",
+        "| NVIDIA-SMI 610.62                 KMD Version: 610.62        CUDA UMD Version: 13.3     |",
+        "+-----------------------------------------+------------------------+----------------------+",
+        "| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |",
+        "| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |",
+        "|                                         |                        |               MIG M. |",
+        "|=========================================+========================+======================|",
+        "|   0  NVIDIA GeForce RTX 2060 ...  WDDM  |   00000000:10:00.0  On |                  N/A |",
+       "| 41%   38C    P0             43W /  184W |    1497MiB /   8192MiB |     10%      Default |",
+       "|                                         |                        |                  N/A |",
+        "+-----------------------------------------+------------------------+----------------------+"
+      ],
+      "stderr": ""
+    },
+    "compute_apps": {
+      "command": [
+        "nvidia-smi",
+        "--query-compute-apps=pid,process_name,used_gpu_memory",
+        "--format=csv,noheader,nounits"
+      ],
+      "returncode": 0,
+      "stdout": "Process names and paths redacted from tracked report; preflight found no substantial unrelated model workload.",
+      "stderr": ""
+    },
+    "system_ram": {
+      "available": true,
+      "total_mib": 16275.53,
+      "available_mib": 4794.87,
+      "used_percent": 70
+    },
+    "relevant_processes": [
+      {
+        "image_name": "ollama app.exe",
+        "pid": "7344",
+        "memory": "20 116 K"
+      },
+      {
+        "image_name": "ollama.exe",
+        "pid": "14736",
+        "memory": "20 892 K"
+      },
+      {
+        "image_name": "python.exe",
+        "pid": "16312",
+        "memory": "4 156 K"
+      },
+      {
+        "image_name": "python.exe",
+        "pid": "16464",
+        "memory": "1 213 816 K"
+      }
+    ],
+    "ollama_ps": {
+      "command": [
+        "ollama",
+        "ps"
+      ],
+      "returncode": 0,
+      "stdout": "NAME    ID    SIZE    PROCESSOR    CONTEXT    UNTIL",
+      "stderr": ""
+    },
+    "substantial_unrelated_model_workload": false
+  },
+  "data_boundary": {
+    "train_path": "data/processed/splits/train.jsonl",
+    "train_sha256": "ac4642fb0adfeed9084e24fc35633477859fe0b59597c59cc7e7a5f3a539e133",
+    "train_row_count": 31876,
+    "train_source_split_values": [
+      "train"
+    ],
+    "train_repository_count": 37,
+    "optimization_dataset_is_train_only": true,
+    "validation_path": "data/processed/splits/validation.jsonl",
+    "validation_sha256_from_config": "0cfb655d12bf66d83befb1a0be829ff3096139c48b5752c716a0b6489302eb5c",
+    "validation_row_count": 12748,
+    "validation_used_for_epoch_reporting": true,
+    "test_path": "data/processed/splits/test.jsonl",
+    "validation_accessed": true,
+    "test_accessed": false,
+    "test_file_opened": false,
+    "raw_github_labels_in_model_input": false,
+    "class_sampling": "natural_frozen_train_distribution; no oversampling or class-weighted loss",
+    "train_class_counts_match_manifest": true
+  },
+  "data_statistics": {
+    "train": {
+      "source_split": "train",
+      "row_count": 31876,
+      "class_counts": {
+        "bug": 19454,
+        "feature": 9936,
+        "documentation": 1390,
+        "question_support": 1096
+      },
+      "original_token_total": 28136198,
+      "fed_token_total": 21036164,
+      "average_original_sequence_tokens": 882.6766,
+      "average_fed_sequence_tokens": 659.9374,
+      "maximum_fed_sequence_tokens": 1536,
+      "truncated_row_count": 2889,
+      "truncated_row_percentage": 9.063245,
+      "target_removed_count": 0,
+      "target_preserved_for_every_row": true,
+      "prompt_truncated_only": true
+    },
+    "validation": {
+      "source_split": "validation",
+      "row_count": 12748,
+      "class_counts": {
+        "bug": 7298,
+        "feature": 4987,
+        "documentation": 317,
+        "question_support": 146
+      },
+      "original_token_total": 13690734,
+      "fed_token_total": 8098857,
+      "average_original_sequence_tokens": 1073.9515,
+      "average_fed_sequence_tokens": 635.3041,
+      "maximum_fed_sequence_tokens": 1536,
+      "truncated_row_count": 1273,
+      "truncated_row_percentage": 9.98588,
+      "target_removed_count": 0,
+      "target_preserved_for_every_row": true,
+      "prompt_truncated_only": true
+    },
+    "train_verification_samples": [
+      {
+        "dataset_index": 0,
+        "issue_id": 1437240472,
+        "repository": "Python",
+        "source_split": "train",
+        "target_category": "feature",
+        "original_prompt_token_count": 348,
+        "fed_prompt_token_count": 348,
+        "target_token_count": 11,
+        "original_full_sequence_token_count": 359,
+        "fed_sequence_token_count": 359,
+        "truncated": false,
+        "target_preserved": true
+      },
+      {
+        "dataset_index": 1,
+        "issue_id": 1515546093,
+        "repository": "Python",
+        "source_split": "train",
+        "target_category": "feature",
+        "original_prompt_token_count": 370,
+        "fed_prompt_token_count": 370,
+        "target_token_count": 11,
+        "original_full_sequence_token_count": 381,
+        "fed_sequence_token_count": 381,
+        "truncated": false,
+        "target_preserved": true
+      },
+      {
+        "dataset_index": 38,
+        "issue_id": 2599231326,
+        "repository": "Python",
+        "source_split": "train",
+        "target_category": "bug",
+        "original_prompt_token_count": 3595,
+        "fed_prompt_token_count": 1525,
+        "target_token_count": 11,
+        "original_full_sequence_token_count": 3606,
+        "fed_sequence_token_count": 1536,
+        "truncated": true,
+        "target_preserved": true
+      }
+    ]
+  },
+  "model": {
+    "local_snapshot_revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+    "parameter_devices": [
+      "cuda:0"
+    ],
+    "parameter_report": {
+      "total_parameter_count": 2539650560,
+      "trainable_parameter_count": 33030144,
+      "trainable_parameter_percentage": 1.300578,
+      "trainable_parameter_name_count": 504,
+      "trainable_parameter_names_sample": [
+        "base_model.model.model.layers.0.self_attn.q_proj.lora_A.default.weight",
+        "base_model.model.model.layers.0.self_attn.q_proj.lora_B.default.weight",
+        "base_model.model.model.layers.0.self_attn.k_proj.lora_A.default.weight",
+        "base_model.model.model.layers.0.self_attn.k_proj.lora_B.default.weight",
+        "base_model.model.model.layers.0.self_attn.v_proj.lora_A.default.weight",
+        "base_model.model.model.layers.0.self_attn.v_proj.lora_B.default.weight",
+        "base_model.model.model.layers.0.self_attn.o_proj.lora_A.default.weight",
+        "base_model.model.model.layers.0.self_attn.o_proj.lora_B.default.weight",
+        "base_model.model.model.layers.0.mlp.gate_proj.lora_A.default.weight",
+        "base_model.model.model.layers.0.mlp.gate_proj.lora_B.default.weight",
+        "base_model.model.model.layers.0.mlp.up_proj.lora_A.default.weight",
+        "base_model.model.model.layers.0.mlp.up_proj.lora_B.default.weight"
+      ],
+      "only_lora_parameters_trainable": true,
+      "base_parameters_frozen": true,
+      "non_lora_trainable_names": [],
+      "trainable_target_modules": [
+        "down_proj",
+        "gate_proj",
+        "k_proj",
+        "o_proj",
+        "q_proj",
+        "up_proj",
+        "v_proj"
+      ]
+    }
+  },
+  "launch_verification": {
+    "checks": {
+      "correct_model_id": true,
+      "correct_model_revision": true,
+      "correct_train_sha256": true,
+      "exactly_expected_train_rows": true,
+      "optimization_dataset_train_only": true,
+      "only_lora_parameters_trainable": true,
+      "completion_target_receives_loss": true,
+      "prompt_tokens_do_not_receive_loss": true,
+      "target_cannot_be_removed_by_truncation": true,
+      "fp16_bf16_settings_match_environment": true,
+      "resolved_hyperparameters_match_configuration": true,
+      "expected_optimizer_steps": true,
+      "trainer_dataloader_row_count": true
+    },
+    "all_checks_passed": true,
+    "expected_optimizer_steps": 1993,
+    "parameter_report": {
+      "total_parameter_count": 2539650560,
+      "trainable_parameter_count": 33030144,
+      "trainable_parameter_percentage": 1.300578,
+      "trainable_parameter_name_count": 504,
+      "trainable_parameter_names_sample": [
+        "base_model.model.model.layers.0.self_attn.q_proj.lora_A.default.weight",
+        "base_model.model.model.layers.0.self_attn.q_proj.lora_B.default.weight",
+        "base_model.model.model.layers.0.self_attn.k_proj.lora_A.default.weight",
+        "base_model.model.model.layers.0.self_attn.k_proj.lora_B.default.weight",
+        "base_model.model.model.layers.0.self_attn.v_proj.lora_A.default.weight",
+        "base_model.model.model.layers.0.self_attn.v_proj.lora_B.default.weight",
+        "base_model.model.model.layers.0.self_attn.o_proj.lora_A.default.weight",
+        "base_model.model.model.layers.0.self_attn.o_proj.lora_B.default.weight",
+        "base_model.model.model.layers.0.mlp.gate_proj.lora_A.default.weight",
+        "base_model.model.model.layers.0.mlp.gate_proj.lora_B.default.weight",
+        "base_model.model.model.layers.0.mlp.up_proj.lora_A.default.weight",
+        "base_model.model.model.layers.0.mlp.up_proj.lora_B.default.weight"
+      ],
+      "only_lora_parameters_trainable": true,
+      "base_parameters_frozen": true,
+      "non_lora_trainable_names": [],
+      "trainable_target_modules": [
+        "down_proj",
+        "gate_proj",
+        "k_proj",
+        "o_proj",
+        "q_proj",
+        "up_proj",
+        "v_proj"
+      ]
+    },
+    "masking": {
+      "method": "TRL SFTTrainer pre-tokenized completion_mask collator",
+      "sample_checks": [
+        {
+          "dataset_index": 0,
+          "issue_id": 1437240472,
+          "repository": "Python",
+          "truncated": false,
+          "actual_sequence_token_count": 359,
+          "prompt_tokens_do_not_receive_loss": true,
+          "completion_target_receives_loss": true,
+          "target_preserved": true
+        },
+        {
+          "dataset_index": 1,
+          "issue_id": 1515546093,
+          "repository": "Python",
+          "truncated": false,
+          "actual_sequence_token_count": 381,
+          "prompt_tokens_do_not_receive_loss": true,
+          "completion_target_receives_loss": true,
+          "target_preserved": true
+        },
+        {
+          "dataset_index": 38,
+          "issue_id": 2599231326,
+          "repository": "Python",
+          "truncated": true,
+          "actual_sequence_token_count": 1536,
+          "prompt_tokens_do_not_receive_loss": true,
+          "completion_target_receives_loss": true,
+          "target_preserved": true
+        }
+      ],
+      "all_prompt_tokens_masked": true,
+      "all_completion_targets_receive_loss": true,
+      "all_targets_preserved": true
+    },
+    "resolved_hyperparameters": {
+      "resolved": {
+        "max_length": 1536,
+        "packing": false,
+        "per_device_train_batch_size": 1,
+        "per_device_eval_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "effective_batch_size": 16,
+        "num_train_epochs": 1.0,
+        "learning_rate": 0.0002,
+        "lr_scheduler_type": "linear",
+        "optimizer": "adamw_8bit",
+        "weight_decay": 0.01,
+        "warmup_ratio": 0.05,
+        "max_grad_norm": 1.0,
+        "gradient_checkpointing": "unsloth",
+        "use_cache": false,
+        "fp16": true,
+        "bf16": false,
+        "tf32": false,
+        "seed": 3407,
+        "data_seed": 3407,
+        "dataloader_num_workers": 0,
+        "eval_strategy": "epoch",
+        "prediction_loss_only": true,
+        "save_strategy": "epoch",
+        "save_total_limit": 1,
+        "load_best_model_at_end": false,
+        "save_only_model": true,
+        "logging_strategy": "steps",
+        "logging_steps": 50,
+        "report_to": "none",
+        "padding_free": false,
+        "completion_only_loss": true,
+        "assistant_only_loss": false
+      },
+      "expected": {
+        "max_length": 1536,
+        "packing": false,
+        "per_device_train_batch_size": 1,
+        "per_device_eval_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "effective_batch_size": 16,
+        "num_train_epochs": 1.0,
+        "learning_rate": 0.0002,
+        "lr_scheduler_type": "linear",
+        "optimizer": "adamw_8bit",
+        "weight_decay": 0.01,
+        "warmup_ratio": 0.05,
+        "max_grad_norm": 1.0,
+        "gradient_checkpointing": "unsloth",
+        "use_cache": false,
+        "fp16": true,
+        "bf16": false,
+        "tf32": false,
+        "seed": 3407,
+        "data_seed": 3407,
+        "dataloader_num_workers": 0,
+        "eval_strategy": "epoch",
+        "prediction_loss_only": true,
+        "save_strategy": "epoch",
+        "save_total_limit": 1,
+        "load_best_model_at_end": false,
+        "save_only_model": true,
+        "logging_strategy": "steps",
+        "logging_steps": 50,
+        "report_to": "none",
+        "padding_free": false,
+        "completion_only_loss": true,
+        "assistant_only_loss": false
+      },
+      "matches_approved_configuration": true
+    }
+  },
+  "training": {
+    "start_timestamp_utc": "2026-08-16T13:57:18.657511+00:00",
+    "end_timestamp_utc": "2026-08-16T23:41:54.073349+00:00",
+    "runtime_seconds": 35075.4171,
+    "optimizer_steps_completed": 1993,
+    "expected_optimizer_steps": 1993,
+    "train_rows_processed": 31876,
+    "all_train_rows_processed_as_intended": true,
+    "train_result_metrics": {
+      "train_runtime": 35073.301,
+      "train_samples_per_second": 0.909,
+      "train_steps_per_second": 0.057,
+      "total_flos": 4.627798830466867e+17,
+      "train_loss": 0.5071334398636194,
+      "epoch": 1.0
+    },
+    "log_history": [
+      {
+        "step": 50,
+        "epoch": 0.025097251850922323,
+        "loss": 3.5795388793945313,
+        "learning_rate": 9.8e-05,
+        "grad_norm": 0.8213599920272827
+      },
+      {
+        "step": 100,
+        "epoch": 0.050194503701844646,
+        "loss": 0.6132182693481445,
+        "learning_rate": 0.00019800000000000002,
+        "grad_norm": 0.28618472814559937
+      },
+      {
+        "step": 150,
+        "epoch": 0.07529175555276697,
+        "loss": 0.4422031021118164,
+        "learning_rate": 0.0001948230322239831,
+        "grad_norm": 0.48857608437538147
+      },
+      {
+        "step": 200,
+        "epoch": 0.10038900740368929,
+        "loss": 0.43654468536376956,
+        "learning_rate": 0.00018954041204437402,
+        "grad_norm": 0.14702767133712769
+      },
+      {
+        "step": 250,
+        "epoch": 0.12548625925461163,
+        "loss": 0.43574291229248047,
+        "learning_rate": 0.00018436344426835713,
+        "grad_norm": 0.18887107074260712
+      },
+      {
+        "step": 300,
+        "epoch": 0.15058351110553395,
+        "loss": 0.43480892181396485,
+        "learning_rate": 0.00017908082408874803,
+        "grad_norm": 0.2895030975341797
+      },
+      {
+        "step": 350,
+        "epoch": 0.17568076295645627,
+        "loss": 0.4275528335571289,
+        "learning_rate": 0.00017379820390913894,
+        "grad_norm": 0.11254274845123291
+      },
+      {
+        "step": 400,
+        "epoch": 0.20077801480737859,
+        "loss": 0.42919513702392575,
+        "learning_rate": 0.00016851558372952985,
+        "grad_norm": 0.08397495001554489
+      },
+      {
+        "step": 450,
+        "epoch": 0.2258752666583009,
+        "loss": 0.4238344955444336,
+        "learning_rate": 0.00016323296354992076,
+        "grad_norm": 0.16440163552761078
+      },
+      {
+        "step": 500,
+        "epoch": 0.25097251850922325,
+        "loss": 0.4254459762573242,
+        "learning_rate": 0.0001579503433703117,
+        "grad_norm": 0.07737358659505844
+      },
+      {
+        "step": 550,
+        "epoch": 0.27606977036014557,
+        "loss": 0.42250709533691405,
+        "learning_rate": 0.0001526677231907026,
+        "grad_norm": 0.24586397409439087
+      },
+      {
+        "step": 600,
+        "epoch": 0.3011670222110679,
+        "loss": 0.4239413452148437,
+        "learning_rate": 0.0001473851030110935,
+        "grad_norm": 0.12354707717895508
+      },
+      {
+        "step": 650,
+        "epoch": 0.3262642740619902,
+        "loss": 0.4224581527709961,
+        "learning_rate": 0.00014210248283148442,
+        "grad_norm": 0.0970606654882431
+      },
+      {
+        "step": 700,
+        "epoch": 0.35136152591291253,
+        "loss": 0.42203502655029296,
+        "learning_rate": 0.00013681986265187535,
+        "grad_norm": 0.040529973804950714
+      },
+      {
+        "step": 750,
+        "epoch": 0.37645877776383485,
+        "loss": 0.42301273345947266,
+        "learning_rate": 0.00013153724247226623,
+        "grad_norm": 0.09294182062149048
+      },
+      {
+        "step": 800,
+        "epoch": 0.40155602961475717,
+        "loss": 0.42192031860351564,
+        "learning_rate": 0.00012625462229265717,
+        "grad_norm": 0.1030518189072609
+      },
+      {
+        "step": 850,
+        "epoch": 0.4266532814656795,
+        "loss": 0.41695804595947267,
+        "learning_rate": 0.00012097200211304809,
+        "grad_norm": 0.22172248363494873
+      },
+      {
+        "step": 900,
+        "epoch": 0.4517505333166018,
+        "loss": 0.42555828094482423,
+        "learning_rate": 0.00011568938193343899,
+        "grad_norm": 0.06459028273820877
+      },
+      {
+        "step": 950,
+        "epoch": 0.47684778516752413,
+        "loss": 0.42416786193847655,
+        "learning_rate": 0.00011040676175382991,
+        "grad_norm": 0.21998588740825653
+      },
+      {
+        "step": 1000,
+        "epoch": 0.5019450370184465,
+        "loss": 0.42208873748779296,
+        "learning_rate": 0.00010512414157422082,
+        "grad_norm": 0.11372461915016174
+      },
+      {
+        "step": 1050,
+        "epoch": 0.5270422888693688,
+        "loss": 0.4185704040527344,
+        "learning_rate": 9.984152139461174e-05,
+        "grad_norm": 0.0706530436873436
+      },
+      {
+        "step": 1100,
+        "epoch": 0.5521395407202911,
+        "loss": 0.42099727630615236,
+        "learning_rate": 9.455890121500265e-05,
+        "grad_norm": 0.1215241402387619
+      },
+      {
+        "step": 1150,
+        "epoch": 0.5772367925712134,
+        "loss": 0.42073108673095705,
+        "learning_rate": 8.927628103539356e-05,
+        "grad_norm": 0.16362671554088593
+      },
+      {
+        "step": 1200,
+        "epoch": 0.6023340444221358,
+        "loss": 0.4242351531982422,
+        "learning_rate": 8.399366085578448e-05,
+        "grad_norm": 0.22205166518688202
+      },
+      {
+        "step": 1250,
+        "epoch": 0.627431296273058,
+        "loss": 0.41923870086669923,
+        "learning_rate": 7.871104067617539e-05,
+        "grad_norm": 0.2491251528263092
+      },
+      {
+        "step": 1300,
+        "epoch": 0.6525285481239804,
+        "loss": 0.42013336181640626,
+        "learning_rate": 7.34284204965663e-05,
+        "grad_norm": 0.07289157807826996
+      },
+      {
+        "step": 1350,
+        "epoch": 0.6776257999749028,
+        "loss": 0.41753787994384767,
+        "learning_rate": 6.814580031695722e-05,
+        "grad_norm": 0.031080806627869606
+      },
+      {
+        "step": 1400,
+        "epoch": 0.7027230518258251,
+        "loss": 0.42021415710449217,
+        "learning_rate": 6.286318013734814e-05,
+        "grad_norm": 0.10579585283994675
+      },
+      {
+        "step": 1450,
+        "epoch": 0.7278203036767474,
+        "loss": 0.4237973403930664,
+        "learning_rate": 5.7580559957739046e-05,
+        "grad_norm": 0.05568596348166466
+      },
+      {
+        "step": 1500,
+        "epoch": 0.7529175555276697,
+        "loss": 0.42062381744384764,
+        "learning_rate": 5.2297939778129954e-05,
+        "grad_norm": 0.15874163806438446
+      },
+      {
+        "step": 1550,
+        "epoch": 0.7780148073785921,
+        "loss": 0.4175787353515625,
+        "learning_rate": 4.701531959852087e-05,
+        "grad_norm": 0.03935163840651512
+      },
+      {
+        "step": 1600,
+        "epoch": 0.8031120592295143,
+        "loss": 0.41922473907470703,
+        "learning_rate": 4.173269941891178e-05,
+        "grad_norm": 0.0428764745593071
+      },
+      {
+        "step": 1650,
+        "epoch": 0.8282093110804367,
+        "loss": 0.42257343292236327,
+        "learning_rate": 3.64500792393027e-05,
+        "grad_norm": 0.065064437687397
+      },
+      {
+        "step": 1700,
+        "epoch": 0.853306562931359,
+        "loss": 0.42323875427246094,
+        "learning_rate": 3.116745905969361e-05,
+        "grad_norm": 0.14263805747032166
+      },
+      {
+        "step": 1750,
+        "epoch": 0.8784038147822814,
+        "loss": 0.4187592315673828,
+        "learning_rate": 2.5884838880084522e-05,
+        "grad_norm": 0.11317868530750275
+      },
+      {
+        "step": 1800,
+        "epoch": 0.9035010666332036,
+        "loss": 0.42141754150390626,
+        "learning_rate": 2.0602218700475437e-05,
+        "grad_norm": 0.0852310061454773
+      },
+      {
+        "step": 1850,
+        "epoch": 0.928598318484126,
+        "loss": 0.419149169921875,
+        "learning_rate": 1.5319598520866352e-05,
+        "grad_norm": 0.03130079060792923
+      },
+      {
+        "step": 1900,
+        "epoch": 0.9536955703350483,
+        "loss": 0.41815879821777346,
+        "learning_rate": 1.0036978341257264e-05,
+        "grad_norm": 0.15652549266815186
+      },
+      {
+        "step": 1950,
+        "epoch": 0.9787928221859706,
+        "loss": 0.41595619201660156,
+        "learning_rate": 4.754358161648178e-06,
+        "grad_norm": 0.08078273385763168
+      },
+      {
+        "step": 1993,
+        "epoch": 1.0
+      },
+      {
+        "step": 1993,
+        "epoch": 1.0
+      }
+    ],
+    "nan_inf_occurrence": false,
+    "nan_inf_events": [],
+    "peak_gpu_memory": {
+      "allocated_bytes": 3965163520,
+      "allocated_mib": 3781.47,
+      "reserved_bytes": 4108320768,
+      "reserved_mib": 3918.0,
+      "peak_allocated_bytes": 5366413824,
+      "peak_allocated_mib": 5117.81,
+      "peak_reserved_bytes": 8369733632,
+      "peak_reserved_mib": 7982.0,
+      "total_mib": 8191.69
+    },
+    "truncated_training_examples": {
+      "count": 2889,
+      "percentage": 9.063245
+    },
+    "warnings": [
+      {
+        "category": "DeprecationWarning",
+        "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+      }
+    ]
+  },
+  "validation": {
+    "eval_loss": 0.4405,
+    "eval_runtime": 3787.0,
+    "eval_samples_per_second": 3.366,
+    "eval_steps_per_second": 3.366,
+    "epoch": 1.0
+  },
+  "adapter_artifact": {
+    "path": "outputs/initial-real-qlora",
+    "saved": true,
+    "adapter_only": true,
+    "adapter_weight_files": [
+      "adapter_model.safetensors"
+    ],
+    "metadata_file": "outputs/initial-real-qlora/adapter_metadata.json",
+    "files": [
+      "README.md",
+      "adapter_config.json",
+      "adapter_metadata.json",
+      "adapter_model.safetensors",
+      "chat_template.jinja",
+      "tokenizer.json",
+      "tokenizer_config.json"
+    ],
+    "git_ignored_output_policy": true
+  },
+  "warnings": [
+    {
+      "category": "DeprecationWarning",
+      "message": "`torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`."
+    }
+  ],
+  "completed_at_utc": "2026-08-16T23:41:55.074658+00:00"
+}
