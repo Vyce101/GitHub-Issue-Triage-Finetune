@@ -19,6 +19,7 @@ from .config import (
     TARGET_CATEGORIES,
 )
 from .prompts import few_shot_messages, zero_shot_messages
+from classification.parser import parse_classification_output
 
 
 def load_locked_model() -> tuple[Any, Any]:
@@ -58,20 +59,6 @@ def _render_prompt(tokenizer: Any, messages: list[dict[str, str]]) -> str:
             tokenize=False,
             add_generation_prompt=True,
         )
-
-
-def _parse_output(raw_output: str) -> tuple[bool, str | None, str | None]:
-    """Strictly parse the required one-object JSON response."""
-    try:
-        parsed = json.loads(raw_output.strip())
-    except json.JSONDecodeError as error:
-        return False, None, f"json_decode_error: {error.msg}"
-    if not isinstance(parsed, dict) or set(parsed) != {"type"}:
-        return False, None, "schema_error: expected exactly one type field"
-    predicted = parsed.get("type")
-    if predicted not in TARGET_CATEGORIES:
-        return False, None, "schema_error: type is not an approved category"
-    return True, predicted, None
 
 
 def _generated_text_and_count(
@@ -203,7 +190,7 @@ def evaluate_condition(
                     sequence,
                     padded_input_length,
                 )
-                schema_valid, predicted_category, parse_error = _parse_output(raw_output)
+                parsed_output = parse_classification_output(raw_output)
                 batch_generated_tokens += output_token_count
                 batch_records.append(
                     {
@@ -213,9 +200,12 @@ def evaluate_condition(
                         "source_row_index": row["source_row_index"],
                         "expected_category": row["target_category"],
                         "raw_model_output": raw_output,
-                        "predicted_category": predicted_category,
-                        "schema_valid": schema_valid,
-                        "parse_error": parse_error,
+                        "normalized_json_output": parsed_output.normalized_output,
+                        "empty_think_wrapper_stripped": parsed_output.empty_think_wrapper_stripped,
+                        "nonempty_thinking_content": parsed_output.nonempty_thinking_content,
+                        "predicted_category": parsed_output.predicted_category,
+                        "schema_valid": parsed_output.schema_valid,
+                        "parse_error": parsed_output.parse_error,
                         "input_token_count": int(input_token_count),
                         "full_input_token_count": full_input_token_count,
                         "input_truncated": full_input_token_count > int(input_token_count),
