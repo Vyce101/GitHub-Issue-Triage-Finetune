@@ -1,6 +1,6 @@
 # Local environment record
 
-This record covers environment setup and Unsloth Core fine-tuning stack verification. No Hugging Face model or dataset was downloaded, Unsloth Studio was not installed, and no training pipeline was created.
+This record covers environment setup, the completed locked-model smoke test, and Unsloth Core fine-tuning stack verification. The locked Qwen checkpoint was downloaded to the local Hugging Face cache by the completed model smoke test; no dataset was downloaded, Unsloth Studio was not installed, and no training pipeline was created. The checkpoint is local cache state and is not stored or committed in Git.
 
 ## Host detection
 
@@ -68,7 +68,15 @@ This record covers environment setup and Unsloth Core fine-tuning stack verifica
 
 PyTorch was installed from the CUDA 13.0 wheel index. Its bundled CUDA runtime reports `13.0`.
 
-The requested Unsloth Core supervised fine-tuning stack is installed in `.venv`. Unsloth required the approved change from PyTorch `2.12.1+cu130` to `2.11.0+cu130`; CUDA support remained active. No model or dataset download was performed.
+The requested Unsloth Core supervised fine-tuning stack is installed in `.venv`. Unsloth required the approved change from PyTorch `2.12.1+cu130` to `2.11.0+cu130`; CUDA support remained active. The locked Qwen checkpoint was downloaded to the local Hugging Face cache during the completed model smoke test; no dataset download was performed.
+
+## Locked model cache
+
+- Model: `unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit`
+- Resolved revision: `7744afa8566e264af1a92a806d8d9aae00cc7c78`
+- Local Hugging Face cache entry: found during the smoke test under `models--unsloth--Qwen3-4B-Instruct-2507-unsloth-bnb-4bit`
+- Cache size recorded by the smoke test: approximately 3.56 GB
+- The cached checkpoint is ignored local state; model weights are not stored or committed in Git.
 
 ## Recreate the environment
 
@@ -97,7 +105,7 @@ Executed inside `.venv` on 2026-08-15:
 - CUDA tensor allocation: PASS
 - CUDA tensor matrix operation and synchronization: PASS; result `[[5.0, 14.0, 23.0], [14.0, 50.0, 86.0], [23.0, 86.0, 149.0]]`
 - `unsloth`, `transformers`, `datasets`, `trl`, `peft`, `accelerate`, and `bitsandbytes` imports: PASS
-- Unsloth initialization: PASS; Unsloth and Unsloth Zoo initialized without loading a model or dataset.
+- Unsloth initialization: PASS; the isolated import check initialized Unsloth and Unsloth Zoo before model loading.
 - Unsloth version: `2026.8.18`
 - Unsloth device detection: PASS; `DEVICE_TYPE=cuda`, `DEVICE_COUNT=1`, `ALLOW_BITSANDBYTES=True`, GPU `NVIDIA GeForce RTX 2060 SUPER`, CUDA `7.5`, toolkit `13.0`, approximately `8.0 GB`.
 - `bitsandbytes` version: `0.50.1`
@@ -114,4 +122,4 @@ Executed inside `.venv` on 2026-08-15:
 - Before NumPy was installed, PyTorch emitted a non-fatal `No module named 'numpy'` warning during import. NumPy 2.4.3 was then installed, and the final import and CUDA verification completed without warnings or errors.
 - Unsloth's dependency resolver required PyTorch `<2.12.0`, so the approved downgrade to `2.11.0+cu130` was applied. CUDA remained available after the change.
 - PyTorch emitted a non-fatal Windows/macOS note that distributed multiprocessing redirects are not supported on those platforms.
-- Importing Unsloth generated the local untracked `unsloth_compiled_cache/` runtime cache containing generated trainer source and bytecode; no model or dataset files were created.
+- Importing Unsloth generated the local untracked `unsloth_compiled_cache/` runtime cache containing generated trainer source and bytecode. The completed model smoke test separately populated the ignored Hugging Face model cache; no dataset files were created.

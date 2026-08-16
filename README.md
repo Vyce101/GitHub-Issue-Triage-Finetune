@@ -12,6 +12,8 @@ Environment setup, raw dataset inspection, normalized dataset construction, the 
 
 The task predicts one of four normalized GitHub issue categories: `bug`, `feature`, `documentation`, or `question_support`. The locked starting model is `unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit` at revision `7744afa8566e264af1a92a806d8d9aae00cc7c78`.
 
+The completed 64-example train-only sanity experiment trained approximately 33.0M LoRA parameters on the 4.02B-parameter logical base model. Its historical 1.300578% figure used the loaded quantized/library-reported denominator and should not be read as the percentage of the logical base model.
+
 On the train-only prompt-development subset, the recorded macro-F1 was 0.5536 for zero-shot prompting and 0.6889 for few-shot prompting. Validation and test data have not been used for prompt development or fine-tuning.
 
 ## Primary benchmark split
