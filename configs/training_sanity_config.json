@@ -1,0 +1,101 @@
+{
+  "file_description": "Locked candidate configuration for the 64-example QLoRA overfit sanity experiment; this is not approval for full training.",
+  "schema_version": "1.0",
+  "status": "sanity_only",
+  "full_training_approved": false,
+  "experiment_name": "qlora-training-sanity-64",
+  "model": {
+    "model_id": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+    "revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+    "max_sequence_length": 1536,
+    "dtype": "float16",
+    "load_in_4bit": true,
+    "load_in_8bit": false,
+    "load_in_16bit": false,
+    "device_map": "sequential",
+    "trust_remote_code": false,
+    "local_files_only": true
+  },
+  "data": {
+    "source_split": "train",
+    "source_path": "data/processed/splits/train.jsonl",
+    "examples_per_category": 16,
+    "total_examples": 64,
+    "short_sequence_token_ceiling": 512,
+    "target_categories": [
+      "bug",
+      "feature",
+      "documentation",
+      "question_support"
+    ],
+    "prompt_completion_format": true,
+    "prompt_source": "scripts/baseline/prompts.py zero_shot_messages",
+    "completion_template": "{\"type\":\"<target_category>\"}",
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "raw_github_labels_in_model_input": false,
+    "chain_of_thought_target": false
+  },
+  "lora": {
+    "rank": 16,
+    "alpha": 16,
+    "dropout": 0.0,
+    "bias": "none",
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "use_rslora": false,
+    "gradient_checkpointing": "unsloth",
+    "random_state": 3407
+  },
+  "optimization": {
+    "per_device_train_batch_size": 1,
+    "gradient_accumulation_steps": 16,
+    "effective_batch_size": 16,
+    "learning_rate": 0.0002,
+    "optimizer": "adamw_8bit",
+    "weight_decay": 0.01,
+    "lr_scheduler_type": "linear",
+    "warmup_ratio": 0.05,
+    "sanity_num_epochs": 40,
+    "sanity_max_steps": 160,
+    "sanity_warmup_steps": 8,
+    "max_grad_norm": 1.0,
+    "fp16": true,
+    "bf16": false,
+    "tf32": false,
+    "use_cache": false,
+    "seed": 3407,
+    "data_seed": 3407,
+    "dataloader_num_workers": 0,
+    "padding_free": false
+  },
+  "loss": {
+    "completion_only_loss": true,
+    "assistant_only_loss": false,
+    "instruction_part": "<|im_start|>user\n",
+    "response_part": "<|im_start|>assistant\n",
+    "verify_actual_trainer_labels": true,
+    "preserve_target_before_eos": true
+  },
+  "evaluation": {
+    "max_new_tokens": 16,
+    "do_sample": false,
+    "temperature": null,
+    "strict_json_schema": "exactly one type field with one approved category",
+    "primary_metric": "macro_f1"
+  },
+  "artifacts": {
+    "temporary_output_dir": "outputs/training-sanity-64",
+    "tracked_report_path": "results/training_sanity_check.json",
+    "save_adapter": true,
+    "save_checkpoints": false
+  }
+}
