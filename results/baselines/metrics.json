@@ -209,6 +209,11 @@
     "average_inference_time_delta_few_shot_minus_zero_shot": 0.267426
   },
   "raw_github_labels_in_model_inputs": false,
+  "output_parser": {
+    "path": "scripts/classification/parser.py",
+    "saved_outputs_reparsed_without_inference": true,
+    "metrics_verified_unchanged": true
+  },
   "training_performed": false,
   "lora_adapter_created": false
 }
