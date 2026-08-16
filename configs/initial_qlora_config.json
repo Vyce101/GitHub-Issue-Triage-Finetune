@@ -1,0 +1,144 @@
+{
+  "file_description": "Approved machine-readable configuration for the first real QLoRA fine-tuning run; this file does not launch training.",
+  "schema_version": "0.1",
+  "status": "approved_initial_run_pending_final_review",
+  "training_performed": false,
+  "full_training_started": false,
+  "experiment_name": "initial-real-qlora",
+  "base_model": {
+    "model_id": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+    "revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+    "load_in_4bit": true,
+    "load_in_8bit": false,
+    "load_in_16bit": false,
+    "quantization": {
+      "quant_type": "nf4",
+      "use_double_quant": true,
+      "compute_dtype": "float16"
+    },
+    "device_map": "sequential",
+    "trust_remote_code": false
+  },
+  "data": {
+    "train_path": "data/processed/splits/train.jsonl",
+    "validation_path": "data/processed/splits/validation.jsonl",
+    "test_path": "data/processed/splits/test.jsonl",
+    "train_sha256": "ac4642fb0adfeed9084e24fc35633477859fe0b59597c59cc7e7a5f3a539e133",
+    "validation_sha256": "0cfb655d12bf66d83befb1a0be829ff3096139c48b5752c716a0b6489302eb5c",
+    "test_sha256": "7257588f3b21de561d7ac16cbc24bcc7887877ab20c99e3e45499635187a06bc",
+    "frozen_split_manifest_path": "results/final_split_manifest.json",
+    "row_counts": {
+      "train": 31876,
+      "validation": 12748,
+      "test": 9708
+    },
+    "target_categories": [
+      "bug",
+      "feature",
+      "documentation",
+      "question_support"
+    ],
+    "input_prompt": "The existing baseline zero-shot system instruction and title/body user message from scripts/baseline/prompts.py.",
+    "assistant_target_template": "{\"type\":\"<target_category>\"}",
+    "raw_github_labels_in_model_input": false,
+    "train_all_frozen_train_rows": true,
+    "class_sampling": "natural_frozen_train_distribution; no oversampling or class-weighted loss"
+  },
+  "sequence": {
+    "max_length": 1536,
+    "packing": false,
+    "padding": "dynamic",
+    "truncate_prompt_only_preserve_target": true,
+    "truncation_side_for_issue_prompt": "right"
+  },
+  "loss": {
+    "objective": "causal_supervised_fine_tuning",
+    "completion_only_loss": true,
+    "train_on_assistant_response_only": true,
+    "masking_implementation": "unsloth.train_on_responses_only",
+    "instruction_part": "<|im_start|>user\n",
+    "response_part": "<|im_start|>assistant\n",
+    "last_response_only": true,
+    "chat_template_enable_thinking": false,
+    "rendered_target_verification_required": true,
+    "reasoning_or_chain_of_thought_target": false
+  },
+  "lora": {
+    "rank": 16,
+    "alpha": 16,
+    "dropout": 0.0,
+    "bias": "none",
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "use_rslora": false,
+    "modules_to_save": null
+  },
+  "optimization": {
+    "num_train_epochs": 1.0,
+    "per_device_train_batch_size": 1,
+    "gradient_accumulation_steps": 16,
+    "effective_batch_size": 16,
+    "learning_rate": 0.0002,
+    "lr_scheduler_type": "linear",
+    "warmup_ratio": 0.05,
+    "optimizer": "adamw_8bit",
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "gradient_checkpointing": "unsloth",
+    "use_cache": false,
+    "fp16": true,
+    "bf16": false,
+    "tf32": false,
+    "seed": 3407,
+    "data_seed": 3407,
+    "dataloader_num_workers": 0,
+    "expected_optimizer_steps": 1993,
+    "expected_optimizer_steps_formula": "ceil(train_row_count / (per_device_train_batch_size * gradient_accumulation_steps))"
+  },
+  "trainer": {
+    "eval_strategy": "epoch",
+    "per_device_eval_batch_size": 1,
+    "prediction_loss_only": true,
+    "save_strategy": "epoch",
+    "save_total_limit": 1,
+    "load_best_model_at_end": false,
+    "logging_strategy": "steps",
+    "logging_steps": 50,
+    "report_to": "none",
+    "output_dir": "outputs/initial-real-qlora",
+    "save_only_model": true
+  },
+  "evaluation_policy": {
+    "validation_role": "Post-training checkpoint report and allowed development evidence; the initial one-epoch run has no checkpoint-selection comparison.",
+    "test_role": "Frozen final evaluation only; never use for training, prompt selection, or hyperparameter selection.",
+    "prompt_condition": "zero_shot",
+    "generation": {
+      "do_sample": false,
+      "max_new_tokens": 16,
+      "temperature": null
+    },
+    "output_parser": "scripts/classification/parser.py: permit one empty <think>...</think> wrapper, then require exactly one JSON object with exactly the type field and one approved category value; reject non-empty thinking and all extra text.",
+    "primary_metric": "macro_f1",
+    "reported_metrics": [
+      "accuracy",
+      "macro_f1",
+      "valid_output_percentage",
+      "per_class_precision_recall_f1",
+      "confusion_matrix",
+      "input_truncated_percentage"
+    ]
+  },
+  "pre_training_review": [
+    "Run the final preflight and obtain user review before starting training.",
+    "Treat one epoch as the first controlled full-data experiment, not as a claim of optimal duration.",
+    "Use validation for reporting only during this one-epoch run; keep test frozen for final held-out evaluation.",
+    "Use the canonical classification parser for every future baseline and fine-tuned evaluation."
+  ]
+}
