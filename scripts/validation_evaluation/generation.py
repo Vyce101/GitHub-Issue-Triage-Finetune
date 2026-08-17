@@ -22,6 +22,7 @@ from .config import (
 )
 from .metrics import calculate_metrics
 from .prompt_truncation import prepare_prompt_preserving_structure
+from .resume import load_sequential_prefix
 
 
 @dataclass(frozen=True)
@@ -268,39 +269,6 @@ def _safe_empty_cuda_cache() -> None:
         return
 
 
-def _load_existing_records(output_path: Path | None, rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """Load and validate a sequential prefix from a prior interrupted evaluation."""
-    if output_path is None or not output_path.exists():
-        return []
-
-    records = []
-    with output_path.open("r", encoding="utf-8") as input_file:
-        for line_number, line in enumerate(input_file, start=1):
-            if not line.strip():
-                continue
-            try:
-                record = json.loads(line)
-            except json.JSONDecodeError as error:
-                raise RuntimeError(f"Malformed existing result at {output_path}:{line_number}: {error}") from error
-            records.append(record)
-
-    if len(records) > len(rows):
-        raise RuntimeError(f"Existing result has {len(records)} rows, but validation has {len(rows)} rows")
-    for evaluation_index, record in enumerate(records):
-        expected_row = rows[evaluation_index]
-        if record.get("evaluation_index") != evaluation_index:
-            raise RuntimeError(f"Existing result is not a sequential prefix at evaluation index {evaluation_index}")
-        expected_identity = {
-            "issue_id": expected_row["issue_id"],
-            "repository": expected_row["repository"],
-            "expected_category": expected_row["target_category"],
-        }
-        for field, expected_value in expected_identity.items():
-            if record.get(field) != expected_value:
-                raise RuntimeError(f"Existing result identity mismatch at evaluation index {evaluation_index}: {field}")
-    return records
-
-
 def _write_records(output_file: Any, records: list[dict[str, Any]]) -> None:
     """Write compact JSONL records in validation order."""
     for record in sorted(records, key=lambda item: item["evaluation_index"]):
@@ -324,7 +292,8 @@ def evaluate_condition(
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
 
-    records = _load_existing_records(output_path, rows)
+    prefix_result = load_sequential_prefix(output_path, rows)
+    records = prefix_result.records
     resumed_from_existing_count = len(records)
     output_file = None
     if output_path is not None:
@@ -392,6 +361,10 @@ def evaluate_condition(
         "metrics": metrics,
         "raw_predictions_path": None if output_path is None else str(output_path),
         "resumed_from_existing_count": resumed_from_existing_count,
+        "artifact_repair": {
+            "discarded_trailing_bytes": prefix_result.discarded_trailing_bytes,
+            "added_trailing_newline": prefix_result.added_trailing_newline,
+        },
     }
 
 

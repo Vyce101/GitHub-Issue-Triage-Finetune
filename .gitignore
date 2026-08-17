@@ -46,6 +46,7 @@ data/generated/
 results/taxonomy_analysis.json
 results/validation_evaluation/
 results/validation_evaluation_corrected/
+results/test_evaluation/
 
 # IDE / OS
 .vscode/
