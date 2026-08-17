@@ -44,6 +44,8 @@ data/generated/
 
 # Keep the large exploratory taxonomy report local without showing it in Git
 results/taxonomy_analysis.json
+results/validation_evaluation/
+results/validation_evaluation_corrected/
 
 # IDE / OS
 .vscode/
