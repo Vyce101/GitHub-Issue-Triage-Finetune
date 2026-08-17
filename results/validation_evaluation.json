@@ -1,0 +1,600 @@
+{
+  "status": "passed",
+  "created_at_utc": "2026-08-17T12:19:10.566050+00:00",
+  "evaluation_type": "generation_based_validation_evaluation",
+  "full_evaluation_started": true,
+  "test_accessed_by_evaluator": false,
+  "config_path": "configs/initial_qlora_config.json",
+  "git": {
+    "commit_sha": "6fe6657f12c9be35d208ad871a91cd6e04d71e5d",
+    "working_tree_dirty": true,
+    "status_lines": [
+      " M .gitignore",
+      "?? results/validation_evaluation.json",
+      "?? results/validation_failure_analysis.json",
+      "?? scripts/run_corrected_validation_evaluation.py",
+      "?? scripts/run_validation_evaluation.py",
+      "?? scripts/run_validation_failure_analysis.py",
+      "?? scripts/run_validation_prompt_checks.py",
+      "?? scripts/validation_evaluation/"
+    ]
+  },
+  "errors": [],
+  "resource_preflight": {
+    "python_executable": ".venv/Scripts/python.exe",
+    "python_version": "3.11.13 (main, Oct  7 2025, 15:29:59) [MSC v.1944 64 bit (AMD64)]",
+    "venv_active": true,
+    "torch_version": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_runtime": "13.0",
+    "gpu_name": "NVIDIA GeForce RTX 2060 SUPER",
+    "gpu_compute_capability": [
+      7,
+      5
+    ],
+    "unrelated_substantial_gpu_workload": false,
+    "environment_variable_cuda_visible_devices": null,
+    "gpu_process_count_before_evaluation": 15,
+    "gpu_memory_mib_before_evaluation": 0,
+    "substantial_gpu_process_count_before_evaluation": 0
+  },
+  "validation_boundary": {
+    "path": "data/processed/splits/validation.jsonl",
+    "sha256": "0cfb655d12bf66d83befb1a0be829ff3096139c48b5752c716a0b6489302eb5c",
+    "row_count": 12748,
+    "class_counts": {
+      "bug": 7298,
+      "feature": 4987,
+      "documentation": 317,
+      "question_support": 146
+    },
+    "repository_count": 9,
+    "repositories": [
+      "CS-Notes",
+      "PowerToys",
+      "Web-Dev-For-Beginners",
+      "gin",
+      "javascript",
+      "node",
+      "rust",
+      "storybook",
+      "svelte"
+    ],
+    "test_split_accessed_by_evaluator": false
+  },
+  "few_shot_definition": {
+    "selection_path": "results/baselines/prompt_development_selection.json",
+    "prompt_definition_path": "results/baselines/prompts.json",
+    "source_split": "train",
+    "example_count": 8,
+    "class_counts": {
+      "bug": 2,
+      "feature": 2,
+      "documentation": 2,
+      "question_support": 2
+    },
+    "examples": [
+      {
+        "example_number": 1,
+        "issue_id": 2067360026,
+        "repository": "deno",
+        "source_split": "train",
+        "source_row_index": 81062,
+        "target_category": "bug"
+      },
+      {
+        "example_number": 2,
+        "issue_id": 1093736732,
+        "repository": "excalidraw",
+        "source_split": "train",
+        "source_row_index": 42888,
+        "target_category": "bug"
+      },
+      {
+        "example_number": 3,
+        "issue_id": 2743938738,
+        "repository": "excalidraw",
+        "source_split": "train",
+        "source_row_index": 109206,
+        "target_category": "feature"
+      },
+      {
+        "example_number": 4,
+        "issue_id": 393412054,
+        "repository": "javascript-algorithms",
+        "source_split": "train",
+        "source_row_index": 11078,
+        "target_category": "feature"
+      },
+      {
+        "example_number": 5,
+        "issue_id": 2693425275,
+        "repository": "deno",
+        "source_split": "train",
+        "source_row_index": 107211,
+        "target_category": "documentation"
+      },
+      {
+        "example_number": 6,
+        "issue_id": 81083180,
+        "repository": "go",
+        "source_split": "train",
+        "source_row_index": 910,
+        "target_category": "documentation"
+      },
+      {
+        "example_number": 7,
+        "issue_id": 141645139,
+        "repository": "youtube-dl",
+        "source_split": "train",
+        "source_row_index": 2267,
+        "target_category": "question_support"
+      },
+      {
+        "example_number": 8,
+        "issue_id": 2541565835,
+        "repository": "deno",
+        "source_split": "train",
+        "source_row_index": 100784,
+        "target_category": "question_support"
+      }
+    ],
+    "validation_or_test_examples_selected": false,
+    "selection_recomputed": false
+  },
+  "adapter_verification": {
+    "adapter_path": "outputs/initial-real-qlora",
+    "base_model_id": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+    "base_model_revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+    "adapter_config": {
+      "peft_type": "LORA",
+      "r": 16,
+      "lora_alpha": 16,
+      "lora_dropout": 0.0,
+      "bias": "none",
+      "target_modules": [
+        "down_proj",
+        "gate_proj",
+        "k_proj",
+        "o_proj",
+        "q_proj",
+        "up_proj",
+        "v_proj"
+      ],
+      "use_rslora": false,
+      "modules_to_save": null
+    },
+    "checks": {
+      "training_report_passed": true,
+      "full_training_started": true,
+      "training_report_did_not_access_test": true,
+      "adapter_directory_exists": true,
+      "adapter_weights_exist": true,
+      "adapter_is_not_a_standalone_full_model": true,
+      "metadata_base_model_matches": true,
+      "metadata_base_revision_matches": true,
+      "metadata_lora_matches_approved_config": true,
+      "metadata_sequence_matches_approved_config": true,
+      "metadata_training_rows_match": true,
+      "adapter_base_model_matches": true,
+      "adapter_is_lora": true,
+      "adapter_rank_matches": true,
+      "adapter_alpha_matches": true,
+      "adapter_dropout_matches": true,
+      "adapter_bias_matches": true,
+      "adapter_targets_match": true,
+      "adapter_rslora_matches": true,
+      "adapter_modules_to_save_match": true,
+      "training_configuration_matches_approved_config": true
+    },
+    "all_checks_passed": true,
+    "standalone_full_model_weight_files": [],
+    "training_report_path": "results/initial_qlora_training.json",
+    "approved_config_path": "configs/initial_qlora_config.json",
+    "target_categories": [
+      "bug",
+      "feature",
+      "documentation",
+      "question_support"
+    ]
+  },
+  "context_policy": {
+    "total_context_tokens": 1536,
+    "generation_output_reserve_tokens": 16,
+    "maximum_prompt_input_tokens": 1520,
+    "truncation_side": "right",
+    "truncation_scope": "prompt_input_only",
+    "expected_output_region_truncated": false,
+    "policy_applied_to_all_conditions": true
+  },
+  "generation_contract": {
+    "do_sample": false,
+    "max_new_tokens": 16,
+    "chain_of_thought_requested": false,
+    "parser": "scripts/classification/parser.py:parse_classification_output"
+  },
+  "conditions": {
+    "base_zero_shot": {
+      "condition": "base_zero_shot",
+      "generation": {
+        "do_sample": false,
+        "temperature": null,
+        "max_new_tokens": 16
+      },
+      "metrics": {
+        "example_count": 12748,
+        "total_examples": 12748,
+        "accuracy": 0.767885,
+        "macro_f1": 0.586055,
+        "primary_metric": "macro_f1",
+        "valid_output_count": 11471,
+        "valid_output_percentage": 89.9827,
+        "invalid_output_count": 1277,
+        "per_class": {
+          "bug": {
+            "precision": 0.87073,
+            "recall": 0.761441,
+            "f1": 0.812427,
+            "support": 7298
+          },
+          "feature": {
+            "precision": 0.882626,
+            "recall": 0.800682,
+            "f1": 0.839659,
+            "support": 4987
+          },
+          "documentation": {
+            "precision": 0.431599,
+            "recall": 0.706625,
+            "f1": 0.535885,
+            "support": 317
+          },
+          "question_support": {
+            "precision": 0.326087,
+            "recall": 0.10274,
+            "f1": 0.15625,
+            "support": 146
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            5557,
+            463,
+            86,
+            4,
+            1188
+          ],
+          [
+            701,
+            3993,
+            194,
+            23,
+            76
+          ],
+          [
+            41,
+            43,
+            224,
+            4,
+            5
+          ],
+          [
+            83,
+            25,
+            15,
+            15,
+            8
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "predicted_class_distribution": {
+          "bug": 6382,
+          "feature": 4524,
+          "documentation": 519,
+          "question_support": 46,
+          "__invalid_output__": 1277
+        },
+        "input_truncated_count": 1280,
+        "input_truncated_percentage": 10.0408,
+        "average_input_tokens": 623.7935,
+        "average_full_input_tokens": 1062.9401,
+        "maximum_full_input_tokens": 112992,
+        "maximum_fed_input_tokens": 1520,
+        "average_output_tokens": 7.0035,
+        "average_inference_time_seconds_per_example": 0.604162,
+        "total_inference_runtime_seconds": 7701.8622,
+        "status_counts": {
+          "ok": 12748,
+          "inference_error": 0
+        },
+        "output_parsing_error_count": 1277,
+        "parse_error_counts": {
+          "json_decode_error": 1249,
+          "schema_error": 28
+        },
+        "inference_error_counts": {},
+        "empty_think_wrapper_count": 0,
+        "nonempty_think_output_count": 0,
+        "batch_count": 0,
+        "condition_wall_runtime_seconds": 0.154
+      },
+      "raw_predictions_path": "results/validation_evaluation/base_zero_shot.jsonl"
+    },
+    "base_few_shot": {
+      "condition": "base_few_shot",
+      "generation": {
+        "do_sample": false,
+        "temperature": null,
+        "max_new_tokens": 16
+      },
+      "metrics": {
+        "example_count": 12748,
+        "total_examples": 12748,
+        "accuracy": 0.675949,
+        "macro_f1": 0.560294,
+        "primary_metric": "macro_f1",
+        "valid_output_count": 10193,
+        "valid_output_percentage": 79.9576,
+        "invalid_output_count": 2555,
+        "per_class": {
+          "bug": {
+            "precision": 0.857808,
+            "recall": 0.631543,
+            "f1": 0.727488,
+            "support": 7298
+          },
+          "feature": {
+            "precision": 0.928713,
+            "recall": 0.749749,
+            "f1": 0.82969,
+            "support": 4987
+          },
+          "documentation": {
+            "precision": 0.365414,
+            "recall": 0.766562,
+            "f1": 0.494908,
+            "support": 317
+          },
+          "question_support": {
+            "precision": 0.20155,
+            "recall": 0.178082,
+            "f1": 0.189091,
+            "support": 146
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            4609,
+            257,
+            166,
+            48,
+            2218
+          ],
+          [
+            691,
+            3739,
+            241,
+            43,
+            273
+          ],
+          [
+            27,
+            16,
+            243,
+            12,
+            19
+          ],
+          [
+            46,
+            14,
+            15,
+            26,
+            45
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "predicted_class_distribution": {
+          "bug": 5373,
+          "feature": 4026,
+          "documentation": 665,
+          "question_support": 129,
+          "__invalid_output__": 2555
+        },
+        "input_truncated_count": 2556,
+        "input_truncated_percentage": 20.0502,
+        "average_input_tokens": 1171.0633,
+        "average_full_input_tokens": 1696.9401,
+        "maximum_full_input_tokens": 113626,
+        "maximum_fed_input_tokens": 1520,
+        "average_output_tokens": 8.0054,
+        "average_inference_time_seconds_per_example": 0.966835,
+        "total_inference_runtime_seconds": 12325.2099,
+        "status_counts": {
+          "ok": 12748,
+          "inference_error": 0
+        },
+        "output_parsing_error_count": 2555,
+        "parse_error_counts": {
+          "json_decode_error": 2504,
+          "schema_error": 51
+        },
+        "inference_error_counts": {},
+        "empty_think_wrapper_count": 0,
+        "nonempty_think_output_count": 0,
+        "batch_count": 0,
+        "condition_wall_runtime_seconds": 0.1255
+      },
+      "raw_predictions_path": "results/validation_evaluation/base_few_shot.jsonl"
+    },
+    "fine_tuned_zero_shot": {
+      "condition": "fine_tuned_zero_shot",
+      "generation": {
+        "do_sample": false,
+        "temperature": null,
+        "max_new_tokens": 16
+      },
+      "metrics": {
+        "example_count": 12748,
+        "total_examples": 12748,
+        "accuracy": 0.771101,
+        "macro_f1": 0.579723,
+        "primary_metric": "macro_f1",
+        "valid_output_count": 11469,
+        "valid_output_percentage": 89.9671,
+        "invalid_output_count": 1279,
+        "per_class": {
+          "bug": {
+            "precision": 0.879578,
+            "recall": 0.753631,
+            "f1": 0.811748,
+            "support": 7298
+          },
+          "feature": {
+            "precision": 0.896612,
+            "recall": 0.822539,
+            "f1": 0.85798,
+            "support": 4987
+          },
+          "documentation": {
+            "precision": 0.344209,
+            "recall": 0.665615,
+            "f1": 0.453763,
+            "support": 317
+          },
+          "question_support": {
+            "precision": 0.607143,
+            "recall": 0.116438,
+            "f1": 0.195402,
+            "support": 146
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            5500,
+            429,
+            176,
+            2,
+            1191
+          ],
+          [
+            584,
+            4102,
+            218,
+            8,
+            75
+          ],
+          [
+            74,
+            26,
+            211,
+            1,
+            5
+          ],
+          [
+            95,
+            18,
+            8,
+            17,
+            8
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "predicted_class_distribution": {
+          "bug": 6253,
+          "feature": 4575,
+          "documentation": 613,
+          "question_support": 28,
+          "__invalid_output__": 1279
+        },
+        "input_truncated_count": 1280,
+        "input_truncated_percentage": 10.0408,
+        "average_input_tokens": 623.7935,
+        "average_full_input_tokens": 1062.9401,
+        "maximum_full_input_tokens": 112992,
+        "maximum_fed_input_tokens": 1520,
+        "average_output_tokens": 10.597,
+        "average_inference_time_seconds_per_example": 1.018899,
+        "total_inference_runtime_seconds": 12988.9233,
+        "status_counts": {
+          "ok": 12748,
+          "inference_error": 0
+        },
+        "output_parsing_error_count": 1279,
+        "parse_error_counts": {
+          "json_decode_error": 1252,
+          "schema_error": 27
+        },
+        "inference_error_counts": {},
+        "empty_think_wrapper_count": 11468,
+        "nonempty_think_output_count": 0,
+        "batch_count": 1046,
+        "condition_wall_runtime_seconds": 4726.9642
+      },
+      "raw_predictions_path": "results/validation_evaluation/fine_tuned_zero_shot.jsonl"
+    }
+  },
+  "pairwise_deltas": {
+    "fine_tuned_zero_shot_minus_base_zero_shot_accuracy_delta": 0.003216,
+    "fine_tuned_zero_shot_minus_base_zero_shot_macro_f1_delta": -0.006332,
+    "fine_tuned_zero_shot_minus_base_few_shot_accuracy_delta": 0.095152,
+    "fine_tuned_zero_shot_minus_base_few_shot_macro_f1_delta": 0.019429,
+    "base_few_shot_minus_base_zero_shot_accuracy_delta": -0.091936,
+    "base_few_shot_minus_base_zero_shot_macro_f1_delta": -0.025761
+  },
+  "historical_prompt_development_evidence": {
+    "source": "results/baselines/metrics.json",
+    "evaluation_split": "train",
+    "example_count_per_condition": 400,
+    "not_used_as_primary_validation_comparison": true
+  },
+  "raw_artifacts": {
+    "directory": "results/validation_evaluation",
+    "format": "compact JSONL; one complete result for every validation row per condition",
+    "conditions": {
+      "base_zero_shot": "results/validation_evaluation/base_zero_shot.jsonl",
+      "base_few_shot": "results/validation_evaluation/base_few_shot.jsonl",
+      "fine_tuned_zero_shot": "results/validation_evaluation/fine_tuned_zero_shot.jsonl"
+    }
+  },
+  "completed_at_utc": "2026-08-17T13:49:51.917062+00:00",
+  "reconstructed_from_preserved_historical_raw_artifacts": true
+}
