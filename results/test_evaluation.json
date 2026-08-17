@@ -1,0 +1,5463 @@
+{
+  "status": "passed",
+  "created_at_utc": "2026-08-17T20:49:16.614008+00:00",
+  "evaluation_type": "generation_based_final_frozen_test_evaluation",
+  "full_test_evaluation_started": true,
+  "test_accessed_by_evaluator": true,
+  "evaluation_start_git": {
+    "commit_sha": "9984e9fd70d8c73be43536c2ad55cbd4221aac65",
+    "working_tree_dirty": true,
+    "status_lines": [
+      " M .gitignore",
+      " M scripts/validation_evaluation/generation.py",
+      "?? results/test_evaluation.json",
+      "?? scripts/run_test_evaluation.py",
+      "?? scripts/test_evaluation/",
+      "?? scripts/validation_evaluation/resume.py"
+    ]
+  },
+  "config_path": "configs/initial_qlora_config.json",
+  "test_access_deviation": {
+    "occurred": true,
+    "description": "An earlier documented read-only metadata/preflight command opened and SHA-256-hashed the frozen TEST file.",
+    "used_test_examples_or_labels_for_prompt_design": false,
+    "used_test_examples_or_labels_for_model_training": false,
+    "used_test_examples_or_labels_for_hyperparameter_or_model_selection": false,
+    "used_test_examples_or_labels_for_validation_decisions": false,
+    "treatment": "Preserved transparently as a process deviation; it did not alter the frozen evaluation design."
+  },
+  "no_post_test_tuning": true,
+  "errors": [],
+  "environment_integrity": {
+    "python_executable": ".venv/Scripts/python.exe",
+    "python_version": "3.11.13 (main, Oct  7 2025, 15:29:59) [MSC v.1944 64 bit (AMD64)]",
+    "venv_active": true,
+    "pinned_versions_expected": {
+      "numpy": "2.4.3",
+      "torch": "2.11.0+cu130",
+      "transformers": "5.5.0",
+      "trl": "0.24.0",
+      "peft": "0.20.0",
+      "accelerate": "1.14.0",
+      "bitsandbytes": "0.50.1",
+      "datasets": "4.3.0",
+      "scikit-learn": "1.9.0",
+      "unsloth": "2026.8.18"
+    },
+    "installed_versions": {
+      "numpy": "2.4.3",
+      "torch": "2.11.0+cu130",
+      "transformers": "5.5.0",
+      "trl": "0.24.0",
+      "peft": "0.20.0",
+      "accelerate": "1.14.0",
+      "bitsandbytes": "0.50.1",
+      "datasets": "4.3.0",
+      "scikit-learn": "1.9.0",
+      "unsloth": "2026.8.18"
+    },
+    "pip_check": "No broken requirements found.",
+    "all_checks_passed": true
+  },
+  "resource_preflight": {
+    "python_executable": ".venv/Scripts/python.exe",
+    "python_version": "3.11.13 (main, Oct  7 2025, 15:29:59) [MSC v.1944 64 bit (AMD64)]",
+    "venv_active": true,
+    "torch_version": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_runtime": "13.0",
+    "gpu_name": "NVIDIA GeForce RTX 2060 SUPER",
+    "gpu_compute_capability": [
+      7,
+      5
+    ],
+    "gpu_process_count_before_evaluation": 16,
+    "gpu_memory_mib_before_evaluation": 0,
+    "substantial_gpu_process_count_before_evaluation": 0,
+    "unrelated_substantial_gpu_workload": false,
+    "environment_variable_cuda_visible_devices": null
+  },
+  "test_boundary": {
+    "path": "data/processed/splits/test.jsonl",
+    "sha256": "7257588f3b21de561d7ac16cbc24bcc7887877ab20c99e3e45499635187a06bc",
+    "expected_sha256": "7257588f3b21de561d7ac16cbc24bcc7887877ab20c99e3e45499635187a06bc",
+    "row_count": 9708,
+    "expected_row_count": 9708,
+    "class_counts": {
+      "bug": 5249,
+      "feature": 4045,
+      "documentation": 282,
+      "question_support": 132
+    },
+    "expected_class_counts": {
+      "bug": 5249,
+      "feature": 4045,
+      "documentation": 282,
+      "question_support": 132
+    },
+    "repository_count": 10,
+    "repositories": [
+      "TypeScript",
+      "You-Dont-Know-JS",
+      "bitcoin",
+      "fastapi",
+      "frp",
+      "langchain",
+      "material-ui",
+      "tensorflow",
+      "thefuck",
+      "vscode"
+    ],
+    "test_split_verified_for_final_evaluation": true
+  },
+  "few_shot_definition": {
+    "selection_path": "results/baselines/prompt_development_selection.json",
+    "prompt_definition_path": "results/baselines/prompts.json",
+    "source_split": "train",
+    "example_count": 8,
+    "class_counts": {
+      "bug": 2,
+      "feature": 2,
+      "documentation": 2,
+      "question_support": 2
+    },
+    "examples": [
+      {
+        "example_number": 1,
+        "issue_id": 2067360026,
+        "repository": "deno",
+        "source_split": "train",
+        "source_row_index": 81062,
+        "target_category": "bug"
+      },
+      {
+        "example_number": 2,
+        "issue_id": 1093736732,
+        "repository": "excalidraw",
+        "source_split": "train",
+        "source_row_index": 42888,
+        "target_category": "bug"
+      },
+      {
+        "example_number": 3,
+        "issue_id": 2743938738,
+        "repository": "excalidraw",
+        "source_split": "train",
+        "source_row_index": 109206,
+        "target_category": "feature"
+      },
+      {
+        "example_number": 4,
+        "issue_id": 393412054,
+        "repository": "javascript-algorithms",
+        "source_split": "train",
+        "source_row_index": 11078,
+        "target_category": "feature"
+      },
+      {
+        "example_number": 5,
+        "issue_id": 2693425275,
+        "repository": "deno",
+        "source_split": "train",
+        "source_row_index": 107211,
+        "target_category": "documentation"
+      },
+      {
+        "example_number": 6,
+        "issue_id": 81083180,
+        "repository": "go",
+        "source_split": "train",
+        "source_row_index": 910,
+        "target_category": "documentation"
+      },
+      {
+        "example_number": 7,
+        "issue_id": 141645139,
+        "repository": "youtube-dl",
+        "source_split": "train",
+        "source_row_index": 2267,
+        "target_category": "question_support"
+      },
+      {
+        "example_number": 8,
+        "issue_id": 2541565835,
+        "repository": "deno",
+        "source_split": "train",
+        "source_row_index": 100784,
+        "target_category": "question_support"
+      }
+    ],
+    "validation_or_test_examples_selected": false,
+    "selection_recomputed": false
+  },
+  "prompt_definition": {
+    "output_schema": {
+      "type": "bug"
+    },
+    "system_instruction": "You classify GitHub issues into exactly one issue type.\n\nUse these category definitions:\n- bug: an existing behavior is broken, incorrect, crashing, regressed, or producing an unintended result.\n- feature: a new capability, enhancement, requested behavior change, or improvement is being proposed.\n- documentation: documentation, guides, examples, comments, wording, or explanatory material needs to be added or corrected.\n- question_support: the author is primarily asking for help, usage guidance, clarification, or support rather than reporting a defect or requesting a concrete feature.\n\nChoose exactly one category. Do not provide reasoning. Return exactly one JSON object with this schema and no other text:\n{\"type\":\"bug\"}\n",
+    "zero_shot_message_roles": [
+      "system",
+      "user"
+    ],
+    "few_shot_message_roles": [
+      "system",
+      "user",
+      "assistant",
+      "user",
+      "assistant",
+      "user",
+      "assistant",
+      "user",
+      "assistant",
+      "user",
+      "assistant",
+      "user",
+      "assistant",
+      "user",
+      "assistant",
+      "user",
+      "assistant",
+      "user"
+    ],
+    "few_shot_examples": [
+      {
+        "example_number": 1,
+        "issue_id": 2067360026,
+        "repository": "deno",
+        "source_split": "train",
+        "source_row_index": 81062,
+        "target_category": "bug",
+        "title": "Implement `crypto.Certificate` APIs",
+        "body": ""
+      },
+      {
+        "example_number": 2,
+        "issue_id": 1093736732,
+        "repository": "excalidraw",
+        "source_split": "train",
+        "source_row_index": 42888,
+        "target_category": "bug",
+        "title": "\"canvas panning\" hint shouldn't display when dragging elements",
+        "body": ""
+      },
+      {
+        "example_number": 3,
+        "issue_id": 2743938738,
+        "repository": "excalidraw",
+        "source_split": "train",
+        "source_row_index": 109206,
+        "target_category": "feature",
+        "title": "frame add background color",
+        "body": ""
+      },
+      {
+        "example_number": 4,
+        "issue_id": 393412054,
+        "repository": "javascript-algorithms",
+        "source_split": "train",
+        "source_row_index": 11078,
+        "target_category": "feature",
+        "title": "Add Splay Tree",
+        "body": ""
+      },
+      {
+        "example_number": 5,
+        "issue_id": 2693425275,
+        "repository": "deno",
+        "source_split": "train",
+        "source_row_index": 107211,
+        "target_category": "documentation",
+        "title": "Document how to run/update WPT tests",
+        "body": "There should be a README.md in the tests/wpt folder."
+      },
+      {
+        "example_number": 6,
+        "issue_id": 81083180,
+        "repository": "go",
+        "source_split": "train",
+        "source_row_index": 910,
+        "target_category": "documentation",
+        "title": "spec: evaluation order of statements unspecified",
+        "body": "The order is obvious to everybody but there should probably be a sentence somewhere.\n"
+      },
+      {
+        "example_number": 7,
+        "issue_id": 141645139,
+        "repository": "youtube-dl",
+        "source_split": "train",
+        "source_row_index": 2267,
+        "target_category": "question_support",
+        "title": "site support request for www.pornjam.com",
+        "body": ""
+      },
+      {
+        "example_number": 8,
+        "issue_id": 2541565835,
+        "repository": "deno",
+        "source_split": "train",
+        "source_row_index": 100784,
+        "target_category": "question_support",
+        "title": "Error when running a module that uses the `global` global",
+        "body": "Version: Deno 2.0.0-rc.3\r\n\r\n**Describe the bug**\r\nError when run module @gradio/client with deno 2\r\n\r\n**Reproduce**\r\n```javascript\r\nimport {\r\n    Client,\r\n} from \"https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js\";\r\n\r\nconst client = await Client.connect(\r\n    \"http://localhost:7860/\",\r\n);\r\n``` \r\nwhen create client gradio, i get this error: \r\n```\r\nglobal is not defined\r\n```\r\n**Discuss**\r\ni look in to gradio client source [here](https://github.com/gradio-app/gradio/blob/98cbcaef827de7267462ccba180c7b2ffb1e825d/client/js/src/client.ts#L149)\r\nand found they init client like this:\r\n```javascript\r\nprivate async init(): Promise<void> {\r\n\t\tif (\r\n\t\t\t(typeof window === \"undefined\" || !(\"WebSocket\" in window)) &&\r\n\t\t\t!global.WebSocket\r\n\t\t) {\r\n\t\t\tconst ws = await import(\"ws\");\r\n\t\t\tglobal.WebSocket = ws.WebSocket as unknown as typeof WebSocket;\r\n\t\t}\r\n        // more ....\r\n``` \r\nSo i guess that problem is Deno 2 drop support of global variable as describe [here](https://docs.deno.com/runtime/reference/migrate_deprecations/#window)\r\n\r\nSo the question is: if I use Deno 2, how can I use a package that relies on global variables, like gradio/client?\r\n\r\n**Expected behavior**\r\n@gradio/client work normally without errorn when init\r\n"
+      }
+    ],
+    "raw_github_labels_in_model_inputs": false,
+    "chain_of_thought_requested": false
+  },
+  "prompt_definition_verification": {
+    "checks": {
+      "system_instruction_matches_baseline": true,
+      "zero_shot_message_roles_match": true,
+      "few_shot_message_roles_match": true,
+      "few_shot_example_count_is_eight": true,
+      "chain_of_thought_not_requested": true,
+      "raw_labels_not_in_model_inputs": true
+    },
+    "all_checks_passed": true
+  },
+  "adapter_verification": {
+    "adapter_path": "outputs/initial-real-qlora",
+    "base_model_id": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+    "base_model_revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+    "adapter_config": {
+      "peft_type": "LORA",
+      "r": 16,
+      "lora_alpha": 16,
+      "lora_dropout": 0.0,
+      "bias": "none",
+      "target_modules": [
+        "down_proj",
+        "gate_proj",
+        "k_proj",
+        "o_proj",
+        "q_proj",
+        "up_proj",
+        "v_proj"
+      ],
+      "use_rslora": false,
+      "modules_to_save": null
+    },
+    "checks": {
+      "training_report_passed": true,
+      "full_training_started": true,
+      "training_report_did_not_access_test": true,
+      "adapter_directory_exists": true,
+      "adapter_weights_exist": true,
+      "adapter_is_not_a_standalone_full_model": true,
+      "metadata_base_model_matches": true,
+      "metadata_base_revision_matches": true,
+      "metadata_lora_matches_approved_config": true,
+      "metadata_sequence_matches_approved_config": true,
+      "metadata_training_rows_match": true,
+      "adapter_base_model_matches": true,
+      "adapter_is_lora": true,
+      "adapter_rank_matches": true,
+      "adapter_alpha_matches": true,
+      "adapter_dropout_matches": true,
+      "adapter_bias_matches": true,
+      "adapter_targets_match": true,
+      "adapter_rslora_matches": true,
+      "adapter_modules_to_save_match": true,
+      "training_configuration_matches_approved_config": true
+    },
+    "all_checks_passed": true,
+    "standalone_full_model_weight_files": [],
+    "training_report_path": "results/initial_qlora_training.json",
+    "approved_config_path": "configs/initial_qlora_config.json",
+    "target_categories": [
+      "bug",
+      "feature",
+      "documentation",
+      "question_support"
+    ]
+  },
+  "base_model_contract": {
+    "model_id": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+    "revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+    "load_in_4bit": true,
+    "load_in_8bit": false,
+    "load_in_16bit": false,
+    "quantization": {
+      "quant_type": "nf4",
+      "use_double_quant": true,
+      "compute_dtype": "float16"
+    },
+    "model_load_max_sequence_length": 1536,
+    "adapter_path": "outputs/initial-real-qlora",
+    "adapter_merge_forbidden_and_not_performed": true
+  },
+  "context_policy": {
+    "total_context_tokens": 1536,
+    "generation_output_reserve_tokens": 16,
+    "maximum_prompt_input_tokens": 1520,
+    "truncation_implementation": "prompt_preserving_v2",
+    "truncation_order": "current_issue_body_right_then_current_issue_title_right",
+    "preserves_system_and_chat_structure": true,
+    "preserves_frozen_few_shot_demonstrations": true,
+    "preserves_assistant_generation_boundary": true
+  },
+  "generation_contract": {
+    "do_sample": false,
+    "max_new_tokens": 16,
+    "chain_of_thought_requested": false,
+    "parser": "scripts/classification/parser.py:parse_classification_output"
+  },
+  "parser_contract_check_before_inference": {
+    "passed": true,
+    "cases": {
+      "plain_valid": {
+        "schema_valid": true,
+        "parse_error": null,
+        "normalized_output": "{\"type\":\"bug\"}"
+      },
+      "empty_think_wrapper_valid": {
+        "schema_valid": true,
+        "parse_error": null,
+        "normalized_output": "{\"type\":\"bug\"}"
+      },
+      "nonempty_thinking_rejected": {
+        "schema_valid": false,
+        "parse_error": "thinking_error: non-empty thinking content",
+        "normalized_output": "<think>reason</think>{\"type\":\"bug\"}"
+      },
+      "extra_prose_rejected": {
+        "schema_valid": false,
+        "parse_error": "json_decode_error: Expecting value",
+        "normalized_output": "Answer: {\"type\":\"bug\"}"
+      },
+      "extra_key_rejected": {
+        "schema_valid": false,
+        "parse_error": "schema_error: expected exactly one type field",
+        "normalized_output": "{\"type\":\"bug\",\"extra\":1}"
+      },
+      "extra_object_rejected": {
+        "schema_valid": false,
+        "parse_error": "json_decode_error: Extra data",
+        "normalized_output": "{\"type\":\"bug\"}{\"type\":\"feature\"}"
+      },
+      "unapproved_category_rejected": {
+        "schema_valid": false,
+        "parse_error": "schema_error: type is not an approved category",
+        "normalized_output": "{\"type\":\"other\"}"
+      }
+    }
+  },
+  "test_prompt_regression_checks": {
+    "passed": true,
+    "implementation": "prompt_preserving_v2",
+    "maximum_prompt_input_tokens": 1520,
+    "generation_output_reserve_tokens": 16,
+    "cases": [
+      {
+        "condition": "base_zero_shot",
+        "repository": "TypeScript",
+        "issue_id": 38594578,
+        "source_row_index": 145,
+        "full_input_tokens": 336,
+        "fed_input_tokens": 336,
+        "input_truncated": false,
+        "truncation_strategy": "none",
+        "generation_prompt_suffix": "<|im_start|>assistant\n",
+        "generation_prompt_preserved": true,
+        "output_reserve_tokens": 1200
+      },
+      {
+        "condition": "base_zero_shot",
+        "repository": "TypeScript",
+        "issue_id": 187756824,
+        "source_row_index": 3440,
+        "full_input_tokens": 3088,
+        "fed_input_tokens": 1520,
+        "input_truncated": true,
+        "truncation_strategy": "body_right",
+        "generation_prompt_suffix": "<|im_start|>assistant\n",
+        "generation_prompt_preserved": true,
+        "output_reserve_tokens": 16
+      },
+      {
+        "condition": "base_few_shot",
+        "repository": "TypeScript",
+        "issue_id": 38594578,
+        "source_row_index": 145,
+        "full_input_tokens": 970,
+        "fed_input_tokens": 970,
+        "input_truncated": false,
+        "truncation_strategy": "none",
+        "generation_prompt_suffix": "<|im_start|>assistant\n",
+        "generation_prompt_preserved": true,
+        "output_reserve_tokens": 566
+      },
+      {
+        "condition": "base_few_shot",
+        "repository": "TypeScript",
+        "issue_id": 85799062,
+        "source_row_index": 942,
+        "full_input_tokens": 1583,
+        "fed_input_tokens": 1520,
+        "input_truncated": true,
+        "truncation_strategy": "body_right",
+        "generation_prompt_suffix": "<|im_start|>assistant\n",
+        "generation_prompt_preserved": true,
+        "output_reserve_tokens": 16
+      },
+      {
+        "condition": "fine_tuned_zero_shot",
+        "repository": "TypeScript",
+        "issue_id": 38594578,
+        "source_row_index": 145,
+        "full_input_tokens": 336,
+        "fed_input_tokens": 336,
+        "input_truncated": false,
+        "truncation_strategy": "none",
+        "generation_prompt_suffix": "<|im_start|>assistant\n",
+        "generation_prompt_preserved": true,
+        "output_reserve_tokens": 1200
+      },
+      {
+        "condition": "fine_tuned_zero_shot",
+        "repository": "TypeScript",
+        "issue_id": 187756824,
+        "source_row_index": 3440,
+        "full_input_tokens": 3088,
+        "fed_input_tokens": 1520,
+        "input_truncated": true,
+        "truncation_strategy": "body_right",
+        "generation_prompt_suffix": "<|im_start|>assistant\n",
+        "generation_prompt_preserved": true,
+        "output_reserve_tokens": 16
+      }
+    ],
+    "title_fallback": {
+      "passed": true,
+      "strategy": "body_right_then_title_right",
+      "title_tokens_before_after": [
+        6001,
+        1358
+      ],
+      "fed_input_tokens": 1520,
+      "generation_prompt_preserved": true
+    }
+  },
+  "base_model_load": {
+    "model_id": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+    "revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+    "load_in_4bit": true,
+    "load_in_8bit": false,
+    "load_in_16bit": false,
+    "quantization": {
+      "quant_type": "nf4",
+      "use_double_quant": true,
+      "compute_dtype": "float16"
+    },
+    "device_map": "sequential",
+    "max_sequence_length": 1536,
+    "parameter_devices": [
+      "cuda:0"
+    ],
+    "model_class": "Qwen3ForCausalLM"
+  },
+  "adapter_model_load": {
+    "base_model_load": {
+      "model_id": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+      "revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+      "load_in_4bit": true,
+      "load_in_8bit": false,
+      "load_in_16bit": false,
+      "quantization": {
+        "quant_type": "nf4",
+        "use_double_quant": true,
+        "compute_dtype": "float16"
+      },
+      "device_map": "sequential",
+      "max_sequence_length": 1536,
+      "parameter_devices": [
+        "cuda:0"
+      ],
+      "model_class": "Qwen3ForCausalLM"
+    },
+    "adapter_verification": {
+      "adapter_path": "outputs/initial-real-qlora",
+      "base_model_id": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+      "base_model_revision": "7744afa8566e264af1a92a806d8d9aae00cc7c78",
+      "adapter_config": {
+        "peft_type": "LORA",
+        "r": 16,
+        "lora_alpha": 16,
+        "lora_dropout": 0.0,
+        "bias": "none",
+        "target_modules": [
+          "down_proj",
+          "gate_proj",
+          "k_proj",
+          "o_proj",
+          "q_proj",
+          "up_proj",
+          "v_proj"
+        ],
+        "use_rslora": false,
+        "modules_to_save": null
+      },
+      "checks": {
+        "training_report_passed": true,
+        "full_training_started": true,
+        "training_report_did_not_access_test": true,
+        "adapter_directory_exists": true,
+        "adapter_weights_exist": true,
+        "adapter_is_not_a_standalone_full_model": true,
+        "metadata_base_model_matches": true,
+        "metadata_base_revision_matches": true,
+        "metadata_lora_matches_approved_config": true,
+        "metadata_sequence_matches_approved_config": true,
+        "metadata_training_rows_match": true,
+        "adapter_base_model_matches": true,
+        "adapter_is_lora": true,
+        "adapter_rank_matches": true,
+        "adapter_alpha_matches": true,
+        "adapter_dropout_matches": true,
+        "adapter_bias_matches": true,
+        "adapter_targets_match": true,
+        "adapter_rslora_matches": true,
+        "adapter_modules_to_save_match": true,
+        "training_configuration_matches_approved_config": true
+      },
+      "all_checks_passed": true,
+      "standalone_full_model_weight_files": [],
+      "training_report_path": "results/initial_qlora_training.json",
+      "approved_config_path": "configs/initial_qlora_config.json",
+      "target_categories": [
+        "bug",
+        "feature",
+        "documentation",
+        "question_support"
+      ]
+    },
+    "adapter_reload_succeeded": true,
+    "peft_model_class": "PeftModelForCausalLM",
+    "adapter_module_count": 2268,
+    "merged_into_standalone_model": false,
+    "is_trainable": false,
+    "parameter_devices": [
+      "cuda:0"
+    ]
+  },
+  "conditions": {
+    "base_zero_shot": {
+      "condition": "base_zero_shot",
+      "generation": {
+        "do_sample": false,
+        "temperature": null,
+        "max_new_tokens": 16
+      },
+      "metrics": {
+        "example_count": 9708,
+        "total_examples": 9708,
+        "accuracy": 0.827771,
+        "macro_f1": 0.61881,
+        "primary_metric": "macro_f1",
+        "valid_output_count": 9708,
+        "valid_output_percentage": 100.0,
+        "invalid_output_count": 0,
+        "per_class": {
+          "bug": {
+            "precision": 0.830162,
+            "recall": 0.897695,
+            "f1": 0.862609,
+            "support": 5249
+          },
+          "feature": {
+            "precision": 0.851001,
+            "recall": 0.777998,
+            "f1": 0.812863,
+            "support": 4045
+          },
+          "documentation": {
+            "precision": 0.5625,
+            "recall": 0.542553,
+            "f1": 0.552347,
+            "support": 282
+          },
+          "question_support": {
+            "precision": 0.387097,
+            "recall": 0.181818,
+            "f1": 0.247423,
+            "support": 132
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            4712,
+            472,
+            52,
+            13,
+            0
+          ],
+          [
+            822,
+            3147,
+            56,
+            20,
+            0
+          ],
+          [
+            88,
+            36,
+            153,
+            5,
+            0
+          ],
+          [
+            54,
+            43,
+            11,
+            24,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "predicted_class_distribution": {
+          "bug": 5676,
+          "feature": 3698,
+          "documentation": 272,
+          "question_support": 62,
+          "__invalid_output__": 0
+        },
+        "input_truncated_count": 748,
+        "input_truncated_percentage": 7.705,
+        "average_input_tokens": 628.8432,
+        "average_full_input_tokens": 734.4328,
+        "maximum_full_input_tokens": 43735,
+        "maximum_fed_input_tokens": 1520,
+        "average_output_tokens": 6.0064,
+        "average_inference_time_seconds_per_example": 0.484352,
+        "total_inference_runtime_seconds": 4702.0878,
+        "status_counts": {
+          "ok": 9708,
+          "inference_error": 0
+        },
+        "output_parsing_error_count": 0,
+        "parse_error_counts": {},
+        "inference_error_counts": {},
+        "empty_think_wrapper_count": 0,
+        "nonempty_think_output_count": 0,
+        "batch_count": 0,
+        "condition_wall_runtime_seconds": 0.132,
+        "by_input_truncation": {
+          "truncated": {
+            "example_count": 748,
+            "total_examples": 748,
+            "accuracy": 0.862299,
+            "macro_f1": 0.464969,
+            "primary_metric": "macro_f1",
+            "valid_output_count": 748,
+            "valid_output_percentage": 100.0,
+            "invalid_output_count": 0,
+            "per_class": {
+              "bug": {
+                "precision": 0.877581,
+                "recall": 0.973813,
+                "f1": 0.923196,
+                "support": 611
+              },
+              "feature": {
+                "precision": 0.770492,
+                "recall": 0.379032,
+                "f1": 0.508108,
+                "support": 124
+              },
+              "documentation": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 3
+              },
+              "question_support": {
+                "precision": 0.75,
+                "recall": 0.3,
+                "f1": 0.428571,
+                "support": 10
+              }
+            },
+            "confusion_matrix_labels": [
+              "bug",
+              "feature",
+              "documentation",
+              "question_support",
+              "__invalid_output__"
+            ],
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                595,
+                13,
+                3,
+                0,
+                0
+              ],
+              [
+                74,
+                47,
+                2,
+                1,
+                0
+              ],
+              [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                6,
+                1,
+                0,
+                3,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "predicted_class_distribution": {
+              "bug": 678,
+              "feature": 61,
+              "documentation": 5,
+              "question_support": 4,
+              "__invalid_output__": 0
+            },
+            "input_truncated_count": 748,
+            "input_truncated_percentage": 100.0,
+            "average_input_tokens": 1519.9973,
+            "average_full_input_tokens": 2890.4037,
+            "maximum_full_input_tokens": 43735,
+            "maximum_fed_input_tokens": 1520,
+            "average_output_tokens": 6.0053,
+            "average_inference_time_seconds_per_example": 0.871362,
+            "total_inference_runtime_seconds": 651.7787,
+            "status_counts": {
+              "ok": 748,
+              "inference_error": 0
+            },
+            "output_parsing_error_count": 0,
+            "parse_error_counts": {},
+            "inference_error_counts": {},
+            "empty_think_wrapper_count": 0,
+            "nonempty_think_output_count": 0
+          },
+          "non_truncated": {
+            "example_count": 8960,
+            "total_examples": 8960,
+            "accuracy": 0.824888,
+            "macro_f1": 0.61715,
+            "primary_metric": "macro_f1",
+            "valid_output_count": 8960,
+            "valid_output_percentage": 100.0,
+            "invalid_output_count": 0,
+            "per_class": {
+              "bug": {
+                "precision": 0.823729,
+                "recall": 0.887667,
+                "f1": 0.854504,
+                "support": 4638
+              },
+              "feature": {
+                "precision": 0.852351,
+                "recall": 0.790615,
+                "f1": 0.820323,
+                "support": 3921
+              },
+              "documentation": {
+                "precision": 0.573034,
+                "recall": 0.548387,
+                "f1": 0.56044,
+                "support": 279
+              },
+              "question_support": {
+                "precision": 0.362069,
+                "recall": 0.172131,
+                "f1": 0.233333,
+                "support": 122
+              }
+            },
+            "confusion_matrix_labels": [
+              "bug",
+              "feature",
+              "documentation",
+              "question_support",
+              "__invalid_output__"
+            ],
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                4117,
+                459,
+                49,
+                13,
+                0
+              ],
+              [
+                748,
+                3100,
+                54,
+                19,
+                0
+              ],
+              [
+                85,
+                36,
+                153,
+                5,
+                0
+              ],
+              [
+                48,
+                42,
+                11,
+                21,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "predicted_class_distribution": {
+              "bug": 4998,
+              "feature": 3637,
+              "documentation": 267,
+              "question_support": 58,
+              "__invalid_output__": 0
+            },
+            "input_truncated_count": 0,
+            "input_truncated_percentage": 0.0,
+            "average_input_tokens": 554.4478,
+            "average_full_input_tokens": 554.4478,
+            "maximum_full_input_tokens": 1520,
+            "maximum_fed_input_tokens": 1520,
+            "average_output_tokens": 6.0065,
+            "average_inference_time_seconds_per_example": 0.452043,
+            "total_inference_runtime_seconds": 4050.3091,
+            "status_counts": {
+              "ok": 8960,
+              "inference_error": 0
+            },
+            "output_parsing_error_count": 0,
+            "parse_error_counts": {},
+            "inference_error_counts": {},
+            "empty_think_wrapper_count": 0,
+            "nonempty_think_output_count": 0
+          }
+        },
+        "by_repository": {
+          "TypeScript": {
+            "row_count": 2176,
+            "class_support": {
+              "bug": 1662,
+              "feature": 414,
+              "documentation": 100,
+              "question_support": 0
+            },
+            "class_support_interpretation": {
+              "bug": "stable_guidance",
+              "feature": "stable_guidance",
+              "documentation": "stable_guidance",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 2176,
+              "total_examples": 2176,
+              "accuracy": 0.789982,
+              "macro_f1": 0.49333,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 2176,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.857895,
+                  "recall": 0.882671,
+                  "f1": 0.870107,
+                  "support": 1662
+                },
+                "feature": {
+                  "precision": 0.515544,
+                  "recall": 0.480676,
+                  "f1": 0.4975,
+                  "support": 414
+                },
+                "documentation": {
+                  "precision": 0.706667,
+                  "recall": 0.53,
+                  "f1": 0.605714,
+                  "support": 100
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  1467,
+                  178,
+                  14,
+                  3,
+                  0
+                ],
+                [
+                  206,
+                  199,
+                  8,
+                  1,
+                  0
+                ],
+                [
+                  37,
+                  9,
+                  53,
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 1710,
+                "feature": 386,
+                "documentation": 75,
+                "question_support": 5,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 143,
+              "input_truncated_percentage": 6.5717,
+              "average_input_tokens": 715.3176,
+              "average_full_input_tokens": 790.7601,
+              "maximum_full_input_tokens": 43735,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.0023,
+              "average_inference_time_seconds_per_example": 0.499852,
+              "total_inference_runtime_seconds": 1087.6774,
+              "status_counts": {
+                "ok": 2176,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "You-Dont-Know-JS": {
+            "row_count": 1,
+            "class_support": {
+              "bug": 0,
+              "feature": 0,
+              "documentation": 0,
+              "question_support": 1
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "too_little_support",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 1,
+              "total_examples": 1,
+              "accuracy": 0.0,
+              "macro_f1": 0.0,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 1,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "feature": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "documentation": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 0,
+                "feature": 0,
+                "documentation": 1,
+                "question_support": 0,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 0,
+              "input_truncated_percentage": 0.0,
+              "average_input_tokens": 533.0,
+              "average_full_input_tokens": 533.0,
+              "maximum_full_input_tokens": 533,
+              "maximum_fed_input_tokens": 533,
+              "average_output_tokens": 6.0,
+              "average_inference_time_seconds_per_example": 0.555008,
+              "total_inference_runtime_seconds": 0.555,
+              "status_counts": {
+                "ok": 1,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "bitcoin": {
+            "row_count": 53,
+            "class_support": {
+              "bug": 41,
+              "feature": 0,
+              "documentation": 11,
+              "question_support": 1
+            },
+            "class_support_interpretation": {
+              "bug": "stable_guidance",
+              "feature": "too_little_support",
+              "documentation": "limited_guidance",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 53,
+              "total_examples": 53,
+              "accuracy": 0.811321,
+              "macro_f1": 0.424359,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 53,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.945946,
+                  "recall": 0.853659,
+                  "f1": 0.897436,
+                  "support": 41
+                },
+                "feature": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "documentation": {
+                  "precision": 0.888889,
+                  "recall": 0.727273,
+                  "f1": 0.8,
+                  "support": 11
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  35,
+                  5,
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  2,
+                  8,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 37,
+                "feature": 7,
+                "documentation": 9,
+                "question_support": 0,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 9,
+              "input_truncated_percentage": 16.9811,
+              "average_input_tokens": 652.4717,
+              "average_full_input_tokens": 1200.6981,
+              "maximum_full_input_tokens": 17543,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.0,
+              "average_inference_time_seconds_per_example": 0.499171,
+              "total_inference_runtime_seconds": 26.4561,
+              "status_counts": {
+                "ok": 53,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "fastapi": {
+            "row_count": 21,
+            "class_support": {
+              "bug": 7,
+              "feature": 0,
+              "documentation": 3,
+              "question_support": 11
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "too_little_support",
+              "documentation": "too_little_support",
+              "question_support": "limited_guidance"
+            },
+            "metrics": {
+              "example_count": 21,
+              "total_examples": 21,
+              "accuracy": 0.333333,
+              "macro_f1": 0.230435,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 21,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.375,
+                  "recall": 0.857143,
+                  "f1": 0.521739,
+                  "support": 7
+                },
+                "feature": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "documentation": {
+                  "precision": 0.5,
+                  "recall": 0.333333,
+                  "f1": 0.4,
+                  "support": 3
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 11
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  6,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  1,
+                  1,
+                  0
+                ],
+                [
+                  9,
+                  1,
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 16,
+                "feature": 2,
+                "documentation": 2,
+                "question_support": 1,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 2,
+              "input_truncated_percentage": 9.5238,
+              "average_input_tokens": 747.9048,
+              "average_full_input_tokens": 831.2857,
+              "maximum_full_input_tokens": 3005,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.0476,
+              "average_inference_time_seconds_per_example": 0.476264,
+              "total_inference_runtime_seconds": 10.0015,
+              "status_counts": {
+                "ok": 21,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "frp": {
+            "row_count": 4,
+            "class_support": {
+              "bug": 0,
+              "feature": 2,
+              "documentation": 1,
+              "question_support": 1
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "too_little_support",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 4,
+              "total_examples": 4,
+              "accuracy": 0.75,
+              "macro_f1": 0.5,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 4,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "feature": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0,
+                  "support": 2
+                },
+                "documentation": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0,
+                  "support": 1
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  2,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 1,
+                "feature": 2,
+                "documentation": 1,
+                "question_support": 0,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 0,
+              "input_truncated_percentage": 0.0,
+              "average_input_tokens": 630.0,
+              "average_full_input_tokens": 630.0,
+              "maximum_full_input_tokens": 1359,
+              "maximum_fed_input_tokens": 1359,
+              "average_output_tokens": 6.0,
+              "average_inference_time_seconds_per_example": 0.607564,
+              "total_inference_runtime_seconds": 2.4303,
+              "status_counts": {
+                "ok": 4,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "langchain": {
+            "row_count": 3,
+            "class_support": {
+              "bug": 0,
+              "feature": 0,
+              "documentation": 3,
+              "question_support": 0
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "too_little_support",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 3,
+              "total_examples": 3,
+              "accuracy": 0.666667,
+              "macro_f1": 0.2,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 3,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "feature": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "documentation": {
+                  "precision": 1.0,
+                  "recall": 0.666667,
+                  "f1": 0.8,
+                  "support": 3
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 0,
+                "feature": 1,
+                "documentation": 2,
+                "question_support": 0,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 0,
+              "input_truncated_percentage": 0.0,
+              "average_input_tokens": 280.0,
+              "average_full_input_tokens": 280.0,
+              "maximum_full_input_tokens": 352,
+              "maximum_fed_input_tokens": 352,
+              "average_output_tokens": 6.0,
+              "average_inference_time_seconds_per_example": 0.402404,
+              "total_inference_runtime_seconds": 1.2072,
+              "status_counts": {
+                "ok": 3,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "material-ui": {
+            "row_count": 689,
+            "class_support": {
+              "bug": 0,
+              "feature": 466,
+              "documentation": 163,
+              "question_support": 60
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "stable_guidance",
+              "documentation": "stable_guidance",
+              "question_support": "stable_guidance"
+            },
+            "metrics": {
+              "example_count": 689,
+              "total_examples": 689,
+              "accuracy": 0.618287,
+              "macro_f1": 0.424386,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 689,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "feature": {
+                  "precision": 0.876676,
+                  "recall": 0.701717,
+                  "f1": 0.779499,
+                  "support": 466
+                },
+                "documentation": {
+                  "precision": 0.752137,
+                  "recall": 0.539877,
+                  "f1": 0.628571,
+                  "support": 163
+                },
+                "question_support": {
+                  "precision": 0.6875,
+                  "recall": 0.183333,
+                  "f1": 0.289474,
+                  "support": 60
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  111,
+                  327,
+                  26,
+                  2,
+                  0
+                ],
+                [
+                  48,
+                  24,
+                  88,
+                  3,
+                  0
+                ],
+                [
+                  24,
+                  22,
+                  3,
+                  11,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 183,
+                "feature": 373,
+                "documentation": 117,
+                "question_support": 16,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 12,
+              "input_truncated_percentage": 1.7417,
+              "average_input_tokens": 577.1771,
+              "average_full_input_tokens": 593.2656,
+              "maximum_full_input_tokens": 4162,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.0232,
+              "average_inference_time_seconds_per_example": 0.509208,
+              "total_inference_runtime_seconds": 350.8444,
+              "status_counts": {
+                "ok": 689,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "tensorflow": {
+            "row_count": 642,
+            "class_support": {
+              "bug": 492,
+              "feature": 101,
+              "documentation": 0,
+              "question_support": 49
+            },
+            "class_support_interpretation": {
+              "bug": "stable_guidance",
+              "feature": "stable_guidance",
+              "documentation": "too_little_support",
+              "question_support": "stable_guidance"
+            },
+            "metrics": {
+              "example_count": 642,
+              "total_examples": 642,
+              "accuracy": 0.875389,
+              "macro_f1": 0.520857,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 642,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.949084,
+                  "recall": 0.947154,
+                  "f1": 0.948118,
+                  "support": 492
+                },
+                "feature": {
+                  "precision": 0.756757,
+                  "recall": 0.831683,
+                  "f1": 0.792453,
+                  "support": 101
+                },
+                "documentation": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "question_support": {
+                  "precision": 0.571429,
+                  "recall": 0.244898,
+                  "f1": 0.342857,
+                  "support": 49
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  466,
+                  13,
+                  10,
+                  3,
+                  0
+                ],
+                [
+                  6,
+                  84,
+                  5,
+                  6,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  19,
+                  14,
+                  4,
+                  12,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 491,
+                "feature": 111,
+                "documentation": 19,
+                "question_support": 21,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 113,
+              "input_truncated_percentage": 17.6012,
+              "average_input_tokens": 866.2305,
+              "average_full_input_tokens": 1237.0109,
+              "maximum_full_input_tokens": 14241,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.0327,
+              "average_inference_time_seconds_per_example": 0.639471,
+              "total_inference_runtime_seconds": 410.5404,
+              "status_counts": {
+                "ok": 642,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "thefuck": {
+            "row_count": 16,
+            "class_support": {
+              "bug": 1,
+              "feature": 13,
+              "documentation": 1,
+              "question_support": 1
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "limited_guidance",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 16,
+              "total_examples": 16,
+              "accuracy": 0.5,
+              "macro_f1": 0.230556,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 16,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.125,
+                  "recall": 1.0,
+                  "f1": 0.222222,
+                  "support": 1
+                },
+                "feature": {
+                  "precision": 1.0,
+                  "recall": 0.538462,
+                  "f1": 0.7,
+                  "support": 13
+                },
+                "documentation": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  6,
+                  7,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 8,
+                "feature": 7,
+                "documentation": 1,
+                "question_support": 0,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 4,
+              "input_truncated_percentage": 25.0,
+              "average_input_tokens": 654.875,
+              "average_full_input_tokens": 3620.1875,
+              "maximum_full_input_tokens": 21021,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.0,
+              "average_inference_time_seconds_per_example": 0.582343,
+              "total_inference_runtime_seconds": 9.3175,
+              "status_counts": {
+                "ok": 16,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "vscode": {
+            "row_count": 6103,
+            "class_support": {
+              "bug": 3046,
+              "feature": 3049,
+              "documentation": 0,
+              "question_support": 8
+            },
+            "class_support_interpretation": {
+              "bug": "stable_guidance",
+              "feature": "stable_guidance",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 6103,
+              "total_examples": 6103,
+              "accuracy": 0.862854,
+              "macro_f1": 0.452345,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 6103,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.847368,
+                  "recall": 0.898555,
+                  "f1": 0.872212,
+                  "support": 3046
+                },
+                "feature": {
+                  "precision": 0.899964,
+                  "recall": 0.829124,
+                  "f1": 0.863093,
+                  "support": 3049
+                },
+                "documentation": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "question_support": {
+                  "precision": 0.052632,
+                  "recall": 0.125,
+                  "f1": 0.074074,
+                  "support": 8
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  2737,
+                  275,
+                  27,
+                  7,
+                  0
+                ],
+                [
+                  493,
+                  2528,
+                  17,
+                  11,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  6,
+                  1,
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 3230,
+                "feature": 2809,
+                "documentation": 45,
+                "question_support": 19,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 465,
+              "input_truncated_percentage": 7.6192,
+              "average_input_tokens": 578.3756,
+              "average_full_input_tokens": 665.7953,
+              "maximum_full_input_tokens": 31687,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.0031,
+              "average_inference_time_seconds_per_example": 0.459292,
+              "total_inference_runtime_seconds": 2803.058,
+              "status_counts": {
+                "ok": 6103,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          }
+        }
+      },
+      "raw_predictions_path": "results/test_evaluation/base_zero_shot.jsonl",
+      "resumed_from_existing_count": 9708,
+      "artifact_repair": {
+        "discarded_trailing_bytes": 0,
+        "added_trailing_newline": false
+      }
+    },
+    "base_few_shot": {
+      "condition": "base_few_shot",
+      "generation": {
+        "do_sample": false,
+        "temperature": null,
+        "max_new_tokens": 16
+      },
+      "metrics": {
+        "example_count": 9708,
+        "total_examples": 9708,
+        "accuracy": 0.808096,
+        "macro_f1": 0.575545,
+        "primary_metric": "macro_f1",
+        "valid_output_count": 9708,
+        "valid_output_percentage": 100.0,
+        "invalid_output_count": 0,
+        "per_class": {
+          "bug": {
+            "precision": 0.834801,
+            "recall": 0.88474,
+            "f1": 0.859046,
+            "support": 5249
+          },
+          "feature": {
+            "precision": 0.884672,
+            "recall": 0.737701,
+            "f1": 0.80453,
+            "support": 4045
+          },
+          "documentation": {
+            "precision": 0.34542,
+            "recall": 0.641844,
+            "f1": 0.449132,
+            "support": 282
+          },
+          "question_support": {
+            "precision": 0.145161,
+            "recall": 0.272727,
+            "f1": 0.189474,
+            "support": 132
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            4644,
+            339,
+            171,
+            95,
+            0
+          ],
+          [
+            794,
+            2984,
+            159,
+            108,
+            0
+          ],
+          [
+            76,
+            16,
+            181,
+            9,
+            0
+          ],
+          [
+            49,
+            34,
+            13,
+            36,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "predicted_class_distribution": {
+          "bug": 5563,
+          "feature": 3373,
+          "documentation": 524,
+          "question_support": 248,
+          "__invalid_output__": 0
+        },
+        "input_truncated_count": 1967,
+        "input_truncated_percentage": 20.2616,
+        "average_input_tokens": 1181.9347,
+        "average_full_input_tokens": 1368.4328,
+        "maximum_full_input_tokens": 44369,
+        "maximum_fed_input_tokens": 1520,
+        "average_output_tokens": 6.0255,
+        "average_inference_time_seconds_per_example": 0.764027,
+        "total_inference_runtime_seconds": 7417.1739,
+        "status_counts": {
+          "ok": 9708,
+          "inference_error": 0
+        },
+        "output_parsing_error_count": 0,
+        "parse_error_counts": {},
+        "inference_error_counts": {},
+        "empty_think_wrapper_count": 0,
+        "nonempty_think_output_count": 0,
+        "batch_count": 0,
+        "condition_wall_runtime_seconds": 0.1167,
+        "by_input_truncation": {
+          "truncated": {
+            "example_count": 1967,
+            "total_examples": 1967,
+            "accuracy": 0.82664,
+            "macro_f1": 0.54366,
+            "primary_metric": "macro_f1",
+            "valid_output_count": 1967,
+            "valid_output_percentage": 100.0,
+            "invalid_output_count": 0,
+            "per_class": {
+              "bug": {
+                "precision": 0.845169,
+                "recall": 0.972539,
+                "f1": 0.904391,
+                "support": 1493
+              },
+              "feature": {
+                "precision": 0.829545,
+                "recall": 0.365915,
+                "f1": 0.507826,
+                "support": 399
+              },
+              "documentation": {
+                "precision": 0.326923,
+                "recall": 0.425,
+                "f1": 0.369565,
+                "support": 40
+              },
+              "question_support": {
+                "precision": 0.52381,
+                "recall": 0.314286,
+                "f1": 0.392857,
+                "support": 35
+              }
+            },
+            "confusion_matrix_labels": [
+              "bug",
+              "feature",
+              "documentation",
+              "question_support",
+              "__invalid_output__"
+            ],
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                1452,
+                23,
+                14,
+                4,
+                0
+              ],
+              [
+                228,
+                146,
+                20,
+                5,
+                0
+              ],
+              [
+                20,
+                2,
+                17,
+                1,
+                0
+              ],
+              [
+                18,
+                5,
+                1,
+                11,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "predicted_class_distribution": {
+              "bug": 1718,
+              "feature": 176,
+              "documentation": 52,
+              "question_support": 21,
+              "__invalid_output__": 0
+            },
+            "input_truncated_count": 1967,
+            "input_truncated_percentage": 100.0,
+            "average_input_tokens": 1519.9985,
+            "average_full_input_tokens": 2440.4479,
+            "maximum_full_input_tokens": 44369,
+            "maximum_fed_input_tokens": 1520,
+            "average_output_tokens": 6.0107,
+            "average_inference_time_seconds_per_example": 0.880348,
+            "total_inference_runtime_seconds": 1731.6436,
+            "status_counts": {
+              "ok": 1967,
+              "inference_error": 0
+            },
+            "output_parsing_error_count": 0,
+            "parse_error_counts": {},
+            "inference_error_counts": {},
+            "empty_think_wrapper_count": 0,
+            "nonempty_think_output_count": 0
+          },
+          "non_truncated": {
+            "example_count": 7741,
+            "total_examples": 7741,
+            "accuracy": 0.803385,
+            "macro_f1": 0.570764,
+            "primary_metric": "macro_f1",
+            "valid_output_count": 7741,
+            "valid_output_percentage": 100.0,
+            "invalid_output_count": 0,
+            "per_class": {
+              "bug": {
+                "precision": 0.830169,
+                "recall": 0.84984,
+                "f1": 0.839889,
+                "support": 3756
+              },
+              "feature": {
+                "precision": 0.887707,
+                "recall": 0.778387,
+                "f1": 0.829461,
+                "support": 3646
+              },
+              "documentation": {
+                "precision": 0.347458,
+                "recall": 0.677686,
+                "f1": 0.459384,
+                "support": 242
+              },
+              "question_support": {
+                "precision": 0.110132,
+                "recall": 0.257732,
+                "f1": 0.154321,
+                "support": 97
+              }
+            },
+            "confusion_matrix_labels": [
+              "bug",
+              "feature",
+              "documentation",
+              "question_support",
+              "__invalid_output__"
+            ],
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                3192,
+                316,
+                157,
+                91,
+                0
+              ],
+              [
+                566,
+                2838,
+                139,
+                103,
+                0
+              ],
+              [
+                56,
+                14,
+                164,
+                8,
+                0
+              ],
+              [
+                31,
+                29,
+                12,
+                25,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "predicted_class_distribution": {
+              "bug": 3845,
+              "feature": 3197,
+              "documentation": 472,
+              "question_support": 227,
+              "__invalid_output__": 0
+            },
+            "input_truncated_count": 0,
+            "input_truncated_percentage": 0.0,
+            "average_input_tokens": 1096.0322,
+            "average_full_input_tokens": 1096.0322,
+            "maximum_full_input_tokens": 1520,
+            "maximum_fed_input_tokens": 1520,
+            "average_output_tokens": 6.0293,
+            "average_inference_time_seconds_per_example": 0.73447,
+            "total_inference_runtime_seconds": 5685.5303,
+            "status_counts": {
+              "ok": 7741,
+              "inference_error": 0
+            },
+            "output_parsing_error_count": 0,
+            "parse_error_counts": {},
+            "inference_error_counts": {},
+            "empty_think_wrapper_count": 0,
+            "nonempty_think_output_count": 0
+          }
+        },
+        "by_repository": {
+          "TypeScript": {
+            "row_count": 2176,
+            "class_support": {
+              "bug": 1662,
+              "feature": 414,
+              "documentation": 100,
+              "question_support": 0
+            },
+            "class_support_interpretation": {
+              "bug": "stable_guidance",
+              "feature": "stable_guidance",
+              "documentation": "stable_guidance",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 2176,
+              "total_examples": 2176,
+              "accuracy": 0.782629,
+              "macro_f1": 0.475187,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 2176,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.864043,
+                  "recall": 0.871841,
+                  "f1": 0.867925,
+                  "support": 1662
+                },
+                "feature": {
+                  "precision": 0.578125,
+                  "recall": 0.44686,
+                  "f1": 0.504087,
+                  "support": 414
+                },
+                "documentation": {
+                  "precision": 0.428571,
+                  "recall": 0.69,
+                  "f1": 0.528736,
+                  "support": 100
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  1449,
+                  134,
+                  66,
+                  13,
+                  0
+                ],
+                [
+                  199,
+                  185,
+                  26,
+                  4,
+                  0
+                ],
+                [
+                  29,
+                  1,
+                  69,
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 1677,
+                "feature": 320,
+                "documentation": 161,
+                "question_support": 18,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 575,
+              "input_truncated_percentage": 26.4246,
+              "average_input_tokens": 1265.023,
+              "average_full_input_tokens": 1424.7601,
+              "maximum_full_input_tokens": 44369,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.0083,
+              "average_inference_time_seconds_per_example": 0.804581,
+              "total_inference_runtime_seconds": 1750.7678,
+              "status_counts": {
+                "ok": 2176,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "You-Dont-Know-JS": {
+            "row_count": 1,
+            "class_support": {
+              "bug": 0,
+              "feature": 0,
+              "documentation": 0,
+              "question_support": 1
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "too_little_support",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 1,
+              "total_examples": 1,
+              "accuracy": 0.0,
+              "macro_f1": 0.0,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 1,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "feature": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "documentation": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 0,
+                "feature": 0,
+                "documentation": 1,
+                "question_support": 0,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 0,
+              "input_truncated_percentage": 0.0,
+              "average_input_tokens": 1167.0,
+              "average_full_input_tokens": 1167.0,
+              "maximum_full_input_tokens": 1167,
+              "maximum_fed_input_tokens": 1167,
+              "average_output_tokens": 6.0,
+              "average_inference_time_seconds_per_example": 0.776865,
+              "total_inference_runtime_seconds": 0.7769,
+              "status_counts": {
+                "ok": 1,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "bitcoin": {
+            "row_count": 53,
+            "class_support": {
+              "bug": 41,
+              "feature": 0,
+              "documentation": 11,
+              "question_support": 1
+            },
+            "class_support_interpretation": {
+              "bug": "stable_guidance",
+              "feature": "too_little_support",
+              "documentation": "limited_guidance",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 53,
+              "total_examples": 53,
+              "accuracy": 0.943396,
+              "macro_f1": 0.481998,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 53,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.97561,
+                  "recall": 0.97561,
+                  "f1": 0.97561,
+                  "support": 41
+                },
+                "feature": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "documentation": {
+                  "precision": 1.0,
+                  "recall": 0.909091,
+                  "f1": 0.952381,
+                  "support": 11
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  40,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  10,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 41,
+                "feature": 2,
+                "documentation": 10,
+                "question_support": 0,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 12,
+              "input_truncated_percentage": 22.6415,
+              "average_input_tokens": 1175.0,
+              "average_full_input_tokens": 1834.6981,
+              "maximum_full_input_tokens": 18177,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.0,
+              "average_inference_time_seconds_per_example": 0.765068,
+              "total_inference_runtime_seconds": 40.5486,
+              "status_counts": {
+                "ok": 53,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "fastapi": {
+            "row_count": 21,
+            "class_support": {
+              "bug": 7,
+              "feature": 0,
+              "documentation": 3,
+              "question_support": 11
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "too_little_support",
+              "documentation": "too_little_support",
+              "question_support": "limited_guidance"
+            },
+            "metrics": {
+              "example_count": 21,
+              "total_examples": 21,
+              "accuracy": 0.190476,
+              "macro_f1": 0.141447,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 21,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.25,
+                  "recall": 0.428571,
+                  "f1": 0.315789,
+                  "support": 7
+                },
+                "feature": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "documentation": {
+                  "precision": 0.2,
+                  "recall": 0.333333,
+                  "f1": 0.25,
+                  "support": 3
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 11
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  3,
+                  2,
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  1,
+                  1,
+                  0
+                ],
+                [
+                  8,
+                  1,
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 12,
+                "feature": 3,
+                "documentation": 5,
+                "question_support": 1,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 5,
+              "input_truncated_percentage": 23.8095,
+              "average_input_tokens": 1316.8095,
+              "average_full_input_tokens": 1465.2857,
+              "maximum_full_input_tokens": 3639,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.0476,
+              "average_inference_time_seconds_per_example": 0.855381,
+              "total_inference_runtime_seconds": 17.963,
+              "status_counts": {
+                "ok": 21,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "frp": {
+            "row_count": 4,
+            "class_support": {
+              "bug": 0,
+              "feature": 2,
+              "documentation": 1,
+              "question_support": 1
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "too_little_support",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 4,
+              "total_examples": 4,
+              "accuracy": 0.75,
+              "macro_f1": 0.5,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 4,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "feature": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0,
+                  "support": 2
+                },
+                "documentation": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0,
+                  "support": 1
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  2,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 1,
+                "feature": 2,
+                "documentation": 1,
+                "question_support": 0,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 1,
+              "input_truncated_percentage": 25.0,
+              "average_input_tokens": 1145.75,
+              "average_full_input_tokens": 1264.0,
+              "maximum_full_input_tokens": 1993,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.0,
+              "average_inference_time_seconds_per_example": 0.745836,
+              "total_inference_runtime_seconds": 2.9833,
+              "status_counts": {
+                "ok": 4,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "langchain": {
+            "row_count": 3,
+            "class_support": {
+              "bug": 0,
+              "feature": 0,
+              "documentation": 3,
+              "question_support": 0
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "too_little_support",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 3,
+              "total_examples": 3,
+              "accuracy": 1.0,
+              "macro_f1": 0.25,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 3,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "feature": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "documentation": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0,
+                  "support": 3
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 0,
+                "feature": 0,
+                "documentation": 3,
+                "question_support": 0,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 0,
+              "input_truncated_percentage": 0.0,
+              "average_input_tokens": 914.0,
+              "average_full_input_tokens": 914.0,
+              "maximum_full_input_tokens": 986,
+              "maximum_fed_input_tokens": 986,
+              "average_output_tokens": 6.0,
+              "average_inference_time_seconds_per_example": 0.659418,
+              "total_inference_runtime_seconds": 1.9783,
+              "status_counts": {
+                "ok": 3,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "material-ui": {
+            "row_count": 689,
+            "class_support": {
+              "bug": 0,
+              "feature": 466,
+              "documentation": 163,
+              "question_support": 60
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "stable_guidance",
+              "documentation": "stable_guidance",
+              "question_support": "stable_guidance"
+            },
+            "metrics": {
+              "example_count": 689,
+              "total_examples": 689,
+              "accuracy": 0.597968,
+              "macro_f1": 0.426102,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 689,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "feature": {
+                  "precision": 0.909091,
+                  "recall": 0.643777,
+                  "f1": 0.753769,
+                  "support": 466
+                },
+                "documentation": {
+                  "precision": 0.702899,
+                  "recall": 0.595092,
+                  "f1": 0.644518,
+                  "support": 163
+                },
+                "question_support": {
+                  "precision": 0.394737,
+                  "recall": 0.25,
+                  "f1": 0.306122,
+                  "support": 60
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  114,
+                  300,
+                  36,
+                  16,
+                  0
+                ],
+                [
+                  45,
+                  14,
+                  97,
+                  7,
+                  0
+                ],
+                [
+                  24,
+                  16,
+                  5,
+                  15,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 183,
+                "feature": 330,
+                "documentation": 138,
+                "question_support": 38,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 104,
+              "input_truncated_percentage": 15.0943,
+              "average_input_tokens": 1175.6023,
+              "average_full_input_tokens": 1227.2656,
+              "maximum_full_input_tokens": 4796,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.0552,
+              "average_inference_time_seconds_per_example": 0.777602,
+              "total_inference_runtime_seconds": 535.7681,
+              "status_counts": {
+                "ok": 689,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "tensorflow": {
+            "row_count": 642,
+            "class_support": {
+              "bug": 492,
+              "feature": 101,
+              "documentation": 0,
+              "question_support": 49
+            },
+            "class_support_interpretation": {
+              "bug": "stable_guidance",
+              "feature": "stable_guidance",
+              "documentation": "too_little_support",
+              "question_support": "stable_guidance"
+            },
+            "metrics": {
+              "example_count": 642,
+              "total_examples": 642,
+              "accuracy": 0.890966,
+              "macro_f1": 0.56371,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 642,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.953535,
+                  "recall": 0.95935,
+                  "f1": 0.956434,
+                  "support": 492
+                },
+                "feature": {
+                  "precision": 0.792079,
+                  "recall": 0.792079,
+                  "f1": 0.792079,
+                  "support": 101
+                },
+                "documentation": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "question_support": {
+                  "precision": 0.666667,
+                  "recall": 0.408163,
+                  "f1": 0.506329,
+                  "support": 49
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  472,
+                  8,
+                  9,
+                  3,
+                  0
+                ],
+                [
+                  8,
+                  80,
+                  6,
+                  7,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  15,
+                  13,
+                  1,
+                  20,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 495,
+                "feature": 101,
+                "documentation": 16,
+                "question_support": 30,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 258,
+              "input_truncated_percentage": 40.1869,
+              "average_input_tokens": 1328.9174,
+              "average_full_input_tokens": 1871.0109,
+              "maximum_full_input_tokens": 14875,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.0467,
+              "average_inference_time_seconds_per_example": 0.854246,
+              "total_inference_runtime_seconds": 548.4257,
+              "status_counts": {
+                "ok": 642,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "thefuck": {
+            "row_count": 16,
+            "class_support": {
+              "bug": 1,
+              "feature": 13,
+              "documentation": 1,
+              "question_support": 1
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "limited_guidance",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 16,
+              "total_examples": 16,
+              "accuracy": 0.375,
+              "macro_f1": 0.280147,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 16,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.142857,
+                  "recall": 1.0,
+                  "f1": 0.25,
+                  "support": 1
+                },
+                "feature": {
+                  "precision": 1.0,
+                  "recall": 0.307692,
+                  "f1": 0.470588,
+                  "support": 13
+                },
+                "documentation": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                },
+                "question_support": {
+                  "precision": 0.25,
+                  "recall": 1.0,
+                  "f1": 0.4,
+                  "support": 1
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  5,
+                  4,
+                  1,
+                  3,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 7,
+                "feature": 4,
+                "documentation": 1,
+                "question_support": 4,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 5,
+              "input_truncated_percentage": 31.25,
+              "average_input_tokens": 1098.9375,
+              "average_full_input_tokens": 4254.1875,
+              "maximum_full_input_tokens": 21655,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.25,
+              "average_inference_time_seconds_per_example": 0.738703,
+              "total_inference_runtime_seconds": 11.8192,
+              "status_counts": {
+                "ok": 16,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "vscode": {
+            "row_count": 6103,
+            "class_support": {
+              "bug": 3046,
+              "feature": 3049,
+              "documentation": 0,
+              "question_support": 8
+            },
+            "class_support_interpretation": {
+              "bug": "stable_guidance",
+              "feature": "stable_guidance",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 6103,
+              "total_examples": 6103,
+              "accuracy": 0.834344,
+              "macro_f1": 0.429455,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 6103,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.851287,
+                  "recall": 0.879514,
+                  "f1": 0.86517,
+                  "support": 3046
+                },
+                "feature": {
+                  "precision": 0.924167,
+                  "recall": 0.791407,
+                  "f1": 0.85265,
+                  "support": 3049
+                },
+                "documentation": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 8
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  2679,
+                  194,
+                  94,
+                  79,
+                  0
+                ],
+                [
+                  468,
+                  2413,
+                  90,
+                  78,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  4,
+                  4,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 3147,
+                "feature": 2611,
+                "documentation": 188,
+                "question_support": 157,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 1007,
+              "input_truncated_percentage": 16.5001,
+              "average_input_tokens": 1137.5347,
+              "average_full_input_tokens": 1299.7953,
+              "maximum_full_input_tokens": 32321,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 6.0257,
+              "average_inference_time_seconds_per_example": 0.738349,
+              "total_inference_runtime_seconds": 4506.1429,
+              "status_counts": {
+                "ok": 6103,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 0,
+              "nonempty_think_output_count": 0
+            }
+          }
+        }
+      },
+      "raw_predictions_path": "results/test_evaluation/base_few_shot.jsonl",
+      "resumed_from_existing_count": 9708,
+      "artifact_repair": {
+        "discarded_trailing_bytes": 0,
+        "added_trailing_newline": false
+      }
+    },
+    "fine_tuned_zero_shot": {
+      "condition": "fine_tuned_zero_shot",
+      "generation": {
+        "do_sample": false,
+        "temperature": null,
+        "max_new_tokens": 16
+      },
+      "metrics": {
+        "example_count": 9708,
+        "total_examples": 9708,
+        "accuracy": 0.819324,
+        "macro_f1": 0.575087,
+        "primary_metric": "macro_f1",
+        "valid_output_count": 9708,
+        "valid_output_percentage": 100.0,
+        "invalid_output_count": 0,
+        "per_class": {
+          "bug": {
+            "precision": 0.783784,
+            "recall": 0.950276,
+            "f1": 0.859037,
+            "support": 5249
+          },
+          "feature": {
+            "precision": 0.899905,
+            "recall": 0.702349,
+            "f1": 0.788948,
+            "support": 4045
+          },
+          "documentation": {
+            "precision": 0.678571,
+            "recall": 0.404255,
+            "f1": 0.506667,
+            "support": 282
+          },
+          "question_support": {
+            "precision": 0.578947,
+            "recall": 0.083333,
+            "f1": 0.145695,
+            "support": 132
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            4988,
+            237,
+            21,
+            3,
+            0
+          ],
+          [
+            1174,
+            2841,
+            28,
+            2,
+            0
+          ],
+          [
+            139,
+            26,
+            114,
+            3,
+            0
+          ],
+          [
+            63,
+            53,
+            5,
+            11,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "predicted_class_distribution": {
+          "bug": 6364,
+          "feature": 3157,
+          "documentation": 168,
+          "question_support": 19,
+          "__invalid_output__": 0
+        },
+        "input_truncated_count": 748,
+        "input_truncated_percentage": 7.705,
+        "average_input_tokens": 628.8432,
+        "average_full_input_tokens": 734.4328,
+        "maximum_full_input_tokens": 43735,
+        "maximum_fed_input_tokens": 1520,
+        "average_output_tokens": 10.002,
+        "average_inference_time_seconds_per_example": 0.836915,
+        "total_inference_runtime_seconds": 8124.7738,
+        "status_counts": {
+          "ok": 9708,
+          "inference_error": 0
+        },
+        "output_parsing_error_count": 0,
+        "parse_error_counts": {},
+        "inference_error_counts": {},
+        "empty_think_wrapper_count": 9708,
+        "nonempty_think_output_count": 0,
+        "batch_count": 0,
+        "condition_wall_runtime_seconds": 0.1232,
+        "by_input_truncation": {
+          "truncated": {
+            "example_count": 748,
+            "total_examples": 748,
+            "accuracy": 0.84492,
+            "macro_f1": 0.364585,
+            "primary_metric": "macro_f1",
+            "valid_output_count": 748,
+            "valid_output_percentage": 100.0,
+            "invalid_output_count": 0,
+            "per_class": {
+              "bug": {
+                "precision": 0.858166,
+                "recall": 0.98036,
+                "f1": 0.915202,
+                "support": 611
+              },
+              "feature": {
+                "precision": 0.695652,
+                "recall": 0.258065,
+                "f1": 0.376471,
+                "support": 124
+              },
+              "documentation": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 3
+              },
+              "question_support": {
+                "precision": 0.5,
+                "recall": 0.1,
+                "f1": 0.166667,
+                "support": 10
+              }
+            },
+            "confusion_matrix_labels": [
+              "bug",
+              "feature",
+              "documentation",
+              "question_support",
+              "__invalid_output__"
+            ],
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                599,
+                12,
+                0,
+                0,
+                0
+              ],
+              [
+                89,
+                32,
+                2,
+                1,
+                0
+              ],
+              [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                7,
+                2,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "predicted_class_distribution": {
+              "bug": 698,
+              "feature": 46,
+              "documentation": 2,
+              "question_support": 2,
+              "__invalid_output__": 0
+            },
+            "input_truncated_count": 748,
+            "input_truncated_percentage": 100.0,
+            "average_input_tokens": 1519.9973,
+            "average_full_input_tokens": 2890.4037,
+            "maximum_full_input_tokens": 43735,
+            "maximum_fed_input_tokens": 1520,
+            "average_output_tokens": 10.0027,
+            "average_inference_time_seconds_per_example": 1.451056,
+            "total_inference_runtime_seconds": 1085.3901,
+            "status_counts": {
+              "ok": 748,
+              "inference_error": 0
+            },
+            "output_parsing_error_count": 0,
+            "parse_error_counts": {},
+            "inference_error_counts": {},
+            "empty_think_wrapper_count": 748,
+            "nonempty_think_output_count": 0
+          },
+          "non_truncated": {
+            "example_count": 8960,
+            "total_examples": 8960,
+            "accuracy": 0.817187,
+            "macro_f1": 0.576766,
+            "primary_metric": "macro_f1",
+            "valid_output_count": 8960,
+            "valid_output_percentage": 100.0,
+            "invalid_output_count": 0,
+            "per_class": {
+              "bug": {
+                "precision": 0.774621,
+                "recall": 0.946313,
+                "f1": 0.851902,
+                "support": 4638
+              },
+              "feature": {
+                "precision": 0.902925,
+                "recall": 0.716399,
+                "f1": 0.798919,
+                "support": 3921
+              },
+              "documentation": {
+                "precision": 0.686747,
+                "recall": 0.408602,
+                "f1": 0.51236,
+                "support": 279
+              },
+              "question_support": {
+                "precision": 0.588235,
+                "recall": 0.081967,
+                "f1": 0.143885,
+                "support": 122
+              }
+            },
+            "confusion_matrix_labels": [
+              "bug",
+              "feature",
+              "documentation",
+              "question_support",
+              "__invalid_output__"
+            ],
+            "confusion_matrix_rows_true_columns_predicted": [
+              [
+                4389,
+                225,
+                21,
+                3,
+                0
+              ],
+              [
+                1085,
+                2809,
+                26,
+                1,
+                0
+              ],
+              [
+                136,
+                26,
+                114,
+                3,
+                0
+              ],
+              [
+                56,
+                51,
+                5,
+                10,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "predicted_class_distribution": {
+              "bug": 5666,
+              "feature": 3111,
+              "documentation": 166,
+              "question_support": 17,
+              "__invalid_output__": 0
+            },
+            "input_truncated_count": 0,
+            "input_truncated_percentage": 0.0,
+            "average_input_tokens": 554.4478,
+            "average_full_input_tokens": 554.4478,
+            "maximum_full_input_tokens": 1520,
+            "maximum_fed_input_tokens": 1520,
+            "average_output_tokens": 10.0019,
+            "average_inference_time_seconds_per_example": 0.785646,
+            "total_inference_runtime_seconds": 7039.3838,
+            "status_counts": {
+              "ok": 8960,
+              "inference_error": 0
+            },
+            "output_parsing_error_count": 0,
+            "parse_error_counts": {},
+            "inference_error_counts": {},
+            "empty_think_wrapper_count": 8960,
+            "nonempty_think_output_count": 0
+          }
+        },
+        "by_repository": {
+          "TypeScript": {
+            "row_count": 2176,
+            "class_support": {
+              "bug": 1662,
+              "feature": 414,
+              "documentation": 100,
+              "question_support": 0
+            },
+            "class_support_interpretation": {
+              "bug": "stable_guidance",
+              "feature": "stable_guidance",
+              "documentation": "stable_guidance",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 2176,
+              "total_examples": 2176,
+              "accuracy": 0.814338,
+              "macro_f1": 0.45918,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 2176,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.81864,
+                  "recall": 0.977738,
+                  "f1": 0.891143,
+                  "support": 1662
+                },
+                "feature": {
+                  "precision": 0.772059,
+                  "recall": 0.253623,
+                  "f1": 0.381818,
+                  "support": 414
+                },
+                "documentation": {
+                  "precision": 0.857143,
+                  "recall": 0.42,
+                  "f1": 0.563758,
+                  "support": 100
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  1625,
+                  30,
+                  4,
+                  3,
+                  0
+                ],
+                [
+                  305,
+                  105,
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  55,
+                  1,
+                  42,
+                  2,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 1985,
+                "feature": 136,
+                "documentation": 49,
+                "question_support": 6,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 143,
+              "input_truncated_percentage": 6.5717,
+              "average_input_tokens": 715.3176,
+              "average_full_input_tokens": 790.7601,
+              "maximum_full_input_tokens": 43735,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 10.0028,
+              "average_inference_time_seconds_per_example": 0.90777,
+              "total_inference_runtime_seconds": 1975.3068,
+              "status_counts": {
+                "ok": 2176,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 2176,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "You-Dont-Know-JS": {
+            "row_count": 1,
+            "class_support": {
+              "bug": 0,
+              "feature": 0,
+              "documentation": 0,
+              "question_support": 1
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "too_little_support",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 1,
+              "total_examples": 1,
+              "accuracy": 0.0,
+              "macro_f1": 0.0,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 1,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "feature": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "documentation": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 0,
+                "feature": 0,
+                "documentation": 1,
+                "question_support": 0,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 0,
+              "input_truncated_percentage": 0.0,
+              "average_input_tokens": 533.0,
+              "average_full_input_tokens": 533.0,
+              "maximum_full_input_tokens": 533,
+              "maximum_fed_input_tokens": 533,
+              "average_output_tokens": 10.0,
+              "average_inference_time_seconds_per_example": 1.325281,
+              "total_inference_runtime_seconds": 1.3253,
+              "status_counts": {
+                "ok": 1,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 1,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "bitcoin": {
+            "row_count": 53,
+            "class_support": {
+              "bug": 41,
+              "feature": 0,
+              "documentation": 11,
+              "question_support": 1
+            },
+            "class_support_interpretation": {
+              "bug": "stable_guidance",
+              "feature": "too_little_support",
+              "documentation": "limited_guidance",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 53,
+              "total_examples": 53,
+              "accuracy": 0.924528,
+              "macro_f1": 0.478836,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 53,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.975,
+                  "recall": 0.95122,
+                  "f1": 0.962963,
+                  "support": 41
+                },
+                "feature": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "documentation": {
+                  "precision": 1.0,
+                  "recall": 0.909091,
+                  "f1": 0.952381,
+                  "support": 11
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  39,
+                  2,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  10,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 40,
+                "feature": 3,
+                "documentation": 10,
+                "question_support": 0,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 9,
+              "input_truncated_percentage": 16.9811,
+              "average_input_tokens": 652.4717,
+              "average_full_input_tokens": 1200.6981,
+              "maximum_full_input_tokens": 17543,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 10.0,
+              "average_inference_time_seconds_per_example": 0.963292,
+              "total_inference_runtime_seconds": 51.0545,
+              "status_counts": {
+                "ok": 53,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 53,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "fastapi": {
+            "row_count": 21,
+            "class_support": {
+              "bug": 7,
+              "feature": 0,
+              "documentation": 3,
+              "question_support": 11
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "too_little_support",
+              "documentation": "too_little_support",
+              "question_support": "limited_guidance"
+            },
+            "metrics": {
+              "example_count": 21,
+              "total_examples": 21,
+              "accuracy": 0.333333,
+              "macro_f1": 0.25,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 21,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.352941,
+                  "recall": 0.857143,
+                  "f1": 0.5,
+                  "support": 7
+                },
+                "feature": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "documentation": {
+                  "precision": 1.0,
+                  "recall": 0.333333,
+                  "f1": 0.5,
+                  "support": 3
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 11
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  6,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  1,
+                  1,
+                  0
+                ],
+                [
+                  10,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 17,
+                "feature": 2,
+                "documentation": 1,
+                "question_support": 1,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 2,
+              "input_truncated_percentage": 9.5238,
+              "average_input_tokens": 747.9048,
+              "average_full_input_tokens": 831.2857,
+              "maximum_full_input_tokens": 3005,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 10.0476,
+              "average_inference_time_seconds_per_example": 0.767485,
+              "total_inference_runtime_seconds": 16.1172,
+              "status_counts": {
+                "ok": 21,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 21,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "frp": {
+            "row_count": 4,
+            "class_support": {
+              "bug": 0,
+              "feature": 2,
+              "documentation": 1,
+              "question_support": 1
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "too_little_support",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 4,
+              "total_examples": 4,
+              "accuracy": 0.5,
+              "macro_f1": 0.2,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 4,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "feature": {
+                  "precision": 0.666667,
+                  "recall": 1.0,
+                  "f1": 0.8,
+                  "support": 2
+                },
+                "documentation": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  2,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 1,
+                "feature": 3,
+                "documentation": 0,
+                "question_support": 0,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 0,
+              "input_truncated_percentage": 0.0,
+              "average_input_tokens": 630.0,
+              "average_full_input_tokens": 630.0,
+              "maximum_full_input_tokens": 1359,
+              "maximum_fed_input_tokens": 1359,
+              "average_output_tokens": 10.0,
+              "average_inference_time_seconds_per_example": 1.000811,
+              "total_inference_runtime_seconds": 4.0032,
+              "status_counts": {
+                "ok": 4,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 4,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "langchain": {
+            "row_count": 3,
+            "class_support": {
+              "bug": 0,
+              "feature": 0,
+              "documentation": 3,
+              "question_support": 0
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "too_little_support",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 3,
+              "total_examples": 3,
+              "accuracy": 0.666667,
+              "macro_f1": 0.2,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 3,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "feature": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "documentation": {
+                  "precision": 1.0,
+                  "recall": 0.666667,
+                  "f1": 0.8,
+                  "support": 3
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 0,
+                "feature": 1,
+                "documentation": 2,
+                "question_support": 0,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 0,
+              "input_truncated_percentage": 0.0,
+              "average_input_tokens": 280.0,
+              "average_full_input_tokens": 280.0,
+              "maximum_full_input_tokens": 352,
+              "maximum_fed_input_tokens": 352,
+              "average_output_tokens": 10.0,
+              "average_inference_time_seconds_per_example": 0.676427,
+              "total_inference_runtime_seconds": 2.0293,
+              "status_counts": {
+                "ok": 3,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 3,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "material-ui": {
+            "row_count": 689,
+            "class_support": {
+              "bug": 0,
+              "feature": 466,
+              "documentation": 163,
+              "question_support": 60
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "stable_guidance",
+              "documentation": "stable_guidance",
+              "question_support": "stable_guidance"
+            },
+            "metrics": {
+              "example_count": 689,
+              "total_examples": 689,
+              "accuracy": 0.516691,
+              "macro_f1": 0.362091,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 689,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "feature": {
+                  "precision": 0.883792,
+                  "recall": 0.620172,
+                  "f1": 0.728878,
+                  "support": 466
+                },
+                "documentation": {
+                  "precision": 0.746835,
+                  "recall": 0.361963,
+                  "f1": 0.487603,
+                  "support": 163
+                },
+                "question_support": {
+                  "precision": 0.888889,
+                  "recall": 0.133333,
+                  "f1": 0.231884,
+                  "support": 60
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  158,
+                  289,
+                  18,
+                  1,
+                  0
+                ],
+                [
+                  82,
+                  22,
+                  59,
+                  0,
+                  0
+                ],
+                [
+                  34,
+                  16,
+                  2,
+                  8,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 274,
+                "feature": 327,
+                "documentation": 79,
+                "question_support": 9,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 12,
+              "input_truncated_percentage": 1.7417,
+              "average_input_tokens": 577.1771,
+              "average_full_input_tokens": 593.2656,
+              "maximum_full_input_tokens": 4162,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 10.0131,
+              "average_inference_time_seconds_per_example": 0.735268,
+              "total_inference_runtime_seconds": 506.5996,
+              "status_counts": {
+                "ok": 689,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 689,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "tensorflow": {
+            "row_count": 642,
+            "class_support": {
+              "bug": 492,
+              "feature": 101,
+              "documentation": 0,
+              "question_support": 49
+            },
+            "class_support_interpretation": {
+              "bug": "stable_guidance",
+              "feature": "stable_guidance",
+              "documentation": "too_little_support",
+              "question_support": "stable_guidance"
+            },
+            "metrics": {
+              "example_count": 642,
+              "total_examples": 642,
+              "accuracy": 0.819315,
+              "macro_f1": 0.404421,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 642,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.951327,
+                  "recall": 0.873984,
+                  "f1": 0.911017,
+                  "support": 492
+                },
+                "feature": {
+                  "precision": 0.516304,
+                  "recall": 0.940594,
+                  "f1": 0.666667,
+                  "support": 101
+                },
+                "documentation": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "question_support": {
+                  "precision": 1.0,
+                  "recall": 0.020408,
+                  "f1": 0.04,
+                  "support": 49
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  430,
+                  58,
+                  4,
+                  0,
+                  0
+                ],
+                [
+                  6,
+                  95,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  16,
+                  31,
+                  1,
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 452,
+                "feature": 184,
+                "documentation": 5,
+                "question_support": 1,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 113,
+              "input_truncated_percentage": 17.6012,
+              "average_input_tokens": 866.2305,
+              "average_full_input_tokens": 1237.0109,
+              "maximum_full_input_tokens": 14241,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 10.0016,
+              "average_inference_time_seconds_per_example": 1.058585,
+              "total_inference_runtime_seconds": 679.6116,
+              "status_counts": {
+                "ok": 642,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 642,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "thefuck": {
+            "row_count": 16,
+            "class_support": {
+              "bug": 1,
+              "feature": 13,
+              "documentation": 1,
+              "question_support": 1
+            },
+            "class_support_interpretation": {
+              "bug": "too_little_support",
+              "feature": "limited_guidance",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 16,
+              "total_examples": 16,
+              "accuracy": 0.5,
+              "macro_f1": 0.225,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 16,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.111111,
+                  "recall": 1.0,
+                  "f1": 0.2,
+                  "support": 1
+                },
+                "feature": {
+                  "precision": 1.0,
+                  "recall": 0.538462,
+                  "f1": 0.7,
+                  "support": 13
+                },
+                "documentation": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                },
+                "question_support": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 1
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  6,
+                  7,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 9,
+                "feature": 7,
+                "documentation": 0,
+                "question_support": 0,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 4,
+              "input_truncated_percentage": 25.0,
+              "average_input_tokens": 654.875,
+              "average_full_input_tokens": 3620.1875,
+              "maximum_full_input_tokens": 21021,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 10.0,
+              "average_inference_time_seconds_per_example": 0.997566,
+              "total_inference_runtime_seconds": 15.9611,
+              "status_counts": {
+                "ok": 16,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 16,
+              "nonempty_think_output_count": 0
+            }
+          },
+          "vscode": {
+            "row_count": 6103,
+            "class_support": {
+              "bug": 3046,
+              "feature": 3049,
+              "documentation": 0,
+              "question_support": 8
+            },
+            "class_support_interpretation": {
+              "bug": "stable_guidance",
+              "feature": "stable_guidance",
+              "documentation": "too_little_support",
+              "question_support": "too_little_support"
+            },
+            "metrics": {
+              "example_count": 6103,
+              "total_examples": 6103,
+              "accuracy": 0.857283,
+              "macro_f1": 0.529004,
+              "primary_metric": "macro_f1",
+              "valid_output_count": 6103,
+              "valid_output_percentage": 100.0,
+              "invalid_output_count": 0,
+              "per_class": {
+                "bug": {
+                  "precision": 0.805075,
+                  "recall": 0.9478,
+                  "f1": 0.870627,
+                  "support": 3046
+                },
+                "feature": {
+                  "precision": 0.939455,
+                  "recall": 0.768449,
+                  "f1": 0.845391,
+                  "support": 3049
+                },
+                "documentation": {
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0,
+                  "support": 0
+                },
+                "question_support": {
+                  "precision": 1.0,
+                  "recall": 0.25,
+                  "f1": 0.4,
+                  "support": 8
+                }
+              },
+              "confusion_matrix_labels": [
+                "bug",
+                "feature",
+                "documentation",
+                "question_support",
+                "__invalid_output__"
+              ],
+              "confusion_matrix_rows_true_columns_predicted": [
+                [
+                  2887,
+                  146,
+                  13,
+                  0,
+                  0
+                ],
+                [
+                  699,
+                  2343,
+                  7,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  5,
+                  1,
+                  2,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "predicted_class_distribution": {
+                "bug": 3586,
+                "feature": 2494,
+                "documentation": 21,
+                "question_support": 2,
+                "__invalid_output__": 0
+              },
+              "input_truncated_count": 465,
+              "input_truncated_percentage": 7.6192,
+              "average_input_tokens": 578.3756,
+              "average_full_input_tokens": 665.7953,
+              "maximum_full_input_tokens": 31687,
+              "maximum_fed_input_tokens": 1520,
+              "average_output_tokens": 10.0003,
+              "average_inference_time_seconds_per_example": 0.798421,
+              "total_inference_runtime_seconds": 4872.7653,
+              "status_counts": {
+                "ok": 6103,
+                "inference_error": 0
+              },
+              "output_parsing_error_count": 0,
+              "parse_error_counts": {},
+              "inference_error_counts": {},
+              "empty_think_wrapper_count": 6103,
+              "nonempty_think_output_count": 0
+            }
+          }
+        }
+      },
+      "raw_predictions_path": "results/test_evaluation/fine_tuned_zero_shot.jsonl",
+      "resumed_from_existing_count": 9708,
+      "artifact_repair": {
+        "discarded_trailing_bytes": 0,
+        "added_trailing_newline": false
+      }
+    }
+  },
+  "pairwise_comparisons": {
+    "metric_deltas": {
+      "fine_tuned_zero_shot_minus_base_zero_shot": {
+        "accuracy_delta": -0.008447,
+        "macro_f1_delta": -0.043723
+      },
+      "fine_tuned_zero_shot_minus_base_few_shot": {
+        "accuracy_delta": 0.011228,
+        "macro_f1_delta": -0.000458
+      },
+      "base_few_shot_minus_base_zero_shot": {
+        "accuracy_delta": -0.019675,
+        "macro_f1_delta": -0.043265
+      }
+    },
+    "paired_correctness": {
+      "fine_tuned_vs_base_zero_shot": {
+        "condition_a": "fine_tuned_zero_shot",
+        "condition_b": "base_zero_shot",
+        "total_examples": 9708,
+        "both_correct": 7545,
+        "a_correct_b_wrong": 409,
+        "a_wrong_b_correct": 491,
+        "both_wrong": 1263
+      },
+      "fine_tuned_vs_base_few_shot": {
+        "condition_a": "fine_tuned_zero_shot",
+        "condition_b": "base_few_shot",
+        "total_examples": 9708,
+        "both_correct": 7403,
+        "a_correct_b_wrong": 551,
+        "a_wrong_b_correct": 442,
+        "both_wrong": 1312
+      },
+      "base_few_shot_vs_base_zero_shot": {
+        "condition_a": "base_few_shot",
+        "condition_b": "base_zero_shot",
+        "total_examples": 9708,
+        "both_correct": 7639,
+        "a_correct_b_wrong": 206,
+        "a_wrong_b_correct": 397,
+        "both_wrong": 1466
+      }
+    },
+    "fine_tuned_vs_base_zero_shot_by_true_class": {
+      "condition_a": "fine_tuned_zero_shot",
+      "condition_b": "base_zero_shot",
+      "by_true_class": {
+        "bug": {
+          "support": 5249,
+          "a_correct_b_wrong": 329,
+          "a_wrong_b_correct": 53,
+          "net_correctness_delta": 276
+        },
+        "feature": {
+          "support": 4045,
+          "a_correct_b_wrong": 71,
+          "a_wrong_b_correct": 377,
+          "net_correctness_delta": -306
+        },
+        "documentation": {
+          "support": 282,
+          "a_correct_b_wrong": 8,
+          "a_wrong_b_correct": 47,
+          "net_correctness_delta": -39
+        },
+        "question_support": {
+          "support": 132,
+          "a_correct_b_wrong": 1,
+          "a_wrong_b_correct": 14,
+          "net_correctness_delta": -13
+        }
+      }
+    },
+    "uncertainty": {
+      "fine_tuned_minus_base_zero_shot": {
+        "condition_a": "fine_tuned_zero_shot",
+        "condition_b": "base_zero_shot",
+        "method": "paired bootstrap over identical TEST row indices",
+        "seed": 3407,
+        "replicates": 10000,
+        "confidence_level": 0.95,
+        "accuracy_delta": -0.008447,
+        "accuracy_delta_ci_95": [
+          -0.014318,
+          -0.002472
+        ],
+        "macro_f1_delta": -0.043724,
+        "macro_f1_delta_ci_95": [
+          -0.066798,
+          -0.021391
+        ]
+      }
+    },
+    "exact_mcnemar": {
+      "fine_tuned_vs_base_zero_shot": {
+        "test": "exact two-sided McNemar via binomial test",
+        "condition_a": "fine_tuned_zero_shot",
+        "condition_b": "base_zero_shot",
+        "a_correct_b_wrong": 409,
+        "a_wrong_b_correct": 491,
+        "discordant_total": 900,
+        "p_value": 0.00690115
+      }
+    }
+  },
+  "final_interpretation": {
+    "fine_tuning_beat_base_zero_shot_on_accuracy": false,
+    "fine_tuning_beat_base_zero_shot_on_macro_f1": false,
+    "fine_tuning_beat_frozen_few_shot": {
+      "accuracy": true,
+      "macro_f1": false,
+      "overall_primary_metric": false
+    },
+    "statistical_and_practical_interpretation": {
+      "accuracy_delta": -0.008447,
+      "accuracy_ci_95": [
+        -0.014318,
+        -0.002472
+      ],
+      "macro_f1_delta": -0.043723,
+      "macro_f1_ci_95": [
+        -0.066798,
+        -0.021391
+      ],
+      "practical_threshold_absolute_delta": 0.01,
+      "accuracy_difference_is_material_by_guideline": false,
+      "macro_f1_difference_is_material_by_guideline": true,
+      "accuracy_compatible_with_no_difference": false,
+      "macro_f1_compatible_with_no_difference": false,
+      "compatible_with_no_difference": false,
+      "plain_language": "Both paired 95% intervals exclude zero, so the observed differences are inconsistent with no reliable difference under this resampling analysis: fine-tuning lowers accuracy by 0.0084 and lowers macro-F1 by 0.0437."
+    },
+    "class_benefit_and_regression": {
+      "comparison": {
+        "condition_a": "fine_tuned_zero_shot",
+        "condition_b": "base_zero_shot",
+        "by_true_class": {
+          "bug": {
+            "support": 5249,
+            "a_correct_b_wrong": 329,
+            "a_wrong_b_correct": 53,
+            "net_correctness_delta": 276
+          },
+          "feature": {
+            "support": 4045,
+            "a_correct_b_wrong": 71,
+            "a_wrong_b_correct": 377,
+            "net_correctness_delta": -306
+          },
+          "documentation": {
+            "support": 282,
+            "a_correct_b_wrong": 8,
+            "a_wrong_b_correct": 47,
+            "net_correctness_delta": -39
+          },
+          "question_support": {
+            "support": 132,
+            "a_correct_b_wrong": 1,
+            "a_wrong_b_correct": 14,
+            "net_correctness_delta": -13
+          }
+        }
+      },
+      "interpretation": "Use per-class F1, precision, recall, and paired correctness counts; do not infer stable effects from too-small repository supports."
+    },
+    "fine_tuning_objective_tradeoff": "TEST does not show an accuracy gain accompanied by a macro-F1 loss.",
+    "few_shot_context_cost": {
+      "justified": false,
+      "plain_language": "Frozen few-shot prompting is not justified by TEST performance because it adds context and runtime without improving the primary metric."
+    },
+    "validation_replication": {
+      "validation_corrected_results": {
+        "fine_tuned_minus_base_zero_shot_accuracy_delta": 0.004079,
+        "fine_tuned_minus_base_zero_shot_macro_f1_delta": -0.005547,
+        "base_few_shot_minus_base_zero_shot_accuracy_delta": -0.004315,
+        "base_few_shot_minus_base_zero_shot_macro_f1_delta": -0.002002
+      },
+      "test_results": {
+        "fine_tuned_zero_shot_minus_base_zero_shot": {
+          "accuracy_delta": -0.008447,
+          "macro_f1_delta": -0.043723
+        },
+        "fine_tuned_zero_shot_minus_base_few_shot": {
+          "accuracy_delta": 0.011228,
+          "macro_f1_delta": -0.000458
+        },
+        "base_few_shot_minus_base_zero_shot": {
+          "accuracy_delta": -0.019675,
+          "macro_f1_delta": -0.043265
+        }
+      },
+      "fine_tuning_accuracy_sign_replicated": false,
+      "fine_tuning_macro_f1_sign_replicated": true,
+      "few_shot_accuracy_sign_replicated": true,
+      "few_shot_macro_f1_sign_replicated": true,
+      "plain_language": "TEST replicates the validation macro-F1 direction but not the validation accuracy direction: fine-tuning lowers accuracy and lowers macro-F1, while frozen few-shot prompting is below base zero-shot on both reported metrics."
+    },
+    "no_post_test_tuning": true,
+    "no_post_test_tuning_statement": "TEST results are descriptive final evidence only; no model, prompt, hyperparameter, sampling, taxonomy, context-policy, or adapter change was made after TEST was viewed."
+  },
+  "raw_artifacts": {
+    "directory": "results/test_evaluation",
+    "format": "complete sequential JSONL; one validated record for every TEST row per condition",
+    "resume_policy": "valid sequential prefix is reused; only an incomplete or corrupt trailing write may be discarded",
+    "conditions": {
+      "base_zero_shot": "results/test_evaluation/base_zero_shot.jsonl",
+      "base_few_shot": "results/test_evaluation/base_few_shot.jsonl",
+      "fine_tuned_zero_shot": "results/test_evaluation/fine_tuned_zero_shot.jsonl"
+    }
+  },
+  "evaluation_runtime_seconds": 20595.5545,
+  "completed_at_utc": "2026-08-17T20:49:49.112020+00:00"
+}
