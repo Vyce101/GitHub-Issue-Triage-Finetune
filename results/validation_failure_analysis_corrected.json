@@ -1,0 +1,3463 @@
+{
+  "analysis_status": "passed",
+  "analysis_version": "2.0-corrected-prompt-preserving",
+  "created_at_utc": "2026-08-17T13:55:28.757272+00:00",
+  "analysis_scope": {
+    "inference_rerun": false,
+    "model_loaded": false,
+    "test_split_accessed_by_analysis": false,
+    "validation_path": "data/processed/splits/validation.jsonl",
+    "validation_row_count": 12748,
+    "validation_sha256": "0cfb655d12bf66d83befb1a0be829ff3096139c48b5752c716a0b6489302eb5c",
+    "historical_train_only_prompt_metrics_used_as_primary_evidence": false,
+    "analysis_profile": "corrected_prompt_preserving"
+  },
+  "source_artifacts": {
+    "validation_evaluation_report": "results/validation_evaluation_corrected.json",
+    "initial_training_report": "results/initial_qlora_training.json",
+    "validation_prediction_artifacts": {
+      "base_zero_shot": "results/validation_evaluation_corrected/base_zero_shot.jsonl",
+      "base_few_shot": "results/validation_evaluation_corrected/base_few_shot.jsonl",
+      "fine_tuned_zero_shot": "results/validation_evaluation_corrected/fine_tuned_zero_shot.jsonl"
+    },
+    "source_evaluation_commit_sha": "6fe6657f12c9be35d208ad871a91cd6e04d71e5d"
+  },
+  "frozen_distributions": {
+    "train": {
+      "row_count": 31876,
+      "class_counts": {
+        "bug": 19454,
+        "feature": 9936,
+        "documentation": 1390,
+        "question_support": 1096
+      },
+      "class_percentages": {
+        "bug": 61.030242,
+        "feature": 31.170787,
+        "documentation": 4.360648,
+        "question_support": 3.438324
+      }
+    },
+    "validation": {
+      "row_count": 12748,
+      "class_counts": {
+        "bug": 7298,
+        "feature": 4987,
+        "documentation": 317,
+        "question_support": 146
+      },
+      "class_percentages": {
+        "bug": 57.248196,
+        "feature": 39.119862,
+        "documentation": 2.486665,
+        "question_support": 1.145278
+      }
+    }
+  },
+  "condition_metrics": {
+    "base_zero_shot": {
+      "official_metrics_recomputed": {
+        "total_examples": 12748,
+        "correct_count": 10994,
+        "accuracy": 0.86241,
+        "macro_f1": 0.609364,
+        "valid_output_count": 12747,
+        "valid_output_percentage": 99.992156,
+        "invalid_output_count": 1,
+        "output_parsing_error_count": 1,
+        "status_counts": {
+          "ok": 12748
+        },
+        "per_class": {
+          "bug": {
+            "support": 7298,
+            "predicted_count": 7596,
+            "precision": 0.885334,
+            "recall": 0.921485,
+            "f1": 0.903048
+          },
+          "feature": {
+            "support": 4987,
+            "predicted_count": 4579,
+            "precision": 0.879668,
+            "recall": 0.8077,
+            "f1": 0.842149
+          },
+          "documentation": {
+            "support": 317,
+            "predicted_count": 525,
+            "precision": 0.430476,
+            "recall": 0.712934,
+            "f1": 0.536817
+          },
+          "question_support": {
+            "support": 146,
+            "predicted_count": 47,
+            "precision": 0.319149,
+            "recall": 0.10274,
+            "f1": 0.15544
+          }
+        },
+        "predicted_class_distribution": {
+          "bug": {
+            "count": 7596,
+            "percentage_of_all_rows": 59.585817,
+            "percentage_of_valid_outputs": 59.590492
+          },
+          "feature": {
+            "count": 4579,
+            "percentage_of_all_rows": 35.91936,
+            "percentage_of_valid_outputs": 35.922178
+          },
+          "documentation": {
+            "count": 525,
+            "percentage_of_all_rows": 4.118293,
+            "percentage_of_valid_outputs": 4.118616
+          },
+          "question_support": {
+            "count": 47,
+            "percentage_of_all_rows": 0.368685,
+            "percentage_of_valid_outputs": 0.368714
+          },
+          "__invalid_output__": {
+            "count": 1,
+            "percentage_of_all_rows": 0.007844,
+            "percentage_of_valid_outputs": 0.007845
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            6725,
+            481,
+            87,
+            5,
+            0
+          ],
+          [
+            738,
+            4028,
+            197,
+            23,
+            1
+          ],
+          [
+            42,
+            45,
+            226,
+            4,
+            0
+          ],
+          [
+            91,
+            25,
+            15,
+            15,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "input_truncated_count": 1280,
+        "input_truncated_percentage": 10.040791,
+        "parse_error_counts": {
+          "schema_error: type is not an approved category": 1
+        },
+        "parse_error_family_counts": {
+          "schema_error": 1
+        },
+        "nonempty_thinking_count": 0,
+        "empty_think_wrapper_count": 0
+      },
+      "valid_outputs_only_analysis": {
+        "valid_examples_analyzed": 12747,
+        "valid_classification_error_count": 1753,
+        "accuracy_among_valid_outputs": 0.862477,
+        "macro_f1_among_valid_outputs": 0.609386,
+        "per_class": {
+          "bug": {
+            "support": 7298,
+            "predicted_count": 7596,
+            "precision": 0.885334,
+            "recall": 0.921485,
+            "f1": 0.903048
+          },
+          "feature": {
+            "support": 4986,
+            "predicted_count": 4579,
+            "precision": 0.879668,
+            "recall": 0.807862,
+            "f1": 0.842237
+          },
+          "documentation": {
+            "support": 317,
+            "predicted_count": 525,
+            "precision": 0.430476,
+            "recall": 0.712934,
+            "f1": 0.536817
+          },
+          "question_support": {
+            "support": 146,
+            "predicted_count": 47,
+            "precision": 0.319149,
+            "recall": 0.10274,
+            "f1": 0.15544
+          }
+        },
+        "official_minus_valid_only_counterfactual": {
+          "accuracy_gap_attributable_to_invalid_outputs": 6.7e-05,
+          "macro_f1_gap_attributable_to_invalid_outputs_counterfactual": 2.2e-05
+        }
+      },
+      "parser_failure_analysis": {
+        "invalid_output_count": 1,
+        "failure_categories": [
+          {
+            "exact_parser_reason": "schema_error: type is not an approved category",
+            "parser_reason_family": "schema_error",
+            "count": 1,
+            "percentage_of_all_rows": 0.007844,
+            "percentage_of_invalid_outputs": 100.0,
+            "reached_max_new_tokens_count": 0,
+            "input_truncated_count": 0,
+            "representative_outputs": [
+              {
+                "evaluation_index": 5483,
+                "issue_id": 310116420,
+                "repository": "rust",
+                "expected_category": "feature",
+                "input_truncated": false,
+                "raw_model_output": "{\"type\":\"discussion\"}"
+              }
+            ]
+          }
+        ],
+        "nonempty_thinking_count": 0,
+        "empty_think_wrapper_stripped_count": 0,
+        "invalid_outputs_reaching_max_new_tokens": 0,
+        "invalid_outputs_reaching_max_new_tokens_percentage": 0.0,
+        "invalid_outputs_with_input_truncation": 0,
+        "invalid_outputs_with_input_truncation_percentage": 0.0,
+        "invalid_outputs_without_input_truncation": 1,
+        "invalid_output_cross_tab": {
+          "input_truncated_and_reached_max_new_tokens": 0,
+          "input_truncated_and_did_not_reach_max_new_tokens": 0,
+          "not_input_truncated_and_reached_max_new_tokens": 0,
+          "not_input_truncated_and_did_not_reach_max_new_tokens": 1
+        }
+      },
+      "truncation_analysis": {
+        "not_truncated": {
+          "row_count": 11468,
+          "percentage_of_condition": 89.959209,
+          "accuracy": 0.853244,
+          "macro_f1": 0.609526,
+          "valid_output_percentage": 99.99128,
+          "per_class": {
+            "bug": {
+              "support": 6106,
+              "predicted_count": 6378,
+              "precision": 0.870649,
+              "recall": 0.909433,
+              "f1": 0.889619
+            },
+            "feature": {
+              "support": 4912,
+              "predicted_count": 4524,
+              "precision": 0.882626,
+              "recall": 0.812907,
+              "f1": 0.846333
+            },
+            "documentation": {
+              "support": 312,
+              "predicted_count": 519,
+              "precision": 0.431599,
+              "recall": 0.717949,
+              "f1": 0.53911
+            },
+            "question_support": {
+              "support": 138,
+              "predicted_count": 46,
+              "precision": 0.326087,
+              "recall": 0.108696,
+              "f1": 0.163043
+            }
+          }
+        },
+        "truncated": {
+          "row_count": 1280,
+          "percentage_of_condition": 10.040791,
+          "accuracy": 0.944531,
+          "macro_f1": 0.468678,
+          "valid_output_percentage": 100.0,
+          "per_class": {
+            "bug": {
+              "support": 1192,
+              "predicted_count": 1218,
+              "precision": 0.962233,
+              "recall": 0.983221,
+              "f1": 0.972614
+            },
+            "feature": {
+              "support": 75,
+              "predicted_count": 55,
+              "precision": 0.636364,
+              "recall": 0.466667,
+              "f1": 0.538462
+            },
+            "documentation": {
+              "support": 5,
+              "predicted_count": 6,
+              "precision": 0.333333,
+              "recall": 0.4,
+              "f1": 0.363636
+            },
+            "question_support": {
+              "support": 8,
+              "predicted_count": 1,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          }
+        }
+      }
+    },
+    "base_few_shot": {
+      "official_metrics_recomputed": {
+        "total_examples": 12748,
+        "correct_count": 10939,
+        "accuracy": 0.858095,
+        "macro_f1": 0.607362,
+        "valid_output_count": 12748,
+        "valid_output_percentage": 100.0,
+        "invalid_output_count": 0,
+        "output_parsing_error_count": 0,
+        "status_counts": {
+          "ok": 12748
+        },
+        "per_class": {
+          "bug": {
+            "support": 7298,
+            "predicted_count": 7736,
+            "precision": 0.878361,
+            "recall": 0.931077,
+            "f1": 0.903951
+          },
+          "feature": {
+            "support": 4987,
+            "predicted_count": 4175,
+            "precision": 0.925749,
+            "recall": 0.775015,
+            "f1": 0.843702
+          },
+          "documentation": {
+            "support": 317,
+            "predicted_count": 703,
+            "precision": 0.359886,
+            "recall": 0.798107,
+            "f1": 0.496078
+          },
+          "question_support": {
+            "support": 146,
+            "predicted_count": 134,
+            "precision": 0.19403,
+            "recall": 0.178082,
+            "f1": 0.185714
+          }
+        },
+        "predicted_class_distribution": {
+          "bug": {
+            "count": 7736,
+            "percentage_of_all_rows": 60.684029,
+            "percentage_of_valid_outputs": 60.684029
+          },
+          "feature": {
+            "count": 4175,
+            "percentage_of_all_rows": 32.750235,
+            "percentage_of_valid_outputs": 32.750235
+          },
+          "documentation": {
+            "count": 703,
+            "percentage_of_all_rows": 5.514591,
+            "percentage_of_valid_outputs": 5.514591
+          },
+          "question_support": {
+            "count": 134,
+            "percentage_of_all_rows": 1.051145,
+            "percentage_of_valid_outputs": 1.051145
+          },
+          "__invalid_output__": {
+            "count": 0,
+            "percentage_of_all_rows": 0.0,
+            "percentage_of_valid_outputs": 0.0
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            6795,
+            276,
+            175,
+            52,
+            0
+          ],
+          [
+            821,
+            3865,
+            257,
+            44,
+            0
+          ],
+          [
+            33,
+            19,
+            253,
+            12,
+            0
+          ],
+          [
+            87,
+            15,
+            18,
+            26,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "input_truncated_count": 2556,
+        "input_truncated_percentage": 20.050204,
+        "parse_error_counts": {},
+        "parse_error_family_counts": {},
+        "nonempty_thinking_count": 0,
+        "empty_think_wrapper_count": 0
+      },
+      "valid_outputs_only_analysis": {
+        "valid_examples_analyzed": 12748,
+        "valid_classification_error_count": 1809,
+        "accuracy_among_valid_outputs": 0.858095,
+        "macro_f1_among_valid_outputs": 0.607362,
+        "per_class": {
+          "bug": {
+            "support": 7298,
+            "predicted_count": 7736,
+            "precision": 0.878361,
+            "recall": 0.931077,
+            "f1": 0.903951
+          },
+          "feature": {
+            "support": 4987,
+            "predicted_count": 4175,
+            "precision": 0.925749,
+            "recall": 0.775015,
+            "f1": 0.843702
+          },
+          "documentation": {
+            "support": 317,
+            "predicted_count": 703,
+            "precision": 0.359886,
+            "recall": 0.798107,
+            "f1": 0.496078
+          },
+          "question_support": {
+            "support": 146,
+            "predicted_count": 134,
+            "precision": 0.19403,
+            "recall": 0.178082,
+            "f1": 0.185714
+          }
+        },
+        "official_minus_valid_only_counterfactual": {
+          "accuracy_gap_attributable_to_invalid_outputs": 0.0,
+          "macro_f1_gap_attributable_to_invalid_outputs_counterfactual": 0.0
+        }
+      },
+      "parser_failure_analysis": {
+        "invalid_output_count": 0,
+        "failure_categories": [],
+        "nonempty_thinking_count": 0,
+        "empty_think_wrapper_stripped_count": 0,
+        "invalid_outputs_reaching_max_new_tokens": 0,
+        "invalid_outputs_reaching_max_new_tokens_percentage": 0.0,
+        "invalid_outputs_with_input_truncation": 0,
+        "invalid_outputs_with_input_truncation_percentage": 0.0,
+        "invalid_outputs_without_input_truncation": 0,
+        "invalid_output_cross_tab": {
+          "input_truncated_and_reached_max_new_tokens": 0,
+          "input_truncated_and_did_not_reach_max_new_tokens": 0,
+          "not_input_truncated_and_reached_max_new_tokens": 0,
+          "not_input_truncated_and_did_not_reach_max_new_tokens": 0
+        }
+      },
+      "truncation_analysis": {
+        "not_truncated": {
+          "row_count": 10192,
+          "percentage_of_condition": 79.949796,
+          "accuracy": 0.845369,
+          "macro_f1": 0.617049,
+          "valid_output_percentage": 100.0,
+          "per_class": {
+            "bug": {
+              "support": 5079,
+              "predicted_count": 5372,
+              "precision": 0.857781,
+              "recall": 0.907265,
+              "f1": 0.881829
+            },
+            "feature": {
+              "support": 4714,
+              "predicted_count": 4026,
+              "precision": 0.928713,
+              "recall": 0.793169,
+              "f1": 0.855606
+            },
+            "documentation": {
+              "support": 298,
+              "predicted_count": 665,
+              "precision": 0.365414,
+              "recall": 0.815436,
+              "f1": 0.504673
+            },
+            "question_support": {
+              "support": 101,
+              "predicted_count": 129,
+              "precision": 0.20155,
+              "recall": 0.257426,
+              "f1": 0.226087
+            }
+          }
+        },
+        "truncated": {
+          "row_count": 2556,
+          "percentage_of_condition": 20.050204,
+          "accuracy": 0.908842,
+          "macro_f1": 0.475608,
+          "valid_output_percentage": 100.0,
+          "per_class": {
+            "bug": {
+              "support": 2219,
+              "predicted_count": 2364,
+              "precision": 0.925127,
+              "recall": 0.985579,
+              "f1": 0.954397
+            },
+            "feature": {
+              "support": 273,
+              "predicted_count": 149,
+              "precision": 0.845638,
+              "recall": 0.461538,
+              "f1": 0.597156
+            },
+            "documentation": {
+              "support": 19,
+              "predicted_count": 38,
+              "precision": 0.263158,
+              "recall": 0.526316,
+              "f1": 0.350877
+            },
+            "question_support": {
+              "support": 45,
+              "predicted_count": 5,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          }
+        }
+      }
+    },
+    "fine_tuned_zero_shot": {
+      "official_metrics_recomputed": {
+        "total_examples": 12748,
+        "correct_count": 11046,
+        "accuracy": 0.866489,
+        "macro_f1": 0.603817,
+        "valid_output_count": 12748,
+        "valid_output_percentage": 100.0,
+        "invalid_output_count": 0,
+        "output_parsing_error_count": 0,
+        "status_counts": {
+          "ok": 12748
+        },
+        "per_class": {
+          "bug": {
+            "support": 7298,
+            "predicted_count": 7467,
+            "precision": 0.893665,
+            "recall": 0.91436,
+            "f1": 0.903894
+          },
+          "feature": {
+            "support": 4987,
+            "predicted_count": 4633,
+            "precision": 0.894237,
+            "recall": 0.83076,
+            "f1": 0.861331
+          },
+          "documentation": {
+            "support": 317,
+            "predicted_count": 620,
+            "precision": 0.343548,
+            "recall": 0.671924,
+            "f1": 0.454642
+          },
+          "question_support": {
+            "support": 146,
+            "predicted_count": 28,
+            "precision": 0.607143,
+            "recall": 0.116438,
+            "f1": 0.195402
+          }
+        },
+        "predicted_class_distribution": {
+          "bug": {
+            "count": 7467,
+            "percentage_of_all_rows": 58.573894,
+            "percentage_of_valid_outputs": 58.573894
+          },
+          "feature": {
+            "count": 4633,
+            "percentage_of_all_rows": 36.342956,
+            "percentage_of_valid_outputs": 36.342956
+          },
+          "documentation": {
+            "count": 620,
+            "percentage_of_all_rows": 4.863508,
+            "percentage_of_valid_outputs": 4.863508
+          },
+          "question_support": {
+            "count": 28,
+            "percentage_of_all_rows": 0.219642,
+            "percentage_of_valid_outputs": 0.219642
+          },
+          "__invalid_output__": {
+            "count": 0,
+            "percentage_of_all_rows": 0.0,
+            "percentage_of_valid_outputs": 0.0
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            6673,
+            445,
+            178,
+            2,
+            0
+          ],
+          [
+            615,
+            4143,
+            221,
+            8,
+            0
+          ],
+          [
+            76,
+            27,
+            213,
+            1,
+            0
+          ],
+          [
+            103,
+            18,
+            8,
+            17,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "input_truncated_count": 1280,
+        "input_truncated_percentage": 10.040791,
+        "parse_error_counts": {},
+        "parse_error_family_counts": {},
+        "nonempty_thinking_count": 0,
+        "empty_think_wrapper_count": 12748
+      },
+      "valid_outputs_only_analysis": {
+        "valid_examples_analyzed": 12748,
+        "valid_classification_error_count": 1702,
+        "accuracy_among_valid_outputs": 0.866489,
+        "macro_f1_among_valid_outputs": 0.603817,
+        "per_class": {
+          "bug": {
+            "support": 7298,
+            "predicted_count": 7467,
+            "precision": 0.893665,
+            "recall": 0.91436,
+            "f1": 0.903894
+          },
+          "feature": {
+            "support": 4987,
+            "predicted_count": 4633,
+            "precision": 0.894237,
+            "recall": 0.83076,
+            "f1": 0.861331
+          },
+          "documentation": {
+            "support": 317,
+            "predicted_count": 620,
+            "precision": 0.343548,
+            "recall": 0.671924,
+            "f1": 0.454642
+          },
+          "question_support": {
+            "support": 146,
+            "predicted_count": 28,
+            "precision": 0.607143,
+            "recall": 0.116438,
+            "f1": 0.195402
+          }
+        },
+        "official_minus_valid_only_counterfactual": {
+          "accuracy_gap_attributable_to_invalid_outputs": 0.0,
+          "macro_f1_gap_attributable_to_invalid_outputs_counterfactual": 0.0
+        }
+      },
+      "parser_failure_analysis": {
+        "invalid_output_count": 0,
+        "failure_categories": [],
+        "nonempty_thinking_count": 0,
+        "empty_think_wrapper_stripped_count": 12748,
+        "invalid_outputs_reaching_max_new_tokens": 0,
+        "invalid_outputs_reaching_max_new_tokens_percentage": 0.0,
+        "invalid_outputs_with_input_truncation": 0,
+        "invalid_outputs_with_input_truncation_percentage": 0.0,
+        "invalid_outputs_without_input_truncation": 0,
+        "invalid_output_cross_tab": {
+          "input_truncated_and_reached_max_new_tokens": 0,
+          "input_truncated_and_did_not_reach_max_new_tokens": 0,
+          "not_input_truncated_and_reached_max_new_tokens": 0,
+          "not_input_truncated_and_did_not_reach_max_new_tokens": 0
+        }
+      },
+      "truncation_analysis": {
+        "not_truncated": {
+          "row_count": 11468,
+          "percentage_of_condition": 89.959209,
+          "accuracy": 0.857081,
+          "macro_f1": 0.603937,
+          "valid_output_percentage": 100.0,
+          "per_class": {
+            "bug": {
+              "support": 6106,
+              "predicted_count": 6252,
+              "precision": 0.879559,
+              "recall": 0.90059,
+              "f1": 0.88995
+            },
+            "feature": {
+              "support": 4912,
+              "predicted_count": 4575,
+              "precision": 0.896612,
+              "recall": 0.835098,
+              "f1": 0.864762
+            },
+            "documentation": {
+              "support": 312,
+              "predicted_count": 613,
+              "precision": 0.344209,
+              "recall": 0.676282,
+              "f1": 0.456216
+            },
+            "question_support": {
+              "support": 138,
+              "predicted_count": 28,
+              "precision": 0.607143,
+              "recall": 0.123188,
+              "f1": 0.204819
+            }
+          }
+        },
+        "truncated": {
+          "row_count": 1280,
+          "percentage_of_condition": 10.040791,
+          "accuracy": 0.950781,
+          "macro_f1": 0.481341,
+          "valid_output_percentage": 100.0,
+          "per_class": {
+            "bug": {
+              "support": 1192,
+              "predicted_count": 1215,
+              "precision": 0.966255,
+              "recall": 0.984899,
+              "f1": 0.975488
+            },
+            "feature": {
+              "support": 75,
+              "predicted_count": 58,
+              "precision": 0.706897,
+              "recall": 0.546667,
+              "f1": 0.616541
+            },
+            "documentation": {
+              "support": 5,
+              "predicted_count": 7,
+              "precision": 0.285714,
+              "recall": 0.4,
+              "f1": 0.333333
+            },
+            "question_support": {
+              "support": 8,
+              "predicted_count": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          }
+        }
+      }
+    }
+  },
+  "cross_condition_truncation_comparison": {
+    "not_truncated": {
+      "base_zero_shot": {
+        "row_count": 11468,
+        "accuracy": 0.853244,
+        "macro_f1": 0.609526,
+        "valid_output_percentage": 99.99128
+      },
+      "base_few_shot": {
+        "row_count": 10192,
+        "accuracy": 0.845369,
+        "macro_f1": 0.617049,
+        "valid_output_percentage": 100.0
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 11468,
+        "accuracy": 0.857081,
+        "macro_f1": 0.603937,
+        "valid_output_percentage": 100.0
+      }
+    },
+    "truncated": {
+      "base_zero_shot": {
+        "row_count": 1280,
+        "accuracy": 0.944531,
+        "macro_f1": 0.468678,
+        "valid_output_percentage": 100.0
+      },
+      "base_few_shot": {
+        "row_count": 2556,
+        "accuracy": 0.908842,
+        "macro_f1": 0.475608,
+        "valid_output_percentage": 100.0
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 1280,
+        "accuracy": 0.950781,
+        "macro_f1": 0.481341,
+        "valid_output_percentage": 100.0
+      }
+    },
+    "interpretation": "The truncation strata are condition-specific because few-shot demonstrations change prompt length; they are descriptive, not paired subsets. If few-shot remains below base zero-shot within its own non-truncated stratum, its lower score is not plausibly explained by truncation alone."
+  },
+  "per_class_comparison": {
+    "bug": {
+      "support": 7298,
+      "base_zero_shot": {
+        "support": 7298,
+        "predicted_count": 7596,
+        "precision": 0.885334,
+        "recall": 0.921485,
+        "f1": 0.903048
+      },
+      "base_few_shot": {
+        "support": 7298,
+        "predicted_count": 7736,
+        "precision": 0.878361,
+        "recall": 0.931077,
+        "f1": 0.903951
+      },
+      "fine_tuned_zero_shot": {
+        "support": 7298,
+        "predicted_count": 7467,
+        "precision": 0.893665,
+        "recall": 0.91436,
+        "f1": 0.903894
+      },
+      "fine_minus_base_zero_shot": {
+        "precision": 0.008331,
+        "recall": -0.007125,
+        "f1": 0.000846
+      }
+    },
+    "feature": {
+      "support": 4987,
+      "base_zero_shot": {
+        "support": 4987,
+        "predicted_count": 4579,
+        "precision": 0.879668,
+        "recall": 0.8077,
+        "f1": 0.842149
+      },
+      "base_few_shot": {
+        "support": 4987,
+        "predicted_count": 4175,
+        "precision": 0.925749,
+        "recall": 0.775015,
+        "f1": 0.843702
+      },
+      "fine_tuned_zero_shot": {
+        "support": 4987,
+        "predicted_count": 4633,
+        "precision": 0.894237,
+        "recall": 0.83076,
+        "f1": 0.861331
+      },
+      "fine_minus_base_zero_shot": {
+        "precision": 0.014569,
+        "recall": 0.02306,
+        "f1": 0.019182
+      }
+    },
+    "documentation": {
+      "support": 317,
+      "base_zero_shot": {
+        "support": 317,
+        "predicted_count": 525,
+        "precision": 0.430476,
+        "recall": 0.712934,
+        "f1": 0.536817
+      },
+      "base_few_shot": {
+        "support": 317,
+        "predicted_count": 703,
+        "precision": 0.359886,
+        "recall": 0.798107,
+        "f1": 0.496078
+      },
+      "fine_tuned_zero_shot": {
+        "support": 317,
+        "predicted_count": 620,
+        "precision": 0.343548,
+        "recall": 0.671924,
+        "f1": 0.454642
+      },
+      "fine_minus_base_zero_shot": {
+        "precision": -0.086928,
+        "recall": -0.04101,
+        "f1": -0.082175
+      }
+    },
+    "question_support": {
+      "support": 146,
+      "base_zero_shot": {
+        "support": 146,
+        "predicted_count": 47,
+        "precision": 0.319149,
+        "recall": 0.10274,
+        "f1": 0.15544
+      },
+      "base_few_shot": {
+        "support": 146,
+        "predicted_count": 134,
+        "precision": 0.19403,
+        "recall": 0.178082,
+        "f1": 0.185714
+      },
+      "fine_tuned_zero_shot": {
+        "support": 146,
+        "predicted_count": 28,
+        "precision": 0.607143,
+        "recall": 0.116438,
+        "f1": 0.195402
+      },
+      "fine_minus_base_zero_shot": {
+        "precision": 0.287994,
+        "recall": 0.013698,
+        "f1": 0.039962
+      }
+    }
+  },
+  "confusion_analysis": {
+    "base_zero_shot_error_destinations": {
+      "bug": {
+        "error_count": 573,
+        "destinations": {
+          "bug": 0,
+          "feature": 481,
+          "documentation": 87,
+          "question_support": 5,
+          "__invalid_output__": 0
+        }
+      },
+      "feature": {
+        "error_count": 959,
+        "destinations": {
+          "bug": 738,
+          "feature": 0,
+          "documentation": 197,
+          "question_support": 23,
+          "__invalid_output__": 1
+        }
+      },
+      "documentation": {
+        "error_count": 91,
+        "destinations": {
+          "bug": 42,
+          "feature": 45,
+          "documentation": 0,
+          "question_support": 4,
+          "__invalid_output__": 0
+        }
+      },
+      "question_support": {
+        "error_count": 131,
+        "destinations": {
+          "bug": 91,
+          "feature": 25,
+          "documentation": 15,
+          "question_support": 0,
+          "__invalid_output__": 0
+        }
+      }
+    },
+    "fine_tuned_zero_shot_error_destinations": {
+      "bug": {
+        "error_count": 625,
+        "destinations": {
+          "bug": 0,
+          "feature": 445,
+          "documentation": 178,
+          "question_support": 2,
+          "__invalid_output__": 0
+        }
+      },
+      "feature": {
+        "error_count": 844,
+        "destinations": {
+          "bug": 615,
+          "feature": 0,
+          "documentation": 221,
+          "question_support": 8,
+          "__invalid_output__": 0
+        }
+      },
+      "documentation": {
+        "error_count": 104,
+        "destinations": {
+          "bug": 76,
+          "feature": 27,
+          "documentation": 0,
+          "question_support": 1,
+          "__invalid_output__": 0
+        }
+      },
+      "question_support": {
+        "error_count": 129,
+        "destinations": {
+          "bug": 103,
+          "feature": 18,
+          "documentation": 8,
+          "question_support": 0,
+          "__invalid_output__": 0
+        }
+      }
+    },
+    "selected_transitions": {
+      "documentation_to_bug": {
+        "base_zero_shot": 42,
+        "fine_tuned_zero_shot": 76,
+        "fine_minus_base": 34
+      },
+      "documentation_to_feature": {
+        "base_zero_shot": 45,
+        "fine_tuned_zero_shot": 27,
+        "fine_minus_base": -18
+      },
+      "documentation_to_question_support": {
+        "base_zero_shot": 4,
+        "fine_tuned_zero_shot": 1,
+        "fine_minus_base": -3
+      },
+      "question_support_to_bug": {
+        "base_zero_shot": 91,
+        "fine_tuned_zero_shot": 103,
+        "fine_minus_base": 12
+      },
+      "question_support_to_feature": {
+        "base_zero_shot": 25,
+        "fine_tuned_zero_shot": 18,
+        "fine_minus_base": -7
+      },
+      "question_support_to_documentation": {
+        "base_zero_shot": 15,
+        "fine_tuned_zero_shot": 8,
+        "fine_minus_base": -7
+      },
+      "bug_to_feature": {
+        "base_zero_shot": 481,
+        "fine_tuned_zero_shot": 445,
+        "fine_minus_base": -36
+      },
+      "feature_to_bug": {
+        "base_zero_shot": 738,
+        "fine_tuned_zero_shot": 615,
+        "fine_minus_base": -123
+      }
+    },
+    "fine_minus_base_confusion_matrix": [
+      [
+        -52,
+        -36,
+        91,
+        -3,
+        0
+      ],
+      [
+        -123,
+        115,
+        24,
+        -15,
+        -1
+      ],
+      [
+        34,
+        -18,
+        -13,
+        -3,
+        0
+      ],
+      [
+        12,
+        -7,
+        -7,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "fine_minus_base_per_class": {
+      "bug": {
+        "precision": 0.008331,
+        "recall": -0.007125,
+        "f1": 0.000846
+      },
+      "feature": {
+        "precision": 0.014569,
+        "recall": 0.02306,
+        "f1": 0.019182
+      },
+      "documentation": {
+        "precision": -0.086928,
+        "recall": -0.04101,
+        "f1": -0.082175
+      },
+      "question_support": {
+        "precision": 0.287994,
+        "recall": 0.013698,
+        "f1": 0.039962
+      }
+    }
+  },
+  "prediction_distribution_analysis": {
+    "true_validation_distribution": {
+      "counts": {
+        "bug": 7298,
+        "feature": 4987,
+        "documentation": 317,
+        "question_support": 146
+      },
+      "percentages": {
+        "bug": 57.248196,
+        "feature": 39.119862,
+        "documentation": 2.486665,
+        "question_support": 1.145278
+      }
+    },
+    "base_zero_shot": {
+      "all_rows_denominator": 12748,
+      "all_rows": {
+        "bug": {
+          "count": 7596,
+          "percentage": 59.585817
+        },
+        "feature": {
+          "count": 4579,
+          "percentage": 35.91936
+        },
+        "documentation": {
+          "count": 525,
+          "percentage": 4.118293
+        },
+        "question_support": {
+          "count": 47,
+          "percentage": 0.368685
+        },
+        "__invalid_output__": {
+          "count": 1,
+          "percentage": 0.007844
+        }
+      },
+      "valid_outputs_denominator": 12747,
+      "valid_outputs_only": {
+        "bug": {
+          "count": 7596,
+          "percentage": 59.590492
+        },
+        "feature": {
+          "count": 4579,
+          "percentage": 35.922178
+        },
+        "documentation": {
+          "count": 525,
+          "percentage": 4.118616
+        },
+        "question_support": {
+          "count": 47,
+          "percentage": 0.368714
+        }
+      }
+    },
+    "fine_tuned_zero_shot": {
+      "all_rows_denominator": 12748,
+      "all_rows": {
+        "bug": {
+          "count": 7467,
+          "percentage": 58.573894
+        },
+        "feature": {
+          "count": 4633,
+          "percentage": 36.342956
+        },
+        "documentation": {
+          "count": 620,
+          "percentage": 4.863508
+        },
+        "question_support": {
+          "count": 28,
+          "percentage": 0.219642
+        },
+        "__invalid_output__": {
+          "count": 0,
+          "percentage": 0.0
+        }
+      },
+      "valid_outputs_denominator": 12748,
+      "valid_outputs_only": {
+        "bug": {
+          "count": 7467,
+          "percentage": 58.573894
+        },
+        "feature": {
+          "count": 4633,
+          "percentage": 36.342956
+        },
+        "documentation": {
+          "count": 620,
+          "percentage": 4.863508
+        },
+        "question_support": {
+          "count": 28,
+          "percentage": 0.219642
+        }
+      }
+    },
+    "fine_minus_base_predicted_counts": {
+      "bug": -129,
+      "feature": 54,
+      "documentation": 95,
+      "question_support": -19,
+      "__invalid_output__": -1
+    },
+    "training_prior_distance": {
+      "distance_definition": "L1 distance between four-class proportions among valid outputs and the natural train class prior; lower means closer.",
+      "base_zero_shot_l1_distance": 0.095028,
+      "fine_tuned_zero_shot_l1_distance": 0.113501,
+      "fine_minus_base_l1_distance": 0.018473
+    }
+  },
+  "paired_validation_analysis": {
+    "counts": {
+      "both_correct": 10516,
+      "base_wrong_fine_correct": 530,
+      "base_correct_fine_wrong": 478,
+      "both_wrong": 1224
+    },
+    "by_true_class": {
+      "bug": {
+        "both_correct": 6425,
+        "base_correct_fine_wrong": 300,
+        "base_wrong_fine_correct": 248,
+        "both_wrong": 325
+      },
+      "feature": {
+        "both_correct": 3890,
+        "base_correct_fine_wrong": 138,
+        "base_wrong_fine_correct": 253,
+        "both_wrong": 706
+      },
+      "documentation": {
+        "both_correct": 193,
+        "base_correct_fine_wrong": 33,
+        "base_wrong_fine_correct": 20,
+        "both_wrong": 71
+      },
+      "question_support": {
+        "both_correct": 8,
+        "base_correct_fine_wrong": 7,
+        "base_wrong_fine_correct": 9,
+        "both_wrong": 122
+      }
+    },
+    "fine_fixes_base_examples": [
+      {
+        "evaluation_index": 1,
+        "issue_id": 520538353,
+        "repository": "CS-Notes",
+        "expected_category": "question_support",
+        "title": "二分查找的区间为何是 0 到 len(nums) 而不是 len(nums)",
+        "body_excerpt": "在使用二分查找来查找区间时，[该题](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.md#6-%E6%9F%A5%E6%89%BE%E5%8C%BA%E9%97%B4)中h的初始值为何要设置为len(nums)？其他题中设置的均为len(nums)-1\r\n```private int binarySearch(int[] nums, int target) {\r\n    int l = 0, h = nums.length; // 注意 h 的初始值\r\n    while (l < h) {\r\n        int m = l + (h - l) / 2;\r\n        if (nums[m] >= target) {\r\n            h = m;\r\n        } else {\r\n            l = m + 1;\r\n        }\r\n    }\r\n    return l;\r\n}\r\n\r\nhttps://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.md#6-%E6%9F%A5%E6%89%BE%E5%8C%BA%E9%97%B4",
+        "base_prediction": "documentation",
+        "fine_tuned_prediction": "question_support",
+        "base_raw_model_output": "{\"type\":\"documentation\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"question_support\"}"
+      },
+      {
+        "evaluation_index": 32,
+        "issue_id": 443143922,
+        "repository": "PowerToys",
+        "expected_category": "feature",
+        "title": "Default Printer Changer from Tray",
+        "body_excerpt": "Some years ago (over 17) I wrote  a utility that allowed you to quickly change the default printer from the system tray.  It was written in the time of the original power tools and was standard Win32 API.  The code is at https://github.com/timlegge/printers if you or anyone else is interested in it.  \r\n\r\nAlways found it to be a useful utility.\r\n\r\nTIm",
+        "base_prediction": "question_support",
+        "fine_tuned_prediction": "feature",
+        "base_raw_model_output": "{\"type\":\"question_support\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"feature\"}"
+      },
+      {
+        "evaluation_index": 57,
+        "issue_id": 489879752,
+        "repository": "PowerToys",
+        "expected_category": "feature",
+        "title": "[Shortcut Guide] Shortcuts list [tracker]",
+        "body_excerpt": "total list from MSFT support: https://support.microsoft.com/en-us/help/12445/windows-keyboard-shortcuts\r\n\r\nThis list will be added into #890 with v2 of shortcut guide.\r\n\r\nCombination | Effect\r\n-- | --\r\nWin + Esc | Close magnification\r\nWin + Enter | Narrator (Below 19h1)\r\nWin + Pause | System Window\r\nWin + PrtScn | Capture screenshot\r\nWin + Space | Switch Keyboard Layout\r\nWin + Tab | Open Timeline\r\nWin + ; | Emoji Keyboard Pop up\r\nWin + . | Emoji Keyboard Pop up\r\nWin + , | Peek at desktop\r\nWin + +/- | Magnifier\r\n---|---\r\nWin + A | Action Center\r\nWin + B | Focus system tray\r\nWin + C | Cortana (doesn't work on 1909)\r\nWin + D | Display & hide desktop\r\nWin + E | File Explorer \r\nWin + F | Open Fee",
+        "base_prediction": "documentation",
+        "fine_tuned_prediction": "feature",
+        "base_raw_model_output": "{\"type\":\"documentation\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"feature\"}"
+      },
+      {
+        "evaluation_index": 179,
+        "issue_id": 605821766,
+        "repository": "PowerToys",
+        "expected_category": "bug",
+        "title": "Invalid drop down selection in KBM results in a empty selection",
+        "body_excerpt": "Currently if the user enters invalid input we just reset the selection to null. We should consider resetting it to the last valid selection.\r\n![kbmInvalidselection](https://user-images.githubusercontent.com/32061677/80143182-4a1da480-8561-11ea-9ab6-944045efd3e1.gif)\r\nIn the above example, when the warning is shown maybe it could revert back to `F5` instead of an empty selection.\r\n",
+        "base_prediction": "feature",
+        "fine_tuned_prediction": "bug",
+        "base_raw_model_output": "{\"type\":\"feature\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"bug\"}"
+      },
+      {
+        "evaluation_index": 206,
+        "issue_id": 621151436,
+        "repository": "PowerToys",
+        "expected_category": "bug",
+        "title": "[Run] Launching a process starts it in `c:\\Program Files\\PowerToys` (default working directory)",
+        "body_excerpt": "<!--\r\n**Important: When reporting BSODs or security issues, DO NOT attach memory dumps, logs, or traces to Github issues**.\r\nInstead, send dumps/traces to secure@microsoft.com, referencing this GitHub issue.\r\n-->\r\n\r\n# Environment\r\n\r\n```\r\nWindows build number: `_dep.200508`\r\nPowerToys version: 0.18\r\nPowerToy module for which you are reporting the bug (if applicable): Launcher\r\n```\r\n\r\n# Steps to reproduce\r\n\r\n* Configure your default profile in the Windows Terminal to _not_ have a `startingDirectory`, so that the Terminal will use your current path as the starting directory.\r\n* Run `> wt` to launch the terminal\r\n\r\n# Expected behavior\r\n\r\nWhen I run programs in the <kbd>Win+R</kbd> run dialog, th",
+        "base_prediction": "feature",
+        "fine_tuned_prediction": "bug",
+        "base_raw_model_output": "{\"type\":\"feature\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"bug\"}"
+      },
+      {
+        "evaluation_index": 1576,
+        "issue_id": 1497991113,
+        "repository": "PowerToys",
+        "expected_category": "documentation",
+        "title": "PowerToys Run Ordering Results not working!",
+        "body_excerpt": "### Provide a description of requested docs changes\n\nhey guys,\r\nin powertoys Run (which i use the most amont all tools) i need it whenever i search for something it shows up the folders first not the files, even tho i changed and used the \"global sort order score modifer\" but still no difference. \r\nit used to be normal and usually folders were higher in search results but idk if it was after a update or windows change or sth but then now i dont know how to fix it. \r\nfixing this would be a big help for me, Thanks",
+        "base_prediction": "feature",
+        "fine_tuned_prediction": "documentation",
+        "base_raw_model_output": "{\"type\":\"feature\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"documentation\"}"
+      },
+      {
+        "evaluation_index": 1710,
+        "issue_id": 1605198190,
+        "repository": "PowerToys",
+        "expected_category": "documentation",
+        "title": "Paste as plain text url generates a 404",
+        "body_excerpt": "### Provide a description of requested docs changes\n\nThe \"Paste as Plain text\" link in the \"Current Utilities\" section generates a 404.",
+        "base_prediction": "bug",
+        "fine_tuned_prediction": "documentation",
+        "base_raw_model_output": "{\"type\":\"bug\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"documentation\"}"
+      },
+      {
+        "evaluation_index": 4211,
+        "issue_id": 135881553,
+        "repository": "javascript",
+        "expected_category": "question_support",
+        "title": "single return vs multiple returns",
+        "body_excerpt": "I see some examples of multiple returns but don't see any guidelines defined that say it explicitly.\nIs there a preference between a single return where a variable is assigned the output value vs just having multiple return statements?\n\n```\nfunction isGood(battery) {\n  if (battery.charge) {\n    return true;\n  }\n\n  if (battery.cycles < 10) {\n    return true;\n  }\n\n  return false;\n}\n```\n\nvs. \n\n```\nfunction isGood(battery) {\n  let out = false;\n  if (battery.charge) {\n    out = true;\n  }\n\n  if (battery.cycles < 10) {\n    out = true;\n  }\n\n  return out;\n}\n```\n",
+        "base_prediction": "documentation",
+        "fine_tuned_prediction": "question_support",
+        "base_raw_model_output": "{\"type\":\"documentation\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"question_support\"}"
+      }
+    ],
+    "fine_breaks_base_examples": [
+      {
+        "evaluation_index": 6,
+        "issue_id": 441087583,
+        "repository": "PowerToys",
+        "expected_category": "feature",
+        "title": "Disable Sticky Corners in aero snap",
+        "body_excerpt": "When moving the mouse from one monitor to the other it gets stuck because of the \"sticky corners\".\r\n\r\nSo for example, if you want to close a window in the right monitor but your mouse is on the left monitor, you end inadvertently closing the window of the left monitor as the mouse gets stuck in the close button.\r\n\r\nThe problem is described in detail here https://superuser.com/questions/947817/how-to-disable-sticky-corners-in-windows-10\r\n\r\nA workaround https://github.com/patricknelson/win10-sticky-mouse",
+        "base_prediction": "feature",
+        "fine_tuned_prediction": "bug",
+        "base_raw_model_output": "{\"type\":\"feature\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"bug\"}"
+      },
+      {
+        "evaluation_index": 53,
+        "issue_id": 489878492,
+        "repository": "PowerToys",
+        "expected_category": "feature",
+        "title": "Drag to edge of screen automatically switches virtual desktops",
+        "body_excerpt": "",
+        "base_prediction": "feature",
+        "fine_tuned_prediction": "bug",
+        "base_raw_model_output": "{\"type\":\"feature\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"bug\"}"
+      },
+      {
+        "evaluation_index": 2698,
+        "issue_id": 2095032183,
+        "repository": "PowerToys",
+        "expected_category": "bug",
+        "title": "Please revert back Fancy Zone's activation logic",
+        "body_excerpt": "### Description of the new feature / enhancement\n\n> If both Hold Shift key to activate zones while dragging and Use non-primary mouse button to toggle zone activation are cleared, zones will appear immediately after you start dragging the window.\r\n\r\nHolding down shift key to activate makes it IMPOSSIBLE to type any keys that requires shift, such as all the punctuation marks \"!@#$%^&*\". It's the same problem with non-primary mouse buttons. If I clear both, then I won't be able to move my windows around freely. These activation methods are many steps backwards. There's nothing wrong with the old method\n\n### Scenario when this would be used?\n\nAny time I DON'T want to use fancy zone\n\n### Support",
+        "base_prediction": "bug",
+        "fine_tuned_prediction": "feature",
+        "base_raw_model_output": "{\"type\":\"bug\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"feature\"}"
+      },
+      {
+        "evaluation_index": 3833,
+        "issue_id": 2670518565,
+        "repository": "PowerToys",
+        "expected_category": "documentation",
+        "title": "Scroll to find them every time.",
+        "body_excerpt": "### Provide a description of requested docs changes\n\nKeyboardManager is great. I often change the functions of Hotkeys. However, it is a pain to have to scroll to find them every time.",
+        "base_prediction": "documentation",
+        "fine_tuned_prediction": "feature",
+        "base_raw_model_output": "{\"type\":\"documentation\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"feature\"}"
+      },
+      {
+        "evaluation_index": 4191,
+        "issue_id": 324865207,
+        "repository": "gin",
+        "expected_category": "question_support",
+        "title": "how do i get response body in after router middleware?",
+        "body_excerpt": "rt\r\n\r\n```\r\nr := gin.Default()\r\nr.GET(\"/test\",handler,middleware())\r\n\r\nfunc middleware() gin.HandlerFunc{\r\n// get response body in here;\r\n...\r\n}\r\n```",
+        "base_prediction": "question_support",
+        "fine_tuned_prediction": "feature",
+        "base_raw_model_output": "{\"type\":\"question_support\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"feature\"}"
+      },
+      {
+        "evaluation_index": 4192,
+        "issue_id": 327676172,
+        "repository": "gin",
+        "expected_category": "question_support",
+        "title": "Question: How to write request log and error log in a separate manner.",
+        "body_excerpt": "I could write everything into a file with #805 post.\r\nRelated to this, how could it be possible to write error into a separate log?\r\n\r\n--\r\nI assume to use gin.DefaultErrorWriter, but it seems that log.SetOuput is only possible with a single file.\r\n\r\nCurrent output (everything into a single file)\r\n```\r\n[GIN] 2018/05/30 - 19:21:17 | 404 |     114.656µs |             ::1 |  GET     /comment/view/99999\r\nError #01: th size of input parameter is not 40\r\n[GIN] 2018/05/30 - 19:21:20 | 200 |     1.82468ms |             ::1 |  GET     /comment/view/00001\r\n\r\n```\r\n\r\nCurrent code\r\n```\r\nlogfile, err := os.OpenFile(c.GinLogPath, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)\r\nif err != nil {\r\n    log.Fatalln(\"Fa",
+        "base_prediction": "question_support",
+        "fine_tuned_prediction": "feature",
+        "base_raw_model_output": "{\"type\":\"question_support\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"feature\"}"
+      },
+      {
+        "evaluation_index": 4196,
+        "issue_id": 394290826,
+        "repository": "gin",
+        "expected_category": "bug",
+        "title": "Why gin.Context.Cookie has to do url.QueryUnescape?",
+        "body_excerpt": "\r\n- go version: go1.11.2 darwin/amd64\r\n- gin version (or commit ref): v1.3.0\r\n- operating system: macos/linux\r\n\r\n## Description\r\n\r\nGin replace + sign with whitespace (probably) due to url.QueryUnescape. We\r\nneed to replace it back to original + sign and then encode to make it back to original value.\r\n\r\nThe code in question:\r\nhttps://github.com/gin-gonic/gin/blob/master/context.go#L741\r\n\r\nIf you look at how `http` package get cookie, it does not unescape the value and return just a string. I would like to know what's the decision to unescape value here.\r\n\r\nFYI, it breaks our app, and we need to do a workaround by replacing `\" \"` (whitespace) back to `+`. \r\n\r\n",
+        "base_prediction": "bug",
+        "fine_tuned_prediction": "feature",
+        "base_raw_model_output": "{\"type\":\"bug\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"feature\"}"
+      },
+      {
+        "evaluation_index": 4271,
+        "issue_id": 665695433,
+        "repository": "node",
+        "expected_category": "documentation",
+        "title": "Improve documentation on Dual Module Packages",
+        "body_excerpt": "* **Version**: `v14.4.0`\r\n* **Platform**: Windows 10\r\n* **Subsystem**: Windows\r\n\r\n### What steps will reproduce the bug?\r\n```\r\ngit clone git@github.com:MicahZoltu/dual-module-package-repro.git\r\ncd dual-module-package-repro/app-package\r\nnpm install\r\nnode index.mjs\r\n# notice it works\r\nnode index.cjs\r\n# notice it does not work\r\n```\r\nThen remove `\"type\": \"module\"` from `library-package/package.json` and repeat the process:\r\n```\r\nnpm install\r\nnode index.mjs\r\n# notice it doesn't work\r\nnode index.cjs\r\n# notice it does work\r\n```\r\n\r\n### How often does it reproduce? Is there a required condition?\r\nAlways.\r\n\r\n### What is the expected behavior?\r\nThe ability to ship an NPM package that can be used by eit",
+        "base_prediction": "documentation",
+        "fine_tuned_prediction": "bug",
+        "base_raw_model_output": "{\"type\":\"documentation\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"bug\"}"
+      }
+    ]
+  },
+  "statistical_uncertainty": {
+    "paired_bootstrap": {
+      "method": "paired row bootstrap with replacement; each replicate resamples validation rows jointly for base and fine-tuned predictions",
+      "replicates": 20000,
+      "seed": 20260817,
+      "confidence_level": 0.95,
+      "accuracy_delta_point_estimate": 0.004079,
+      "accuracy_delta_ci95": [
+        -0.000784,
+        0.009021
+      ],
+      "macro_f1_delta_point_estimate": -0.005547,
+      "macro_f1_delta_ci95": [
+        -0.027676,
+        0.016679
+      ]
+    },
+    "mcnemar_accuracy": {
+      "test": "exact two-sided McNemar test on paired correctness",
+      "base_correct_fine_wrong": 478,
+      "base_wrong_fine_correct": 530,
+      "discordant_pairs": 1008,
+      "exact_two_sided_p_value": 0.108151,
+      "interpretation": "Descriptive paired accuracy test; it does not test macro-F1."
+    }
+  },
+  "repository_level_analysis": {
+    "CS-Notes": {
+      "row_count": 3,
+      "class_composition": {
+        "bug": {
+          "count": 1,
+          "percentage": 33.333333
+        },
+        "feature": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "documentation": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "question_support": {
+          "count": 2,
+          "percentage": 66.666667
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 3,
+        "class_composition": {
+          "bug": {
+            "count": 1,
+            "percentage": 33.333333
+          },
+          "feature": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 2,
+            "percentage": 66.666667
+          }
+        },
+        "accuracy": 0.666667,
+        "macro_f1_all_four_categories": 0.416667,
+        "macro_f1_present_true_categories": 0.833333,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "feature",
+          "documentation"
+        ],
+        "minimum_present_class_support": 1,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 1,
+            "predicted_count": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "feature": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 2,
+            "predicted_count": 1,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.666667
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 3,
+        "class_composition": {
+          "bug": {
+            "count": 1,
+            "percentage": 33.333333
+          },
+          "feature": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 2,
+            "percentage": 66.666667
+          }
+        },
+        "accuracy": 1.0,
+        "macro_f1_all_four_categories": 0.5,
+        "macro_f1_present_true_categories": 1.0,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "feature",
+          "documentation"
+        ],
+        "minimum_present_class_support": 1,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 1,
+            "predicted_count": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "feature": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 2,
+            "predicted_count": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": 0.333333,
+        "macro_f1_present_true_categories_delta": 0.166667,
+        "macro_f1_all_four_categories_delta": 0.083333
+      }
+    },
+    "PowerToys": {
+      "row_count": 4181,
+      "class_composition": {
+        "bug": {
+          "count": 1888,
+          "percentage": 45.156661
+        },
+        "feature": {
+          "count": 2232,
+          "percentage": 53.384358
+        },
+        "documentation": {
+          "count": 61,
+          "percentage": 1.458981
+        },
+        "question_support": {
+          "count": 0,
+          "percentage": 0.0
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 4181,
+        "class_composition": {
+          "bug": {
+            "count": 1888,
+            "percentage": 45.156661
+          },
+          "feature": {
+            "count": 2232,
+            "percentage": 53.384358
+          },
+          "documentation": {
+            "count": 61,
+            "percentage": 1.458981
+          },
+          "question_support": {
+            "count": 0,
+            "percentage": 0.0
+          }
+        },
+        "accuracy": 0.943793,
+        "macro_f1_all_four_categories": 0.643493,
+        "macro_f1_present_true_categories": 0.85799,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation"
+        ],
+        "absent_true_categories": [
+          "question_support"
+        ],
+        "minimum_present_class_support": 61,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 1888,
+            "predicted_count": 1796,
+            "precision": 0.967149,
+            "recall": 0.920021,
+            "f1": 0.942997
+          },
+          "feature": {
+            "support": 2232,
+            "predicted_count": 2327,
+            "precision": 0.932961,
+            "recall": 0.97267,
+            "f1": 0.952402
+          },
+          "documentation": {
+            "support": 61,
+            "predicted_count": 51,
+            "precision": 0.745098,
+            "recall": 0.622951,
+            "f1": 0.678571
+          },
+          "question_support": {
+            "support": 0,
+            "predicted_count": 7,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 4181,
+        "class_composition": {
+          "bug": {
+            "count": 1888,
+            "percentage": 45.156661
+          },
+          "feature": {
+            "count": 2232,
+            "percentage": 53.384358
+          },
+          "documentation": {
+            "count": 61,
+            "percentage": 1.458981
+          },
+          "question_support": {
+            "count": 0,
+            "percentage": 0.0
+          }
+        },
+        "accuracy": 0.966754,
+        "macro_f1_all_four_categories": 0.692576,
+        "macro_f1_present_true_categories": 0.923435,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation"
+        ],
+        "absent_true_categories": [
+          "question_support"
+        ],
+        "minimum_present_class_support": 61,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 1888,
+            "predicted_count": 1910,
+            "precision": 0.961257,
+            "recall": 0.972458,
+            "f1": 0.966825
+          },
+          "feature": {
+            "support": 2232,
+            "predicted_count": 2223,
+            "precision": 0.97211,
+            "recall": 0.96819,
+            "f1": 0.970146
+          },
+          "documentation": {
+            "support": 61,
+            "predicted_count": 47,
+            "precision": 0.957447,
+            "recall": 0.737705,
+            "f1": 0.833333
+          },
+          "question_support": {
+            "support": 0,
+            "predicted_count": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": 0.022961,
+        "macro_f1_present_true_categories_delta": 0.065445,
+        "macro_f1_all_four_categories_delta": 0.049083
+      }
+    },
+    "Web-Dev-For-Beginners": {
+      "row_count": 1,
+      "class_composition": {
+        "bug": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "feature": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "documentation": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "question_support": {
+          "count": 1,
+          "percentage": 100.0
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 1,
+        "class_composition": {
+          "bug": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "feature": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 1,
+            "percentage": 100.0
+          }
+        },
+        "accuracy": 0.0,
+        "macro_f1_all_four_categories": 0.0,
+        "macro_f1_present_true_categories": 0.0,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "bug",
+          "feature",
+          "documentation"
+        ],
+        "minimum_present_class_support": 1,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 0,
+            "predicted_count": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "feature": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 1,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 1,
+        "class_composition": {
+          "bug": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "feature": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 1,
+            "percentage": 100.0
+          }
+        },
+        "accuracy": 0.0,
+        "macro_f1_all_four_categories": 0.0,
+        "macro_f1_present_true_categories": 0.0,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "bug",
+          "feature",
+          "documentation"
+        ],
+        "minimum_present_class_support": 1,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 0,
+            "predicted_count": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "feature": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 1,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": 0.0,
+        "macro_f1_present_true_categories_delta": 0.0,
+        "macro_f1_all_four_categories_delta": 0.0
+      }
+    },
+    "gin": {
+      "row_count": 18,
+      "class_composition": {
+        "bug": {
+          "count": 9,
+          "percentage": 50.0
+        },
+        "feature": {
+          "count": 3,
+          "percentage": 16.666667
+        },
+        "documentation": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "question_support": {
+          "count": 6,
+          "percentage": 33.333333
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 18,
+        "class_composition": {
+          "bug": {
+            "count": 9,
+            "percentage": 50.0
+          },
+          "feature": {
+            "count": 3,
+            "percentage": 16.666667
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 6,
+            "percentage": 33.333333
+          }
+        },
+        "accuracy": 0.722222,
+        "macro_f1_all_four_categories": 0.502193,
+        "macro_f1_present_true_categories": 0.669591,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "documentation"
+        ],
+        "minimum_present_class_support": 3,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 9,
+            "predicted_count": 10,
+            "precision": 0.8,
+            "recall": 0.888889,
+            "f1": 0.842105
+          },
+          "feature": {
+            "support": 3,
+            "predicted_count": 5,
+            "precision": 0.4,
+            "recall": 0.666667,
+            "f1": 0.5
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 6,
+            "predicted_count": 3,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.666667
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 18,
+        "class_composition": {
+          "bug": {
+            "count": 9,
+            "percentage": 50.0
+          },
+          "feature": {
+            "count": 3,
+            "percentage": 16.666667
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 6,
+            "percentage": 33.333333
+          }
+        },
+        "accuracy": 0.5,
+        "macro_f1_all_four_categories": 0.331232,
+        "macro_f1_present_true_categories": 0.441643,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "documentation"
+        ],
+        "minimum_present_class_support": 3,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 9,
+            "predicted_count": 8,
+            "precision": 0.75,
+            "recall": 0.666667,
+            "f1": 0.705882
+          },
+          "feature": {
+            "support": 3,
+            "predicted_count": 9,
+            "precision": 0.222222,
+            "recall": 0.666667,
+            "f1": 0.333333
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 6,
+            "predicted_count": 1,
+            "precision": 1.0,
+            "recall": 0.166667,
+            "f1": 0.285714
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": -0.222222,
+        "macro_f1_present_true_categories_delta": -0.227948,
+        "macro_f1_all_four_categories_delta": -0.170961
+      }
+    },
+    "javascript": {
+      "row_count": 26,
+      "class_composition": {
+        "bug": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "feature": {
+          "count": 4,
+          "percentage": 15.384615
+        },
+        "documentation": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "question_support": {
+          "count": 22,
+          "percentage": 84.615385
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 26,
+        "class_composition": {
+          "bug": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "feature": {
+            "count": 4,
+            "percentage": 15.384615
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 22,
+            "percentage": 84.615385
+          }
+        },
+        "accuracy": 0.115385,
+        "macro_f1_all_four_categories": 0.077295,
+        "macro_f1_present_true_categories": 0.154589,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "feature",
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "bug",
+          "documentation"
+        ],
+        "minimum_present_class_support": 4,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "feature": {
+            "support": 4,
+            "predicted_count": 14,
+            "precision": 0.142857,
+            "recall": 0.5,
+            "f1": 0.222222
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 11,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 22,
+            "predicted_count": 1,
+            "precision": 1.0,
+            "recall": 0.045455,
+            "f1": 0.086957
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 26,
+        "class_composition": {
+          "bug": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "feature": {
+            "count": 4,
+            "percentage": 15.384615
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 22,
+            "percentage": 84.615385
+          }
+        },
+        "accuracy": 0.307692,
+        "macro_f1_all_four_categories": 0.162356,
+        "macro_f1_present_true_categories": 0.324713,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "feature",
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "bug",
+          "documentation"
+        ],
+        "minimum_present_class_support": 4,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 0,
+            "predicted_count": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "feature": {
+            "support": 4,
+            "predicted_count": 8,
+            "precision": 0.125,
+            "recall": 0.25,
+            "f1": 0.166667
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 7,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 22,
+            "predicted_count": 7,
+            "precision": 1.0,
+            "recall": 0.318182,
+            "f1": 0.482759
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": 0.192307,
+        "macro_f1_present_true_categories_delta": 0.170124,
+        "macro_f1_all_four_categories_delta": 0.085061
+      }
+    },
+    "node": {
+      "row_count": 368,
+      "class_composition": {
+        "bug": {
+          "count": 83,
+          "percentage": 22.554348
+        },
+        "feature": {
+          "count": 155,
+          "percentage": 42.119565
+        },
+        "documentation": {
+          "count": 115,
+          "percentage": 31.25
+        },
+        "question_support": {
+          "count": 15,
+          "percentage": 4.076087
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 368,
+        "class_composition": {
+          "bug": {
+            "count": 83,
+            "percentage": 22.554348
+          },
+          "feature": {
+            "count": 155,
+            "percentage": 42.119565
+          },
+          "documentation": {
+            "count": 115,
+            "percentage": 31.25
+          },
+          "question_support": {
+            "count": 15,
+            "percentage": 4.076087
+          }
+        },
+        "accuracy": 0.872283,
+        "macro_f1_all_four_categories": 0.791854,
+        "macro_f1_present_true_categories": 0.791854,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support"
+        ],
+        "absent_true_categories": [],
+        "minimum_present_class_support": 15,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 83,
+            "predicted_count": 105,
+            "precision": 0.761905,
+            "recall": 0.963855,
+            "f1": 0.851064
+          },
+          "feature": {
+            "support": 155,
+            "predicted_count": 166,
+            "precision": 0.891566,
+            "recall": 0.954839,
+            "f1": 0.922118
+          },
+          "documentation": {
+            "support": 115,
+            "predicted_count": 90,
+            "precision": 0.966667,
+            "recall": 0.756522,
+            "f1": 0.84878
+          },
+          "question_support": {
+            "support": 15,
+            "predicted_count": 7,
+            "precision": 0.857143,
+            "recall": 0.4,
+            "f1": 0.545455
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 368,
+        "class_composition": {
+          "bug": {
+            "count": 83,
+            "percentage": 22.554348
+          },
+          "feature": {
+            "count": 155,
+            "percentage": 42.119565
+          },
+          "documentation": {
+            "count": 115,
+            "percentage": 31.25
+          },
+          "question_support": {
+            "count": 15,
+            "percentage": 4.076087
+          }
+        },
+        "accuracy": 0.836957,
+        "macro_f1_all_four_categories": 0.709631,
+        "macro_f1_present_true_categories": 0.709631,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support"
+        ],
+        "absent_true_categories": [],
+        "minimum_present_class_support": 15,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 83,
+            "predicted_count": 134,
+            "precision": 0.619403,
+            "recall": 1.0,
+            "f1": 0.764977
+          },
+          "feature": {
+            "support": 155,
+            "predicted_count": 146,
+            "precision": 0.952055,
+            "recall": 0.896774,
+            "f1": 0.923588
+          },
+          "documentation": {
+            "support": 115,
+            "predicted_count": 84,
+            "precision": 0.988095,
+            "recall": 0.721739,
+            "f1": 0.834171
+          },
+          "question_support": {
+            "support": 15,
+            "predicted_count": 4,
+            "precision": 0.75,
+            "recall": 0.2,
+            "f1": 0.315789
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": -0.035326,
+        "macro_f1_present_true_categories_delta": -0.082223,
+        "macro_f1_all_four_categories_delta": -0.082223
+      }
+    },
+    "rust": {
+      "row_count": 6101,
+      "class_composition": {
+        "bug": {
+          "count": 3990,
+          "percentage": 65.399115
+        },
+        "feature": {
+          "count": 2111,
+          "percentage": 34.600885
+        },
+        "documentation": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "question_support": {
+          "count": 0,
+          "percentage": 0.0
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 6101,
+        "class_composition": {
+          "bug": {
+            "count": 3990,
+            "percentage": 65.399115
+          },
+          "feature": {
+            "count": 2111,
+            "percentage": 34.600885
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 0,
+            "percentage": 0.0
+          }
+        },
+        "accuracy": 0.805278,
+        "macro_f1_all_four_categories": 0.393978,
+        "macro_f1_present_true_categories": 0.787955,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature"
+        ],
+        "absent_true_categories": [
+          "documentation",
+          "question_support"
+        ],
+        "minimum_present_class_support": 2111,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 3990,
+            "predicted_count": 4254,
+            "precision": 0.852374,
+            "recall": 0.908772,
+            "f1": 0.87967
+          },
+          "feature": {
+            "support": 2111,
+            "predicted_count": 1586,
+            "precision": 0.811475,
+            "recall": 0.609664,
+            "f1": 0.69624
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 248,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 0,
+            "predicted_count": 12,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 6101,
+        "class_composition": {
+          "bug": {
+            "count": 3990,
+            "percentage": 65.399115
+          },
+          "feature": {
+            "count": 2111,
+            "percentage": 34.600885
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 0,
+            "percentage": 0.0
+          }
+        },
+        "accuracy": 0.799377,
+        "macro_f1_all_four_categories": 0.401422,
+        "macro_f1_present_true_categories": 0.802844,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature"
+        ],
+        "absent_true_categories": [
+          "documentation",
+          "question_support"
+        ],
+        "minimum_present_class_support": 2111,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 3990,
+            "predicted_count": 3886,
+            "precision": 0.883428,
+            "recall": 0.860401,
+            "f1": 0.871762
+          },
+          "feature": {
+            "support": 2111,
+            "predicted_count": 1824,
+            "precision": 0.791667,
+            "recall": 0.684036,
+            "f1": 0.733926
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 388,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 0,
+            "predicted_count": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": -0.005901,
+        "macro_f1_present_true_categories_delta": 0.014889,
+        "macro_f1_all_four_categories_delta": 0.007444
+      }
+    },
+    "storybook": {
+      "row_count": 1841,
+      "class_composition": {
+        "bug": {
+          "count": 1275,
+          "percentage": 69.255839
+        },
+        "feature": {
+          "count": 390,
+          "percentage": 21.184139
+        },
+        "documentation": {
+          "count": 76,
+          "percentage": 4.128191
+        },
+        "question_support": {
+          "count": 100,
+          "percentage": 5.431831
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 1841,
+        "class_composition": {
+          "bug": {
+            "count": 1275,
+            "percentage": 69.255839
+          },
+          "feature": {
+            "count": 390,
+            "percentage": 21.184139
+          },
+          "documentation": {
+            "count": 76,
+            "percentage": 4.128191
+          },
+          "question_support": {
+            "count": 100,
+            "percentage": 5.431831
+          }
+        },
+        "accuracy": 0.888647,
+        "macro_f1_all_four_categories": 0.669628,
+        "macro_f1_present_true_categories": 0.669628,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support"
+        ],
+        "absent_true_categories": [],
+        "minimum_present_class_support": 76,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 1275,
+            "predicted_count": 1343,
+            "precision": 0.909903,
+            "recall": 0.958431,
+            "f1": 0.933537
+          },
+          "feature": {
+            "support": 390,
+            "predicted_count": 396,
+            "precision": 0.871212,
+            "recall": 0.884615,
+            "f1": 0.877863
+          },
+          "documentation": {
+            "support": 76,
+            "predicted_count": 87,
+            "precision": 0.747126,
+            "recall": 0.855263,
+            "f1": 0.797546
+          },
+          "question_support": {
+            "support": 100,
+            "predicted_count": 15,
+            "precision": 0.266667,
+            "recall": 0.04,
+            "f1": 0.069565
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 1841,
+        "class_composition": {
+          "bug": {
+            "count": 1275,
+            "percentage": 69.255839
+          },
+          "feature": {
+            "count": 390,
+            "percentage": 21.184139
+          },
+          "documentation": {
+            "count": 76,
+            "percentage": 4.128191
+          },
+          "question_support": {
+            "count": 100,
+            "percentage": 5.431831
+          }
+        },
+        "accuracy": 0.891363,
+        "macro_f1_all_four_categories": 0.660502,
+        "macro_f1_present_true_categories": 0.660502,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support"
+        ],
+        "absent_true_categories": [],
+        "minimum_present_class_support": 76,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 1275,
+            "predicted_count": 1432,
+            "precision": 0.881983,
+            "recall": 0.990588,
+            "f1": 0.933136
+          },
+          "feature": {
+            "support": 390,
+            "predicted_count": 339,
+            "precision": 0.952802,
+            "recall": 0.828205,
+            "f1": 0.886145
+          },
+          "documentation": {
+            "support": 76,
+            "predicted_count": 60,
+            "precision": 0.85,
+            "recall": 0.671053,
+            "f1": 0.75
+          },
+          "question_support": {
+            "support": 100,
+            "predicted_count": 10,
+            "precision": 0.4,
+            "recall": 0.04,
+            "f1": 0.072727
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": 0.002716,
+        "macro_f1_present_true_categories_delta": -0.009126,
+        "macro_f1_all_four_categories_delta": -0.009126
+      }
+    },
+    "svelte": {
+      "row_count": 209,
+      "class_composition": {
+        "bug": {
+          "count": 52,
+          "percentage": 24.880383
+        },
+        "feature": {
+          "count": 92,
+          "percentage": 44.019139
+        },
+        "documentation": {
+          "count": 65,
+          "percentage": 31.100478
+        },
+        "question_support": {
+          "count": 0,
+          "percentage": 0.0
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 209,
+        "class_composition": {
+          "bug": {
+            "count": 52,
+            "percentage": 24.880383
+          },
+          "feature": {
+            "count": 92,
+            "percentage": 44.019139
+          },
+          "documentation": {
+            "count": 65,
+            "percentage": 31.100478
+          },
+          "question_support": {
+            "count": 0,
+            "percentage": 0.0
+          }
+        },
+        "accuracy": 0.76555,
+        "macro_f1_all_four_categories": 0.567468,
+        "macro_f1_present_true_categories": 0.756624,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation"
+        ],
+        "absent_true_categories": [
+          "question_support"
+        ],
+        "minimum_present_class_support": 52,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 52,
+            "predicted_count": 86,
+            "precision": 0.593023,
+            "recall": 0.980769,
+            "f1": 0.73913
+          },
+          "feature": {
+            "support": 92,
+            "predicted_count": 85,
+            "precision": 0.858824,
+            "recall": 0.793478,
+            "f1": 0.824859
+          },
+          "documentation": {
+            "support": 65,
+            "predicted_count": 37,
+            "precision": 0.972973,
+            "recall": 0.553846,
+            "f1": 0.705882
+          },
+          "question_support": {
+            "support": 0,
+            "predicted_count": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 209,
+        "class_composition": {
+          "bug": {
+            "count": 52,
+            "percentage": 24.880383
+          },
+          "feature": {
+            "count": 92,
+            "percentage": 44.019139
+          },
+          "documentation": {
+            "count": 65,
+            "percentage": 31.100478
+          },
+          "question_support": {
+            "count": 0,
+            "percentage": 0.0
+          }
+        },
+        "accuracy": 0.755981,
+        "macro_f1_all_four_categories": 0.557425,
+        "macro_f1_present_true_categories": 0.743234,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation"
+        ],
+        "absent_true_categories": [
+          "question_support"
+        ],
+        "minimum_present_class_support": 52,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 52,
+            "predicted_count": 91,
+            "precision": 0.56044,
+            "recall": 0.980769,
+            "f1": 0.713287
+          },
+          "feature": {
+            "support": 92,
+            "predicted_count": 84,
+            "precision": 0.869048,
+            "recall": 0.793478,
+            "f1": 0.829545
+          },
+          "documentation": {
+            "support": 65,
+            "predicted_count": 34,
+            "precision": 1.0,
+            "recall": 0.523077,
+            "f1": 0.686869
+          },
+          "question_support": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": -0.009569,
+        "macro_f1_present_true_categories_delta": -0.01339,
+        "macro_f1_all_four_categories_delta": -0.010043
+      }
+    }
+  },
+  "minority_class_repository_concentration": {
+    "documentation": [
+      {
+        "repository": "node",
+        "count": 115,
+        "percentage_of_validation_class": 36.277603
+      },
+      {
+        "repository": "storybook",
+        "count": 76,
+        "percentage_of_validation_class": 23.974763
+      },
+      {
+        "repository": "svelte",
+        "count": 65,
+        "percentage_of_validation_class": 20.504732
+      },
+      {
+        "repository": "PowerToys",
+        "count": 61,
+        "percentage_of_validation_class": 19.242902
+      }
+    ],
+    "question_support": [
+      {
+        "repository": "storybook",
+        "count": 100,
+        "percentage_of_validation_class": 68.493151
+      },
+      {
+        "repository": "javascript",
+        "count": 22,
+        "percentage_of_validation_class": 15.068493
+      },
+      {
+        "repository": "node",
+        "count": 15,
+        "percentage_of_validation_class": 10.273973
+      },
+      {
+        "repository": "gin",
+        "count": 6,
+        "percentage_of_validation_class": 4.109589
+      },
+      {
+        "repository": "CS-Notes",
+        "count": 2,
+        "percentage_of_validation_class": 1.369863
+      },
+      {
+        "repository": "Web-Dev-For-Beginners",
+        "count": 1,
+        "percentage_of_validation_class": 0.684932
+      }
+    ]
+  },
+  "failure_mechanism_assessment": {
+    "observed_primary_pattern": "After correcting the prompt-boundary defect, formatting failures disappeared and the fine-tuned model gained accuracy, but macro-F1 remained slightly below base zero-shot because documentation F1 fell by 0.082175. Feature F1 rose by 0.019182 and question_support F1 rose by 0.039962; bug F1 was effectively unchanged.",
+    "ranked_plausible_causes": [
+      {
+        "rank": 1,
+        "cause": "Repository/domain shift and taxonomy ambiguity",
+        "evidence": "The fine-tuned minus base macro-F1 delta is positive on PowerToys (+0.065445) and rust (+0.014889), but negative on node (-0.082223), svelte (-0.013390), and storybook (-0.009126); small gin is also strongly negative. Documentation errors shifted toward bug (42 to 76) even though the adapter predicted documentation more often (525 to 620), indicating a boundary/label-semantics problem rather than simple absence of minority predictions."
+      },
+      {
+        "rank": 2,
+        "cause": "Natural class imbalance interacting with held-out repository priors",
+        "evidence": "The train prior is 61.030242% bug, 31.170787% feature, 4.360648% documentation, and 3.438324% question_support, versus validation 57.248196%, 39.119862%, 2.486665%, and 1.145278%. However, fine-tuned predictions moved farther from the train prior (L1 distance 0.113501 versus base 0.095028), so literal prior collapse is not supported."
+      },
+      {
+        "rank": 3,
+        "cause": "Residual context difficulty after structural repair",
+        "evidence": "Corrected truncated rows are valid and much better than under the old evaluator, but their macro-F1 remains lower than non-truncated rows: base zero-shot 0.468678 versus 0.609526, few-shot 0.475608 versus 0.617049, and fine-tuned zero-shot 0.481341 versus 0.603937. This is a difficulty effect shared by conditions, not evidence of a condition-specific truncation defect."
+      },
+      {
+        "rank": 4,
+        "cause": "One epoch, learning rate/schedule, LoRA capacity, or completion-only objective",
+        "evidence": "These remain plausible optimization contributors, but the corrected validation evidence does not isolate any one of them. Changing them together would not produce a clean causal experiment."
+      },
+      {
+        "rank": 5,
+        "cause": "Label noise",
+        "evidence": "The documentation-to-bug and bug-to-documentation exchanges, plus repository-specific reversals, are consistent with ambiguous labels, but the existing validation artifacts cannot distinguish label noise from genuine taxonomy ambiguity."
+      }
+    ]
+  },
+  "next_experiment_recommendation": {
+    "decision": "A",
+    "recommendation": "Keep Run A; do not start a second training run yet.",
+    "primary_intervention": null,
+    "why": "Run A does not improve the primary macro-F1 metric, but the paired macro-F1 delta is small and uncertain (95% CI includes zero), accuracy is slightly higher with a confidence interval that also includes zero, and the corrected evidence does not identify one training intervention as the causal fix. The dominant loss is documentation F1 on repository-specific boundaries, while the adapter is not moving toward the natural train prior.",
+    "conceptual_imbalance_options_considered": {
+      "uniform_four_class_sampling": {
+        "same_total_training_draws": 31876,
+        "approximate_draws_per_class": 7969.0,
+        "average_exposure_multiplier": {
+          "bug": 0.409633,
+          "feature": 0.802033,
+          "documentation": 5.733094,
+          "question_support": 7.270985
+        },
+        "risk": "Documentation and question_support examples would be repeated about 5.7x and 7.3x on average, while bug would be sampled at about 0.41x; this is a high overfitting risk without direct evidence that uniform sampling addresses the observed documentation precision/recall tradeoff."
+      },
+      "moderate_sqrt_class_sampling": {
+        "sampling_rule": "p(class) proportional to sqrt(class_count)",
+        "approximate_draws_per_class": {
+          "bug": 14362.946073,
+          "feature": 10264.667017,
+          "documentation": 3839.250719,
+          "question_support": 3409.136191
+        },
+        "average_exposure_multiplier": {
+          "bug": 0.738303,
+          "feature": 1.033078,
+          "documentation": 2.762051,
+          "question_support": 3.110526
+        },
+        "risk": "This would be less aggressive than uniform sampling but still changes exposure without evidence that class prior correction is the main bottleneck."
+      },
+      "class_weighted_loss": {
+        "assessment": "Avoids repeating examples but would alter the completion-only optimization weighting and is not currently isolated by the validation evidence."
+      }
+    },
+    "start_from": null,
+    "selection_rule": "Reconsider one controlled Run B only if a new development question identifies a single supported mechanism; keep TEST untouched."
+  },
+  "historical_evidence_note": "The earlier 400-example train-only prompt-development metrics are preserved as historical evidence and are not used as the fair validation comparison.",
+  "correction_history": {
+    "historical_evaluation_report": "results/validation_evaluation.json",
+    "corrected_evaluation_report": "results/validation_evaluation_corrected.json",
+    "root_cause": "The historical evaluator right-truncated the already-rendered chat-template token sequence, which removed the assistant generation boundary on long prompts and caused generation to continue issue prose instead of producing classification JSON.",
+    "repair": "The corrected evaluator renders the complete chat prompt after truncating only the current issue body from the right, then the title from the right if necessary, and reserves 16 output tokens while preserving system instructions, frozen demonstrations, role markers, and the assistant generation boundary.",
+    "regenerated_rows": {
+      "base_zero_shot": {
+        "row_count": 1280,
+        "evaluation_indices_are_historical_truncations": true,
+        "unaffected_rows_reused": 11468
+      },
+      "base_few_shot": {
+        "row_count": 2556,
+        "evaluation_indices_are_historical_truncations": true,
+        "unaffected_rows_reused": 10192
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 1280,
+        "evaluation_indices_are_historical_truncations": true,
+        "unaffected_rows_reused": 11468
+      }
+    },
+    "unaffected_rows_reused_exactly": true,
+    "old_metrics_preserved": {
+      "base_zero_shot": {
+        "example_count": 12748,
+        "total_examples": 12748,
+        "accuracy": 0.767885,
+        "macro_f1": 0.586055,
+        "primary_metric": "macro_f1",
+        "valid_output_count": 11471,
+        "valid_output_percentage": 89.9827,
+        "invalid_output_count": 1277,
+        "per_class": {
+          "bug": {
+            "precision": 0.87073,
+            "recall": 0.761441,
+            "f1": 0.812427,
+            "support": 7298
+          },
+          "feature": {
+            "precision": 0.882626,
+            "recall": 0.800682,
+            "f1": 0.839659,
+            "support": 4987
+          },
+          "documentation": {
+            "precision": 0.431599,
+            "recall": 0.706625,
+            "f1": 0.535885,
+            "support": 317
+          },
+          "question_support": {
+            "precision": 0.326087,
+            "recall": 0.10274,
+            "f1": 0.15625,
+            "support": 146
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            5557,
+            463,
+            86,
+            4,
+            1188
+          ],
+          [
+            701,
+            3993,
+            194,
+            23,
+            76
+          ],
+          [
+            41,
+            43,
+            224,
+            4,
+            5
+          ],
+          [
+            83,
+            25,
+            15,
+            15,
+            8
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "predicted_class_distribution": {
+          "bug": 6382,
+          "feature": 4524,
+          "documentation": 519,
+          "question_support": 46,
+          "__invalid_output__": 1277
+        },
+        "input_truncated_count": 1280,
+        "input_truncated_percentage": 10.0408,
+        "average_input_tokens": 623.7935,
+        "average_full_input_tokens": 1062.9401,
+        "maximum_full_input_tokens": 112992,
+        "maximum_fed_input_tokens": 1520,
+        "average_output_tokens": 7.0035,
+        "average_inference_time_seconds_per_example": 0.604162,
+        "total_inference_runtime_seconds": 7701.8622,
+        "status_counts": {
+          "ok": 12748,
+          "inference_error": 0
+        },
+        "output_parsing_error_count": 1277,
+        "parse_error_counts": {
+          "json_decode_error": 1249,
+          "schema_error": 28
+        },
+        "inference_error_counts": {},
+        "empty_think_wrapper_count": 0,
+        "nonempty_think_output_count": 0,
+        "batch_count": 0,
+        "condition_wall_runtime_seconds": 0.154
+      },
+      "base_few_shot": {
+        "example_count": 12748,
+        "total_examples": 12748,
+        "accuracy": 0.675949,
+        "macro_f1": 0.560294,
+        "primary_metric": "macro_f1",
+        "valid_output_count": 10193,
+        "valid_output_percentage": 79.9576,
+        "invalid_output_count": 2555,
+        "per_class": {
+          "bug": {
+            "precision": 0.857808,
+            "recall": 0.631543,
+            "f1": 0.727488,
+            "support": 7298
+          },
+          "feature": {
+            "precision": 0.928713,
+            "recall": 0.749749,
+            "f1": 0.82969,
+            "support": 4987
+          },
+          "documentation": {
+            "precision": 0.365414,
+            "recall": 0.766562,
+            "f1": 0.494908,
+            "support": 317
+          },
+          "question_support": {
+            "precision": 0.20155,
+            "recall": 0.178082,
+            "f1": 0.189091,
+            "support": 146
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            4609,
+            257,
+            166,
+            48,
+            2218
+          ],
+          [
+            691,
+            3739,
+            241,
+            43,
+            273
+          ],
+          [
+            27,
+            16,
+            243,
+            12,
+            19
+          ],
+          [
+            46,
+            14,
+            15,
+            26,
+            45
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "predicted_class_distribution": {
+          "bug": 5373,
+          "feature": 4026,
+          "documentation": 665,
+          "question_support": 129,
+          "__invalid_output__": 2555
+        },
+        "input_truncated_count": 2556,
+        "input_truncated_percentage": 20.0502,
+        "average_input_tokens": 1171.0633,
+        "average_full_input_tokens": 1696.9401,
+        "maximum_full_input_tokens": 113626,
+        "maximum_fed_input_tokens": 1520,
+        "average_output_tokens": 8.0054,
+        "average_inference_time_seconds_per_example": 0.966835,
+        "total_inference_runtime_seconds": 12325.2099,
+        "status_counts": {
+          "ok": 12748,
+          "inference_error": 0
+        },
+        "output_parsing_error_count": 2555,
+        "parse_error_counts": {
+          "json_decode_error": 2504,
+          "schema_error": 51
+        },
+        "inference_error_counts": {},
+        "empty_think_wrapper_count": 0,
+        "nonempty_think_output_count": 0,
+        "batch_count": 0,
+        "condition_wall_runtime_seconds": 0.1255
+      },
+      "fine_tuned_zero_shot": {
+        "example_count": 12748,
+        "total_examples": 12748,
+        "accuracy": 0.771101,
+        "macro_f1": 0.579723,
+        "primary_metric": "macro_f1",
+        "valid_output_count": 11469,
+        "valid_output_percentage": 89.9671,
+        "invalid_output_count": 1279,
+        "per_class": {
+          "bug": {
+            "precision": 0.879578,
+            "recall": 0.753631,
+            "f1": 0.811748,
+            "support": 7298
+          },
+          "feature": {
+            "precision": 0.896612,
+            "recall": 0.822539,
+            "f1": 0.85798,
+            "support": 4987
+          },
+          "documentation": {
+            "precision": 0.344209,
+            "recall": 0.665615,
+            "f1": 0.453763,
+            "support": 317
+          },
+          "question_support": {
+            "precision": 0.607143,
+            "recall": 0.116438,
+            "f1": 0.195402,
+            "support": 146
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            5500,
+            429,
+            176,
+            2,
+            1191
+          ],
+          [
+            584,
+            4102,
+            218,
+            8,
+            75
+          ],
+          [
+            74,
+            26,
+            211,
+            1,
+            5
+          ],
+          [
+            95,
+            18,
+            8,
+            17,
+            8
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "predicted_class_distribution": {
+          "bug": 6253,
+          "feature": 4575,
+          "documentation": 613,
+          "question_support": 28,
+          "__invalid_output__": 1279
+        },
+        "input_truncated_count": 1280,
+        "input_truncated_percentage": 10.0408,
+        "average_input_tokens": 623.7935,
+        "average_full_input_tokens": 1062.9401,
+        "maximum_full_input_tokens": 112992,
+        "maximum_fed_input_tokens": 1520,
+        "average_output_tokens": 10.597,
+        "average_inference_time_seconds_per_example": 1.018899,
+        "total_inference_runtime_seconds": 12988.9233,
+        "status_counts": {
+          "ok": 12748,
+          "inference_error": 0
+        },
+        "output_parsing_error_count": 1279,
+        "parse_error_counts": {
+          "json_decode_error": 1252,
+          "schema_error": 27
+        },
+        "inference_error_counts": {},
+        "empty_think_wrapper_count": 11468,
+        "nonempty_think_output_count": 0,
+        "batch_count": 1046,
+        "condition_wall_runtime_seconds": 4726.9642
+      }
+    }
+  }
+}
