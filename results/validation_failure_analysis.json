@@ -1,0 +1,3749 @@
+{
+  "analysis_status": "passed",
+  "analysis_version": "1.0",
+  "created_at_utc": "2026-08-17T10:25:33.582816+00:00",
+  "analysis_scope": {
+    "inference_rerun": false,
+    "model_loaded": false,
+    "test_split_accessed_by_analysis": false,
+    "validation_path": "data/processed/splits/validation.jsonl",
+    "validation_row_count": 12748,
+    "validation_sha256": "0cfb655d12bf66d83befb1a0be829ff3096139c48b5752c716a0b6489302eb5c",
+    "historical_train_only_prompt_metrics_used_as_primary_evidence": false
+  },
+  "source_artifacts": {
+    "validation_evaluation_report": "results/validation_evaluation.json",
+    "initial_training_report": "results/initial_qlora_training.json",
+    "validation_prediction_artifacts": {
+      "base_zero_shot": "results/validation_evaluation/base_zero_shot.jsonl",
+      "base_few_shot": "results/validation_evaluation/base_few_shot.jsonl",
+      "fine_tuned_zero_shot": "results/validation_evaluation/fine_tuned_zero_shot.jsonl"
+    },
+    "source_evaluation_commit_sha": "6fe6657f12c9be35d208ad871a91cd6e04d71e5d"
+  },
+  "frozen_distributions": {
+    "train": {
+      "row_count": 31876,
+      "class_counts": {
+        "bug": 19454,
+        "feature": 9936,
+        "documentation": 1390,
+        "question_support": 1096
+      },
+      "class_percentages": {
+        "bug": 61.030242,
+        "feature": 31.170787,
+        "documentation": 4.360648,
+        "question_support": 3.438324
+      }
+    },
+    "validation": {
+      "row_count": 12748,
+      "class_counts": {
+        "bug": 7298,
+        "feature": 4987,
+        "documentation": 317,
+        "question_support": 146
+      },
+      "class_percentages": {
+        "bug": 57.248196,
+        "feature": 39.119862,
+        "documentation": 2.486665,
+        "question_support": 1.145278
+      }
+    }
+  },
+  "condition_metrics": {
+    "base_zero_shot": {
+      "official_metrics_recomputed": {
+        "total_examples": 12748,
+        "correct_count": 9789,
+        "accuracy": 0.767885,
+        "macro_f1": 0.586055,
+        "valid_output_count": 11471,
+        "valid_output_percentage": 89.982742,
+        "invalid_output_count": 1277,
+        "output_parsing_error_count": 1277,
+        "status_counts": {
+          "ok": 12748
+        },
+        "per_class": {
+          "bug": {
+            "support": 7298,
+            "predicted_count": 6382,
+            "precision": 0.87073,
+            "recall": 0.761441,
+            "f1": 0.812427
+          },
+          "feature": {
+            "support": 4987,
+            "predicted_count": 4524,
+            "precision": 0.882626,
+            "recall": 0.800682,
+            "f1": 0.839659
+          },
+          "documentation": {
+            "support": 317,
+            "predicted_count": 519,
+            "precision": 0.431599,
+            "recall": 0.706625,
+            "f1": 0.535885
+          },
+          "question_support": {
+            "support": 146,
+            "predicted_count": 46,
+            "precision": 0.326087,
+            "recall": 0.10274,
+            "f1": 0.15625
+          }
+        },
+        "predicted_class_distribution": {
+          "bug": {
+            "count": 6382,
+            "percentage_of_all_rows": 50.062755,
+            "percentage_of_valid_outputs": 55.635952
+          },
+          "feature": {
+            "count": 4524,
+            "percentage_of_all_rows": 35.48792,
+            "percentage_of_valid_outputs": 39.438584
+          },
+          "documentation": {
+            "count": 519,
+            "percentage_of_all_rows": 4.071227,
+            "percentage_of_valid_outputs": 4.524453
+          },
+          "question_support": {
+            "count": 46,
+            "percentage_of_all_rows": 0.360841,
+            "percentage_of_valid_outputs": 0.401011
+          },
+          "__invalid_output__": {
+            "count": 1277,
+            "percentage_of_all_rows": 10.017258,
+            "percentage_of_valid_outputs": 11.132421
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            5557,
+            463,
+            86,
+            4,
+            1188
+          ],
+          [
+            701,
+            3993,
+            194,
+            23,
+            76
+          ],
+          [
+            41,
+            43,
+            224,
+            4,
+            5
+          ],
+          [
+            83,
+            25,
+            15,
+            15,
+            8
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "input_truncated_count": 1280,
+        "input_truncated_percentage": 10.040791,
+        "parse_error_counts": {
+          "json_decode_error: Expecting ',' delimiter": 2,
+          "json_decode_error: Expecting property name enclosed in double quotes": 2,
+          "json_decode_error: Expecting value": 832,
+          "json_decode_error: Extra data": 408,
+          "json_decode_error: Invalid control character at": 5,
+          "schema_error: expected exactly one type field": 27,
+          "schema_error: type is not an approved category": 1
+        },
+        "parse_error_family_counts": {
+          "json_decode_error": 1249,
+          "schema_error": 28
+        },
+        "nonempty_thinking_count": 0,
+        "empty_think_wrapper_count": 0
+      },
+      "valid_outputs_only_analysis": {
+        "valid_examples_analyzed": 11471,
+        "valid_classification_error_count": 1682,
+        "accuracy_among_valid_outputs": 0.853369,
+        "macro_f1_among_valid_outputs": 0.609566,
+        "per_class": {
+          "bug": {
+            "support": 6110,
+            "predicted_count": 6382,
+            "precision": 0.87073,
+            "recall": 0.909493,
+            "f1": 0.889689
+          },
+          "feature": {
+            "support": 4911,
+            "predicted_count": 4524,
+            "precision": 0.882626,
+            "recall": 0.813073,
+            "f1": 0.846423
+          },
+          "documentation": {
+            "support": 312,
+            "predicted_count": 519,
+            "precision": 0.431599,
+            "recall": 0.717949,
+            "f1": 0.53911
+          },
+          "question_support": {
+            "support": 138,
+            "predicted_count": 46,
+            "precision": 0.326087,
+            "recall": 0.108696,
+            "f1": 0.163043
+          }
+        },
+        "official_minus_valid_only_counterfactual": {
+          "accuracy_gap_attributable_to_invalid_outputs": 0.085484,
+          "macro_f1_gap_attributable_to_invalid_outputs_counterfactual": 0.023511
+        }
+      },
+      "parser_failure_analysis": {
+        "invalid_output_count": 1277,
+        "failure_categories": [
+          {
+            "exact_parser_reason": "json_decode_error: Expecting value",
+            "parser_reason_family": "json_decode_error",
+            "count": 832,
+            "percentage_of_all_rows": 6.526514,
+            "percentage_of_invalid_outputs": 65.152702,
+            "reached_max_new_tokens_count": 830,
+            "input_truncated_count": 832,
+            "representative_outputs": [
+              {
+                "evaluation_index": 1021,
+                "issue_id": 1168205842,
+                "repository": "PowerToys",
+                "expected_category": "feature",
+                "input_truncated": true,
+                "raw_model_output": "Color Organization. Characterisation Data: <https://www.color.org/chardata"
+              },
+              {
+                "evaluation_index": 1935,
+                "issue_id": 1734928722,
+                "repository": "PowerToys",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode"
+              },
+              {
+                "evaluation_index": 2700,
+                "issue_id": 2095252728,
+                "repository": "PowerToys",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": ".MouseWithoutBorders with args: \"C:\\Program Files\\PowerToys\\"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "json_decode_error: Extra data",
+            "parser_reason_family": "json_decode_error",
+            "count": 408,
+            "percentage_of_all_rows": 3.200502,
+            "percentage_of_invalid_outputs": 31.949883,
+            "reached_max_new_tokens_count": 408,
+            "input_truncated_count": 408,
+            "representative_outputs": [
+              {
+                "evaluation_index": 1177,
+                "issue_id": 1266569559,
+                "repository": "PowerToys",
+                "expected_category": "documentation",
+                "input_truncated": true,
+                "raw_model_output": "2022-06-09T21:24"
+              },
+              {
+                "evaluation_index": 1817,
+                "issue_id": 1653201659,
+                "repository": "PowerToys",
+                "expected_category": "feature",
+                "input_truncated": true,
+                "raw_model_output": "486-3224-40ec-b2c5"
+              },
+              {
+                "evaluation_index": 1892,
+                "issue_id": 1718990319,
+                "repository": "PowerToys",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "1.txt\r\n\r\n### ✅ Suggested fix\r\n\r\nStandardize naming across all modules"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "schema_error: expected exactly one type field",
+            "parser_reason_family": "schema_error",
+            "count": 27,
+            "percentage_of_all_rows": 0.211798,
+            "percentage_of_invalid_outputs": 2.11433,
+            "reached_max_new_tokens_count": 27,
+            "input_truncated_count": 27,
+            "representative_outputs": [
+              {
+                "evaluation_index": 4396,
+                "issue_id": 1816475360,
+                "repository": "node",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "3222222222222222"
+              },
+              {
+                "evaluation_index": 5477,
+                "issue_id": 309038918,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "3333333333333333"
+              },
+              {
+                "evaluation_index": 7355,
+                "issue_id": 819968775,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "1212121212121212"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "json_decode_error: Invalid control character at",
+            "parser_reason_family": "json_decode_error",
+            "count": 5,
+            "percentage_of_all_rows": 0.039222,
+            "percentage_of_invalid_outputs": 0.391543,
+            "reached_max_new_tokens_count": 5,
+            "input_truncated_count": 5,
+            "representative_outputs": [
+              {
+                "evaluation_index": 6649,
+                "issue_id": 598888285,
+                "repository": "rust",
+                "expected_category": "feature",
+                "input_truncated": true,
+                "raw_model_output": "\"\r\nversion = \"0.1.0\"\r\n\r\n[lib]\r\ncrate-type ="
+              },
+              {
+                "evaluation_index": 9449,
+                "issue_id": 2117451018,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "\"\r\n  = note: /home/wcampbell/projects/wcampbell/mus"
+              },
+              {
+                "evaluation_index": 11413,
+                "issue_id": 1433301939,
+                "repository": "storybook",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "\",\r\n    \"test:watch\": \"vitest --watch\",\r\n    \"test"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "json_decode_error: Expecting ',' delimiter",
+            "parser_reason_family": "json_decode_error",
+            "count": 2,
+            "percentage_of_all_rows": 0.015689,
+            "percentage_of_invalid_outputs": 0.156617,
+            "reached_max_new_tokens_count": 2,
+            "input_truncated_count": 2,
+            "representative_outputs": [
+              {
+                "evaluation_index": 9264,
+                "issue_id": 1995581752,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "[4ddb]::protocols::cggmp21::dps_protocol"
+              },
+              {
+                "evaluation_index": 11341,
+                "issue_id": 1380566486,
+                "repository": "storybook",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "[08:43:28] Including      : /home"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "json_decode_error: Expecting property name enclosed in double quotes",
+            "parser_reason_family": "json_decode_error",
+            "count": 2,
+            "percentage_of_all_rows": 0.015689,
+            "percentage_of_invalid_outputs": 0.156617,
+            "reached_max_new_tokens_count": 2,
+            "input_truncated_count": 2,
+            "representative_outputs": [
+              {
+                "evaluation_index": 9387,
+                "issue_id": 2069155845,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "{{closure}}::h33333333333"
+              },
+              {
+                "evaluation_index": 10634,
+                "issue_id": 2796188005,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "{closure#0}>::h333333333"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "schema_error: type is not an approved category",
+            "parser_reason_family": "schema_error",
+            "count": 1,
+            "percentage_of_all_rows": 0.007844,
+            "percentage_of_invalid_outputs": 0.078309,
+            "reached_max_new_tokens_count": 0,
+            "input_truncated_count": 0,
+            "representative_outputs": [
+              {
+                "evaluation_index": 5483,
+                "issue_id": 310116420,
+                "repository": "rust",
+                "expected_category": "feature",
+                "input_truncated": false,
+                "raw_model_output": "{\"type\":\"discussion\"}"
+              }
+            ]
+          }
+        ],
+        "nonempty_thinking_count": 0,
+        "empty_think_wrapper_stripped_count": 0,
+        "invalid_outputs_reaching_max_new_tokens": 1274,
+        "invalid_outputs_reaching_max_new_tokens_percentage": 99.765074,
+        "invalid_outputs_with_input_truncation": 1276,
+        "invalid_outputs_with_input_truncation_percentage": 99.921691,
+        "invalid_outputs_without_input_truncation": 1,
+        "invalid_output_cross_tab": {
+          "input_truncated_and_reached_max_new_tokens": 1274,
+          "input_truncated_and_did_not_reach_max_new_tokens": 2,
+          "not_input_truncated_and_reached_max_new_tokens": 0,
+          "not_input_truncated_and_did_not_reach_max_new_tokens": 1
+        }
+      },
+      "truncation_analysis": {
+        "not_truncated": {
+          "row_count": 11468,
+          "percentage_of_condition": 89.959209,
+          "accuracy": 0.853244,
+          "macro_f1": 0.609526,
+          "valid_output_percentage": 99.99128,
+          "per_class": {
+            "bug": {
+              "support": 6106,
+              "predicted_count": 6378,
+              "precision": 0.870649,
+              "recall": 0.909433,
+              "f1": 0.889619
+            },
+            "feature": {
+              "support": 4912,
+              "predicted_count": 4524,
+              "precision": 0.882626,
+              "recall": 0.812907,
+              "f1": 0.846333
+            },
+            "documentation": {
+              "support": 312,
+              "predicted_count": 519,
+              "precision": 0.431599,
+              "recall": 0.717949,
+              "f1": 0.53911
+            },
+            "question_support": {
+              "support": 138,
+              "predicted_count": 46,
+              "precision": 0.326087,
+              "recall": 0.108696,
+              "f1": 0.163043
+            }
+          }
+        },
+        "truncated": {
+          "row_count": 1280,
+          "percentage_of_condition": 10.040791,
+          "accuracy": 0.003125,
+          "macro_f1": 0.001672,
+          "valid_output_percentage": 0.3125,
+          "per_class": {
+            "bug": {
+              "support": 1192,
+              "predicted_count": 4,
+              "precision": 1.0,
+              "recall": 0.003356,
+              "f1": 0.006689
+            },
+            "feature": {
+              "support": 75,
+              "predicted_count": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "documentation": {
+              "support": 5,
+              "predicted_count": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "question_support": {
+              "support": 8,
+              "predicted_count": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          }
+        }
+      }
+    },
+    "base_few_shot": {
+      "official_metrics_recomputed": {
+        "total_examples": 12748,
+        "correct_count": 8617,
+        "accuracy": 0.675949,
+        "macro_f1": 0.560294,
+        "valid_output_count": 10193,
+        "valid_output_percentage": 79.95764,
+        "invalid_output_count": 2555,
+        "output_parsing_error_count": 2555,
+        "status_counts": {
+          "ok": 12748
+        },
+        "per_class": {
+          "bug": {
+            "support": 7298,
+            "predicted_count": 5373,
+            "precision": 0.857808,
+            "recall": 0.631543,
+            "f1": 0.727488
+          },
+          "feature": {
+            "support": 4987,
+            "predicted_count": 4026,
+            "precision": 0.928713,
+            "recall": 0.749749,
+            "f1": 0.82969
+          },
+          "documentation": {
+            "support": 317,
+            "predicted_count": 665,
+            "precision": 0.365414,
+            "recall": 0.766562,
+            "f1": 0.494908
+          },
+          "question_support": {
+            "support": 146,
+            "predicted_count": 129,
+            "precision": 0.20155,
+            "recall": 0.178082,
+            "f1": 0.189091
+          }
+        },
+        "predicted_class_distribution": {
+          "bug": {
+            "count": 5373,
+            "percentage_of_all_rows": 42.147788,
+            "percentage_of_valid_outputs": 52.712646
+          },
+          "feature": {
+            "count": 4026,
+            "percentage_of_all_rows": 31.581425,
+            "percentage_of_valid_outputs": 39.497694
+          },
+          "documentation": {
+            "count": 665,
+            "percentage_of_all_rows": 5.216505,
+            "percentage_of_valid_outputs": 6.524085
+          },
+          "question_support": {
+            "count": 129,
+            "percentage_of_all_rows": 1.011923,
+            "percentage_of_valid_outputs": 1.265574
+          },
+          "__invalid_output__": {
+            "count": 2555,
+            "percentage_of_all_rows": 20.04236,
+            "percentage_of_valid_outputs": 25.066222
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            4609,
+            257,
+            166,
+            48,
+            2218
+          ],
+          [
+            691,
+            3739,
+            241,
+            43,
+            273
+          ],
+          [
+            27,
+            16,
+            243,
+            12,
+            19
+          ],
+          [
+            46,
+            14,
+            15,
+            26,
+            45
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "input_truncated_count": 2556,
+        "input_truncated_percentage": 20.050204,
+        "parse_error_counts": {
+          "json_decode_error: Expecting ',' delimiter": 1,
+          "json_decode_error: Expecting ':' delimiter": 1,
+          "json_decode_error: Expecting property name enclosed in double quotes": 13,
+          "json_decode_error: Expecting value": 1798,
+          "json_decode_error: Extra data": 682,
+          "json_decode_error: Invalid control character at": 7,
+          "json_decode_error: Unterminated string starting at": 2,
+          "schema_error: expected exactly one type field": 51
+        },
+        "parse_error_family_counts": {
+          "json_decode_error": 2504,
+          "schema_error": 51
+        },
+        "nonempty_thinking_count": 0,
+        "empty_think_wrapper_count": 0
+      },
+      "valid_outputs_only_analysis": {
+        "valid_examples_analyzed": 10193,
+        "valid_classification_error_count": 1576,
+        "accuracy_among_valid_outputs": 0.845384,
+        "macro_f1_among_valid_outputs": 0.617055,
+        "per_class": {
+          "bug": {
+            "support": 5080,
+            "predicted_count": 5373,
+            "precision": 0.857808,
+            "recall": 0.907283,
+            "f1": 0.881852
+          },
+          "feature": {
+            "support": 4714,
+            "predicted_count": 4026,
+            "precision": 0.928713,
+            "recall": 0.793169,
+            "f1": 0.855606
+          },
+          "documentation": {
+            "support": 298,
+            "predicted_count": 665,
+            "precision": 0.365414,
+            "recall": 0.815436,
+            "f1": 0.504673
+          },
+          "question_support": {
+            "support": 101,
+            "predicted_count": 129,
+            "precision": 0.20155,
+            "recall": 0.257426,
+            "f1": 0.226087
+          }
+        },
+        "official_minus_valid_only_counterfactual": {
+          "accuracy_gap_attributable_to_invalid_outputs": 0.169435,
+          "macro_f1_gap_attributable_to_invalid_outputs_counterfactual": 0.056761
+        }
+      },
+      "parser_failure_analysis": {
+        "invalid_output_count": 2555,
+        "failure_categories": [
+          {
+            "exact_parser_reason": "json_decode_error: Expecting value",
+            "parser_reason_family": "json_decode_error",
+            "count": 1798,
+            "percentage_of_all_rows": 14.104173,
+            "percentage_of_invalid_outputs": 70.37182,
+            "reached_max_new_tokens_count": 1782,
+            "input_truncated_count": 1798,
+            "representative_outputs": [
+              {
+                "evaluation_index": 158,
+                "issue_id": 592832627,
+                "repository": "PowerToys",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "` is the key to this issue. It defines which zone a window is assigned"
+              },
+              {
+                "evaluation_index": 263,
+                "issue_id": 627806241,
+                "repository": "PowerToys",
+                "expected_category": "feature",
+                "input_truncated": true,
+                "raw_model_output": ".\"\r\n\r\n# Additional context\r\n- I have tried to open the file in browser"
+              },
+              {
+                "evaluation_index": 635,
+                "issue_id": 917990719,
+                "repository": "PowerToys",
+                "expected_category": "feature",
+                "input_truncated": true,
+                "raw_model_output": "the user wants to copy a file and keep the original metadata? This is a"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "json_decode_error: Extra data",
+            "parser_reason_family": "json_decode_error",
+            "count": 682,
+            "percentage_of_all_rows": 5.349859,
+            "percentage_of_invalid_outputs": 26.692759,
+            "reached_max_new_tokens_count": 682,
+            "input_truncated_count": 682,
+            "representative_outputs": [
+              {
+                "evaluation_index": 126,
+                "issue_id": 564516833,
+                "repository": "PowerToys",
+                "expected_category": "feature",
+                "input_truncated": true,
+                "raw_model_output": "10 seconds.`\r\n\r\n### Suggested UI/UX (see screenshot)"
+              },
+              {
+                "evaluation_index": 456,
+                "issue_id": 750595360,
+                "repository": "PowerToys",
+                "expected_category": "feature",
+                "input_truncated": true,
+                "raw_model_output": "12345 is merged. \n\n## 📝 Expected behavior"
+              },
+              {
+                "evaluation_index": 497,
+                "issue_id": 783794848,
+                "repository": "PowerToys",
+                "expected_category": "feature",
+                "input_truncated": true,
+                "raw_model_output": "333333333.png)\r\n\r\n- related discussion in Microsoft"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "schema_error: expected exactly one type field",
+            "parser_reason_family": "schema_error",
+            "count": 51,
+            "percentage_of_all_rows": 0.400063,
+            "percentage_of_invalid_outputs": 1.996086,
+            "reached_max_new_tokens_count": 51,
+            "input_truncated_count": 51,
+            "representative_outputs": [
+              {
+                "evaluation_index": 4396,
+                "issue_id": 1816475360,
+                "repository": "node",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "2322222222222222"
+              },
+              {
+                "evaluation_index": 5254,
+                "issue_id": 270362664,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "1633333333333333"
+              },
+              {
+                "evaluation_index": 7325,
+                "issue_id": 809472073,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "3333333333333333"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "json_decode_error: Expecting property name enclosed in double quotes",
+            "parser_reason_family": "json_decode_error",
+            "count": 13,
+            "percentage_of_all_rows": 0.101977,
+            "percentage_of_invalid_outputs": 0.508806,
+            "reached_max_new_tokens_count": 13,
+            "input_truncated_count": 13,
+            "representative_outputs": [
+              {
+                "evaluation_index": 4290,
+                "issue_id": 826588684,
+                "repository": "node",
+                "expected_category": "question_support",
+                "input_truncated": true,
+                "raw_model_output": "{\r\n  requestCount += 1;\r\n  requestHandler({ requestIndex: request"
+              },
+              {
+                "evaluation_index": 5575,
+                "issue_id": 329025666,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "{\r\n    fn length(line: Line) -> f32 {\r\n        unimplemented"
+              },
+              {
+                "evaluation_index": 6799,
+                "issue_id": 648086037,
+                "repository": "rust",
+                "expected_category": "feature",
+                "input_truncated": true,
+                "raw_model_output": "{\r\n                if start == 8 { return Some(2) };\r\n                if"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "json_decode_error: Invalid control character at",
+            "parser_reason_family": "json_decode_error",
+            "count": 7,
+            "percentage_of_all_rows": 0.054911,
+            "percentage_of_invalid_outputs": 0.273973,
+            "reached_max_new_tokens_count": 7,
+            "input_truncated_count": 7,
+            "representative_outputs": [
+              {
+                "evaluation_index": 4346,
+                "issue_id": 1336944678,
+                "repository": "node",
+                "expected_category": "documentation",
+                "input_truncated": true,
+                "raw_model_output": "\" MDC2, it won't work.\r\n\r\nSo I'm asking if M"
+              },
+              {
+                "evaluation_index": 9301,
+                "issue_id": 2017796459,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "\"\r\nthread 'main' panicked at 'called `Result::unwrap()` on an"
+              },
+              {
+                "evaluation_index": 9374,
+                "issue_id": 2061201893,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "\": 1,\r\n                    \"column_start\": 0,\r\n                    \"column_end"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "json_decode_error: Unterminated string starting at",
+            "parser_reason_family": "json_decode_error",
+            "count": 2,
+            "percentage_of_all_rows": 0.015689,
+            "percentage_of_invalid_outputs": 0.078278,
+            "reached_max_new_tokens_count": 2,
+            "input_truncated_count": 2,
+            "representative_outputs": [
+              {
+                "evaluation_index": 5329,
+                "issue_id": 284459694,
+                "repository": "rust",
+                "expected_category": "feature",
+                "input_truncated": true,
+                "raw_model_output": "\"/home/felix/.rustup/toolchains/stable-x86_6"
+              },
+              {
+                "evaluation_index": 10289,
+                "issue_id": 2614220597,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "\" fn multiple_named_lifetimes<T: Unpin>(_: u8,"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "json_decode_error: Expecting ',' delimiter",
+            "parser_reason_family": "json_decode_error",
+            "count": 1,
+            "percentage_of_all_rows": 0.007844,
+            "percentage_of_invalid_outputs": 0.039139,
+            "reached_max_new_tokens_count": 1,
+            "input_truncated_count": 1,
+            "representative_outputs": [
+              {
+                "evaluation_index": 10260,
+                "issue_id": 2597159746,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "[431e]::test_correct3)) (after pass CheckP"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "json_decode_error: Expecting ':' delimiter",
+            "parser_reason_family": "json_decode_error",
+            "count": 1,
+            "percentage_of_all_rows": 0.007844,
+            "percentage_of_invalid_outputs": 0.039139,
+            "reached_max_new_tokens_count": 1,
+            "input_truncated_count": 1,
+            "representative_outputs": [
+              {
+                "evaluation_index": 8999,
+                "issue_id": 1829881211,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "{\",\"highlight_start\":17,\"highlight_end\":17}],\"label"
+              }
+            ]
+          }
+        ],
+        "nonempty_thinking_count": 0,
+        "empty_think_wrapper_stripped_count": 0,
+        "invalid_outputs_reaching_max_new_tokens": 2539,
+        "invalid_outputs_reaching_max_new_tokens_percentage": 99.373777,
+        "invalid_outputs_with_input_truncation": 2555,
+        "invalid_outputs_with_input_truncation_percentage": 100.0,
+        "invalid_outputs_without_input_truncation": 0,
+        "invalid_output_cross_tab": {
+          "input_truncated_and_reached_max_new_tokens": 2539,
+          "input_truncated_and_did_not_reach_max_new_tokens": 16,
+          "not_input_truncated_and_reached_max_new_tokens": 0,
+          "not_input_truncated_and_did_not_reach_max_new_tokens": 0
+        }
+      },
+      "truncation_analysis": {
+        "not_truncated": {
+          "row_count": 10192,
+          "percentage_of_condition": 79.949796,
+          "accuracy": 0.845369,
+          "macro_f1": 0.617049,
+          "valid_output_percentage": 100.0,
+          "per_class": {
+            "bug": {
+              "support": 5079,
+              "predicted_count": 5372,
+              "precision": 0.857781,
+              "recall": 0.907265,
+              "f1": 0.881829
+            },
+            "feature": {
+              "support": 4714,
+              "predicted_count": 4026,
+              "precision": 0.928713,
+              "recall": 0.793169,
+              "f1": 0.855606
+            },
+            "documentation": {
+              "support": 298,
+              "predicted_count": 665,
+              "precision": 0.365414,
+              "recall": 0.815436,
+              "f1": 0.504673
+            },
+            "question_support": {
+              "support": 101,
+              "predicted_count": 129,
+              "precision": 0.20155,
+              "recall": 0.257426,
+              "f1": 0.226087
+            }
+          }
+        },
+        "truncated": {
+          "row_count": 2556,
+          "percentage_of_condition": 20.050204,
+          "accuracy": 0.000391,
+          "macro_f1": 0.000225,
+          "valid_output_percentage": 0.039124,
+          "per_class": {
+            "bug": {
+              "support": 2219,
+              "predicted_count": 1,
+              "precision": 1.0,
+              "recall": 0.000451,
+              "f1": 0.000901
+            },
+            "feature": {
+              "support": 273,
+              "predicted_count": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "documentation": {
+              "support": 19,
+              "predicted_count": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "question_support": {
+              "support": 45,
+              "predicted_count": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          }
+        }
+      }
+    },
+    "fine_tuned_zero_shot": {
+      "official_metrics_recomputed": {
+        "total_examples": 12748,
+        "correct_count": 9830,
+        "accuracy": 0.771101,
+        "macro_f1": 0.579723,
+        "valid_output_count": 11469,
+        "valid_output_percentage": 89.967054,
+        "invalid_output_count": 1279,
+        "output_parsing_error_count": 1279,
+        "status_counts": {
+          "ok": 12748
+        },
+        "per_class": {
+          "bug": {
+            "support": 7298,
+            "predicted_count": 6253,
+            "precision": 0.879578,
+            "recall": 0.753631,
+            "f1": 0.811748
+          },
+          "feature": {
+            "support": 4987,
+            "predicted_count": 4575,
+            "precision": 0.896612,
+            "recall": 0.822539,
+            "f1": 0.85798
+          },
+          "documentation": {
+            "support": 317,
+            "predicted_count": 613,
+            "precision": 0.344209,
+            "recall": 0.665615,
+            "f1": 0.453763
+          },
+          "question_support": {
+            "support": 146,
+            "predicted_count": 28,
+            "precision": 0.607143,
+            "recall": 0.116438,
+            "f1": 0.195402
+          }
+        },
+        "predicted_class_distribution": {
+          "bug": {
+            "count": 6253,
+            "percentage_of_all_rows": 49.050832,
+            "percentage_of_valid_outputs": 54.520882
+          },
+          "feature": {
+            "count": 4575,
+            "percentage_of_all_rows": 35.887982,
+            "percentage_of_valid_outputs": 39.890139
+          },
+          "documentation": {
+            "count": 613,
+            "percentage_of_all_rows": 4.808597,
+            "percentage_of_valid_outputs": 5.344843
+          },
+          "question_support": {
+            "count": 28,
+            "percentage_of_all_rows": 0.219642,
+            "percentage_of_valid_outputs": 0.244136
+          },
+          "__invalid_output__": {
+            "count": 1279,
+            "percentage_of_all_rows": 10.032946,
+            "percentage_of_valid_outputs": 11.151801
+          }
+        },
+        "confusion_matrix_labels": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support",
+          "__invalid_output__"
+        ],
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            5500,
+            429,
+            176,
+            2,
+            1191
+          ],
+          [
+            584,
+            4102,
+            218,
+            8,
+            75
+          ],
+          [
+            74,
+            26,
+            211,
+            1,
+            5
+          ],
+          [
+            95,
+            18,
+            8,
+            17,
+            8
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "input_truncated_count": 1280,
+        "input_truncated_percentage": 10.040791,
+        "parse_error_counts": {
+          "json_decode_error: Expecting ',' delimiter": 2,
+          "json_decode_error: Expecting property name enclosed in double quotes": 2,
+          "json_decode_error: Expecting value": 834,
+          "json_decode_error: Extra data": 410,
+          "json_decode_error: Invalid control character at": 4,
+          "schema_error: expected exactly one type field": 27
+        },
+        "parse_error_family_counts": {
+          "json_decode_error": 1252,
+          "schema_error": 27
+        },
+        "nonempty_thinking_count": 0,
+        "empty_think_wrapper_count": 11468
+      },
+      "valid_outputs_only_analysis": {
+        "valid_examples_analyzed": 11469,
+        "valid_classification_error_count": 1639,
+        "accuracy_among_valid_outputs": 0.857093,
+        "macro_f1_among_valid_outputs": 0.603941,
+        "per_class": {
+          "bug": {
+            "support": 6107,
+            "predicted_count": 6253,
+            "precision": 0.879578,
+            "recall": 0.900606,
+            "f1": 0.889968
+          },
+          "feature": {
+            "support": 4912,
+            "predicted_count": 4575,
+            "precision": 0.896612,
+            "recall": 0.835098,
+            "f1": 0.864762
+          },
+          "documentation": {
+            "support": 312,
+            "predicted_count": 613,
+            "precision": 0.344209,
+            "recall": 0.676282,
+            "f1": 0.456216
+          },
+          "question_support": {
+            "support": 138,
+            "predicted_count": 28,
+            "precision": 0.607143,
+            "recall": 0.123188,
+            "f1": 0.204819
+          }
+        },
+        "official_minus_valid_only_counterfactual": {
+          "accuracy_gap_attributable_to_invalid_outputs": 0.085992,
+          "macro_f1_gap_attributable_to_invalid_outputs_counterfactual": 0.024218
+        }
+      },
+      "parser_failure_analysis": {
+        "invalid_output_count": 1279,
+        "failure_categories": [
+          {
+            "exact_parser_reason": "json_decode_error: Expecting value",
+            "parser_reason_family": "json_decode_error",
+            "count": 834,
+            "percentage_of_all_rows": 6.542203,
+            "percentage_of_invalid_outputs": 65.207193,
+            "reached_max_new_tokens_count": 817,
+            "input_truncated_count": 834,
+            "representative_outputs": [
+              {
+                "evaluation_index": 1021,
+                "issue_id": 1168205842,
+                "repository": "PowerToys",
+                "expected_category": "feature",
+                "input_truncated": true,
+                "raw_model_output": "Color Data: <https://www.color.org/chardata/drsection1.x"
+              },
+              {
+                "evaluation_index": 1935,
+                "issue_id": 1734928722,
+                "repository": "PowerToys",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode"
+              },
+              {
+                "evaluation_index": 2700,
+                "issue_id": 2095252728,
+                "repository": "PowerToys",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "Mouse Without Borders\r\n[2024-01-23"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "json_decode_error: Extra data",
+            "parser_reason_family": "json_decode_error",
+            "count": 410,
+            "percentage_of_all_rows": 3.216191,
+            "percentage_of_invalid_outputs": 32.056294,
+            "reached_max_new_tokens_count": 409,
+            "input_truncated_count": 410,
+            "representative_outputs": [
+              {
+                "evaluation_index": 1177,
+                "issue_id": 1266569559,
+                "repository": "PowerToys",
+                "expected_category": "documentation",
+                "input_truncated": true,
+                "raw_model_output": "2022-06-09T21:24"
+              },
+              {
+                "evaluation_index": 1817,
+                "issue_id": 1653201659,
+                "repository": "PowerToys",
+                "expected_category": "feature",
+                "input_truncated": true,
+                "raw_model_output": "486-3224-40ec-b2c5"
+              },
+              {
+                "evaluation_index": 1892,
+                "issue_id": 1718990319,
+                "repository": "PowerToys",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "1.txt\r\n\r\n## {Module}\\Logs\\{module}-log_{date}."
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "schema_error: expected exactly one type field",
+            "parser_reason_family": "schema_error",
+            "count": 27,
+            "percentage_of_all_rows": 0.211798,
+            "percentage_of_invalid_outputs": 2.111024,
+            "reached_max_new_tokens_count": 27,
+            "input_truncated_count": 27,
+            "representative_outputs": [
+              {
+                "evaluation_index": 4396,
+                "issue_id": 1816475360,
+                "repository": "node",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "3222222222222222"
+              },
+              {
+                "evaluation_index": 5477,
+                "issue_id": 309038918,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "3333333333333333"
+              },
+              {
+                "evaluation_index": 7355,
+                "issue_id": 819968775,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "1212121212121212"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "json_decode_error: Invalid control character at",
+            "parser_reason_family": "json_decode_error",
+            "count": 4,
+            "percentage_of_all_rows": 0.031377,
+            "percentage_of_invalid_outputs": 0.312744,
+            "reached_max_new_tokens_count": 3,
+            "input_truncated_count": 4,
+            "representative_outputs": [
+              {
+                "evaluation_index": 6649,
+                "issue_id": 598888285,
+                "repository": "rust",
+                "expected_category": "feature",
+                "input_truncated": true,
+                "raw_model_output": "\"\r\nversion = \"0.0.0\"\r\n\r\n[lib]\r\ncrate-type ="
+              },
+              {
+                "evaluation_index": 11413,
+                "issue_id": 1433301939,
+                "repository": "storybook",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "\",\r\n    \"test:watch\": \"vitest -w\"\r\n  },"
+              },
+              {
+                "evaluation_index": 12022,
+                "issue_id": 1963082006,
+                "repository": "storybook",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "\"'\r\n    }\r\n  ]\r\n}\r\n{\"type\":\"bug\"}"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "json_decode_error: Expecting ',' delimiter",
+            "parser_reason_family": "json_decode_error",
+            "count": 2,
+            "percentage_of_all_rows": 0.015689,
+            "percentage_of_invalid_outputs": 0.156372,
+            "reached_max_new_tokens_count": 2,
+            "input_truncated_count": 2,
+            "representative_outputs": [
+              {
+                "evaluation_index": 9264,
+                "issue_id": 1995581752,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "[4ddb]::protocols::cggmp21::dps_protocol"
+              },
+              {
+                "evaluation_index": 11341,
+                "issue_id": 1380566486,
+                "repository": "storybook",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "[08:43:28] Including      : /home"
+              }
+            ]
+          },
+          {
+            "exact_parser_reason": "json_decode_error: Expecting property name enclosed in double quotes",
+            "parser_reason_family": "json_decode_error",
+            "count": 2,
+            "percentage_of_all_rows": 0.015689,
+            "percentage_of_invalid_outputs": 0.156372,
+            "reached_max_new_tokens_count": 2,
+            "input_truncated_count": 2,
+            "representative_outputs": [
+              {
+                "evaluation_index": 9387,
+                "issue_id": 2069155845,
+                "repository": "rust",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "{{closure}}::h33333333333"
+              },
+              {
+                "evaluation_index": 11109,
+                "issue_id": 1078300240,
+                "repository": "storybook",
+                "expected_category": "bug",
+                "input_truncated": true,
+                "raw_model_output": "{\r\n          '1': '0px 1px 3px 0"
+              }
+            ]
+          }
+        ],
+        "nonempty_thinking_count": 0,
+        "empty_think_wrapper_stripped_count": 11468,
+        "invalid_outputs_reaching_max_new_tokens": 1260,
+        "invalid_outputs_reaching_max_new_tokens_percentage": 98.514464,
+        "invalid_outputs_with_input_truncation": 1279,
+        "invalid_outputs_with_input_truncation_percentage": 100.0,
+        "invalid_outputs_without_input_truncation": 0,
+        "invalid_output_cross_tab": {
+          "input_truncated_and_reached_max_new_tokens": 1260,
+          "input_truncated_and_did_not_reach_max_new_tokens": 19,
+          "not_input_truncated_and_reached_max_new_tokens": 0,
+          "not_input_truncated_and_did_not_reach_max_new_tokens": 0
+        }
+      },
+      "truncation_analysis": {
+        "not_truncated": {
+          "row_count": 11468,
+          "percentage_of_condition": 89.959209,
+          "accuracy": 0.857081,
+          "macro_f1": 0.603937,
+          "valid_output_percentage": 100.0,
+          "per_class": {
+            "bug": {
+              "support": 6106,
+              "predicted_count": 6252,
+              "precision": 0.879559,
+              "recall": 0.90059,
+              "f1": 0.88995
+            },
+            "feature": {
+              "support": 4912,
+              "predicted_count": 4575,
+              "precision": 0.896612,
+              "recall": 0.835098,
+              "f1": 0.864762
+            },
+            "documentation": {
+              "support": 312,
+              "predicted_count": 613,
+              "precision": 0.344209,
+              "recall": 0.676282,
+              "f1": 0.456216
+            },
+            "question_support": {
+              "support": 138,
+              "predicted_count": 28,
+              "precision": 0.607143,
+              "recall": 0.123188,
+              "f1": 0.204819
+            }
+          }
+        },
+        "truncated": {
+          "row_count": 1280,
+          "percentage_of_condition": 10.040791,
+          "accuracy": 0.000781,
+          "macro_f1": 0.000419,
+          "valid_output_percentage": 0.078125,
+          "per_class": {
+            "bug": {
+              "support": 1192,
+              "predicted_count": 1,
+              "precision": 1.0,
+              "recall": 0.000839,
+              "f1": 0.001676
+            },
+            "feature": {
+              "support": 75,
+              "predicted_count": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "documentation": {
+              "support": 5,
+              "predicted_count": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "question_support": {
+              "support": 8,
+              "predicted_count": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          }
+        }
+      }
+    }
+  },
+  "cross_condition_truncation_comparison": {
+    "not_truncated": {
+      "base_zero_shot": {
+        "row_count": 11468,
+        "accuracy": 0.853244,
+        "macro_f1": 0.609526,
+        "valid_output_percentage": 99.99128
+      },
+      "base_few_shot": {
+        "row_count": 10192,
+        "accuracy": 0.845369,
+        "macro_f1": 0.617049,
+        "valid_output_percentage": 100.0
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 11468,
+        "accuracy": 0.857081,
+        "macro_f1": 0.603937,
+        "valid_output_percentage": 100.0
+      }
+    },
+    "truncated": {
+      "base_zero_shot": {
+        "row_count": 1280,
+        "accuracy": 0.003125,
+        "macro_f1": 0.001672,
+        "valid_output_percentage": 0.3125
+      },
+      "base_few_shot": {
+        "row_count": 2556,
+        "accuracy": 0.000391,
+        "macro_f1": 0.000225,
+        "valid_output_percentage": 0.039124
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 1280,
+        "accuracy": 0.000781,
+        "macro_f1": 0.000419,
+        "valid_output_percentage": 0.078125
+      }
+    },
+    "interpretation": "The truncation strata are condition-specific because few-shot demonstrations change prompt length; they are descriptive, not paired subsets. If few-shot remains below base zero-shot within its own non-truncated stratum, its lower score is not plausibly explained by truncation alone."
+  },
+  "per_class_comparison": {
+    "bug": {
+      "support": 7298,
+      "base_zero_shot": {
+        "support": 7298,
+        "predicted_count": 6382,
+        "precision": 0.87073,
+        "recall": 0.761441,
+        "f1": 0.812427
+      },
+      "base_few_shot": {
+        "support": 7298,
+        "predicted_count": 5373,
+        "precision": 0.857808,
+        "recall": 0.631543,
+        "f1": 0.727488
+      },
+      "fine_tuned_zero_shot": {
+        "support": 7298,
+        "predicted_count": 6253,
+        "precision": 0.879578,
+        "recall": 0.753631,
+        "f1": 0.811748
+      },
+      "fine_minus_base_zero_shot": {
+        "precision": 0.008848,
+        "recall": -0.00781,
+        "f1": -0.000679
+      }
+    },
+    "feature": {
+      "support": 4987,
+      "base_zero_shot": {
+        "support": 4987,
+        "predicted_count": 4524,
+        "precision": 0.882626,
+        "recall": 0.800682,
+        "f1": 0.839659
+      },
+      "base_few_shot": {
+        "support": 4987,
+        "predicted_count": 4026,
+        "precision": 0.928713,
+        "recall": 0.749749,
+        "f1": 0.82969
+      },
+      "fine_tuned_zero_shot": {
+        "support": 4987,
+        "predicted_count": 4575,
+        "precision": 0.896612,
+        "recall": 0.822539,
+        "f1": 0.85798
+      },
+      "fine_minus_base_zero_shot": {
+        "precision": 0.013986,
+        "recall": 0.021857,
+        "f1": 0.018321
+      }
+    },
+    "documentation": {
+      "support": 317,
+      "base_zero_shot": {
+        "support": 317,
+        "predicted_count": 519,
+        "precision": 0.431599,
+        "recall": 0.706625,
+        "f1": 0.535885
+      },
+      "base_few_shot": {
+        "support": 317,
+        "predicted_count": 665,
+        "precision": 0.365414,
+        "recall": 0.766562,
+        "f1": 0.494908
+      },
+      "fine_tuned_zero_shot": {
+        "support": 317,
+        "predicted_count": 613,
+        "precision": 0.344209,
+        "recall": 0.665615,
+        "f1": 0.453763
+      },
+      "fine_minus_base_zero_shot": {
+        "precision": -0.08739,
+        "recall": -0.04101,
+        "f1": -0.082122
+      }
+    },
+    "question_support": {
+      "support": 146,
+      "base_zero_shot": {
+        "support": 146,
+        "predicted_count": 46,
+        "precision": 0.326087,
+        "recall": 0.10274,
+        "f1": 0.15625
+      },
+      "base_few_shot": {
+        "support": 146,
+        "predicted_count": 129,
+        "precision": 0.20155,
+        "recall": 0.178082,
+        "f1": 0.189091
+      },
+      "fine_tuned_zero_shot": {
+        "support": 146,
+        "predicted_count": 28,
+        "precision": 0.607143,
+        "recall": 0.116438,
+        "f1": 0.195402
+      },
+      "fine_minus_base_zero_shot": {
+        "precision": 0.281056,
+        "recall": 0.013698,
+        "f1": 0.039152
+      }
+    }
+  },
+  "confusion_analysis": {
+    "base_zero_shot_error_destinations": {
+      "bug": {
+        "error_count": 1741,
+        "destinations": {
+          "bug": 0,
+          "feature": 463,
+          "documentation": 86,
+          "question_support": 4,
+          "__invalid_output__": 1188
+        }
+      },
+      "feature": {
+        "error_count": 994,
+        "destinations": {
+          "bug": 701,
+          "feature": 0,
+          "documentation": 194,
+          "question_support": 23,
+          "__invalid_output__": 76
+        }
+      },
+      "documentation": {
+        "error_count": 93,
+        "destinations": {
+          "bug": 41,
+          "feature": 43,
+          "documentation": 0,
+          "question_support": 4,
+          "__invalid_output__": 5
+        }
+      },
+      "question_support": {
+        "error_count": 131,
+        "destinations": {
+          "bug": 83,
+          "feature": 25,
+          "documentation": 15,
+          "question_support": 0,
+          "__invalid_output__": 8
+        }
+      }
+    },
+    "fine_tuned_zero_shot_error_destinations": {
+      "bug": {
+        "error_count": 1798,
+        "destinations": {
+          "bug": 0,
+          "feature": 429,
+          "documentation": 176,
+          "question_support": 2,
+          "__invalid_output__": 1191
+        }
+      },
+      "feature": {
+        "error_count": 885,
+        "destinations": {
+          "bug": 584,
+          "feature": 0,
+          "documentation": 218,
+          "question_support": 8,
+          "__invalid_output__": 75
+        }
+      },
+      "documentation": {
+        "error_count": 106,
+        "destinations": {
+          "bug": 74,
+          "feature": 26,
+          "documentation": 0,
+          "question_support": 1,
+          "__invalid_output__": 5
+        }
+      },
+      "question_support": {
+        "error_count": 129,
+        "destinations": {
+          "bug": 95,
+          "feature": 18,
+          "documentation": 8,
+          "question_support": 0,
+          "__invalid_output__": 8
+        }
+      }
+    },
+    "selected_transitions": {
+      "documentation_to_bug": {
+        "base_zero_shot": 41,
+        "fine_tuned_zero_shot": 74,
+        "fine_minus_base": 33
+      },
+      "documentation_to_feature": {
+        "base_zero_shot": 43,
+        "fine_tuned_zero_shot": 26,
+        "fine_minus_base": -17
+      },
+      "documentation_to_question_support": {
+        "base_zero_shot": 4,
+        "fine_tuned_zero_shot": 1,
+        "fine_minus_base": -3
+      },
+      "question_support_to_bug": {
+        "base_zero_shot": 83,
+        "fine_tuned_zero_shot": 95,
+        "fine_minus_base": 12
+      },
+      "question_support_to_feature": {
+        "base_zero_shot": 25,
+        "fine_tuned_zero_shot": 18,
+        "fine_minus_base": -7
+      },
+      "question_support_to_documentation": {
+        "base_zero_shot": 15,
+        "fine_tuned_zero_shot": 8,
+        "fine_minus_base": -7
+      },
+      "bug_to_feature": {
+        "base_zero_shot": 463,
+        "fine_tuned_zero_shot": 429,
+        "fine_minus_base": -34
+      },
+      "feature_to_bug": {
+        "base_zero_shot": 701,
+        "fine_tuned_zero_shot": 584,
+        "fine_minus_base": -117
+      }
+    },
+    "fine_minus_base_confusion_matrix": [
+      [
+        -57,
+        -34,
+        90,
+        -2,
+        3
+      ],
+      [
+        -117,
+        109,
+        24,
+        -15,
+        -1
+      ],
+      [
+        33,
+        -17,
+        -13,
+        -3,
+        0
+      ],
+      [
+        12,
+        -7,
+        -7,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "fine_minus_base_per_class": {
+      "bug": {
+        "precision": 0.008848,
+        "recall": -0.00781,
+        "f1": -0.000679
+      },
+      "feature": {
+        "precision": 0.013986,
+        "recall": 0.021857,
+        "f1": 0.018321
+      },
+      "documentation": {
+        "precision": -0.08739,
+        "recall": -0.04101,
+        "f1": -0.082122
+      },
+      "question_support": {
+        "precision": 0.281056,
+        "recall": 0.013698,
+        "f1": 0.039152
+      }
+    }
+  },
+  "prediction_distribution_analysis": {
+    "true_validation_distribution": {
+      "counts": {
+        "bug": 7298,
+        "feature": 4987,
+        "documentation": 317,
+        "question_support": 146
+      },
+      "percentages": {
+        "bug": 57.248196,
+        "feature": 39.119862,
+        "documentation": 2.486665,
+        "question_support": 1.145278
+      }
+    },
+    "base_zero_shot": {
+      "all_rows_denominator": 12748,
+      "all_rows": {
+        "bug": {
+          "count": 6382,
+          "percentage": 50.062755
+        },
+        "feature": {
+          "count": 4524,
+          "percentage": 35.48792
+        },
+        "documentation": {
+          "count": 519,
+          "percentage": 4.071227
+        },
+        "question_support": {
+          "count": 46,
+          "percentage": 0.360841
+        },
+        "__invalid_output__": {
+          "count": 1277,
+          "percentage": 10.017258
+        }
+      },
+      "valid_outputs_denominator": 11471,
+      "valid_outputs_only": {
+        "bug": {
+          "count": 6382,
+          "percentage": 55.635952
+        },
+        "feature": {
+          "count": 4524,
+          "percentage": 39.438584
+        },
+        "documentation": {
+          "count": 519,
+          "percentage": 4.524453
+        },
+        "question_support": {
+          "count": 46,
+          "percentage": 0.401011
+        }
+      }
+    },
+    "fine_tuned_zero_shot": {
+      "all_rows_denominator": 12748,
+      "all_rows": {
+        "bug": {
+          "count": 6253,
+          "percentage": 49.050832
+        },
+        "feature": {
+          "count": 4575,
+          "percentage": 35.887982
+        },
+        "documentation": {
+          "count": 613,
+          "percentage": 4.808597
+        },
+        "question_support": {
+          "count": 28,
+          "percentage": 0.219642
+        },
+        "__invalid_output__": {
+          "count": 1279,
+          "percentage": 10.032946
+        }
+      },
+      "valid_outputs_denominator": 11469,
+      "valid_outputs_only": {
+        "bug": {
+          "count": 6253,
+          "percentage": 54.520882
+        },
+        "feature": {
+          "count": 4575,
+          "percentage": 39.890139
+        },
+        "documentation": {
+          "count": 613,
+          "percentage": 5.344843
+        },
+        "question_support": {
+          "count": 28,
+          "percentage": 0.244136
+        }
+      }
+    },
+    "fine_minus_base_predicted_counts": {
+      "bug": -129,
+      "feature": 51,
+      "documentation": 94,
+      "question_support": -18,
+      "__invalid_output__": 2
+    },
+    "training_prior_distance": {
+      "distance_definition": "L1 distance between four-class proportions among valid outputs and the natural train class prior; lower means closer.",
+      "base_zero_shot_l1_distance": 0.168632,
+      "fine_tuned_zero_shot_l1_distance": 0.194071,
+      "fine_minus_base_l1_distance": 0.025439
+    }
+  },
+  "paired_validation_analysis": {
+    "counts": {
+      "both_correct": 9320,
+      "base_wrong_fine_correct": 510,
+      "base_correct_fine_wrong": 469,
+      "both_wrong": 2449
+    },
+    "by_true_class": {
+      "bug": {
+        "both_correct": 5263,
+        "base_correct_fine_wrong": 294,
+        "base_wrong_fine_correct": 237,
+        "both_wrong": 1504
+      },
+      "feature": {
+        "both_correct": 3857,
+        "base_correct_fine_wrong": 136,
+        "base_wrong_fine_correct": 245,
+        "both_wrong": 749
+      },
+      "documentation": {
+        "both_correct": 192,
+        "base_correct_fine_wrong": 32,
+        "base_wrong_fine_correct": 19,
+        "both_wrong": 74
+      },
+      "question_support": {
+        "both_correct": 8,
+        "base_correct_fine_wrong": 7,
+        "base_wrong_fine_correct": 9,
+        "both_wrong": 122
+      }
+    },
+    "fine_fixes_base_examples": [
+      {
+        "evaluation_index": 1,
+        "issue_id": 520538353,
+        "repository": "CS-Notes",
+        "expected_category": "question_support",
+        "title": "二分查找的区间为何是 0 到 len(nums) 而不是 len(nums)",
+        "body_excerpt": "在使用二分查找来查找区间时，[该题](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.md#6-%E6%9F%A5%E6%89%BE%E5%8C%BA%E9%97%B4)中h的初始值为何要设置为len(nums)？其他题中设置的均为len(nums)-1\r\n```private int binarySearch(int[] nums, int target) {\r\n    int l = 0, h = nums.length; // 注意 h 的初始值\r\n    while (l < h) {\r\n        int m = l + (h - l) / 2;\r\n        if (nums[m] >= target) {\r\n            h = m;\r\n        } else {\r\n            l = m + 1;\r\n        }\r\n    }\r\n    return l;\r\n}\r\n\r\nhttps://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.md#6-%E6%9F%A5%E6%89%BE%E5%8C%BA%E9%97%B4",
+        "base_prediction": "documentation",
+        "fine_tuned_prediction": "question_support",
+        "base_raw_model_output": "{\"type\":\"documentation\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"question_support\"}"
+      },
+      {
+        "evaluation_index": 32,
+        "issue_id": 443143922,
+        "repository": "PowerToys",
+        "expected_category": "feature",
+        "title": "Default Printer Changer from Tray",
+        "body_excerpt": "Some years ago (over 17) I wrote  a utility that allowed you to quickly change the default printer from the system tray.  It was written in the time of the original power tools and was standard Win32 API.  The code is at https://github.com/timlegge/printers if you or anyone else is interested in it.  \r\n\r\nAlways found it to be a useful utility.\r\n\r\nTIm",
+        "base_prediction": "question_support",
+        "fine_tuned_prediction": "feature",
+        "base_raw_model_output": "{\"type\":\"question_support\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"feature\"}"
+      },
+      {
+        "evaluation_index": 57,
+        "issue_id": 489879752,
+        "repository": "PowerToys",
+        "expected_category": "feature",
+        "title": "[Shortcut Guide] Shortcuts list [tracker]",
+        "body_excerpt": "total list from MSFT support: https://support.microsoft.com/en-us/help/12445/windows-keyboard-shortcuts\r\n\r\nThis list will be added into #890 with v2 of shortcut guide.\r\n\r\nCombination | Effect\r\n-- | --\r\nWin + Esc | Close magnification\r\nWin + Enter | Narrator (Below 19h1)\r\nWin + Pause | System Window\r\nWin + PrtScn | Capture screenshot\r\nWin + Space | Switch Keyboard Layout\r\nWin + Tab | Open Timeline\r\nWin + ; | Emoji Keyboard Pop up\r\nWin + . | Emoji Keyboard Pop up\r\nWin + , | Peek at desktop\r\nWin + +/- | Magnifier\r\n---|---\r\nWin + A | Action Center\r\nWin + B | Focus system tray\r\nWin + C | Cortana (doesn't work on 1909)\r\nWin + D | Display & hide desktop\r\nWin + E | File Explorer \r\nWin + F | Open Fee",
+        "base_prediction": "documentation",
+        "fine_tuned_prediction": "feature",
+        "base_raw_model_output": "{\"type\":\"documentation\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"feature\"}"
+      },
+      {
+        "evaluation_index": 179,
+        "issue_id": 605821766,
+        "repository": "PowerToys",
+        "expected_category": "bug",
+        "title": "Invalid drop down selection in KBM results in a empty selection",
+        "body_excerpt": "Currently if the user enters invalid input we just reset the selection to null. We should consider resetting it to the last valid selection.\r\n![kbmInvalidselection](https://user-images.githubusercontent.com/32061677/80143182-4a1da480-8561-11ea-9ab6-944045efd3e1.gif)\r\nIn the above example, when the warning is shown maybe it could revert back to `F5` instead of an empty selection.\r\n",
+        "base_prediction": "feature",
+        "fine_tuned_prediction": "bug",
+        "base_raw_model_output": "{\"type\":\"feature\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"bug\"}"
+      },
+      {
+        "evaluation_index": 206,
+        "issue_id": 621151436,
+        "repository": "PowerToys",
+        "expected_category": "bug",
+        "title": "[Run] Launching a process starts it in `c:\\Program Files\\PowerToys` (default working directory)",
+        "body_excerpt": "<!--\r\n**Important: When reporting BSODs or security issues, DO NOT attach memory dumps, logs, or traces to Github issues**.\r\nInstead, send dumps/traces to secure@microsoft.com, referencing this GitHub issue.\r\n-->\r\n\r\n# Environment\r\n\r\n```\r\nWindows build number: `_dep.200508`\r\nPowerToys version: 0.18\r\nPowerToy module for which you are reporting the bug (if applicable): Launcher\r\n```\r\n\r\n# Steps to reproduce\r\n\r\n* Configure your default profile in the Windows Terminal to _not_ have a `startingDirectory`, so that the Terminal will use your current path as the starting directory.\r\n* Run `> wt` to launch the terminal\r\n\r\n# Expected behavior\r\n\r\nWhen I run programs in the <kbd>Win+R</kbd> run dialog, th",
+        "base_prediction": "feature",
+        "fine_tuned_prediction": "bug",
+        "base_raw_model_output": "{\"type\":\"feature\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"bug\"}"
+      },
+      {
+        "evaluation_index": 1576,
+        "issue_id": 1497991113,
+        "repository": "PowerToys",
+        "expected_category": "documentation",
+        "title": "PowerToys Run Ordering Results not working!",
+        "body_excerpt": "### Provide a description of requested docs changes\n\nhey guys,\r\nin powertoys Run (which i use the most amont all tools) i need it whenever i search for something it shows up the folders first not the files, even tho i changed and used the \"global sort order score modifer\" but still no difference. \r\nit used to be normal and usually folders were higher in search results but idk if it was after a update or windows change or sth but then now i dont know how to fix it. \r\nfixing this would be a big help for me, Thanks",
+        "base_prediction": "feature",
+        "fine_tuned_prediction": "documentation",
+        "base_raw_model_output": "{\"type\":\"feature\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"documentation\"}"
+      },
+      {
+        "evaluation_index": 1710,
+        "issue_id": 1605198190,
+        "repository": "PowerToys",
+        "expected_category": "documentation",
+        "title": "Paste as plain text url generates a 404",
+        "body_excerpt": "### Provide a description of requested docs changes\n\nThe \"Paste as Plain text\" link in the \"Current Utilities\" section generates a 404.",
+        "base_prediction": "bug",
+        "fine_tuned_prediction": "documentation",
+        "base_raw_model_output": "{\"type\":\"bug\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"documentation\"}"
+      },
+      {
+        "evaluation_index": 4211,
+        "issue_id": 135881553,
+        "repository": "javascript",
+        "expected_category": "question_support",
+        "title": "single return vs multiple returns",
+        "body_excerpt": "I see some examples of multiple returns but don't see any guidelines defined that say it explicitly.\nIs there a preference between a single return where a variable is assigned the output value vs just having multiple return statements?\n\n```\nfunction isGood(battery) {\n  if (battery.charge) {\n    return true;\n  }\n\n  if (battery.cycles < 10) {\n    return true;\n  }\n\n  return false;\n}\n```\n\nvs. \n\n```\nfunction isGood(battery) {\n  let out = false;\n  if (battery.charge) {\n    out = true;\n  }\n\n  if (battery.cycles < 10) {\n    out = true;\n  }\n\n  return out;\n}\n```\n",
+        "base_prediction": "documentation",
+        "fine_tuned_prediction": "question_support",
+        "base_raw_model_output": "{\"type\":\"documentation\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"question_support\"}"
+      }
+    ],
+    "fine_breaks_base_examples": [
+      {
+        "evaluation_index": 6,
+        "issue_id": 441087583,
+        "repository": "PowerToys",
+        "expected_category": "feature",
+        "title": "Disable Sticky Corners in aero snap",
+        "body_excerpt": "When moving the mouse from one monitor to the other it gets stuck because of the \"sticky corners\".\r\n\r\nSo for example, if you want to close a window in the right monitor but your mouse is on the left monitor, you end inadvertently closing the window of the left monitor as the mouse gets stuck in the close button.\r\n\r\nThe problem is described in detail here https://superuser.com/questions/947817/how-to-disable-sticky-corners-in-windows-10\r\n\r\nA workaround https://github.com/patricknelson/win10-sticky-mouse",
+        "base_prediction": "feature",
+        "fine_tuned_prediction": "bug",
+        "base_raw_model_output": "{\"type\":\"feature\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"bug\"}"
+      },
+      {
+        "evaluation_index": 53,
+        "issue_id": 489878492,
+        "repository": "PowerToys",
+        "expected_category": "feature",
+        "title": "Drag to edge of screen automatically switches virtual desktops",
+        "body_excerpt": "",
+        "base_prediction": "feature",
+        "fine_tuned_prediction": "bug",
+        "base_raw_model_output": "{\"type\":\"feature\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"bug\"}"
+      },
+      {
+        "evaluation_index": 2698,
+        "issue_id": 2095032183,
+        "repository": "PowerToys",
+        "expected_category": "bug",
+        "title": "Please revert back Fancy Zone's activation logic",
+        "body_excerpt": "### Description of the new feature / enhancement\n\n> If both Hold Shift key to activate zones while dragging and Use non-primary mouse button to toggle zone activation are cleared, zones will appear immediately after you start dragging the window.\r\n\r\nHolding down shift key to activate makes it IMPOSSIBLE to type any keys that requires shift, such as all the punctuation marks \"!@#$%^&*\". It's the same problem with non-primary mouse buttons. If I clear both, then I won't be able to move my windows around freely. These activation methods are many steps backwards. There's nothing wrong with the old method\n\n### Scenario when this would be used?\n\nAny time I DON'T want to use fancy zone\n\n### Support",
+        "base_prediction": "bug",
+        "fine_tuned_prediction": "feature",
+        "base_raw_model_output": "{\"type\":\"bug\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"feature\"}"
+      },
+      {
+        "evaluation_index": 3833,
+        "issue_id": 2670518565,
+        "repository": "PowerToys",
+        "expected_category": "documentation",
+        "title": "Scroll to find them every time.",
+        "body_excerpt": "### Provide a description of requested docs changes\n\nKeyboardManager is great. I often change the functions of Hotkeys. However, it is a pain to have to scroll to find them every time.",
+        "base_prediction": "documentation",
+        "fine_tuned_prediction": "feature",
+        "base_raw_model_output": "{\"type\":\"documentation\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"feature\"}"
+      },
+      {
+        "evaluation_index": 4191,
+        "issue_id": 324865207,
+        "repository": "gin",
+        "expected_category": "question_support",
+        "title": "how do i get response body in after router middleware?",
+        "body_excerpt": "rt\r\n\r\n```\r\nr := gin.Default()\r\nr.GET(\"/test\",handler,middleware())\r\n\r\nfunc middleware() gin.HandlerFunc{\r\n// get response body in here;\r\n...\r\n}\r\n```",
+        "base_prediction": "question_support",
+        "fine_tuned_prediction": "feature",
+        "base_raw_model_output": "{\"type\":\"question_support\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"feature\"}"
+      },
+      {
+        "evaluation_index": 4192,
+        "issue_id": 327676172,
+        "repository": "gin",
+        "expected_category": "question_support",
+        "title": "Question: How to write request log and error log in a separate manner.",
+        "body_excerpt": "I could write everything into a file with #805 post.\r\nRelated to this, how could it be possible to write error into a separate log?\r\n\r\n--\r\nI assume to use gin.DefaultErrorWriter, but it seems that log.SetOuput is only possible with a single file.\r\n\r\nCurrent output (everything into a single file)\r\n```\r\n[GIN] 2018/05/30 - 19:21:17 | 404 |     114.656µs |             ::1 |  GET     /comment/view/99999\r\nError #01: th size of input parameter is not 40\r\n[GIN] 2018/05/30 - 19:21:20 | 200 |     1.82468ms |             ::1 |  GET     /comment/view/00001\r\n\r\n```\r\n\r\nCurrent code\r\n```\r\nlogfile, err := os.OpenFile(c.GinLogPath, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)\r\nif err != nil {\r\n    log.Fatalln(\"Fa",
+        "base_prediction": "question_support",
+        "fine_tuned_prediction": "feature",
+        "base_raw_model_output": "{\"type\":\"question_support\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"feature\"}"
+      },
+      {
+        "evaluation_index": 4196,
+        "issue_id": 394290826,
+        "repository": "gin",
+        "expected_category": "bug",
+        "title": "Why gin.Context.Cookie has to do url.QueryUnescape?",
+        "body_excerpt": "\r\n- go version: go1.11.2 darwin/amd64\r\n- gin version (or commit ref): v1.3.0\r\n- operating system: macos/linux\r\n\r\n## Description\r\n\r\nGin replace + sign with whitespace (probably) due to url.QueryUnescape. We\r\nneed to replace it back to original + sign and then encode to make it back to original value.\r\n\r\nThe code in question:\r\nhttps://github.com/gin-gonic/gin/blob/master/context.go#L741\r\n\r\nIf you look at how `http` package get cookie, it does not unescape the value and return just a string. I would like to know what's the decision to unescape value here.\r\n\r\nFYI, it breaks our app, and we need to do a workaround by replacing `\" \"` (whitespace) back to `+`. \r\n\r\n",
+        "base_prediction": "bug",
+        "fine_tuned_prediction": "feature",
+        "base_raw_model_output": "{\"type\":\"bug\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"feature\"}"
+      },
+      {
+        "evaluation_index": 4271,
+        "issue_id": 665695433,
+        "repository": "node",
+        "expected_category": "documentation",
+        "title": "Improve documentation on Dual Module Packages",
+        "body_excerpt": "* **Version**: `v14.4.0`\r\n* **Platform**: Windows 10\r\n* **Subsystem**: Windows\r\n\r\n### What steps will reproduce the bug?\r\n```\r\ngit clone git@github.com:MicahZoltu/dual-module-package-repro.git\r\ncd dual-module-package-repro/app-package\r\nnpm install\r\nnode index.mjs\r\n# notice it works\r\nnode index.cjs\r\n# notice it does not work\r\n```\r\nThen remove `\"type\": \"module\"` from `library-package/package.json` and repeat the process:\r\n```\r\nnpm install\r\nnode index.mjs\r\n# notice it doesn't work\r\nnode index.cjs\r\n# notice it does work\r\n```\r\n\r\n### How often does it reproduce? Is there a required condition?\r\nAlways.\r\n\r\n### What is the expected behavior?\r\nThe ability to ship an NPM package that can be used by eit",
+        "base_prediction": "documentation",
+        "fine_tuned_prediction": "bug",
+        "base_raw_model_output": "{\"type\":\"documentation\"}",
+        "fine_tuned_raw_model_output": "<think>\n\n</think>\n\n{\"type\":\"bug\"}"
+      }
+    ]
+  },
+  "statistical_uncertainty": {
+    "paired_bootstrap": {
+      "method": "paired row bootstrap with replacement; each replicate resamples validation rows jointly for base and fine-tuned predictions",
+      "replicates": 20000,
+      "seed": 20260817,
+      "confidence_level": 0.95,
+      "accuracy_delta_point_estimate": 0.003216,
+      "accuracy_delta_ci95": [
+        -0.001569,
+        0.00808
+      ],
+      "macro_f1_delta_point_estimate": -0.006332,
+      "macro_f1_delta_ci95": [
+        -0.028406,
+        0.015869
+      ]
+    },
+    "mcnemar_accuracy": {
+      "test": "exact two-sided McNemar test on paired correctness",
+      "base_correct_fine_wrong": 469,
+      "base_wrong_fine_correct": 510,
+      "discordant_pairs": 979,
+      "exact_two_sided_p_value": 0.201082,
+      "interpretation": "Descriptive paired accuracy test; it does not test macro-F1."
+    }
+  },
+  "repository_level_analysis": {
+    "CS-Notes": {
+      "row_count": 3,
+      "class_composition": {
+        "bug": {
+          "count": 1,
+          "percentage": 33.333333
+        },
+        "feature": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "documentation": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "question_support": {
+          "count": 2,
+          "percentage": 66.666667
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 3,
+        "class_composition": {
+          "bug": {
+            "count": 1,
+            "percentage": 33.333333
+          },
+          "feature": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 2,
+            "percentage": 66.666667
+          }
+        },
+        "accuracy": 0.666667,
+        "macro_f1_all_four_categories": 0.416667,
+        "macro_f1_present_true_categories": 0.833333,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "feature",
+          "documentation"
+        ],
+        "minimum_present_class_support": 1,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 1,
+            "predicted_count": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "feature": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 2,
+            "predicted_count": 1,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.666667
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 3,
+        "class_composition": {
+          "bug": {
+            "count": 1,
+            "percentage": 33.333333
+          },
+          "feature": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 2,
+            "percentage": 66.666667
+          }
+        },
+        "accuracy": 1.0,
+        "macro_f1_all_four_categories": 0.5,
+        "macro_f1_present_true_categories": 1.0,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "feature",
+          "documentation"
+        ],
+        "minimum_present_class_support": 1,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 1,
+            "predicted_count": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "feature": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 2,
+            "predicted_count": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": 0.333333,
+        "macro_f1_present_true_categories_delta": 0.166667,
+        "macro_f1_all_four_categories_delta": 0.083333
+      }
+    },
+    "PowerToys": {
+      "row_count": 4181,
+      "class_composition": {
+        "bug": {
+          "count": 1888,
+          "percentage": 45.156661
+        },
+        "feature": {
+          "count": 2232,
+          "percentage": 53.384358
+        },
+        "documentation": {
+          "count": 61,
+          "percentage": 1.458981
+        },
+        "question_support": {
+          "count": 0,
+          "percentage": 0.0
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 4181,
+        "class_composition": {
+          "bug": {
+            "count": 1888,
+            "percentage": 45.156661
+          },
+          "feature": {
+            "count": 2232,
+            "percentage": 53.384358
+          },
+          "documentation": {
+            "count": 61,
+            "percentage": 1.458981
+          },
+          "question_support": {
+            "count": 0,
+            "percentage": 0.0
+          }
+        },
+        "accuracy": 0.939967,
+        "macro_f1_all_four_categories": 0.642478,
+        "macro_f1_present_true_categories": 0.856637,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation"
+        ],
+        "absent_true_categories": [
+          "question_support"
+        ],
+        "minimum_present_class_support": 61,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 1888,
+            "predicted_count": 1784,
+            "precision": 0.967489,
+            "recall": 0.914195,
+            "f1": 0.940087
+          },
+          "feature": {
+            "support": 2232,
+            "predicted_count": 2322,
+            "precision": 0.932817,
+            "recall": 0.97043,
+            "f1": 0.951252
+          },
+          "documentation": {
+            "support": 61,
+            "predicted_count": 51,
+            "precision": 0.745098,
+            "recall": 0.622951,
+            "f1": 0.678571
+          },
+          "question_support": {
+            "support": 0,
+            "predicted_count": 7,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 4181,
+        "class_composition": {
+          "bug": {
+            "count": 1888,
+            "percentage": 45.156661
+          },
+          "feature": {
+            "count": 2232,
+            "percentage": 53.384358
+          },
+          "documentation": {
+            "count": 61,
+            "percentage": 1.458981
+          },
+          "question_support": {
+            "count": 0,
+            "percentage": 0.0
+          }
+        },
+        "accuracy": 0.962928,
+        "macro_f1_all_four_categories": 0.6916,
+        "macro_f1_present_true_categories": 0.922133,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation"
+        ],
+        "absent_true_categories": [
+          "question_support"
+        ],
+        "minimum_present_class_support": 61,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 1888,
+            "predicted_count": 1898,
+            "precision": 0.961538,
+            "recall": 0.966631,
+            "f1": 0.964078
+          },
+          "feature": {
+            "support": 2232,
+            "predicted_count": 2218,
+            "precision": 0.972047,
+            "recall": 0.96595,
+            "f1": 0.968989
+          },
+          "documentation": {
+            "support": 61,
+            "predicted_count": 47,
+            "precision": 0.957447,
+            "recall": 0.737705,
+            "f1": 0.833333
+          },
+          "question_support": {
+            "support": 0,
+            "predicted_count": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": 0.022961,
+        "macro_f1_present_true_categories_delta": 0.065496,
+        "macro_f1_all_four_categories_delta": 0.049122
+      }
+    },
+    "Web-Dev-For-Beginners": {
+      "row_count": 1,
+      "class_composition": {
+        "bug": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "feature": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "documentation": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "question_support": {
+          "count": 1,
+          "percentage": 100.0
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 1,
+        "class_composition": {
+          "bug": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "feature": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 1,
+            "percentage": 100.0
+          }
+        },
+        "accuracy": 0.0,
+        "macro_f1_all_four_categories": 0.0,
+        "macro_f1_present_true_categories": 0.0,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "bug",
+          "feature",
+          "documentation"
+        ],
+        "minimum_present_class_support": 1,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 0,
+            "predicted_count": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "feature": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 1,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 1,
+        "class_composition": {
+          "bug": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "feature": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 1,
+            "percentage": 100.0
+          }
+        },
+        "accuracy": 0.0,
+        "macro_f1_all_four_categories": 0.0,
+        "macro_f1_present_true_categories": 0.0,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "bug",
+          "feature",
+          "documentation"
+        ],
+        "minimum_present_class_support": 1,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 0,
+            "predicted_count": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "feature": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 1,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": 0.0,
+        "macro_f1_present_true_categories_delta": 0.0,
+        "macro_f1_all_four_categories_delta": 0.0
+      }
+    },
+    "gin": {
+      "row_count": 18,
+      "class_composition": {
+        "bug": {
+          "count": 9,
+          "percentage": 50.0
+        },
+        "feature": {
+          "count": 3,
+          "percentage": 16.666667
+        },
+        "documentation": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "question_support": {
+          "count": 6,
+          "percentage": 33.333333
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 18,
+        "class_composition": {
+          "bug": {
+            "count": 9,
+            "percentage": 50.0
+          },
+          "feature": {
+            "count": 3,
+            "percentage": 16.666667
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 6,
+            "percentage": 33.333333
+          }
+        },
+        "accuracy": 0.666667,
+        "macro_f1_all_four_categories": 0.486111,
+        "macro_f1_present_true_categories": 0.648148,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "documentation"
+        ],
+        "minimum_present_class_support": 3,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 9,
+            "predicted_count": 9,
+            "precision": 0.777778,
+            "recall": 0.777778,
+            "f1": 0.777778
+          },
+          "feature": {
+            "support": 3,
+            "predicted_count": 5,
+            "precision": 0.4,
+            "recall": 0.666667,
+            "f1": 0.5
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 6,
+            "predicted_count": 3,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.666667
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 18,
+        "class_composition": {
+          "bug": {
+            "count": 9,
+            "percentage": 50.0
+          },
+          "feature": {
+            "count": 3,
+            "percentage": 16.666667
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 6,
+            "percentage": 33.333333
+          }
+        },
+        "accuracy": 0.444444,
+        "macro_f1_all_four_categories": 0.311012,
+        "macro_f1_present_true_categories": 0.414682,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "documentation"
+        ],
+        "minimum_present_class_support": 3,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 9,
+            "predicted_count": 7,
+            "precision": 0.714286,
+            "recall": 0.555556,
+            "f1": 0.625
+          },
+          "feature": {
+            "support": 3,
+            "predicted_count": 9,
+            "precision": 0.222222,
+            "recall": 0.666667,
+            "f1": 0.333333
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 6,
+            "predicted_count": 1,
+            "precision": 1.0,
+            "recall": 0.166667,
+            "f1": 0.285714
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": -0.222223,
+        "macro_f1_present_true_categories_delta": -0.233466,
+        "macro_f1_all_four_categories_delta": -0.175099
+      }
+    },
+    "javascript": {
+      "row_count": 26,
+      "class_composition": {
+        "bug": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "feature": {
+          "count": 4,
+          "percentage": 15.384615
+        },
+        "documentation": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "question_support": {
+          "count": 22,
+          "percentage": 84.615385
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 26,
+        "class_composition": {
+          "bug": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "feature": {
+            "count": 4,
+            "percentage": 15.384615
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 22,
+            "percentage": 84.615385
+          }
+        },
+        "accuracy": 0.115385,
+        "macro_f1_all_four_categories": 0.077295,
+        "macro_f1_present_true_categories": 0.154589,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "feature",
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "bug",
+          "documentation"
+        ],
+        "minimum_present_class_support": 4,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "feature": {
+            "support": 4,
+            "predicted_count": 14,
+            "precision": 0.142857,
+            "recall": 0.5,
+            "f1": 0.222222
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 11,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 22,
+            "predicted_count": 1,
+            "precision": 1.0,
+            "recall": 0.045455,
+            "f1": 0.086957
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 26,
+        "class_composition": {
+          "bug": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "feature": {
+            "count": 4,
+            "percentage": 15.384615
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 22,
+            "percentage": 84.615385
+          }
+        },
+        "accuracy": 0.307692,
+        "macro_f1_all_four_categories": 0.162356,
+        "macro_f1_present_true_categories": 0.324713,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "feature",
+          "question_support"
+        ],
+        "absent_true_categories": [
+          "bug",
+          "documentation"
+        ],
+        "minimum_present_class_support": 4,
+        "macro_f1_has_at_least_five_examples_per_present_class": false,
+        "per_class": {
+          "bug": {
+            "support": 0,
+            "predicted_count": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "feature": {
+            "support": 4,
+            "predicted_count": 8,
+            "precision": 0.125,
+            "recall": 0.25,
+            "f1": 0.166667
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 7,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 22,
+            "predicted_count": 7,
+            "precision": 1.0,
+            "recall": 0.318182,
+            "f1": 0.482759
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": 0.192307,
+        "macro_f1_present_true_categories_delta": 0.170124,
+        "macro_f1_all_four_categories_delta": 0.085061
+      }
+    },
+    "node": {
+      "row_count": 368,
+      "class_composition": {
+        "bug": {
+          "count": 83,
+          "percentage": 22.554348
+        },
+        "feature": {
+          "count": 155,
+          "percentage": 42.119565
+        },
+        "documentation": {
+          "count": 115,
+          "percentage": 31.25
+        },
+        "question_support": {
+          "count": 15,
+          "percentage": 4.076087
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 368,
+        "class_composition": {
+          "bug": {
+            "count": 83,
+            "percentage": 22.554348
+          },
+          "feature": {
+            "count": 155,
+            "percentage": 42.119565
+          },
+          "documentation": {
+            "count": 115,
+            "percentage": 31.25
+          },
+          "question_support": {
+            "count": 15,
+            "percentage": 4.076087
+          }
+        },
+        "accuracy": 0.836957,
+        "macro_f1_all_four_categories": 0.777893,
+        "macro_f1_present_true_categories": 0.777893,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support"
+        ],
+        "absent_true_categories": [],
+        "minimum_present_class_support": 15,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 83,
+            "predicted_count": 93,
+            "precision": 0.752688,
+            "recall": 0.843373,
+            "f1": 0.795455
+          },
+          "feature": {
+            "support": 155,
+            "predicted_count": 161,
+            "precision": 0.900621,
+            "recall": 0.935484,
+            "f1": 0.917722
+          },
+          "documentation": {
+            "support": 115,
+            "predicted_count": 89,
+            "precision": 0.977528,
+            "recall": 0.756522,
+            "f1": 0.852941
+          },
+          "question_support": {
+            "support": 15,
+            "predicted_count": 7,
+            "precision": 0.857143,
+            "recall": 0.4,
+            "f1": 0.545455
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 368,
+        "class_composition": {
+          "bug": {
+            "count": 83,
+            "percentage": 22.554348
+          },
+          "feature": {
+            "count": 155,
+            "percentage": 42.119565
+          },
+          "documentation": {
+            "count": 115,
+            "percentage": 31.25
+          },
+          "question_support": {
+            "count": 15,
+            "percentage": 4.076087
+          }
+        },
+        "accuracy": 0.798913,
+        "macro_f1_all_four_categories": 0.694074,
+        "macro_f1_present_true_categories": 0.694074,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support"
+        ],
+        "absent_true_categories": [],
+        "minimum_present_class_support": 15,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 83,
+            "predicted_count": 122,
+            "precision": 0.598361,
+            "recall": 0.879518,
+            "f1": 0.712195
+          },
+          "feature": {
+            "support": 155,
+            "predicted_count": 142,
+            "precision": 0.957746,
+            "recall": 0.877419,
+            "f1": 0.915825
+          },
+          "documentation": {
+            "support": 115,
+            "predicted_count": 82,
+            "precision": 1.0,
+            "recall": 0.713043,
+            "f1": 0.832487
+          },
+          "question_support": {
+            "support": 15,
+            "predicted_count": 4,
+            "precision": 0.75,
+            "recall": 0.2,
+            "f1": 0.315789
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": -0.038044,
+        "macro_f1_present_true_categories_delta": -0.083819,
+        "macro_f1_all_four_categories_delta": -0.083819
+      }
+    },
+    "rust": {
+      "row_count": 6101,
+      "class_composition": {
+        "bug": {
+          "count": 3990,
+          "percentage": 65.399115
+        },
+        "feature": {
+          "count": 2111,
+          "percentage": 34.600885
+        },
+        "documentation": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "question_support": {
+          "count": 0,
+          "percentage": 0.0
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 6101,
+        "class_composition": {
+          "bug": {
+            "count": 3990,
+            "percentage": 65.399115
+          },
+          "feature": {
+            "count": 2111,
+            "percentage": 34.600885
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 0,
+            "percentage": 0.0
+          }
+        },
+        "accuracy": 0.630225,
+        "macro_f1_all_four_categories": 0.353143,
+        "macro_f1_present_true_categories": 0.706287,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature"
+        ],
+        "absent_true_categories": [
+          "documentation",
+          "question_support"
+        ],
+        "minimum_present_class_support": 2111,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 3990,
+            "predicted_count": 3170,
+            "precision": 0.813565,
+            "recall": 0.646366,
+            "f1": 0.720391
+          },
+          "feature": {
+            "support": 2111,
+            "predicted_count": 1547,
+            "precision": 0.818358,
+            "recall": 0.599716,
+            "f1": 0.692182
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 245,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 0,
+            "predicted_count": 11,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 6101,
+        "class_composition": {
+          "bug": {
+            "count": 3990,
+            "percentage": 65.399115
+          },
+          "feature": {
+            "count": 2111,
+            "percentage": 34.600885
+          },
+          "documentation": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "question_support": {
+            "count": 0,
+            "percentage": 0.0
+          }
+        },
+        "accuracy": 0.622521,
+        "macro_f1_all_four_categories": 0.357294,
+        "macro_f1_present_true_categories": 0.714588,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature"
+        ],
+        "absent_true_categories": [
+          "documentation",
+          "question_support"
+        ],
+        "minimum_present_class_support": 2111,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 3990,
+            "predicted_count": 2803,
+            "precision": 0.849447,
+            "recall": 0.596742,
+            "f1": 0.701016
+          },
+          "feature": {
+            "support": 2111,
+            "predicted_count": 1781,
+            "precision": 0.79562,
+            "recall": 0.671246,
+            "f1": 0.72816
+          },
+          "documentation": {
+            "support": 0,
+            "predicted_count": 384,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "question_support": {
+            "support": 0,
+            "predicted_count": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": -0.007704,
+        "macro_f1_present_true_categories_delta": 0.008301,
+        "macro_f1_all_four_categories_delta": 0.004151
+      }
+    },
+    "storybook": {
+      "row_count": 1841,
+      "class_composition": {
+        "bug": {
+          "count": 1275,
+          "percentage": 69.255839
+        },
+        "feature": {
+          "count": 390,
+          "percentage": 21.184139
+        },
+        "documentation": {
+          "count": 76,
+          "percentage": 4.128191
+        },
+        "question_support": {
+          "count": 100,
+          "percentage": 5.431831
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 1841,
+        "class_composition": {
+          "bug": {
+            "count": 1275,
+            "percentage": 69.255839
+          },
+          "feature": {
+            "count": 390,
+            "percentage": 21.184139
+          },
+          "documentation": {
+            "count": 76,
+            "percentage": 4.128191
+          },
+          "question_support": {
+            "count": 100,
+            "percentage": 5.431831
+          }
+        },
+        "accuracy": 0.834872,
+        "macro_f1_all_four_categories": 0.655671,
+        "macro_f1_present_true_categories": 0.655671,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support"
+        ],
+        "absent_true_categories": [],
+        "minimum_present_class_support": 76,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 1275,
+            "predicted_count": 1242,
+            "precision": 0.907407,
+            "recall": 0.883922,
+            "f1": 0.895511
+          },
+          "feature": {
+            "support": 390,
+            "predicted_count": 394,
+            "precision": 0.870558,
+            "recall": 0.879487,
+            "f1": 0.875
+          },
+          "documentation": {
+            "support": 76,
+            "predicted_count": 85,
+            "precision": 0.741176,
+            "recall": 0.828947,
+            "f1": 0.782609
+          },
+          "question_support": {
+            "support": 100,
+            "predicted_count": 15,
+            "precision": 0.266667,
+            "recall": 0.04,
+            "f1": 0.069565
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 1841,
+        "class_composition": {
+          "bug": {
+            "count": 1275,
+            "percentage": 69.255839
+          },
+          "feature": {
+            "count": 390,
+            "percentage": 21.184139
+          },
+          "documentation": {
+            "count": 76,
+            "percentage": 4.128191
+          },
+          "question_support": {
+            "count": 100,
+            "percentage": 5.431831
+          }
+        },
+        "accuracy": 0.838131,
+        "macro_f1_all_four_categories": 0.648322,
+        "macro_f1_present_true_categories": 0.648321,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation",
+          "question_support"
+        ],
+        "absent_true_categories": [],
+        "minimum_present_class_support": 76,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 1275,
+            "predicted_count": 1330,
+            "precision": 0.878195,
+            "recall": 0.916078,
+            "f1": 0.896737
+          },
+          "feature": {
+            "support": 390,
+            "predicted_count": 337,
+            "precision": 0.952522,
+            "recall": 0.823077,
+            "f1": 0.883081
+          },
+          "documentation": {
+            "support": 76,
+            "predicted_count": 59,
+            "precision": 0.847458,
+            "recall": 0.657895,
+            "f1": 0.740741
+          },
+          "question_support": {
+            "support": 100,
+            "predicted_count": 10,
+            "precision": 0.4,
+            "recall": 0.04,
+            "f1": 0.072727
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": 0.003259,
+        "macro_f1_present_true_categories_delta": -0.00735,
+        "macro_f1_all_four_categories_delta": -0.007349
+      }
+    },
+    "svelte": {
+      "row_count": 209,
+      "class_composition": {
+        "bug": {
+          "count": 52,
+          "percentage": 24.880383
+        },
+        "feature": {
+          "count": 92,
+          "percentage": 44.019139
+        },
+        "documentation": {
+          "count": 65,
+          "percentage": 31.100478
+        },
+        "question_support": {
+          "count": 0,
+          "percentage": 0.0
+        }
+      },
+      "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+      "base_zero_shot": {
+        "row_count": 209,
+        "class_composition": {
+          "bug": {
+            "count": 52,
+            "percentage": 24.880383
+          },
+          "feature": {
+            "count": 92,
+            "percentage": 44.019139
+          },
+          "documentation": {
+            "count": 65,
+            "percentage": 31.100478
+          },
+          "question_support": {
+            "count": 0,
+            "percentage": 0.0
+          }
+        },
+        "accuracy": 0.727273,
+        "macro_f1_all_four_categories": 0.551266,
+        "macro_f1_present_true_categories": 0.735021,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation"
+        ],
+        "absent_true_categories": [
+          "question_support"
+        ],
+        "minimum_present_class_support": 52,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 52,
+            "predicted_count": 82,
+            "precision": 0.573171,
+            "recall": 0.903846,
+            "f1": 0.701493
+          },
+          "feature": {
+            "support": 92,
+            "predicted_count": 81,
+            "precision": 0.851852,
+            "recall": 0.75,
+            "f1": 0.797688
+          },
+          "documentation": {
+            "support": 65,
+            "predicted_count": 37,
+            "precision": 0.972973,
+            "recall": 0.553846,
+            "f1": 0.705882
+          },
+          "question_support": {
+            "support": 0,
+            "predicted_count": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_tuned_zero_shot": {
+        "row_count": 209,
+        "class_composition": {
+          "bug": {
+            "count": 52,
+            "percentage": 24.880383
+          },
+          "feature": {
+            "count": 92,
+            "percentage": 44.019139
+          },
+          "documentation": {
+            "count": 65,
+            "percentage": 31.100478
+          },
+          "question_support": {
+            "count": 0,
+            "percentage": 0.0
+          }
+        },
+        "accuracy": 0.717703,
+        "macro_f1_all_four_categories": 0.541363,
+        "macro_f1_present_true_categories": 0.721818,
+        "macro_f1_definition": "Macro average over categories with at least one true validation example in this repository; descriptive, not a significance test.",
+        "present_true_categories": [
+          "bug",
+          "feature",
+          "documentation"
+        ],
+        "absent_true_categories": [
+          "question_support"
+        ],
+        "minimum_present_class_support": 52,
+        "macro_f1_has_at_least_five_examples_per_present_class": true,
+        "per_class": {
+          "bug": {
+            "support": 52,
+            "predicted_count": 87,
+            "precision": 0.54023,
+            "recall": 0.903846,
+            "f1": 0.676259
+          },
+          "feature": {
+            "support": 92,
+            "predicted_count": 80,
+            "precision": 0.8625,
+            "recall": 0.75,
+            "f1": 0.802326
+          },
+          "documentation": {
+            "support": 65,
+            "predicted_count": 34,
+            "precision": 1.0,
+            "recall": 0.523077,
+            "f1": 0.686869
+          },
+          "question_support": {
+            "support": 0,
+            "predicted_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "fine_minus_base": {
+        "accuracy_delta": -0.00957,
+        "macro_f1_present_true_categories_delta": -0.013203,
+        "macro_f1_all_four_categories_delta": -0.009903
+      }
+    }
+  },
+  "minority_class_repository_concentration": {
+    "documentation": [
+      {
+        "repository": "node",
+        "count": 115,
+        "percentage_of_validation_class": 36.277603
+      },
+      {
+        "repository": "storybook",
+        "count": 76,
+        "percentage_of_validation_class": 23.974763
+      },
+      {
+        "repository": "svelte",
+        "count": 65,
+        "percentage_of_validation_class": 20.504732
+      },
+      {
+        "repository": "PowerToys",
+        "count": 61,
+        "percentage_of_validation_class": 19.242902
+      }
+    ],
+    "question_support": [
+      {
+        "repository": "storybook",
+        "count": 100,
+        "percentage_of_validation_class": 68.493151
+      },
+      {
+        "repository": "javascript",
+        "count": 22,
+        "percentage_of_validation_class": 15.068493
+      },
+      {
+        "repository": "node",
+        "count": 15,
+        "percentage_of_validation_class": 10.273973
+      },
+      {
+        "repository": "gin",
+        "count": 6,
+        "percentage_of_validation_class": 4.109589
+      },
+      {
+        "repository": "CS-Notes",
+        "count": 2,
+        "percentage_of_validation_class": 1.369863
+      },
+      {
+        "repository": "Web-Dev-For-Beginners",
+        "count": 1,
+        "percentage_of_validation_class": 0.684932
+      }
+    ]
+  },
+  "failure_mechanism_assessment": {
+    "observed_primary_pattern": "Fine-tuning improved feature F1 and question_support precision/F1, but documentation F1 fell substantially; bug F1 was approximately flat. The aggregate macro-F1 loss is driven primarily by documentation.",
+    "ranked_plausible_causes": [
+      {
+        "rank": 1,
+        "cause": "Natural class imbalance combined with repository-held-out prior/domain shift",
+        "evidence": "The frozen train prior is 61.03% bug, 31.17% feature, 4.36% documentation, and 3.44% question_support, while validation is 57.25%, 39.12%, 2.49%, and 1.15%. Fine-tuning reduced documentation F1 by 0.082122 and left question_support recall very low at 0.116438, while majority-class F1 remained stable or improved. The adapter did not simply copy the train prior, so this is an imbalance/generalization effect rather than a literal prior-collapse diagnosis."
+      },
+      {
+        "rank": 2,
+        "cause": "One natural-distribution epoch without checkpoint selection",
+        "evidence": "Training loss fell rapidly and then remained near 0.42 for most of the run; only one adapter checkpoint was available for comparison. This makes optimization duration a plausible but unproven contributor, not an observed mechanism."
+      },
+      {
+        "rank": 3,
+        "cause": "Repository/domain shift and taxonomy ambiguity",
+        "evidence": "Validation is repository-held-out and the minority categories have small supports. Repository-level deltas and class-specific confusion should be read as descriptive evidence of heterogeneous generalization, not as a single global label rule."
+      },
+      {
+        "rank": 4,
+        "cause": "Output-format behavior",
+        "evidence": "Strict invalid-output rates are high for both zero-shot conditions, but fine-tuning and base zero-shot have nearly identical valid-output rates. Formatting failure therefore affects absolute scores but does not explain the macro-F1 regression by itself."
+      },
+      {
+        "rank": 5,
+        "cause": "Context truncation",
+        "evidence": "Base zero-shot and fine-tuned zero-shot have the same truncation count and prompt contract. Truncation can affect individual rows, but it cannot explain their aggregate difference as a condition-level exposure imbalance."
+      },
+      {
+        "rank": 6,
+        "cause": "LoRA capacity, learning rate, or completion-only objective",
+        "evidence": "These settings are theoretically possible contributors, but the completed validation evidence does not isolate any of them. Changing them together would not produce a clean causal second experiment."
+      }
+    ]
+  },
+  "next_experiment_recommendation": {
+    "decision": "B",
+    "recommendation": "Run one targeted second fine-tune with explicit class-balanced sampling.",
+    "primary_intervention": "Replace natural frozen train sampling with uniform four-class sampling with replacement for the same 31,876 sampled rows and 1,993 optimizer steps, while retaining the existing completion-only objective.",
+    "remain_identical": [
+      "original locked base model and revision",
+      "repository-held-out train/validation split",
+      "zero-shot prompt and canonical parser",
+      "1536-token context policy and target preservation",
+      "LoRA target modules, rank, alpha, dropout, and quantization",
+      "learning rate, scheduler, optimizer, batch/accumulation, one epoch, seed, and deterministic generation"
+    ],
+    "start_from": "original_locked_base_model",
+    "not_from_run_a_adapter": true,
+    "why": "The largest class-specific loss is documentation F1, and question_support recall remains low, while the train distribution strongly overrepresents bug/feature relative to repository-held-out validation. Balancing directly tests whether minority exposure, rather than a broad hyperparameter change, improves macro-F1.",
+    "expected_benefit": "Higher documentation and question_support recall and a higher macro-F1 if natural-frequency exposure is the main limitation.",
+    "main_risk": "Oversampling small minority classes may overfit their repository-specific wording or reduce majority-class accuracy.",
+    "selection_rule": "Evaluate Run B on the same frozen validation split with the same three-condition apples-to-apples comparison before any final decision; keep TEST untouched."
+  },
+  "historical_evidence_note": "The earlier 400-example train-only prompt-development metrics are preserved as historical evidence and are not used as the fair validation comparison."
+}
