@@ -111,23 +111,23 @@ For the source-to-split workflow, expose the script packages and run the relevan
 
 ```powershell
 $env:PYTHONPATH = (Resolve-Path .\scripts).Path
-\.venv\Scripts\python.exe -c "from dataset_inspection.runner import main; main()"
-\.venv\Scripts\python.exe -c "from dataset_inspection.split_analysis import analyze_splits, print_split_analysis_summary, write_split_analysis_report; summary=analyze_splits(); write_split_analysis_report(summary); print_split_analysis_summary(summary)"
+.\.venv\Scripts\python.exe -c "from dataset_inspection.runner import main; main()"
+.\.venv\Scripts\python.exe -c "from dataset_inspection.split_analysis import analyze_splits, print_split_analysis_summary, write_split_analysis_report; summary=analyze_splits(); write_split_analysis_report(summary); print_split_analysis_summary(summary)"
 ```
 
 The approved training runner supports a preflight gate and the recorded full run:
 
 ```powershell
-\.venv\Scripts\python.exe -m qlora_training.run_full --preflight-only
-\.venv\Scripts\python.exe -m qlora_training.run_full
+.\.venv\Scripts\python.exe -m qlora_training.run_full --preflight-only
+.\.venv\Scripts\python.exe -m qlora_training.run_full
 ```
 
 Validation and final-evaluation tooling is organized under [scripts/validation_evaluation](scripts/validation_evaluation), [scripts/test_evaluation](scripts/test_evaluation), and [scripts/run_test_evaluation.py](scripts/run_test_evaluation.py):
 
 ```powershell
-\.venv\Scripts\python.exe -m validation_evaluation.runner --smoke-only
-\.venv\Scripts\python.exe -m validation_evaluation.runner
-\.venv\Scripts\python.exe scripts\run_test_evaluation.py
+.\.venv\Scripts\python.exe -m validation_evaluation.runner --smoke-only
+.\.venv\Scripts\python.exe -m validation_evaluation.runner
+.\.venv\Scripts\python.exe scripts\run_test_evaluation.py
 ```
 
 The final TEST command is retained for audit/reproduction of the frozen evaluation, not for post-TEST model selection. The final report is tracked; model weights, adapters, datasets, caches, and row-level generated prediction JSONL files are local or ignored artifacts rather than repository contents.
